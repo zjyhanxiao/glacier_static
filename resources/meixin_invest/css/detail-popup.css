@@ -1,9 +1,0 @@
-.picture-preview {
-    border: #ccc dashed 1px;
-    min-height: 200px;
-    background-color: #cccccc;
-    width: 220px;
-}
-#idcard-upload, #passport-upload{
-	width: 100%;
-}
