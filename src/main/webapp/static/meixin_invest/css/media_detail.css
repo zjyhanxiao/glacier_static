@@ -1,6 +1,7 @@
 .media{
     background: #fff;
-    padding: 20px;
+    padding: 20px 20px 30px 20px;
+    margin-bottom: 30px;
 }
 .media h1{
     font-size: 24px;
