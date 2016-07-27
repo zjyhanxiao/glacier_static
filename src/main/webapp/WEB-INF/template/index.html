@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'/>
+    <meta name="keywords" content="Meixin,Meixin Finance,美信,美信金融,美信投资,海外投资,境外投资,海外资产配置,全球资产配置,金融,理财,投资,美股,债券,互联网金融,美元投资,美元理财,海外房产,房产众筹,股权,债券,定期.活期.个人理财">
+    <meta name="description" content="美信金融|一站式海外资产配置平台——我们致力于为投资者打造安全稳健、透明高效的全球资产配置服务。美信投资提供优质的投资理财产品，7重投资安全保障，和一站式方便快捷的投资体验。">
+    <meta name="baidu-site-verification" content="S5MHJ6tFbr" />
+    <title>
+        美信金融|一站式海外资产配置生态圈
+    </title>
+    <link rel="stylesheet" href="${static}/vendor/css/bootstrap.min.css">
+    <#include "includes/oneapm.html" />
+    <#include "includes/ga.html" />
+    <script>
+    var _hmt = _hmt || [];
+    (function()
+    { var hm = document.createElement("script"); hm.src = "//hm.baidu.com/hm.js?36100da860ed74085d2bdd67bdbdbf5e"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s); }
+    )();
+    </script>
+    <!--[if lt IE 9]>
+    <script src="${static}/vendor/js/html5shiv"></script>
+    <script src="${static}/vendor/js/respond.min.js"></script>
+    <![endif]-->
+    <#include "includes/critical_index.html" />
+</head>
+<body>
+<div id="wrapper">
+    <#include "includes/navbar.html" />
+
+    <div id="home" style="padding: 0">
+
+        <!-- hero -->
+        <div id="hero" class="container-fluid" style="padding: 0;">
+            <div class="container" style="margin: 0; padding: 0; width: 100%;">
+                <div class="row">
+                    <div class="slider-float-box">
+                        <div>
+                            <h3>新手专享<span>安心定期三期</span></h3>
+                            <p>预计年化收益<span style="padding-left: 0.8em; line-height: 1em;">7.0</span><span style="font-size: 2em;">%</span></p>
+                            <#if user!=null >
+                                <a href="/invest_product/7"><button class="btn">立即投资</button></a>
+                            <#else>
+                                <a href="/signup"><button class="btn">立即注册</button></a>
+                                <a href="/login">已有账户？立即登录</a>
+                            </#if>
+                        </div>
+                    </div>
+                    <div class="ism-slider" data-play_type="loop" data-interval="10000" data-radios="false" id="my-slider">
+                        <ol>
+                            <li>
+                                <a href="/activity/coupon.html" ><img
+                                        src="${static}/dist/meixin_invest/img/landing/index_slider_06_revised_1800x475.png" /></a>
+                            </li>
+                            <li>
+                                <a href="/about.html" ><img
+                                        src="${static}/dist/meixin_invest/img/landing/index_slider_01_revised_1800x475.png" /></a>
+                            </li>
+                            <li>
+                                <a href="/safety.html"><img src="${static}/dist/meixin_invest/img/landing/index_slider_02_revised_1800x475.jpg" /></a>
+                            </li>
+                            <li>
+                                <a href="/invest_product/6" ><img src="${static}/dist/meixin_invest/img/landing/index_slider_05_revised_1800x475.png" /></a>
+                            </li>
+                            <li>
+                                <a href="/product_list" ><img src="${static}/dist/meixin_invest/img/landing/index_slider_04_revised_1800x475.jpg" /></a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="hiw" class="container-fluid">
+            <div class="mainContent container">
+                <div class="row landing-section-one">
+                    <div class="col-sm-9">
+                        <h3>美信金融是谁？</h3>
+                        <p><span>美信金融</span>是由<span>贝塔斯曼亚洲基金</span>和<span>梅花创投</span>投资的海外理财互联网金融公司，由累计<span>50年</span>以上海外投行和资管经验的团队于2015年在纽约联合创立，致力于用先进互联网技术和金融创新使海外理财和全球资产配置<span>更透明</span>、<span>更高效</span>，成为大众触手可及的理财方式之一。创新理财产品“安心计划”专注于安全资产，让投资人轻松理财并获得可预期的稳定回报。</p>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="col-sm-4 col-xs-4">
+                            <img style="width: 80%; margin-top: 28.7%; float:left;"
+                                 src="${static}/dist/meixin_invest/img/transfer_help/bank_guide.png" />
+                        </div>
+                        <div class="col-sm-8 col-sx-8">
+                            <a href="/bank_guide.html" style="font-weight: 500; color:#00abd7">如何开通境外银行账户？</a>
+                            <p class="text-left" title="最近有许多小伙伴问，美信的产品好棒啊，但必须要有境外账户才能买吗？只有境内账户怎么办？下面小编告诉你，一个小白如何能足不出城开立一个境外的银行账户。">最近有许多小伙伴问，美信的产品好棒啊，但必须要有境外账户才能买吗？只有境内账户怎么办？
+                                下面小编告诉你......</p>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid fluid-no-bg">
+            <div class="mainContent container">
+                <div class="row landing-section-two">
+                    <div class="col-sm-2 col-xs-6">
+                        <img src="${static}/dist/meixin_invest/img/landing/landing_medal_icon_167x167.png" />
+                        <h3>资产优质</h3>
+                        <p>资产均来源于品牌合作机构<br>联合三方风控确保资产优质</p>
+                    </div>
+                    <div class="col-sm-2 col-xs-6">
+                        <img src="${static}/dist/meixin_invest/img/landing/landing_lock_icon_167x167.png" />
+                        <h3>安全保障</h3>
+                        <p>七重安全保障护航<br>JPMorgan项目资金存管</p>
+                    </div>
+                    <div class="col-sm-2 col-xs-6">
+                        <img src="${static}/dist/meixin_invest/img/landing/landing_info_icon_167x167.png" />
+                        <h3>轻松理财</h3>
+                        <p>高于银行美元存款十倍稳定收益线上操作，最快五分钟完成投资</p>
+                    </div>
+                    <div class="col-sm-2 border-right-grey col-xs-6"> 
+                        <img src="${static}/dist/meixin_invest/img/landing/landing_trophy_icon_167x167.png" />
+                        <h3>关于美信</h3>
+                        <p>全球五百强贝塔斯曼<br>梅花创投千万级别投资</p>
+                    </div>
+                    <div class="col-sm-2 min-line-height">
+                        <p>美信移动端H5<br>随时随地关注新产品和收益</p>
+                        <img style="width: 138px;" src="${static}/dist/meixin_invest/img/meixin_new_qr_code_300x300.jpg" />
+                        <p style="color: #159bd6;">美信金融提醒您：<br>市场有风险，投资需谨慎</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid fluid-no-bg">
+            <div class="mainContent container section-title-wrapper">
+                <h2 class="landing-section-title">新手计划&nbsp;<span>新手体验，不容错过</span></h2>
+            </div>
+        </div>
+        <div class="container-fluid fluid-no-bg">
+            <div class="mainContent container" style="border-top: 3px solid #159bd6;">
+                <div class="row landing-section-three">
+                    <h3>新客专享</h3>
+                    <div class="col-sm-2 color-orange col-xs-4"><span>7.0</span><span>%</span><br>预计年化收益</div>
+                    <div class="col-sm-2 col-xs-4"><span>13</span><span>个月</span><br>投资期限</div>
+                    <div class="col-sm-2 col-xs-4"><span>1</span><span>万美元</span><br>起投金额</div>
+                    <div class="col-sm-2 col-xs-12"><a href="/invest_product/7"><button class="btn">立即投资</button></a></div>
+                    <div class="col-sm-4 col-xs-12">
+                        <img src="${static}/dist/meixin_invest/img/landing/landing_badge_icon_92x137.png" /><span>优质资产</span><br>
+                        <img src="${static}/dist/meixin_invest/img/landing/landing_umbrella_icon_107x102.png" /><span>多重担保</span><br>
+                        <img src="${static}/dist/meixin_invest/img/landing/landing_dollar_icon_97x116.png" /><span>万元起投</span>
+                    </div>
+                </div>
+            </div>
+            <div class="mainContent container">
+                <div class="row landing-section-three">
+                    <h3>新手指南</h3>
+                    <div class="col-sm-3 col-xs-12"><span>01</span><span>用户注册</span><br>确认非美国投资人<br>或美国合规投资人身份</div>
+                    <div class="col-sm-3 col-xs-12"><span>02</span><span>海外银行开户</span><br>可接受任何已有海外银行账户<br>美信客服可提供开户指导帮助</div>
+                    <div class="col-sm-3 col-xs-12"><span>03</span><span>理财投资</span><br>轻松5步<br>3分钟完成线上投资</div>
+                    <div class="col-sm-3 col-xs-12"><span>04</span><span>完成确认</span><br>我们会确认您的投资者身份<br>并在确认后发出确认通知</div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid fluid-no-bg">
+            <div class="mainContent container section-title-wrapper">
+                <h2 class="landing-section-title">计划理财&nbsp;<span>规划理财，稳定收益</span></h2>
+            </div>
+        </div>
+        <div class="container-fluid fluid-no-bg">
+            <div class="mainContent container" style="border-top: 3px solid #159bd6;">
+                <div class="row landing-section-four">
+                    <div class="col-sm-4 border-right-grey" style="margin-bottom: 30px;">
+                        <h3>安心计划 | 6个月</h3>
+                        <p><span>5.0</span><span>%</span><br>预计年化收益率</p>
+                        <a href="/invest_product/6" style="padding: 6px 50px; background-color: #e17738; color: white;" class="btn">立即投资</a>
+                    </div>
+                    <div class="col-sm-4 border-right-grey" style="margin-bottom: 30px;">
+                        <h3>安心计划 | 9个月</h3>
+                        <p><span>6.0</span><span>%</span><br>预计年化收益率</p>
+                        <button class="btn default_span" style="cursor: default;">敬请期待</button>
+                    </div>
+                    <div class="col-sm-4">
+                        <h3>安心计划 | 12个月</h3>
+                        <p><span>7.0</span><span>%</span><br>预计年化收益率</p>
+                        <button class="btn default_span" style="cursor: default;">敬请期待</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid fluid-no-bg">
+            <div class="mainContent container section-title-wrapper">
+                <h2 class="landing-section-title">定期理财&nbsp;<span>多种期限，灵活选择</span></h2>
+            </div>
+        </div>
+        <div class="container-fluid fluid-no-bg">
+            <div class="mainContent container landing-section-five" style="border-top: 3px solid #159bd6;">
+                <table class="table table-responsive">
+                    <tr>
+                        <th>项目名称</th>
+                        <th>预计年化收益</th>
+                        <th>投资期限</th>
+                        <th>投资进度</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 500;">安心定期三期 AX20160801</td>
+                        <td style="color: #e17738; font-weight: bold; font-size:20px;">7.0<span>%</span></td>
+                        <td style="font-weight: bold; font-size:20px;">13<span>个月</span></td>
+                        <td><img src="${static}/dist/meixin_invest/img/landing/landing_prod_status_onsell_124x124.png" /></td>
+                        <td><a href="/invest_product/7"><button class="btn" style="background-color: #e17738; color: white;">立即投资</button></a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 500;">安心定期二期 AX20160701</td>
+                        <td style="color: #e17738; font-weight: bold; font-size:20px;">7.0<span>%</span></td>
+                        <td style="font-weight: bold; font-size:20px;">9<span>个月</span></td>
+                        <td><img src="${static}/dist/meixin_invest/img/landing/landing_prod_status_soldout_124x124.png" /></td>
+                        <td><button class="btn sold-out-button" style="cursor: default;">已售罄</button></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 500;">安心定期一期 AX20160415</td>
+                        <td style="color: #e17738; font-weight: bold; font-size:20px;">9.0<span>%</span></td>
+                        <td style="font-weight: bold; font-size:20px;">12<span>个月</span></td>
+                        <td><img src="${static}/dist/meixin_invest/img/landing/landing_prod_status_soldout_124x124.png" /></td>
+                        <td><button class="btn sold-out-button" style="cursor: default;">已售罄</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="container-fluid fluid-no-bg">
+            <div class="mainContent container section-title-wrapper">
+                <h2 class="landing-section-title">投资理财&nbsp;<span>品种多样，随心选择</span></h2>
+            </div>
+        </div>
+        <div class="container-fluid fluid-no-bg">
+            <div class="mainContent container landing-section-six">
+                <table class="table table-responsive">
+                    <tr>
+                        <th class="border-right-white" style="border-top: 3px solid #2a7f9c;">基金理财</th>
+                        <th class="border-right-white" style="border-top: 3px solid #57cacd;">股权投资</th>
+                        <th class="border-right-white" style="border-top: 3px solid #febe52;">海外保险</th>
+                        <th style="border-top: 3px solid #f08686;">私人理财</th>
+                    </tr>
+                    <tr class="section-six-mid">
+                        <td>顶级华尔街对冲基金<br><a href="/invest_product/1"><button class="btn btn-mobile-padding">点击了解</button></a></td>
+                        <td>海外独角兽公司股权<br><a href="/invest_product/2"><button class="btn btn-mobile-padding">点击了解</button></a></td>
+                        <td>海外理财万能寿险<br><a href="/invest_product/3"><button class="btn btn-mobile-padding">点击了解</button></a></td>
+                        <td>私人投资理财服务<br><a href="/invest_product/4"><button class="btn btn-mobile-padding">点击了解</button></a></td>
+                    </tr>
+                    <tr class="section-six-bot">
+                        <td class="border-right-white">紧随趋势，量化分析，顶级资管</td>
+                        <td class="border-right-white">机构领头，百亿估值，科技明星</td>
+                        <td class="border-right-white">收益免税，保本博利，条款灵活</td>
+                        <td>私人定制，专业咨询，投资灵活</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="container-fluid fluid-no-bg">
+            <div class="mainContent container section-title-wrapper">
+                <h2 class="landing-section-title">关于我们</h2>
+            </div>
+        </div>
+        <div class="container-fluid fluid-no-bg">
+            <div class="mainContent container landing-section-aboutus">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <a href="/about.html#03"><img src="${static}/dist/meixin_invest/img/landing/landing_aboutus_01_300x188.jpg" /></a>
+                        <h3>白金管理团队：</h3>
+                        <p>美信高管全部来自华尔街最顶级金融机构与大型互联网公司,在行业深耕多年, 被业内称为互联网金融的“白金管理团队”。</p>
+                    </div>
+                    <div class="col-sm-3">
+                        <a href="/about.html#02"><img src="${static}/dist/meixin_invest/img/landing/landing_aboutus_02_300x200.jpg" /></a>
+                        <h3>我们的投资方:</h3>
+                        <p>顶级国际投资机构贝塔斯曼与梅花创投倾力相投, 融资千万,专业投资方竞相看好!</p>
+                    </div>
+                    <div class="col-sm-3">
+                        <a href="/about.html#05"><img src="${static}/dist/meixin_invest/img/landing/landing_aboutus_03_300x213.jpg" /></a>
+                        <h3>加入美信:</h3>
+                        <p>我们需要优秀的人才加入我们,以帮助世界华人实现一站式海外理财的愿景,互联网金融创新愿您与我们一起前行。</p>
+                    </div>
+                    <div class="col-sm-3">
+                        <a href="/about.html#04"><img src="${static}/dist/meixin_invest/img/landing/landing_aboutus_04_300x199.jpg" /></a>
+                        <h3>资深顾问护航:</h3>
+                        <p>华尔街资深银行家,美国最顶级律师事务所合伙人律师,哈佛中美政策专家等业界大牛和我们一起为您的投资保驾护航。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid fluid-no-bg">
+            <div class="mainContent container section-title-wrapper">
+                <h2 class="landing-section-title">专家顾问</h2>
+            </div>
+        </div>
+        <div class="container-fluid fluid-no-bg">
+            <div class="mainContent container">
+                <div class="row">
+                    <div class="col-sm-2 col-sm-offset-1">
+                        <a href="/about.html#04"><img class="advisor-pic img-circle" src="${static}/dist/meixin_invest/img/advisors/jeff_300x300.jpg" /></a>
+                        <p>Jeff McDermott<br>前瑞士银行投行部<br>全球联合主席</p>
+                    </div>
+                    <div class="col-sm-2">
+                        <a href="/about.html#04"><img class="advisor-pic img-circle" src="${static}/dist/meixin_invest/img/advisors/rob_300x300.jpg" /></a>
+                        <p>Robert Schultz<br>前摩根史坦利基金服务<br>首席运营官</p>
+                    </div>
+                    <div class="col-sm-2">
+                        <a href="/about.html#04"><img class="advisor-pic img-circle" src="${static}/dist/meixin_invest/img/advisors/cunning_300x300.jpg" /></a>
+                        <p>Edward Cunningham<br>哈佛中国公共政策<br>专家顾问</p>
+                    </div>
+                    <div class="col-sm-2">
+                        <a href="/about.html#04"><img class="advisor-pic img-circle" src="${static}/dist/meixin_invest/img/advisors/zhang_300x300.jpg" /></a>
+                        <p>张文华<br>前哈佛大学管理公司<br>副总裁兼基金经理</p>
+                    </div>
+                    <div class="col-sm-2">
+                        <a href="/about.html#04"><img class="advisor-pic img-circle" src="${static}/dist/meixin_invest/img/advisors/yang_300x300.jpg" /></a>
+                        <p>杨如生<br>深圳前海微众银行<br>独立董事</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid fluid-no-bg">
+            <div class="mainContent container section-title-wrapper">
+                <h2 class="landing-section-title">合作机构</h2>
+            </div>
+        </div>
+        <div class="container-fluid fluid-no-bg">
+            <div class="mainContent container landing-section-last hidden-xs" style="background-color: transparent;">
+                <table class="table">
+                    <tr>
+                        <td><img src="${static}/dist/meixin_invest/img/landing/landing_list_logo_01.jpg" /></td>
+                        <td><img src="${static}/dist/meixin_invest/img/landing/landing_list_logo_02.jpg" /></td>
+                        <td><img src="${static}/dist/meixin_invest/img/landing/landing_list_logo_03.jpg" /></td>
+                        <td><img src="${static}/dist/meixin_invest/img/landing/landing_list_logo_04.jpg" /></td>
+                        <td><img src="${static}/dist/meixin_invest/img/landing/landing_list_logo_05.jpg" /></td>
+                    </tr>
+                    <tr>
+                        <td><img src="${static}/dist/meixin_invest/img/landing/landing_list_logo_06_458x189.png" /></td>
+                        <td><img src="${static}/dist/meixin_invest/img/landing/landing_list_logo_07.jpg" /></td>
+                        <td><img src="${static}/dist/meixin_invest/img/landing/landing_list_logo_08.jpg" /></td>
+                        <td><img src="${static}/dist/meixin_invest/img/landing/landing_list_logo_09.jpg" /></td>
+                        <td><img src="${static}/dist/meixin_invest/img/landing/landing_list_logo_10.jpg" /></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="mainContent container landing-section-last visible-xs row">
+                <div class="col-xs-12">
+                    <img src="${static}/dist/meixin_invest/img/landing/landing_list_logo_01_364x34.png" />
+                </div>
+                <div class="col-xs-12">
+                    <img src="${static}/dist/meixin_invest/img/landing/landing_list_logo_02_311x76.png" />
+                </div>
+                <div class="col-xs-12">
+                    <img src="${static}/dist/meixin_invest/img/landing/landing_list_logo_03_541x133.png" />
+                </div>
+                <div class="col-xs-12">
+                    <img src="${static}/dist/meixin_invest/img/landing/landing_list_logo_04_285x135.png" />
+                </div>
+                <div class="col-xs-12">
+                    <img src="${static}/dist/meixin_invest/img/landing/landing_list_logo_05_220x55.png" />
+                </div>
+                <div class="col-xs-12">
+                    <img src="${static}/dist/meixin_invest/img/landing/landing_list_logo_06_458x189.png" />
+                </div>
+                <div class="col-xs-12">
+                    <img src="${static}/dist/meixin_invest/img/landing/landing_list_logo_07_315x96.png" />
+                </div>
+                <div class="col-xs-12">
+                    <img src="${static}/dist/meixin_invest/img/landing/landing_list_logo_08_290x86.png" />
+                </div>
+                <div class="col-xs-12">
+                    <img src="${static}/dist/meixin_invest/img/landing/landing_list_logo_09_540x221.png" />
+                </div>
+                <div class="col-xs-12">
+                    <img src="${static}/dist/meixin_invest/img/landing/landing_list_logo_10_478x175.png" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<#include "includes/landing_footer.html" />
+<link rel="shortcut icon" type="image/png" href="${static}/dist/meixin_invest/img/favicon.png">
+<link rel="stylesheet" href="${static}/vendor/css/font-awesome.min.css">
+<link href="${static}/dist/meixin_invest/css/icons.min.css" rel="stylesheet">
+<link href="${static}/dist/meixin_invest/css/base.min.css" rel="stylesheet">
+<link href="${static}/dist/meixin_invest/css/detail-new.min.css" rel="stylesheet">
+<link href="${static}/dist/meixin_invest/css/index.min.css" rel="stylesheet">
+<link href="${static}/dist/meixin_invest/css/my-slider.min.css" rel="stylesheet">
+<link href="${static}/dist/meixin_invest/css/index_extra.min.css" rel="stylesheet">
+<script src="${static}/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="${static}/vendor/js/jquery-ui.min.js" type="text/javascript"></script>
+<script src="${static}/vendor/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="${static}/dist/meixin_invest/js/navi.min.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function(){
+        $('#wechat-popover').popover({
+            html : true,
+            placement : 'bottom',
+            trigger : 'hover',
+            content : '<img style="width: 200px;padding:0;margin:0;" src="${static}/meixin_invest/img/meixin_new_qr_code_300x300.jpg" />'
+        });
+    });
+</script>
+<script src="${static}/dist/meixin_invest/js/index.min.js"></script>
+<script src="${static}/meixin_invest/js/ism-2.1.min.js"></script>
+</body>
+</html>
+
