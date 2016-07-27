@@ -1,10 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hans">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'/>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>美信金融</title>
+    <link rel="stylesheet" href="${static}/vendor/css/bootstrap.min.css">
+    <link href="${static}/dist/meixin_invest/css/base.min.css" rel="stylesheet">
+    <link href="${static}/dist/meixin_invest/css/detail-new.min.css" rel="stylesheet">
+    <link href="${static}/dist/meixin_invest/css/index.min.css" rel="stylesheet">
+    <link href="${static}/dist/meixin_invest/css/media_detail.min.css" rel="stylesheet">
+    <#include "includes/oneapm.html" />
+    <#include "includes/ga.html" />
+    <!--[if lt IE 9]>
+    <script src="${static}/vendor/js/html5shiv"></script>
+    <script src="${static}/vendor/js/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
+<div id="wrapper">
+    <#include "includes/navbar.html" />
 
+    <div class="container media">
+        <h1>海外投资渐成中国投资者新宠，跨境资产配置平台</h1>
+        <p class="text-center">腾讯财经 | 2016-06-28 14:42</p><br><br><br>
+        <p>（原文链接：）<a href="http://finance.qq.com/a/20160628/037740.htm" target="_blank">http://finance.qq.com/a/20160628/037740.htm</a>）</p>
+        <p>1万美元开启海外理财通道，美信帮你圆梦想。跨境理财投资平台美信金融继获得微众银行独立董事的天使轮投资后，6月27日宣布完成数千万元Pre-A轮融资，此轮融资由BAI(贝塔斯曼亚洲投资基金)和梅花天使创投领投，原子创投与陶石资本跟投，这轮融资主要用于产品和技术开发。</p>
+        <p>随着中国经济的崛起，国人赴海外旅游与消费方兴未艾，很多人也开始具备了海外投资理财意识。近年来，海外金融产品由于其监管严格、底层资产优质、回报稳定，吸引了大量境内投资人的目光。然而对于普通投资者而言，备受海外投资门槛高、信息不对称、专业渠道匮乏之困扰，只能望洋兴叹。</p>
+        <p>美信金融2015年7月成立于纽约，主要业务为海外资产配置，为海内外亿万华人对接最安全、透明、稳定的专业海外投资理财服务。</p>
+        <p>“以固定收益类为基础，仅有1万美元低门槛的进入机制，使得海外投资更加贴近中国人的投资理财习惯“，美信金融创始人刁盛鑫指出，这个项目填补海外理财服务的市场需求空白，让海外理财触手可及，同时针对不同需求的投资者提供相应的多元化产品。</p>
+        <p>创始团队皆有海外背景是美信金融的最大优势，他们曾在纽约、香港顶级投行工作多年，可为投资者带来更专业的服务。其顾问团队阵容相当强大，如：前UBS投资银行部联合全球总裁、前摩根史坦利基金服务首席运营官、哈佛大学Ash中心中国项目主任、微众银行独立董事等。</p>
+        <p>美信金融使用全线上投资通道，投资人只需注册美信投资账户即可自行选择产品，完成投资流程最短只需要3分钟，改变了当下海外投资理财纯线下操作的现状，让投资者轻松享受一站式海外投资理财体验。</p>
+        <p>关于资产端的选择，创始人刁盛鑫说：“美信每个投资项目资金均由独立第三方机构进行严格监管，项目间相互独立，严格避免资金池操作，保证投资人账户和资金安全”。</p>
+        <p>互联网+金融的结合，不仅是简单的撮合线上宣传和线下交易，更不局限某类产品的买卖。此轮融资的领投方，BAI创始及管理合伙人龙宇表示，“BAI坚定而长期地看好这个赛道。无论是短期对冲人民币贬值的需求还是中国新中产长期配置外币金融资产的需求，中国资金趋于国际视野都是大势所趋。美信金融的中美两地团队在产品创新上做出了令人可喜的成绩，让海外投资成为爆款，让优质美元金融资产不再遥不可及。”</p>
+        <p>前摩根史坦利首席基金服务首席运营官Robert Schultz这样评价美信：他们在做的事，重新定义了这个行业。</p>
+    </div>
+</div>
+<#include "includes/landing_footer.html" />
+<link rel="shortcut icon" type="image/png" href="${static}/dist/meixin_invest/img/favicon.png">
+<link rel="stylesheet" href="${static}/vendor/css/font-awesome.min.css">
+<script src="${static}/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="${static}/vendor/js/jquery-ui.min.js" type="text/javascript"></script>
+<script src="${static}/vendor/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="${static}/dist/meixin_invest/js/navi.min.js" type="text/javascript"></script>
+<script src="${static}/dist/meixin_invest/js/index.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#wechat-popover').popover({
+            html: true,
+            placement: 'bottom',
+            trigger: 'hover',
+            content: '<img style="width: 200px;padding:0;margin:0;" src="${static}/meixin_invest/img/meixin_new_qr_code_300x300.jpg" />'
+        });
+    });
+</script>
 </body>
 </html>
