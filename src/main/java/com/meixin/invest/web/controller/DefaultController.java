@@ -16,4 +16,9 @@ public class DefaultController {
 	public String defaultHandler(@PathVariable String name) {
 		return name;
 	}
+
+    @RequestMapping(value = "/{path}/{name}.html",method = RequestMethod.GET)
+    public String pathHandler(@PathVariable String path, @PathVariable String name) {
+        return path +"/" + name;
+    }
 }

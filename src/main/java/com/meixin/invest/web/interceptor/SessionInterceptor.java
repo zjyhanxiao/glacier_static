@@ -55,7 +55,7 @@ public class SessionInterceptor implements HandlerInterceptor {
 		access.append(request.getHeader("Authorization"));
 		access.append(", ua=");
 		access.append(request.getHeader("User-Agent"));
-		response.setHeader("Access-Control-Allow-Origin", "*");
+		//response.setHeader("Access-Control-Allow-Origin", "*");
 		log.info(access.toString());
 		return true;
 	}
