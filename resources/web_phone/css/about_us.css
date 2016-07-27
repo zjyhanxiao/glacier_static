@@ -1,0 +1,62 @@
+.background-div {
+    position: fixed;
+    z-index: -1;
+    width: 100%;
+}
+
+.background {
+    width: 100%;
+}
+
+.logo-div {
+    margin: 50px 50px 10px 50px;
+    text-align: center;
+    border-bottom: solid 1px #BBDDEE;
+}
+
+.logo {
+    padding-bottom: 10px;
+    width: 100%;
+}
+
+.text-div {
+    margin: 10px 45px;
+    color: #DDDDDD;
+    font-size: 13px;
+}
+
+.btn-div {
+    margin: 40px 45px 0px 45px;
+    height: 45px;
+    line-height: 45px;
+    background-color:rgba(255,255,255,0.2);
+    color: #FFFFFF;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    border-radius: 6px;
+}
+
+.text-1 {
+    margin: 20px 45px 0px 45px;
+    color: #DDDDDD;
+    font-size: 16px;
+    text-align: center;
+}
+
+.qrcode-div {
+    margin: 20px 45px 0px 45px;
+    text-align: center;
+}
+
+.qrcode-img {
+    width: 120px;
+}
+
+.text-2 {
+    margin: 30px 45px 0px 45px;
+    color: #DDDDDD;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: underline;
+}

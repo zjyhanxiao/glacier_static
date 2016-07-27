@@ -1,0 +1,115 @@
+{% extends "meixin_invest/base.html" %}
+{% load static from staticfiles %}
+{% load widget_tweaks %}
+{% load humanize %}
+{% block sub_title %}|关于我们{% endblock %}
+
+{% block extra_css %}
+    <link href="{% static 'dist/meixin_invest/css/base.min.css' %}" rel="stylesheet">
+    <link href="{% static 'dist/meixin_invest/css/detail-new.min.css' %}" rel="stylesheet">
+    <link href="{% static 'dist/meixin_invest/css/index.min.css' %}" rel="stylesheet">
+    <link href="{% static 'dist/meixin_invest/css/dashboard.min.css' %}" rel="stylesheet">
+    <link href="{% static 'dist/meixin_invest/css/aboutus.min.css' %}" rel="stylesheet">
+{% endblock %}
+{% block main %}
+    <div id="wrapper" class="customer newhelp">
+        {% include "meixin_invest/includes/navbar.html" %}
+        <div class="container-fluid">
+            <section style="margin-top: 60px;">
+                <div class="row dashboard_tab_bar">
+                        <ul class="nav nav-tabs" role="tablist">
+                        <li role="description" class="active"><a href="#01" aria-controls="home" role="tab" data-toggle="tab">公司简介</a></li>
+                        <li role="description"><a href="#02" aria-controls="profile" role="tab" data-toggle="tab">专家顾问</a></li>
+                        <li role="description"><a href="#03" aria-controls="messages" role="tab" data-toggle="tab">创始团队</a></li>
+                    </ul>
+                </div>
+                <div class="contaniner">
+                    <div class="row">
+                        <div class="col-sm-offset-1 col-sm-10 col-xs-12">
+                            <div class="tab-content about-us-section">
+                                <div role="tabpanel" class="tab-pane active about-us-company" id="01">
+                                    <h3>公司简介</h3>
+                                    <p>美信金融成立于纽约曼哈顿，并于2016年在北京、上海、深圳开设了办公室。美信团队具有丰富的金融、互联网和媒体经验，成员来自华尔街顶级投行、全球知名科技公司、权威律所和媒体。美信旨在为中国投资者提供中国首家专注海外投资和财经资讯的一站式互联网平台。<br><br>目前，美信是市场上唯一一家实现了面向中国投资者的海外非标产品线上购买闭环的投资平台，我们以实现普惠金融为使命，实现真正的“大众海外资产配置”。随着中国资本的海外扩张以及国际化加剧，中国投资者跨境投资的需求逐年增加。美信联手美国顶级金融机构、依靠美国成熟的监管机制，致力于为国内广大投资者降低投资美国的门槛，提供安全、诚信、风险低、回报稳定的全球化理财和投资契机。<br><br>我们对产品有长远的规划，将针对投资人不同的财富增值需求和风险偏好推出更多特色产品系列。从个人美元理财到家族海外信托，美信金融为您和家人、您的客户提供多元化、定制式的高品质理财服务。</p>
+                                    <h3>美信金融投资产品</h3>
+                                    <p>针对中国投资人的习惯，多种产品系列以满足客户对收益、流动性的不同偏好：</p>
+                                    <ul>
+                                        <li><img src="{% static 'dist/meixin_invest/img/aboutus/aboutus_product_anxin_162x162.png' %}" /><p>定期定息产品，优质资产直投，收益稳定</p></li>
+                                        <li><img src="{% static 'dist/meixin_invest/img/aboutus/aboutus_product_gaoxin_162x162.png' %}" /><p>美国顶级信贷收益基金，周期灵活</p></li>
+                                        <li><img src="{% static 'dist/meixin_invest/img/aboutus/aboutus_product_shengxin_162x162.png' %}" /><p>超级独角兽公司Pre-IPO股权投资</p></li>
+                                        <li><img src="{% static 'dist/meixin_invest/img/aboutus/aboutus_product_fangxin_162x162.png' %}" /><p>海外万能型指数寿险，收益保障两全</p></li>
+                                        <li><img src="{% static 'dist/meixin_invest/img/aboutus/aboutus_product_madison_162x162.png' %}" /><p>家族财富传承，高端定制，高级私行服务</p></li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                    <h3>美信海外财经社区</h3>
+                                    <p>美信社区着力打造一个专注海外投资的社区平台，创造并鼓励用户之间的交流互动、经验分享与话题讨论。包含资讯和文章发布分享、问答、用户文章、一对一经验分享和咨询（美信学投），帮助投资者从关注行业意见领袖开始，到阅读，交流，最终做好投资准备。<br><br>我们努力服务于跨境投资和海外财经领域的读者和投资者，通过搭建互联网平台提供最专业、最具价值的信息和服务，同时也为持有投资观点的专业人士提供一个发声的平台，从而形成关注海外金融和投资的媒体社交群。美信社区汇聚了财经和投资领域的专家和意见领袖，帮助广大投资者及时获取行业资讯、深刻洞悉行业的发展规律。通过不断挖掘海外投资资讯，推动和影响海外投资产业变革，努力成为中国海外投资领域一支不可忽视的具有影响力的社群。</p>
+                                </div>
+                                <div role="tabpanel" class="tab-pane about-us-advisor" id="02">
+                                    <ul>
+                                        <li>
+                                            <img src="{% static 'dist/meixin_invest/img/aboutus/aboutus_advisor_jeff_big_372x372.png' %}" />
+                                            <div>
+                                                <h3>Jeff McDermott<br>前瑞士银行投行部全球联合主席</h3>
+                                                <p>作为华尔街资深投资银行家，Jeff McDermott曾担任瑞士银行（UBS）投行部全球联合主席，也领导过瑞银和花旗集团的全球工业投行部。Jeff拥有30多年的企业合兼并、收购和融资经验，与大型跨国公司关系密切，有着交易评估、谈判和建模的丰富经验。</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <img src="{% static 'dist/meixin_invest/img/aboutus/aboutus_advisor_Rob_body_372x372.png' %}" />
+                                            <div>
+                                                <h3>Robert Schultz<br>前摩根史坦利基金服务首席运营官</h3>
+                                                <p>Robert Schultz曾先后担任汇丰银行另类基金服务北美主管、摩根史坦利基金服务部门董事总经理和首席运营官。Robert拥有超过25年的企业运营、管理、财务、合规和法务经验，负责公司的战略策划和基础建设。他拥有加拿大皇后大学的商学系金融方向的荣誉学士学位，同时也是一家关注受虐儿童的非营利性组织的董事和副总裁。</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <img src="{% static 'dist/meixin_invest/img/aboutus/aboutus_advisor_yangrusheng_372x372.png' %}" />
+                                            <div>
+                                                <h3>杨如生<br>深圳前海微众银行独立董事</h3>
+                                                <p>杨如生现任深圳前海微众银行独立董事。深圳前海微众银行是一家专门服务个人消费者和小微企业客户的民营银行。曾任国平安银行股份有限公司独立董事、富浩华会计师事务所副总裁兼深圳分所所长、广东省注册会计师协会理事，深圳市注册税务师协会常务理事及中国注册税务师协会理事。</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <img src="{% static 'dist/meixin_invest/img/aboutus/aboutus_advisor_zhang_372x372.png' %}" />
+                                            <div>
+                                                <h3>张文华<br>前哈佛大学管理公司副总裁及基金经理，CFA注册金融分析师</h3>
+                                                <p>Azia Capital管理合伙人，为机构和私人投资者提供资产管理和咨询服务，对公共基金及对冲基金有着丰富经验。曾任哈佛大学管理公司副总裁及基金经理，贝恩资本旗下对冲基金董事，普莱斯基金副总裁，投资分析师。宾夕法尼亚大学沃顿商学院金融MBA学位，同时还任职马萨诸塞州牛顿市投资咨询委员会。</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <img src="{% static 'dist/meixin_invest/img/aboutus/aboutus_advisor_cunning_372x372.png' %}" />
+                                            <div>
+                                                <h3>Edward Cunningham<br>哈佛中国公共政策专家顾问</h3>
+                                                <p>Edward Cunningham现任哈佛大学Ash中心的中国项目主任，连续13年负责每年中国副部级以上官员在哈佛的培训项目。同时也是哈佛肯尼迪政治学院公共政策的特邀讲师。在哈佛主讲宏观经济学，亚洲研究、和创新，Edward的著作曾荣登彭博资讯、经济学家、纽约时报和纽约人杂志。他拥有乔治城大学学士、哈佛大学硕士、和麻省理工学院博士学位。</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div role="tabpanel" class="tab-pane about-us-team" id="03">
+                                    <ul>
+                                        <li>
+                                            <h3>刁盛鑫<br>创始合伙人，首席执行官</h3>
+                                            <p>拥有5年纽约华尔街投资银行经验，专注于美国和跨境兼并收购和资本募集，参与交易总额超过百亿人民币<br><br>先后在美银美林、法国兴业银行和Greentech Capital Advisors任职，Greentech是全球最大的专注于清洁科技和新能源的投资银行和资产管理公司<br><br>2010年将全球规模最大的公益创业大赛GSVC带入中国，任中国区委员会主席拥有纽约大学斯特恩商学院金融和经济双学士学位</p>
+                                        </li>
+                                        <li>
+                                            <h3>吴晓雯<br>创始合伙人，首席营销官</h3>
+                                            <p>拥有8年结构型产品销售经验，曾供职于德意志银行香港分行投行部以及瑞士银行香港分行投行部，担任中国财富管理和资产管理客户的销售负责人<br><br>专注通过QDII等跨境投资渠道为中国投资人提供跨境投资方案，同时也为海外投资人通过QFII及RQFII等渠道投资中国提供咨询<br><br>多年中国投资人投资离岸金融产品的销售经验，曾成功完成针对中国金融机构的如下境外金融产品的销售：欧洲结构化基金、离岸事件驱动对冲基金、美国房地产信托、全球高收益债券基金和准IPO项目</p>
+                                        </li>
+                                        <li>
+                                            <h3>张茵樱<br>创始合伙人，首席运营官</h3>
+                                            <p>拥有5年丰富海外投资银行经验，专注于金融科技行业的并购<br><br>曾就职于大和证券(Daiwa Securities,香港)、中国银行总行（北京）、Marlin & Associates（纽约）和EuroConsult(纽约）<br><br>毕业于北京大学经济学院金融系，后在美国密歇根大学取得应用经济学硕士学位</p>
+                                        </li>
+                                        <li>
+                                            <h3>秦征<br>创始合伙人，首席技术官</h3>
+                                            <p>7年软件开发工程师经验，专注大数据搜索技术与算法。曾就职于微软亚洲研究院搜索技术中心，曾领导设计、开发多款面向全球的企业级手机与网络应用<br><br>毕业于华南理工大学计算机科学与工程学院，后取得美国纽约大学信息系统硕士学位</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    {% include "meixin_invest/includes/footer.html" %}{% endblock %}
+{% block extra_js %}
+
+{% endblock %}

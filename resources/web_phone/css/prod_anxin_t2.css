@@ -1,0 +1,140 @@
+.div-left {
+    float: left;
+    width: 50%;
+}
+
+.div-right {
+    float: right;
+    width: 50%;
+}
+
+.prod-info-title {
+    padding: 0px 30px;
+    margin-top: 30px;
+    text-align: center;
+    color: #666666;
+    height: 75px;
+    font-size: 34px;
+}
+
+.prod-info-number {
+    padding: 0px 30px;
+    margin-top: 5px;
+    text-align: center;
+    color: #3399FF;
+}
+
+.font-info-number {
+    font-size: 34px;
+}
+
+.font-info-symbol {
+    font-size: 16px;
+}
+
+.cutline-right {
+    border-right: solid 1px #DDDDDD;
+    height: 40px;
+}
+
+.prod-info-img {
+    height: 40px;
+    border-bottom: solid 1px #DDDDDD;
+}
+
+.prod-money {
+    padding: 30px; 30px;
+    text-align: center;
+    border-bottom: solid 1px #DDDDDD;
+}
+
+.font-money-title {
+    font-size: 14px;
+    color: #666666;
+}
+
+.font-money-number {
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    color: #3399FF;
+}
+
+.light-title {
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+}
+
+.prod-light {
+    margin-top: 10px;
+    padding: 0px 30px;
+}
+
+.font-light {
+    font-size: 13px;
+    padding-left: 5px;
+    height: 28px;
+    line-height: 28px;
+}
+
+.icon-light {
+    height: 28px;
+}
+
+.des-title {
+    border-top: solid 1px #DDDDDD;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+}
+
+.prod-des {
+    margin-top: 10px;
+    padding: 0px 30px;
+}
+
+.font-des {
+    margin: 0px;
+    font-size: 13px;
+}
+
+.prod-tab-div {
+    margin-top: 20px;
+    border-top: solid 1px #DDDDDD;
+    padding: 15px 30px 0px 30px;
+    text-align: center;
+}
+
+.prod-tab {
+    width: 80px;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 28px;
+    margin: 0px auto;
+    color: #3399FF;
+}
+
+.prod-tab-selected {
+    border-bottom: solid 3px #3399FF;
+}
+
+.prod-details-div {
+    padding: 0px 30px;
+}
+
+.prod-details {
+    margin-top: 15px;
+}
+
+.font-details-title {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.font-details-content {
+    font-size: 13px;
+}

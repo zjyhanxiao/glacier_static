@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'/>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>美信金融</title>
+    <link rel="stylesheet" href="${static}/vendor/css/bootstrap.min.css">
+    <link href="${static}/dist/meixin_invest/css/base.min.css" rel="stylesheet">
+    <link href="${static}/dist/meixin_invest/css/detail-new.min.css" rel="stylesheet">
+    <link href="${static}/dist/meixin_invest/css/index.min.css" rel="stylesheet">
+    <link href="${static}/dist/meixin_invest/css/protected_blocker.min.css" rel="stylesheet">
+    <#include "includes/oneapm.html" />
+    <#include "includes/ga.html" />
+    <!--[if lt IE 9]>
+    <script src="${static}/vendor/js/html5shiv"></script>
+    <script src="${static}/vendor/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div id="wrapper">
+<#include "includes/navbar.html" />
+
+<div id="home">
+
+    <!-- hero -->
+    <div id="hero" class="container-fluid">
+        <div class="overlay"></div>
+        <div class="container" data-sr ng-controller="FormController" ng-init="init('borrower')">
+            <div class="row">
+                <div class="col-lg-12  text-center protected-style-extra">
+                    <h1 class="text-center"></h1>
+                    <p class="text-center">您尚未完成注册验证或没有登录，根据美国证券交易委员会SEC相关法律规定，您必须建立完善个人信息才能查看完整的项目内容。</p>
+                    <br/>
+                    <br/>
+                    <a href="/signup/" class="btn-solid btn-solid-blue">立刻注册</a>
+                    <br><a href="/login/">立刻登录 >></a>
+                </div>
+            </div>
+        </div>
+    </div>    <!-- end hero -->
+</div>
+<#include "includes/footer.html" />
+<link rel="shortcut icon" type="image/png" href="${static}/dist/meixin_invest/img/favicon.png">
+<link rel="stylesheet" href="${static}/vendor/css/font-awesome.min.css">
+<script src="${static}/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="${static}/vendor/js/jquery-ui.min.js" type="text/javascript"></script>
+<script src="${static}/vendor/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="${static}/dist/meixin_invest/js/navi.min.js" type="text/javascript"></script>
+<script src="${static}/dist/meixin_invest/js/index.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#wechat-popover').popover({
+            html : true,
+            placement : 'bottom',
+            trigger : 'hover',
+            content : '<img style="width: 200px;padding:0;margin:0;" src="${static}/meixin_invest/img/meixin_new_qr_code_300x300.jpg" />'
+        });
+    });
+</script>
+</body>
+</html>

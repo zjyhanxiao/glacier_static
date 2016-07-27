@@ -1,0 +1,360 @@
+.prod-btn {
+    text-align: center;
+    margin-top: 30px;
+    background: #3399FF;
+    font-size: 16px;
+    color: white;
+    height: 40px;
+    line-height: 40px;
+}
+
+.pay-step {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    font-size: 18px;
+    background: #F1F5F9;
+    color: #444444;
+    text-align: center;
+}
+
+.text-div {
+    padding: 20px 30px;
+}
+
+.text-content {
+    padding: 10px 0px;
+    font-size: 16px;
+}
+
+.input-table {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.input-table tr {
+    height: 50px;
+    border-top: solid 2px #DDDDDD;
+    border-bottom: solid 2px #DDDDDD;
+}
+
+.input-title {
+    padding-left: 30px;
+    font-size: 16px;
+    color: #444444;
+}
+
+.input-div {
+    padding-right: 30px;
+    font-size: 16px;
+    color: #444444;
+}
+
+.input-box {
+    border: none;
+    width: 100%;
+    height: 36px;
+}
+
+.money-div {
+    margin-top: 20px;
+    border-top: solid 1px #888888;
+    border-bottom: solid 1px #888888;
+    height: 50px;
+    padding: 0px 30px;
+    font-size: 16px;
+    color: #444444;
+}
+
+.money-title {
+    line-height: 50px;
+    float: left;
+    width: 30%;
+}
+
+.money-number {
+    height: 46px;
+    line-height: 46px;
+    float: right;
+    width: 70%;
+}
+
+.pay-title {
+    line-height: 70px;
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: solid 1px #DDDDDD;
+    text-align: center;
+}
+
+.pay-content {
+    line-height: 50px;
+    font-size: 16px;
+    border-bottom: solid 1px #DDDDDD;
+    text-align: center;
+}
+
+.selected {
+    background: #6C7D98;
+    color: white;
+}
+
+.agreement-table-div {
+    padding: 20px 20px 0px 30px;
+}
+
+.agreement-table {
+    width: 100%;
+}
+
+.agreement-table tr td {
+    vertical-align:top;
+}
+
+.checkbox-div {
+    margin-top: 3px;
+    width: 26px;
+    height: 26px;
+}
+
+.font-agreement {
+    line-height: 26px;
+    color: #444444;
+}
+
+.font-agreement-link {
+    line-height: 26px;
+}
+
+.sign-div {
+    margin-top: 20px;
+    border-top: solid 1px #DDDDDD;
+    border-bottom: solid 1px #DDDDDD;
+    height: 50px;
+    line-height: 50px;
+    padding: 0px 30px;
+    font-size: 14px;
+    color: #444444;
+}
+
+.sign-title {
+    float: left;
+    width: 20%;
+}
+
+.sign-box {
+    float: right;
+    width: 80%;
+    height: 50px;
+    line-height: 50px;
+}
+
+.sign-input-box {
+    border: none;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+}
+
+.pay-wire-div {
+    padding: 20px 30px 20px 30px;
+}
+
+.pay-wire-line {
+    margin-top: 8px;   
+}
+
+.pay-wire-line-far {
+    margin-top: 20px;   
+}
+
+.font-wire-title-large {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.font-wire-title {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.font-wire-text {
+    font-size: 14px;
+}
+
+.pay-table-div {
+    padding-top: 30px;
+}
+
+.pay-table {
+    width: 100%;
+}
+
+.pay-table tr {
+    border-top: solid 1px #DDDDDD;
+    border-bottom: solid 1px #DDDDDD;
+}
+
+.pay-icon-div {
+    margin-left: 30px;
+    width: 40px;
+}
+
+.pay-icon {
+    width: 40px;
+}
+
+.pay-input-div {
+    margin-right: 30px;
+    height: 40px;
+}
+
+.pay-input {
+    border: none;
+    line-height: 36px;
+    height: 36px;
+    width: 100%;
+}
+
+.pay-details-div-1 {
+    padding: 20px 30px 0px 30px;
+}
+
+.pay-details-div-2 {
+    padding: 20px 30px 40px 30px;
+}
+
+.pay-details-title {
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    width: 28%;
+    height: 36px;
+    line-height: 18px;
+}
+
+.pay-details-opt {
+    float: left;
+    text-align: center;
+    font-size: 16px;
+    width: 36%;
+    height: 36px;
+    line-height: 36px;
+    border: solid 1px #DDDDDD;
+}
+
+.assert-div {
+    font-weight: bold;
+    line-height: 22px;
+    padding: 0px 30px 20px 30px;
+    border-bottom: solid 1px #DDDDDD;
+}
+
+.assert-content {
+    line-height: 50px;
+    font-size: 16px;
+    border-bottom: solid 1px #DDDDDD;
+    text-align: center;
+}
+
+.assert-details {
+    padding: 10px 30px;
+    border-bottom: solid 1px #DDDDDD;
+}
+
+.choose-div {
+    font-weight: bold;
+    line-height: 22px;
+    padding: 0px 30px 20px 30px;
+    border-bottom: solid 1px #DDDDDD;
+}
+
+.choose-content {
+    border-bottom: solid 1px #DDDDDD;
+    padding: 10px 30px;
+}
+
+.choose-input {
+    border: none;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+}
+
+.choose-others {
+    padding: 10px 30px;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+.choose-opt-div {
+    height: 60px;
+    line-height: 60px;
+    padding: 0px 30px;
+    border-top: solid 1px #DDDDDD;
+    border-bottom: solid 1px #DDDDDD;
+}
+
+.input-opt {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    border: none;
+}
+
+.citizen-div {
+    padding: 20px 30px;
+    font-weight: bold;
+    line-height: 30px;
+    border-bottom: solid 1px #DDDDDD;
+}
+
+.citizen-content {
+    padding: 15px 30px;
+    border-bottom: solid 1px #DDDDDD;
+}
+
+.and-div {
+    padding: 10px 30px;
+    font-weight: bold;
+    line-height: 30px;
+    border-bottom: solid 1px #DDDDDD;
+}
+
+.hint {
+    width: 100%;
+    padding: 10px 30px 0px 30px;
+    color: red;
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+}
+
+.img-div {
+    padding: 0px 30px;
+}
+
+.img-div-left {
+    float: left;
+    width: 48%;
+    height: 120px;
+}
+
+.img-div-right {
+    float: right;
+    width: 48%;
+    max-height: 120px;
+}
+
+.img-photo {
+    width: 100%;
+    max-height: 120px;
+}
+
+.waiting {
+    font-size: 13px;
+    font-color: 666666;
+    text-align: center;
+    line-height: 30px;
+}

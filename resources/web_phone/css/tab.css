@@ -1,0 +1,36 @@
+.tab-height {
+    height: 55px;
+}
+
+.tab-div {
+    padding-left: 6%;
+    padding-right: 6%;
+    background: #EEEEEE;
+}
+
+.section-div {
+    width: 25%;
+    float: left;
+}
+
+.section-icon-div {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.section-icon {
+    height: 22px;
+}
+
+.section-text-div {
+    text-align: center;
+}
+
+.section-text {
+    color: #BBBBBB;
+    font-size: 12px;
+}
+
+.section-text-select {
+    color: #3399FF;
+}

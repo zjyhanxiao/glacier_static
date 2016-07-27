@@ -1,0 +1,98 @@
+.main {
+    margin-top: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.item {
+    height: 50px;
+    border-bottom: 1px solid #BBBBBB;
+}
+
+.icon {
+    float: left;
+    width: 24px;
+    margin: 12px 12px 10px 10px;
+}
+
+.line {
+    float: left;
+    background: #BBBBBB;
+    height: 30px;
+    margin-top: 10px;
+    width: 1px;
+}
+
+.inputbox {
+    float: left;
+    height: 30px;
+    width: 130px;
+    margin-top: 10px;
+    margin-left: 10px;
+    color: #444444;
+    border: none;
+}
+
+#hint {
+    width: 100%;
+    padding-left: 5px;
+    color: red;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+}
+
+.submit-div {
+    margin-top: 14px;
+    width: 100%;
+    height: 50px;
+}
+
+#s_region {
+	float: left;
+	margin-top: 15px;
+	appearance:none;
+	-moz-appearance:none;
+	-webkit-appearance:none;
+}
+
+#btn-submit {
+    width: 100%;
+    background: #029DE0;
+    color: white;
+    height: 45px;
+    font-size: 16px;
+}
+
+.register-div {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.other-method {
+	width: 100%;
+	margin-top: 20px;
+}
+
+#register {
+    color: #029DE0;
+}
+
+#phone {
+	float: left;
+	color: #029DE0;
+}
+
+#forget {
+    float: right;
+    color: #029DE0;
+}
+
+.copyright {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    color: #BBBBBB;
+    font-size: 11px;
+}
