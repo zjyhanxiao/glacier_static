@@ -1,0 +1,68 @@
+.background-div {
+    position: fixed;
+    z-index: -1;
+    width: 100%;
+}
+
+.background-img {
+    width: 100%;
+}
+
+.title-div {
+    padding: 0px 25px;
+}
+
+.title {
+    font-size: 26px;
+    color: #3399FF;
+    font-weight: bold;
+}
+
+.hint {
+    padding-top: 8px;
+    font-size: 12px;
+    color: #BBBBBB;
+}
+
+.list-div {
+}
+
+.list-title {
+    padding: 30px 25px 0px 25px;
+    font-size: 14px;
+    color: #00425F;
+    font-weight: bold;
+}
+
+.logo-div {
+    margin-top: 4px;
+}
+
+.logo-img {
+    width: 300px;
+    margin-left: -26px;
+}
+
+.button-div {
+    padding: 20px 25px 0px 25px;
+}
+
+.button {
+    background: #00425F;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 100px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+}
+
+.shangxian-div {
+    position: absolute;
+    left: 140px;
+}
+
+.shangxian-img {
+    width: 50px;
+}

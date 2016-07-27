@@ -1,7 +1,6 @@
 package com.meixin.invest.web.interceptor;
 
 import com.meixin.invest.model.AuthUser;
-import com.meixin.invest.web.helper.CSRFTokenManager;
 import com.meixin.invest.web.helper.RequestUtil;
 import com.meixin.invest.web.helper.Session;
 import lombok.extern.slf4j.Slf4j;
@@ -27,19 +26,6 @@ public class SessionInterceptor implements HandlerInterceptor {
 		if(user != null){
 			request.setAttribute("user", user);
 		}
-
-		//csrf_token
-		String csrf_token = session.getCsrfToken();
-		if(StringUtils.isEmpty(csrf_token)){
-			csrf_token = CSRFTokenManager.getTokenForSession(request);
-		}
-		request.setAttribute(CSRFTokenManager.CSRF_TOKEN, "<input type=\"hidden\" name=\"csrf_token\" value=\""+csrf_token+"\">");
-		
-		Cookie cookie = new Cookie("access_token", csrf_token);
-		cookie.setDomain(request.getServerName());
-		cookie.setPath("/");
-		cookie.setMaxAge(Session.COOKIE_MAX_AGE);
-		response.addCookie(cookie);
 		
 		//source
 		String source = request.getParameter("source");
@@ -47,7 +33,7 @@ public class SessionInterceptor implements HandlerInterceptor {
 			source = request.getParameter("fcode");
 		}
 		if(StringUtils.isNotEmpty(source)){
-			cookie = new Cookie("source", source);
+			Cookie cookie = new Cookie("source", source);
 			cookie.setDomain(request.getServerName());
 			cookie.setPath("/");
 			cookie.setMaxAge(2592000);//30day
@@ -67,8 +53,6 @@ public class SessionInterceptor implements HandlerInterceptor {
 		access.append(request.getHeader("Referer"));		
 		access.append(", auth=");
 		access.append(request.getHeader("Authorization"));
-		access.append(", csrf=");
-		access.append(request.getParameter(CSRFTokenManager.CSRF_TOKEN));
 		access.append(", ua=");
 		access.append(request.getHeader("User-Agent"));
 		response.setHeader("Access-Control-Allow-Origin", "*");

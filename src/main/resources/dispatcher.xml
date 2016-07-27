@@ -18,10 +18,13 @@
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 
+	<mvc:resources mapping="/static/**" location="/static/" />
+
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<!-- 匹配的是url路径， 如果不配置或/**,将拦截所有的Controller -->
 			<mvc:mapping path="/**" />
+            <mvc:exclude-mapping path="/static/**" />
 			<bean class="com.meixin.invest.web.interceptor.SessionInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>

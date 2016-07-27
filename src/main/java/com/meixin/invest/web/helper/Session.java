@@ -32,11 +32,6 @@ public class Session {
 	
 	private Map<String,String> profileModifyForm;
 	
-	public static Session getFromRequestAttribute(HttpServletRequest request){
-		return (Session)request.getAttribute("session");
-	}
-	
-	
 	public static Session initSession(String sid, HttpServletRequest request){
 		Session session = MemcacheUtil.getSession(sid);
 		if(session == null){

@@ -1,0 +1,84 @@
+.title-div {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 34px;
+    height: 1px;
+    border-top: 1px solid #ddd;
+    text-align: center;
+}
+
+.title {
+    position: relative;
+    top: -15px;
+    background: white;
+    padding: 0px 15px 0px 15px;
+    line-height: 30px;
+    height: 30px;
+    font-size: 18px;
+}
+
+.img-box {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.img-div {
+    width: 25%;
+    float: left;
+    text-align: center;
+    border: solid 1px #DDDDDD;
+}
+
+.img-div-gray {
+    background: #DDDDDD;
+}
+
+.img {
+    margin-top: 15px;
+    width: 40px;
+}
+
+.text {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.opt-div-top {
+    margin-top: 30px;
+    border-top: solid 1px #DDDDDD;
+}
+.opt-div {
+    border-bottom: solid 1px #DDDDDD;
+    padding: 10px 20px;
+}
+
+.opt-icon-div {
+    float: left;
+    width: 12%;
+}
+
+.opt-icon-img {
+    height: 28px;
+}
+
+.opt-main {
+    width: 88%;
+    float: left;
+}
+
+.opt-title {
+    font-size: 16px;
+    line-height: 28px;
+}
+
+.opt-content {
+    padding-top: 5px;
+    font-size: 14px;
+    line-height: 22px;
+    display: none;
+}
+
+
