@@ -166,3 +166,37 @@ section .nav li {
   padding-bottom: 10px;
   font-weight: 500;
 }
+
+.about-us-media ul li {
+  margin: 30px 0;
+  border-bottom: 1px solid #dedede;
+  padding: 30px 0;
+}
+
+.about-us-media ul li img {
+  width: 20%;
+  vertical-align: top;
+}
+.about-us-media ul li a{
+  color: #555;
+}
+.about-us-media ul li div {
+  width: 79%;
+  display: inline-block;
+  padding: 0 30px;
+  text-align: justify;
+}
+
+.about-us-media ul li div p {
+  padding-top: 15px;
+}
+
+.about-us-media .more{
+  background: #159bd6;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 0;
+  width: 10em;
+  font-size: 14px;
+  color: #fff;
+}
