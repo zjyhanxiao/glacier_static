@@ -52,7 +52,6 @@ http://www.springframework.org/schema/context/spring-context-3.1.xsd">
                 <entry key="base" value="#{servletContext.contextPath}" />
                 <entry key="locale" value="zh_CN" />
                 <entry key="static" value="/static" />
-                <entry key="media" value="/media/" />
                 <entry key="price_format" value="0.00" />
             </map>
         </property>
