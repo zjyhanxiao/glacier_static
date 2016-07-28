@@ -180,6 +180,10 @@ section .nav li {
 .about-us-media ul li a{
   color: #555;
 }
+.about-us-media ul li a:hover{
+  color: #159bd6;
+  text-decoration: none;
+}
 .about-us-media ul li div {
   width: 79%;
   display: inline-block;
