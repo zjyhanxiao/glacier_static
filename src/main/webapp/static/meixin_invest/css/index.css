@@ -573,3 +573,17 @@ a {
 }
 
 
+.swiper-show{
+  margin: 0 10px;
+}
+.swiper-pagination-bullet{
+  opacity: 1;
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  color: #000;
+  background-color: rgba(255,255,255,.5);
+}
+.swiper-pagination-bullet-active{
+  background-color: rgba(255,255,255,1);
+}
