@@ -339,14 +339,13 @@ div.activity_message::before {
 	z-index: 99;
 	position: absolute;
 	display: table;
-	width: 0px;
-	height: 0px;
+	width: 0;
+	height: 0;
 	right: 11px;
 	top: -10px;
+	background: rgba(37,10,69,.8); /*background: rgba(88,187,234,.8);*/
 	border-left: 5px solid transparent;
 	border-right: 5px solid transparent;
-	background: rgba(37,10,69,.8);
-	/*background: rgba(88,187,234,.8);*/
 }
 
 .activity_message p {
@@ -356,4 +355,5 @@ div.activity_message::before {
 	font-size: 12px;
 	color: #fff;
 	padding: 0;
+	margin: 0;
 }
