@@ -345,7 +345,7 @@ div.activity_message::before {
 	top: -10px;
 	border-left: 5px solid transparent;
 	border-right: 5px solid transparent;
-	border-bottom: rgba(37,10,69,.8); /*border-bottom: rgba(88,187,234,.8);*/
+	border-bottom: 10px solid rgba(37,10,69,.8); /*border-bottom: 10px solid rgba(88,187,234,.8);*/
 }
 
 .activity_message p {
