@@ -328,7 +328,8 @@ input#invest-number::-moz-placeholder,input#invest-number:-ms-input-placeholder,
 	top: 261px;
 	width: 220px;
 	height: auto;
-	background: rgba(88,187,234,.8);
+	background: rgba(37,10,69,.8);
+	/*background: rgba(88,187,234,.8);*/
 	border-radius: 6px;
 	padding: 10px;
 }
@@ -344,7 +345,8 @@ div.activity_message::before {
 	top: -10px;
 	border-left: 5px solid transparent;
 	border-right: 5px solid transparent;
-	border-bottom: 10px solid rgba(88, 187, 234, .8);
+	background: rgba(37,10,69,.8);
+	/*background: rgba(88,187,234,.8);*/
 }
 
 .activity_message p {
