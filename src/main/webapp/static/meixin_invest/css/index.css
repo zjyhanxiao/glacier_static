@@ -587,3 +587,10 @@ a {
 .swiper-pagination-bullet-active{
   background-color: rgba(255,255,255,1);
 }
+
+.ajax_wait{
+  background: url("../img/ajax_wait_bg.png") repeat-x #fff;
+}
+.ajax_wait_gif img{
+  margin: 0 auto;
+}
