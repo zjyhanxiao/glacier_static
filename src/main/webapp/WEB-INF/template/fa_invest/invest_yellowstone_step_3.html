@@ -98,6 +98,8 @@
 <script src="/static/dist/meixin_invest/js/jquery.cookie.min.js"></script>
 <script src="/static/dist/meixin_invest/js/fa.min.js"></script>
 <script>
+    var data={};
+    data.country=$('#resident-countries-states').val();
     function $_GET(param) {
         var vars = {};
         window.location.href.replace( location.hash, '' ).replace(
