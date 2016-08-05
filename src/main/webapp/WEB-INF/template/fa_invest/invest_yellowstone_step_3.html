@@ -202,46 +202,5 @@
         }
     });
 </script>
-<script src="/static/dist/meixin_invest/js/jSignature.min.js" type="text/javascript"></script>
-<script type="text/javascript">
-    (function ($, window) {
-        var P = function () {
-            this.init.apply(this, arguments);
-        };
-        P.prototype = {
-            constructor: P,
-            init: function () {
-                this.arr = {}
-                this.bindEvents();
-                // this.setData();
-            },
-
-            /** 绑定change事件  */
-            bindEvents: function () {
-                var that = this;
-
-                // 获取对应id的值和val的值，并传进arr
-                for (var i = 0, len = $('#test select').length; i < len; i++) {
-                    that.arr[$('#test select').eq(i).attr('id')] = $('#test select').eq(i).val();
-                }
-
-                $('#test input,#test select').on('blur', function () {
-                    if ($(this).val != '') {
-                        that.arr[$(this).attr('id')] = $(this).val();
-                    }
-                    ;
-                    if (that.arr.firstname != undefined && that.arr.lastname != undefined) {
-                    }
-                    ;
-                });
-            }
-        };
-        window.PushInHtml = P;
-    })($, window);
-
-    $(function () {
-        var strat = new PushInHtml();
-    });
-</script>
 </body>
 </html>
