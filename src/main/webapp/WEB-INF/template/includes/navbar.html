@@ -26,21 +26,18 @@
                     <li><a href="/newhelp.html">新手指引</a></li>
                     <li><a href="/safety.html">安全保障</a></li>
                     <li><a href="/about.html">关于美信</a></li>
-                    <#if user!=null >
-                        <li style="float: right;">
-                            <a class="btn btn-min-width-sm" href="/logout">退出</a>
-                        </li>
-                        <li style="float: right;">
-                            <a class="btn btn-min-width"
-                               href="/investor/dashboard">我的账户<#if anxin1_interest_flag=="1"><span class="red_dot"></span></#if></a>
-                        </li>
-                    <#else>
-                        <li style="float: right;"><a class="login_no_margin_right nav_login_button" href="/login">登录</a></li>
-                        <li style="float: right;"><a href="/signup"
-                               class="hidden-xs nav_register_button">注册</a></li>
-                        <li style="float: right;"><a href="/signup"
-                               class="visible-xs">注册</a></li>
-                    </#if>
+<!--                    <li style="float: right;">
+                        <a class="btn btn-min-width-sm" href="/logout">退出</a>
+                    </li>
+                    <li style="float: right;">
+                        <a class="btn btn-min-width"
+                           href="/investor/dashboard">我的账户<#if anxin1_interest_flag=="1"><span class="red_dot"></span></#if></a>
+                    </li>-->
+                    <li style="float: right;"><a class="login_no_margin_right nav_login_button" href="/login">登录</a></li>
+                    <li style="float: right;"><a href="/signup"
+                           class="hidden-xs nav_register_button">注册</a></li>
+                    <!--<li style="float: right;"><a href="/signup"
+                           class="visible-xs">注册</a></li>-->
 
                 </ul>
             </div>
