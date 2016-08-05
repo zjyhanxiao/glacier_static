@@ -20,6 +20,7 @@
     <script src="${static}/vendor/js/html5shiv"></script>
     <script src="${static}/vendor/js/respond.min.js"></script>
     <![endif]-->
+    <#include "config/config_interface.html"/>
 </head>
 <body>
 <div id="wrapper" class="customer product-list">
@@ -29,27 +30,17 @@
                 <div class="row">
                     <div class="col-sm-10 col-sm-offset-1">
                         <h3>产品类型：</h3>
-                        <ul class="nav nav-pills" role="tablist">
+                        <ul class="nav nav-pills" role="tablist" id="categoryNav">
                             <li class="active"><a role="tab" data-toggle="tab" data-title="all">全部产品</a></li>
-                            <li><a role="tab" data-toggle="tab" data-title="anxin">安心计划</a></li>
-                            <li><a role="tab" data-toggle="tab" data-title="gaoxin">高心计划</a></li>
-                            <li><a role="tab" data-toggle="tab" data-title="shengxin">盛心计划</a></li>
-                            <li><a role="tab" data-toggle="tab" data-title="fangxin">放心计划</a></li>
-                            <li><a role="tab" data-toggle="tab" data-title="madison">麦迪逊俱乐部</a></li>
+                            <li><a role="tab" data-toggle="tab" data-title="安心计划">安心计划</a></li>
+                            <li><a role="tab" data-toggle="tab" data-title="高心计划">高心计划</a></li>
+                            <li><a role="tab" data-toggle="tab" data-title="盛心计划">盛心计划</a></li>
+                            <li><a role="tab" data-toggle="tab" data-title="放心计划">放心计划</a></li>
+                            <li><a role="tab" data-toggle="tab" data-title="麦迪逊俱乐部">麦迪逊俱乐部</a></li>
                         </ul>
                         <div class="tab-content text-left">
                             <div role="tabpanel" class="tab-pane active">
                                 <ul class="products">
-                                    <li data-title="anxin">
-                                        <h2><span>安心计划</span><span>安心计划 | 6个月</span></h2>
-                                        <ul>
-                                            <li>产品类型：中小企业有抵押贷款组合</li>
-                                            <li>预计年化收益：5.0%</li>
-                                            <li>起投金额：1万美元</li>
-                                            <li>项目周期：6个月</li>
-                                            <li><a class="btn btn-info" href="/invest_product/8">立即投资</a></li>
-                                        </ul>
-                                    </li>
                                     <!--<li data-title="anxin">
                                         <h2><span>安心计划</span><span>安心计划 | 6个月</span></h2>
                                         <ul>
@@ -59,7 +50,7 @@
                                             <li>项目周期：6个月</li>
                                             <li><a class="btn btn-info" href="/invest_product/6">立即投资</a></li>
                                         </ul>
-                                    </li>-->
+                                    </li>
                                     <li data-title="anxin">
                                         <h2><span>安心计划</span><span>安心定期三期 AX20160801</span></h2>
                                         <ul>
@@ -149,7 +140,7 @@
                                             <li>项目规模：100万美元</li>
                                             <li><button class="btn sold-out-button" style="cursor: default;">已售罄</button></li>
                                         </ul>
-                                    </li>
+                                    </li>-->
                                 </ul>
                             </div>
                         </div>
@@ -176,6 +167,68 @@
             content : '<img style="width: 200px;padding:0;margin:0;" src="${static}/meixin_invest/img/meixin_new_qr_code_300x300.jpg" />'
         });
     });
+    $(function () {
+        $.ajax({
+            url:URL.productInfo.productList,
+            type:"get",
+            data : null,
+            success : function(data){
+                var productList = data.body;
+                switch (data.code){
+                    case 1:
+                        displayProductList(productList);
+                        break;
+                }
+            }
+        });
+    });
+    /**
+     * 显示商品列表页面
+     * @param {Array} productList
+     */
+    function displayProductList(productList){
+        if (productList == undefined || productList.length == 0){
+            return;
+        }
+/*        var nav = $("#categoryNav").children(":last").clone();
+        $("#categoryNav").children().not(":first").remove();
+        $.each(productList,function (index,product) {
+            nav.children().data("title",product.category_name).text(product.category_name);
+            if(){
+
+            }
+            $("#categoryNav").append(nav.clone());
+        });*/
+        $(".products").html("");
+        $.each(productList,function(index,product){
+            var li = $("<li data-title='"+product.category_name+"'></li>");
+            //显示名字和分类
+            li.append($("<h2></h2>").append($("<span></span>").text(product.category_name)).append($("<span></span>").text(product.name)));
+            var ul = $("<ul></ul>");
+            var rate = product.return_rate || 0;
+            var amount = product.invest_par_value || 0;
+            ul.append("<li>产品类型：name</li>".replace("name",product.name))
+                    .append("<li>预计年化收益：rate%</li>".replace("rate",rate.toFixed(1)))
+                    .append("<li>起投金额：amount万美元</li>".replace("amount",amount/10000))
+                    .append("<li>项目周期：month</li>".replace("month",product.invest_term));
+            switch (product.status){
+                case "CREATED":
+                    ul.append("<li><button class='btn sold-out-button' style='cursor: default;'>即将上线</button></li>");
+                    break;
+                case "FOR_APPOINTMENT":
+                    ul.append($("<li><a class='btn btn-info' href=''>立即预约</a></li>").children("a").attr("href",URL_INVEST + product.id));
+                    break;
+                case "FOR_INVEST":
+                    ul.append($("<li><a class='btn btn-info' href=''>立即投资</a></li>").children("a").attr("href",URL_INVEST + product.id));
+                    break;
+                case "SOLD_OUT":
+                    ul.append("<li><button class='btn sold-out-button' style='cursor: default;'>已售罄</button></li>");
+                    break;
+            }
+            li.append(ul);
+            $(".products").append(li);
+        });
+    }
 </script>
 </body>
 </html>

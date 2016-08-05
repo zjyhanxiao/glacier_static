@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'/>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>
+        美信金融|盛心计划
+    </title>
+    <link rel="stylesheet" href="${static}/vendor/css/bootstrap.min.css">
+    <link href="${static}/dist/meixin_invest/css/base.min.css" rel="stylesheet">
+    <link href="${static}/dist/meixin_invest/css/detail-new.min.css" rel="stylesheet">
+    <link href="${static}/dist/meixin_invest/css/index.min.css" rel="stylesheet">
+    <link href="${static}/dist/meixin_invest/css/products.min.css" rel="stylesheet">
+    <link href="${static}/meixin_invest/css/bootstrap-formhelpers.min.css" rel="stylesheet">
+    <#include "includes/oneapm.html" />
+    <#include "includes/ga.html" />
+    <!--[if lt IE 9]>
+    <script src="${static}/vendor/js/html5shiv"></script>
+    <script src="${static}/vendor/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div id="wrapper" class="customer">
+<#include "includes/navbar.html" />
+<div class="container">
+    <section style="margin-top: 30px;">
+        <div class="row">
+            <div class="col-sm-offset-1 col-sm-10 col-xs-12">
+                <div class="product_top_section">
+                    <h2>盛心计划 - SpaceX Pre-IPO股权投资</h2>
+					<img style="width: 200px; padding-left: 3%" src="${static}/dist/meixin_invest/img/products/shengxin_spacex_1024x126.png" /><br><br>
+					<#if user >
+					    <a type="button" class="btn btn-primary" data-toggle="modal" data-titlename="盛心计划一期" data-target="#popup">立即预约</a>
+					    <#include "products/popup.html" />
+					<#else>
+					    <a class="btn btn-primary" href="/protected">立即预约</a>
+					</#if>
+					
+					<ul>
+					    <li>当前估值<br><span>120亿</span></li>
+					    <li>起投金额<br><span>$500,000</span></li>
+					    <li>平台认购费用<br><span>0</span></li>
+					</ul>
+                    <div class="clearLeft"></div>
+                </div>
+                <div class="product_mid_section">
+                    <ul>
+					    <li><img src="${static}/dist/meixin_invest/img/products/shengxin_icon01_512x512.png"><span>当前估值折扣价购买原始股</span></li>
+					    <li><img src="${static}/dist/meixin_invest/img/products/shengxin_icon02_512x512.png"><span>特斯拉电动车明星创始人Elon Musk创立</span></li>
+					    <li><img src="${static}/dist/meixin_invest/img/products/shengxin_icon03_512x512.png"><span>接受谷歌及富达基金超过十亿美金投资</span></li>
+					    <li><img src="${static}/dist/meixin_invest/img/products/shengxin_icon04_512x512.png"><span>全球最受瞩目的科技独角兽之一</span></li>
+					</ul>
+                </div>
+                <div class="product_bot_section">
+                    <div class="col-sm-5">
+					    <h3>产品信息</h3>
+					    <ul>
+					        <li>SpaceX的创始人Elon Musk曾经成功使得3家自己创立的公司IPO或被收购，其估值分别为15-300亿美金不等。(特斯拉、Paypal与Solar City)</li>
+					        <li>SpaceX目标是建造低成本可回收再利用的载人火箭。</li>
+					        <li>SpaceX被知名公司及机构的融资支持，其中包括Google，DFJ，Founders Fund和富达基金等。</li>
+					        <li>2008年SpaceX正式与NASA签署合同。</li>
+					        <li>SpaceX今已签署了60项发射任务，合同金额合计70亿美元，是唯一盈利的私人航空公司。签署项目包括载人航天机登陆火星。</li>
+					        <li>SpaceX将于Google合作并在未来数年发射数百颗卫星为全球提供廉价互联网服务。</li>
+					        <li>销售截止日期：2016年6月15日</li>
+					    </ul>
+					</div>
+					<div class="col-sm-7">
+					    <ul class="nav nav-tabs" role="tablist">
+					        <li role="description" class="active"><a href="#01" aria-controls="home" role="tab" data-toggle="tab">营运及财务数据</a></li>
+					        <li role="description"><a href="#02" aria-controls="profile" role="tab" data-toggle="tab">融资历史</a></li>
+					        <li role="description"><a href="#03" aria-controls="messages" role="tab" data-toggle="tab">更多信息</a></li>
+					    </ul>
+					    <div class="tab-content">
+					        <div role="tabpanel" class="tab-pane active" id="01">
+					            <p>SpaceX的营运在历年来稳定上升，除了多次与NASA合作外，SpaceX在近年来不断增加合作伙伴。来源于NASA的收入将低于30%以下。</p>
+					            <img style="width:75%;" src="${static}/dist/meixin_invest/img/products/shengxin_statistic_687x629.png" />
+					        </div>
+					        <div role="tabpanel" class="tab-pane table-responsive" id="02">
+					            <table>
+					                <tr style="background-color: #029de0; color: #fff;">
+					                    <td>阶段</td>
+					                    <td>时间</td>
+					                    <td>金额</td>
+					                    <td>累积</td>
+					                    <td>状态</td>
+					                </tr>
+					                <tr>
+					                    <td>SeriesG</td>
+					                    <td>1/20/2015</td>
+					                    <td>$1.01B</td>
+					                    <td>$1.25B</td>
+					                    <td>完成</td>
+					                </tr>
+					                <tr>
+					                    <td>SeriesF</td>
+					                    <td>10/28/2010</td>
+					                    <td>$50.62M</td>
+					                    <td>$211.86M</td>
+					                    <td>完成</td>
+					                </tr>
+					                <tr>
+					                    <td>SeriesE</td>
+					                    <td>6/30/2009</td>
+					                    <td>$47.25M</td>
+					                    <td>$161.23M</td>
+					                    <td>完成</td>
+					                </tr>
+					                <tr>
+					                    <td>SeriesD</td>
+					                    <td>8/4/2008</td>
+					                    <td>$20.39M</td>
+					                    <td>$113.98M</td>
+					                    <td>完成</td>
+					                </tr>
+					                <tr>
+					                    <td>SeriesC</td>
+					                    <td>3/3/2007</td>
+					                    <td>$31.50M</td>
+					                    <td>$93.59M</td>
+					                    <td>完成</td>
+					                </tr>
+					                <tr>
+					                    <td>SeriesB</td>
+					                    <td>3/9/2005</td>
+					                    <td>$50.00M</td>
+					                    <td>$62.09M</td>
+					                    <td>完成</td>
+					                </tr>
+					                <tr>
+					                    <td>SeriesA</td>
+					                    <td>12/18/2002</td>
+					                    <td>$12.10M</td>
+					                    <td>$12.10M</td>
+					                    <td>完成</td>
+					                </tr>
+					            </table>
+					        </div>
+					        <div role="tabpanel" class="tab-pane" id="03">
+					            <ul>
+					                <li>
+					                    主要投资人<br>Draper Fisher Jurvetson<br>Rothenberg Ventures<br>Founders Fund<br>Fidelity Investments
+					                </li>
+					                <li>
+					                    管理团队<br>Elon Musk(CEO)<br>Bret Johnsen(CFO)<br>Steve Jurvetson-Board Member(DFJ)
+					                </li>
+					            </ul>
+					        </div>
+					    </div>
+					</div>
+                    <div class="clearLeft"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</div>
+<#include "includes/footer.html" />
+
+<link rel="shortcut icon" type="image/png" href="${static}/dist/meixin_invest/img/favicon.png">
+<link rel="stylesheet" href="${static}/vendor/css/font-awesome.min.css">
+<script src="${static}/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="${static}/vendor/js/jquery-ui.min.js" type="text/javascript"></script>
+<script src="${static}/vendor/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="${static}/dist/meixin_invest/js/navi.min.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function(){
+        $('#wechat-popover').popover({
+            html : true,
+            placement : 'bottom',
+            trigger : 'hover',
+            content : '<img style="width: 200px;padding:0;margin:0;" src="${static}/meixin_invest/img/meixin_new_qr_code_300x300.jpg" />';
+	})
+	});
+</script>
+<script src="${static}/dist/meixin_invest/js/bootstrap-formhelpers.min.js" type="text/javascript"></script>
+<script src="${static}/dist/meixin_invest/js/bootstrap-formhelpers-countries-nousa.zh_CN.min.js"></script>
+<script src="${static}/dist/meixin_invest/js/bootstrap-formhelpers-phone.min.js" type="text/javascript"></script>
+<script src="${static}/dist/meixin_invest/js/products.min.js" type="text/javascript"></script>
+</body>
+</html>

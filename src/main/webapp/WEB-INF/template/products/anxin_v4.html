@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'/>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>
+        美信金融||安心定期三期 AX20160801
+    </title>
+    <link rel="stylesheet" href="${static}/vendor/css/bootstrap.min.css">
+    <link href="${static}/dist/meixin_invest/css/base.min.css" rel="stylesheet">
+    <link href="${static}/dist/meixin_invest/css/detail-new.min.css" rel="stylesheet">
+    <link href="${static}/dist/meixin_invest/css/index.min.css" rel="stylesheet">
+    <link href="${static}/dist/meixin_invest/css/products.min.css" rel="stylesheet">
+    <link href="${static}/meixin_invest/css/bootstrap-formhelpers.min.css" rel="stylesheet">
+    <#include "includes/oneapm.html" />
+    <#include "includes/ga.html" />
+    <!--[if lt IE 9]>
+    <script src="${static}/vendor/js/html5shiv"></script>
+    <script src="${static}/vendor/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div id="wrapper" class="customer">
+<#include "includes/navbar.html" />
+<div class="container">
+	<#if promotion!= null>
+		<a href="javascript:;" class="red_packets"></a>
+		<div class="activity_message"><p class="text">${promotion.title}</p></div>
+	</#if>
+	<section style="margin-top: 100px;">
+        <div class="row">
+            <div class="col-sm-offset-1 col-sm-10 col-xs-12">
+                <div class="product_top_section">
+                    <h2>安心定期三期 AX20160801</h2>
+					<div class="row">
+					    <p class="col-sm-4" style="border-right: 1px solid #ececec;">预计年化收益<br><span>7%</span></p>
+					    <p class="col-sm-4" style="clear: none;">投资期限<br><span>13个月</span></p>
+					    <div class="col-sm-4">
+					        <#if user!=null>
+					            <#if investor_profile.investor_type == 1 >
+					                <a href="/invest/international/${anxin_product.id}" type="button" class="btn btn-primary" data-titlename="安心定期三期 AX20160801">立即投资</a>
+					            <#elseif investor_profile.investor_type == 2 >
+					                <a href="/invest/american/${anxin_product.id}" type="button" class="btn btn-primary" data-titlename="安心定期三期 AX20160801">立即投资</a>
+					            </#if>
+					        <#else>
+					            <a class="btn btn-primary" href="/protected">立即投资</a>
+					        </#if>
+					    </div>
+					</div>
+					<ul class="two-colum-list">
+					    <li>可投金额<br><span>100万美元</span></li>
+					    <li>起投金额<br><span>1万美元</span></li>
+					</ul>
+					<div class="clearLeft"></div>
+                </div>
+                <div class="product_mid_section">
+                    <ul>
+					    <li><img src="${static}/dist/meixin_invest/img/products/anxin_icon1_512x512.png"><span>历史稳定收益</span></li>
+					    <li><img src="${static}/dist/meixin_invest/img/products/anxin_icon2_512x512.png"><span>多重担保抵押</span></li>
+					    <li><img src="${static}/dist/meixin_invest/img/products/anxin_icon3_512x512.png"><span>华尔街顶级资管团队</span></li>
+					    <li><img src="${static}/dist/meixin_invest/img/products/anxin_icon4_512x512.png"><span>严格审核借贷方资质</span></li>
+					</ul>
+                </div>
+                <div class="product_bot_section_new">
+                    <div class="col-sm-12">
+					    <ul class="nav nav-tabs" role="tablist">
+					        <li role="description" class="active"><a href="#01" role="tab" data-toggle="tab">产品信息</a></li>
+					        <li role="description" ><a href="#02" role="tab" data-toggle="tab">安全保障</a></li>
+					    </ul>
+					    <div class="tab-content">
+					        <div role="tabpanel" class="tab-pane active" id="01">
+					            <table class="table">
+					                <tr>
+					                    <td>产品说明：</td>
+					                    <td>安心定期三期，为安心系列下的定期理财产品，预计年化收益为7%，让您轻松赚取高于银行存款利息的美元收益。本期产品起息日为2016年8月1日。最低起投金额为1万美元，以5千美元为单位向上递增。每月配息。具体项目信息请查看安心定期三期产品计划书。</td>
+					                </tr>
+					                <tr>
+					                    <td>预计年化收益：</td>
+					                    <td>预计年化收益7%</td>
+					                </tr>
+					                <tr>
+					                    <td>购买期限：</td>
+					                    <td>安心定期三期为13个月产品。购买安心定期后，在到期日前，将无法赎回本金。</td>
+					                </tr>
+					                <tr>
+					                    <td>还款方式：</td>
+					                    <td>月度配息</td>
+					                </tr>
+					                <tr>
+					                    <td>保障方式：</td>
+					                    <td>美信7重安全保障,严格的贷款审核及监控流程。</td>
+					                </tr>
+					                <tr>
+					                    <td>购买条件：</td>
+					                    <td>1万美金起投，以5千美元为单位向上递增，投资总额100万美金。</td>
+					                </tr>
+					                <tr>
+					                    <td>加入日期：</td>
+					                    <td>2016.06.28 至 2016.07.28</td>
+					                </tr>
+					                <tr>
+					                    <td>加入方式：</td>
+					                    <td>ACH（对美国银行账户投资人开放线上ACH自动转款）、银行电汇（选择银行电汇时，汇款手续费及中间行扣除费用）、支票</td>
+					                </tr>
+					                <tr>
+					                    <td>底层资产：</td>
+					                    <td>安心定期三期的底层资产为Plaza Grande 住宅单元楼项目的债权。Plaza Grande项目占地33英亩，位于新泽西Cherry Hill，房产包括18000平方英尺的已完工的会所，两个网球场，两个地滚球场和一个室内游泳池。房产属于一个公共产权公寓，可供单独销售单元，整楼以及以房产的使用权形式出租。所有的车道，人行道和设施都已完工。该地产项目第一阶段为占地80万平方英尺的商铺，已建造完工；第二阶段为在建中的市价的出租和出售公寓，即将完工。第三阶段是老年人公寓社区，即投资项目建筑贷款的标的。</td>
+					                </tr>
+					                <tr>
+					                    <td>产品计划书：</td>
+					                    <td><a href="${static}/meixin_invest/doc/Anxindingqi3_Product_book.pdf" download>《安心定期三期产品计划书》</a></td>
+					                </tr>
+					                <tr>
+					                    <td>相关文件：</td>
+					                    <td>
+					                        <#if user!=null >
+					                            <#if investor_profile.investor_type == 1 >
+					                                <a href="${static}/meixin_invest/doc/Cherry_Hill_Private_Placement_Memorandum_Regulation_S.pdf" download>Cherry Hill Private Placement Memorandum Regulation S</a><br>
+					                            <#elseif investor_profile.investor_type == 2 >
+					                                <a href="${static}/meixin_invest/doc/Cherry_Hill_Private_Placement_Memorandum_Regulation_D.pdf" download>Cherry Hill Private Placement Memorandum Regulation D</a><br>
+					                            </#if>
+					                        </#if>
+					                        <a href="${static}/meixin_invest/doc/Investment_Memo_Plaza_Grande_Meixin.pdf" download>Investment Memo Plaza Grande Meixin</a>
+					                    </td>
+					                </tr>
+					            </table>
+					        </div>
+					        <div role="tabpanel" class="tab-pane tab-sec-normal" id="02">
+					            <table class="table">
+					                <tr>
+					                    <td>知名基金领投</td>
+					                    <td>该过桥贷款总额2500万美金，其中95％的份额由一家知名对冲基金领投，另外5%由著名过桥贷款基金及美信基金共同跟投</td>
+					                </tr>
+					                <tr>
+					                    <td>权益平等共享</td>
+					                    <td>三方联合投资享受同样权益，等比例退出，无优先劣后或大股东权益</td>
+					                </tr>
+					                <tr>
+					                    <td>多重资产抵押</td>
+					                    <td>33英亩土地加2栋已改建筑全额第一顺位抵押，贷款放款额与抵押物价值比例交割时 LTV 60%，建筑建成时LTV 40%</td>
+					                </tr>
+					                <tr>
+					                    <td>个人资金担保</td>
+					                    <td>开发商John Fasciano 提供个人担保，Mr Fasciano 有净资产840万美金，30余年地产经验，开发近10亿的地产项目</td>
+					                </tr>
+					                <tr>
+					                    <td>多方尽职调查</td>
+					                    <td>项目贷款审核尽调团队有超过100年商业地产贷款经验,尽调资料严谨全面</td>
+					                </tr>
+					                <tr>
+					                    <td>专款专项专用</td>
+					                    <td>客户资金直接进入第三方监管账户，之后直接交予开发商用于开发项目</td>
+					                </tr>
+					            </table>
+					        </div>
+					    </div>
+					    <div class="prod-bot-announcement">
+					    <p>美信金融作为信息发布平台，未以任何明示或暗示的方式对投资人提供任何担保或承诺保本保息。美信金融提供的各种信息及资料仅供参考，投资人应根据其自身投资偏好及风险承受能力独立判断并作出决策。投资人据此进行交易的，产生的责任与风险由投资人自行承担，美信金融不承担任何责任。</p><p>* 美信金融提醒您，市场有风险，投资需谨慎，任何保障措施均有其局限性：（1）合作机构有可能因各种原因丧失还款意愿或因财务状况严重恶化等原因丧失还款能力；（2）战争、自然灾害、骚乱、罢工、政策变更等不可抗力亦可能严重影响资金安全。</p>
+					    </div>
+					    <style>.product_bot_section{display: none;}</style>
+					</div>
+					<div class="clearLeft"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</div>
+<#include "includes/footer.html" />
+<link rel="shortcut icon" type="image/png" href="${static}/dist/meixin_invest/img/favicon.png">
+<link rel="stylesheet" href="${static}/vendor/css/font-awesome.min.css">
+<script src="${static}/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="${static}/vendor/js/jquery-ui.min.js" type="text/javascript"></script>
+<script src="${static}/vendor/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="${static}/dist/meixin_invest/js/navi.min.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function(){
+        $('#wechat-popover').popover({
+            html : true,
+            placement : 'bottom',
+            trigger : 'hover',
+            content : '<img style="width: 200px;padding:0;margin:0;" src="${static}/meixin_invest/img/meixin_new_qr_code_300x300.jpg" />'
+        });
+		$('.red_packets').hover(function () {
+			$('.activity_message').show();
+		},function () {
+			$('.activity_message').hide();
+		});
+    });
+</script>
+<script src="${static}/dist/meixin_invest/js/bootstrap-formhelpers.min.js" type="text/javascript"></script>
+<script src="${static}/dist/meixin_invest/js/bootstrap-formhelpers-countries-nousa.zh_CN.min.js"></script>
+<script src="${static}/dist/meixin_invest/js/bootstrap-formhelpers-phone.min.js" type="text/javascript"></script>
+<script src="${static}/dist/meixin_invest/js/products.min.js" type="text/javascript"></script>
+</body>
+</html>

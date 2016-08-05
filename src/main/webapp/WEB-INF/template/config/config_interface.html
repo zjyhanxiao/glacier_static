@@ -1,0 +1,24 @@
+<script>
+    //URL的前缀
+    URL_PREFIX = "http://101.201.112.171:8082/apiv2";
+    URL_INVEST = "http://localhost:8080/invest_product/";
+    URL={
+        //用户信息
+        userInfo : {
+            //判断用户是否登陆
+            is_login : URL_PREFIX + "/is_login"
+        },
+        adInfo : {
+            //广告列表
+            ad_list : URL_PREFIX + "/ad_list"
+        },
+        productInfo : {
+            //首页商品信息数据
+            firstPageProduct : URL_PREFIX + "/first_page/product",
+            //商品详情页面
+            productDetail : URL_PREFIX + "/invest_product/id",
+            //商品列表
+            productList : URL_PREFIX + "/product_list"
+        }
+    }
+</script>
