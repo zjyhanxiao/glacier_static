@@ -573,9 +573,10 @@ a {
 }
 
 
-.swiper-show{
+.swiper-button-white{
   margin: 0 10px;
 }
+
 .swiper-pagination-bullet{
   opacity: 1;
   width: 20px;
