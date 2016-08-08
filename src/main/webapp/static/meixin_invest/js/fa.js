@@ -40,8 +40,15 @@ $(function () {
             $(this).val('');
             alert('图片格式不正确，支持图片格式(.jpg|.jpeg|.png|.gif|.bmp)');
         }else{
-          $(this).siblings('img').attr('src',URL.createObjectURL(event.target.files[0]));
-          $('#post_pic').attr('src',$('#identity-proof').prev('img').attr('src'));
+            $.ajax({
+                type:'post',
+                url:'http://101.201.112.171:8082/apiv2/upload/user_file',
+                data:val,
+                success:function (res) {
+                    console.log(JSON.stringify(res));
+                }
+            });
+          //$(this).siblings('img').attr('src',URL.createObjectURL(event.target.files[0]));
         }
     });
     

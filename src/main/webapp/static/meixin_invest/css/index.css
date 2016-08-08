@@ -597,12 +597,13 @@ a {
 }
 .ajax_wait_gif img{
   display: block;
-  margin: 0 auto;
+  margin: 10em  auto 2em;
 }
 .ajax_wait p{
-  color: #555;
+  display: none;
+  color: #fff;
   text-align: center;
 }
 .ajax_wait p a{
-  color: #467fe8;
+  color: #3ceff6;
 }
