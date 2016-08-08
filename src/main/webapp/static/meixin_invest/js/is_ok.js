@@ -29,7 +29,7 @@ $(function () {
                 console.log(JSON.stringify(data));
                 if (data && data.code && data.code == -1) {
                     //window.location = 'https://www.meixinfinance.com/login';
-                    options.fn;
+                    //options.fn;
                 }
 
                 if (data && data.code && data.code == 0) {
