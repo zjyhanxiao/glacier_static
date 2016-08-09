@@ -209,7 +209,7 @@
             var amount = product.invest_par_value || 0;
             ul.append("<li>产品类型：name</li>".replace("name",product.name))
                     .append("<li>预计年化收益：rate%</li>".replace("rate",rate.toFixed(1)))
-                    .append("<li>起投金额：amount万美元</li>".replace("amount",amount/10000))
+                    .append("<li>起投金额：amount万美元</li>".replace("amount",amount))
                     .append("<li>项目周期：month个月</li>".replace("month",product.invest_term));
             switch (product.status){
                 case "CREATED":
