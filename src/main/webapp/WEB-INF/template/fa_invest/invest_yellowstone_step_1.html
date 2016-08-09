@@ -129,8 +129,21 @@
             content: '<img style="width: 200px;padding:0;margin:0;" src="/static/meixin_invest/img/meixin_new_qr_code_300x300.jpg" />'
         });
     });
-
-
+/*
+    getAjaxData({
+        "url":baseUrl+"/profile/get",
+        "data":'',
+        "fn":get_profile
+    });
+    function get_profile(res){
+        /!*$('#lastname')[0].value = d || '';
+        $('#firstname')[0].value = d.first_name || '';
+        $('#firstname')[0].value = d.first_name || '';
+        $('#birth-date')[0].value = d.date_of_birth || '';
+        $('#birth-countries-states')[0].value = d.country_of_birth || '';
+        $('#citizenship-countries-states')[0].value = d.nationality || '';
+        $('#occupation')[0].value = d.occupation || '';*!/
+    }*/
 
     $('#submit_step_one').on('click', function () {
         var data={};
