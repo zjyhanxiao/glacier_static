@@ -6,24 +6,6 @@
     <title>
         美信金融|投资流程
     </title>
-    <script src="/static/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
-    <script src="/static/dist/meixin_invest/js/jquery.cookie.min.js"></script>
-    <script>
-        var token = $.cookie('mx_sid');
-        if(!token){
-            //window.location = 'https://www.meixinfinance.com';
-        }
-        $.ajax({
-            type: 'get',
-            url: 'http://101.201.112.171:8082/apiv2/is_login',
-            data: null,
-            success: function (data) {
-                if (data && data.code && data.code == -1) {
-                    //window.location = 'https://www.meixinfinance.com';
-                }
-            }
-        });
-    </script>
     <link rel="stylesheet" href="/static/vendor/css/bootstrap.min.css">
     <link href="/static/dist/meixin_invest/css/base.min.css" rel="stylesheet">
     <link href="/static/dist/meixin_invest/css/detail-new.min.css" rel="stylesheet">
@@ -93,6 +75,7 @@
 </div>
 <link rel="shortcut icon" type="image/png" href="/static/dist/meixin_invest/img/favicon.png">
 <link rel="stylesheet" href="/static/vendor/css/font-awesome.min.css">
+<script src="/static/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
 <script src="/static/vendor/js/jquery-ui.min.js" type="text/javascript"></script>
 <script src="/static/vendor/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="/static/dist/meixin_invest/js/navi.min.js" type="text/javascript"></script>
@@ -112,99 +95,8 @@
 <script src="/static/dist/meixin_invest/js/bootstrap-formhelpers-phone.min.js" type="text/javascript"></script>
 <script src="/static/meixin_invest/js/parsley.min.js"></script>
 <script src="/static/dist/meixin_invest/js/fa_invest_general.min.js"></script>
+<script src="/static/dist/meixin_invest/js/jquery.cookie.min.js"></script>
 <script src="/static/dist/meixin_invest/js/fa.min.js"></script>
-<script>
-    var data={};
-    data.country=$('#resident-countries-states').val();
-    function $_GET(param) {
-        var vars = {};
-        window.location.href.replace( location.hash, '' ).replace(
-                /[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
-                function( m, key, value ) { // callback
-                    vars[key] = value !== undefined ? value : '';
-                }
-        );
-
-        if ( param ) {
-            return vars[param] ? vars[param] : null;
-        }
-        return vars;
-    }
-    var identity_proof_url;
-    // Meixin Indentification Proof Api Call
-    function saveIdentityProofToInvestDb() {
-        var formData = new FormData(this);
-        if ($('#identity-proof').get(0).files.length != 0) {
-            formData.append('identity_proof', $("#identity-proof")[0].files[0]);
-        }
-        $.ajax({
-            url: '/apiv2/order/upload/identity_proof',
-            dataType: 'json',
-            method: 'post',
-            data: formData,
-            async: false,
-            cache: false,
-            contentType: false,
-            processData: false,
-            success: function (result, status) {
-                console.log(result);
-                console.log('meixin id proof save success');
-                identity_proof_url = result.idenOrAddressName;
-                yellowStepThree();
-            },
-            error: function (response) {
-                console.log(response);
-                is_success = false;
-                error = "身份证明上传有误";
-            },
-            beforeSend: function (xhr, settings) {
-                xhr.setRequestHeader('Authorization', 'Bearer ' + $.cookie('access_token'));
-            }
-        });
-    }
-    //yellow stop3 submit(更新护照信息)
-    function yellowStepThree() {
-        var entity_id = $("#step_three_entity_id").val();
-        $.ajax({
-            url: '/apiv2/order/update/otherInfo',
-            dataType: 'json',
-            method: 'POST',
-            async: false,
-            data: {
-                "entity_id": entity_id,
-                "identity_proof_url":identity_proof_url
-            },
-            success: function (result, status) {
-                console.log("update fa passart entity ");
-                location.href = "/api/yellowstone/to_create_signature?entity_id=" + entity_id;
-            },
-            error: function (response) {
-                console.log(response);
-                is_success = false;
-                error = "投资人护照信息填写有误";
-                error_detail = response.responseText;
-                console.log(error_detail);
-            },
-            beforeSend: function (xhr, settings) {
-                xhr.setRequestHeader('Authorization', 'Bearer ' + $.cookie('access_token'));
-            }
-        });
-    }
-
-    // handle submission
-    $('#submit_step_three').click(function () {
-        if ($('.fa-steps').parsley().validate({group: 'block-' + curIndex()})) {
-            $('#submit_step_three').attr("disabled", "disabled");
-            $('#submit_step_three span').eq(0).show();
-            $('#submit_step_three span').eq(1).text(" 提交中...");
-            setTimeout(function () {
-                //第一步,保持上传信息
-                if (is_success == true) {
-                    saveIdentityProofToInvestDb();
-                }
-            }, 500);
-        }
-    });
-</script>
+<script src="/static/dist/meixin_invest/js/jSignature.min.js" type="text/javascript"></script>
 </body>
 </html>

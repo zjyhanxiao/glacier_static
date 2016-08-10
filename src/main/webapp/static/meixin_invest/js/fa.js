@@ -19,10 +19,10 @@ $(function () {
         //navigateTo(curIndex() - 1);
     });
 
-    $('.step-navigation .next').click(function() {
+/*    $('.step-navigation .next').click(function() {
         if ($('.fa-steps').parsley().validate({group: 'block-' + curIndex()}));
         //navigateTo(curIndex() + 1);
-    });
+    });*/
 
     sections.each(function(index, section) {
         $(section).find(':input').attr('data-parsley-group', 'block-' + index);
@@ -33,7 +33,7 @@ $(function () {
     $('.fa-upload-pic').find('a').click(function(){
         $(this).siblings('input').trigger('click');
     });
-    $('.fa-upload-pic').find('input[type=file]').change(function (event) {
+/*    $('.fa-upload-pic').find('input[type=file]').change(function (event) {
         var val = $(this).val().toLowerCase();
         var regex = new RegExp("(.*?)\.(jpg|jpeg|png|gif|bmp)$");
         if(!(regex.test(val))) {
@@ -46,12 +46,12 @@ $(function () {
                 data:val,
                 success:function (res) {
                     console.log(JSON.stringify(res));
+                    $(this).siblings('img').attr('src',URL.createObjectURL(event.target.files[0]));
                 }
             });
-          //$(this).siblings('img').attr('src',URL.createObjectURL(event.target.files[0]));
         }
-    });
-    
+    });*/
+
     $("#ach-online, #bank-tt, #check, .investor-info-usa, #accredited-investor input, .payment-option input, #invest-amount").change(function(){
         if ($("#investor-type-yes").is(":checked")){
             $("button.next").removeAttr("disabled", "");
@@ -93,7 +93,7 @@ $(function () {
     var replace = "$1/$2/$3$4".replace(/\//g, dateFormat.match(/\W/));
 
     function doFormat(target) {
-        target.value = target.value.replace(/(^|\W)(?=\d\W)/g, "$10").replace(match, replace).replace(/(\W)+/g, "$1"); 
+        target.value = target.value.replace(/(^|\W)(?=\d\W)/g, "$10").replace(match, replace).replace(/(\W)+/g, "$1");
     }
     $("input[name='birthdate']:first").keyup(function(e) {
        if(!e.ctrlKey && !e.metaKey && (e.keyCode == 32 || e.keyCode > 46))
