@@ -6,11 +6,11 @@
     <title>
         美信金融 - 账户概览
     </title>
-    <link rel="stylesheet" href="../../../static/vendor/css/bootstrap.min.css">
-    <link href="../../../static/dist/meixin_invest/css/base.min.css" rel="stylesheet">
-    <link href="../../../static/dist/meixin_invest/css/detail-new.min.css" rel="stylesheet">
-    <link href="../../../static/dist/meixin_invest/css/index.min.css" rel="stylesheet">
-    <link href="../../../static/dist/meixin_invest/css/dashboard.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="${static}/vendor/css/bootstrap.min.css">
+    <link href="${static}/dist/meixin_invest/css/base.min.css" rel="stylesheet">
+    <link href="${static}/dist/meixin_invest/css/detail-new.min.css" rel="stylesheet">
+    <link href="${static}/dist/meixin_invest/css/index.min.css" rel="stylesheet">
+    <link href="${static}/dist/meixin_invest/css/dashboard.min.css" rel="stylesheet">
     <#include "includes/oneapm.html" />
     <#include "includes/ga.html" />
     <script>
@@ -23,8 +23,8 @@
                 })();
     </script>
     <!--[if lt IE 9]>
-    <script src="../../../static/vendor/js/html5shiv"></script>
-    <script src="../../../static/vendor/js/respond.min.js"></script>
+    <script src="${static}/vendor/js/html5shiv"></script>
+    <script src="${static}/vendor/js/respond.min.js"></script>
     <![endif]-->
 </head>
 <body>
@@ -61,15 +61,15 @@
                                     <h3 class="text-center">投资概览</h3>
                                     <ul>
                                         <li>
-                                            <img src="../../../static/meixin_invest/img/dashboard_icon01_120x120.png"/>
+                                            <img src="${static}/meixin_invest/img/dashboard_icon01_120x120.png"/>
                                             <p>已投项目<br><span>${investments.total_invest_number}</span></p>
                                         </li>
                                         <li>
-                                            <img src="../../../static/meixin_invest/img/dashboard_icon02_120x120.png"/>
+                                            <img src="${static}/meixin_invest/img/dashboard_icon02_120x120.png"/>
                                             <p>投资总额<br><span>${investments.total_invest_amount}</span></p>
                                         </li>
                                         <li style="border-right: none;">
-                                            <img src="../../../static/meixin_invest/img/dashboard_icon03_120x120.png"/>
+                                            <img src="${static}/meixin_invest/img/dashboard_icon03_120x120.png"/>
                                             <p>累计收益<br><span>${investments.total_returned_amount}</span></p>
                                         </li>
                                     </ul>
@@ -215,7 +215,7 @@
                                     <#if investor_profile.identification_card_photo != "meixin_invest/user/default.png" >
                                         <img src="${media}${investor_profile.identification_card_photo}">
                                         <#else>
-                                            <img src="../../../static/meixin_invest/img/dashboard/dashboard_id_placeholder_650x396.png">
+                                            <img src="${static}/meixin_invest/img/dashboard/dashboard_id_placeholder_650x396.png">
                                     </#if>
                                 </div>
                                 <div class="dashboard_passport_image dashboard_upload_image col-sm-5">
@@ -223,7 +223,7 @@
                                     <#if investor_profile.passport_photo != "meixin_invest/user/default.png" >
                                         <img src="${media}${investor_profile.passport_photo}">
                                         <#else>
-                                            <img src="../../../static/meixin_invest/img/dashboard/dashboard_passport_placeholder_650x396.png">
+                                            <img src="${static}/meixin_invest/img/dashboard/dashboard_passport_placeholder_650x396.png">
                                     </#if>
                                 </div>
                             </div>
@@ -286,7 +286,7 @@
                                                 ${csrf_token}
                                                 <div class="dashboard_id_image dashboard_upload_image col-sm-5">
                                                     <p>身份证照片</p>
-                                                    <img src="../../../static/meixin_invest/img/upload_id_placeholder_188x144.png"/>
+                                                    <img src="${static}/meixin_invest/img/upload_id_placeholder_188x144.png"/>
                                                     <div class="dashboard_mask">
                                                         <a>选择图片</a>
                                                         <input id="id_identification_card_photo"
@@ -295,7 +295,7 @@
                                                 </div>
                                                 <div class="dashboard_passport_image dashboard_upload_image col-sm-5">
                                                     <p>护照照片</p>
-                                                    <img src="../../../static/meixin_invest/img/upload_passport_placeholder_185x143.png"/>
+                                                    <img src="${static}/meixin_invest/img/upload_passport_placeholder_185x143.png"/>
                                                     <div class="dashboard_mask">
                                                         <a>选择图片</a>
                                                         <input id="id_passport_photo" name="passport_photo" type="file">
@@ -347,12 +347,12 @@
     </div>
 </div>
 <#include "includes/footer.html" />
-<link rel="shortcut icon" type="image/png" href="../../../static/dist/meixin_invest/img/favicon.png">
-<link rel="stylesheet" href="../../../static/vendor/css/font-awesome.min.css">
-<script src="../../../static/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
-<script src="../../../static/vendor/js/jquery-ui.min.js" type="text/javascript"></script>
-<script src="../../../static/vendor/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="../../../static/dist/meixin_invest/js/navi.min.js" type="text/javascript"></script>
+<link rel="shortcut icon" type="image/png" href="${static}/dist/meixin_invest/img/favicon.png">
+<link rel="stylesheet" href="${static}/vendor/css/font-awesome.min.css">
+<script src="${static}/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="${static}/vendor/js/jquery-ui.min.js" type="text/javascript"></script>
+<script src="${static}/vendor/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="${static}/dist/meixin_invest/js/navi.min.js" type="text/javascript"></script>
 <script>
     $(document).ready(function () {
         $('.btn_popup').each(function () {
@@ -417,12 +417,12 @@
             html: true,
             placement: 'bottom',
             trigger: 'hover',
-            content: '<img style="width: 200px;padding:0;margin:0;" src="../../../static/meixin_invest/img/meixin_new_qr_code_300x300.jpg" />'
+            content: '<img style="width: 200px;padding:0;margin:0;" src="${static}/meixin_invest/img/meixin_new_qr_code_300x300.jpg" />'
         });
     });
 </script>
-<script src="../../../static/dist/meixin_invest/js/dashboard.min.js"></script>
-<script src="../../../static/dist/meixin_invest/js/jquery.cookie.min.js"></script>
+<script src="${static}/dist/meixin_invest/js/dashboard.min.js"></script>
+<script src="${static}/dist/meixin_invest/js/jquery.cookie.min.js"></script>
 <script>
     $(document).ready(function () {
         <#if investments.order_list >
