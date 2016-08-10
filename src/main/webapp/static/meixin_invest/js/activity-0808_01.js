@@ -21,7 +21,7 @@ $(function () {
             && (document.getElementById('input7').checked || document.getElementById('input8').checked || document.getElementById('input9').checked)
         ) {
             // alert("全都选了");
-            window.location = "http://localhost:63342/glacier_static/src/main/webapp/WEB-INF/template/activity/mb_02.html";
+            window.location.pathname = "/activity/mb_02.html";
         } else {
             alert("您尚有未选择项");
         }
