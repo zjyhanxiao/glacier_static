@@ -21,7 +21,7 @@ http://www.springframework.org/schema/context/spring-context-3.1.xsd">
         <property name="locations">
             <list>
                 <value>classpath*:/application.properties</value>
-                <value>file:${config.file}</value>
+                <value>file:/Users/zhangjingyu/config.properties</value>
             </list>
         </property>
     </bean>
