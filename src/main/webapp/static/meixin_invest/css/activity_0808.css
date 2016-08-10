@@ -1,0 +1,137 @@
+body{
+    font-size: 1rem;
+    background-color: #e3e3e3;
+}
+#wrap{
+    width: 60%;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+.mian{
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    padding-bottom: 6rem;
+    background-color: #fff;
+    background-image: url("../../../static/meixin_invest/img/activity/activity_0808/bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+/*html_01*/
+.mian-list{
+    width: 70%;
+    margin: 2rem auto 3rem;
+}
+.mian-list-title{
+    color: #0d2a78;
+    font: 1.5rem '微软雅黑';
+    text-align: center;
+    padding-top: 4rem;
+    margin-bottom: 5rem;
+}
+.mian-list-style p{
+    color: #fff;
+    border-radius: 5px;
+    background-color: #0d2a78;
+    padding: 1rem;
+}
+.mian-list-style>a>p{
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    border-radius: 5px;
+    background-color: #0d2a78;
+    padding: 1rem;
+}
+.sub{
+    width: 15%;
+}
+.mian-list-4{
+    margin-left: calc(40% - 30px);
+}
+.mian-list-4>input{
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 5px;
+    background-color: #0d2a78;
+    border: none;
+    width: 50%;
+    padding: 1rem;
+    margin: 4rem auto 0;
+}
+.mian-list-style>a{
+    text-decoration: none;
+}
+.mian-list-select span{
+    color: #0d2a78;
+}
+.mian-l-sel-sty{
+    margin-top: 2rem;
+}
+/*html_02*/
+.bg-logo{
+    width: 30%;
+    height: 30%;
+    margin: 0 auto;
+    padding: 6rem 0 2rem;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.form-list{
+    width: 70%;
+    margin: 40px auto 0;
+    border-bottom: 1px solid #999;
+}
+.form-list input{
+    width: 45%;
+    border: none;
+    outline: none;
+    font-size: 1.5rem;
+    margin-left: .3rem;
+    margin-bottom: 15px;
+    background-color: transparent;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
+#yzm{
+    font-size: 1.2rem;
+    width: 130px;
+}
+span>img{
+    margin-bottom: -.5rem;
+}
+.form-list-yam{
+    float: right;
+    color: #0d2a78;
+    border-radius: 20px;
+    padding: 5px 10px;
+}
+.form-list-6{
+    margin: 0 auto;
+    border: none;
+}
+.form-list-6>input{
+    margin: 6rem auto 0;
+    font: 2rem "微软雅黑";
+    display: block;
+    width: 40%;
+    text-align: center;
+    color: #fff;
+    border: none;
+    border-radius: 2.5rem;
+    background-color: #0d2a78;
+    padding: .8rem;
+}
+
+/*html_03*/
+.ifo{
+    margin: auto;
+    width: 60%;
+    height: 30rem;
+    text-align: center;
+    padding-top: 20rem;
+}
+
