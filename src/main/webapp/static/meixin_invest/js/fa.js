@@ -2,14 +2,14 @@ $(function () {
     var sections = $('.step-section'),
         bullets = $('.fa-steps-bullets');
 
-    function navigateTo(index) {
+/*    function navigateTo(index) {
         sections.removeClass('current').eq(index).addClass('current');
         bullets.find('p').css("background-color", "#c8d6e0").eq(index).css("background-color", "#029DE0");
         $('.step-navigation .previous').toggle(index > 0);
         var last = index >= sections.length - 1;
         $('.step-navigation .next').toggle(!last);
         $('.step-navigation [type=fasubmit]').toggle(last);
-    }
+    }*/
 
  /*   function curIndex() {
         return sections.index(sections.filter('.current'));
@@ -28,20 +28,10 @@ $(function () {
         $(section).find(':input').attr('data-parsley-group', 'block-' + index);
     });
 
-    navigateTo(0);
+/*    navigateTo(0);*/
 
     $('.fa-upload-pic').find('a').click(function(){
         $(this).siblings('input').trigger('click');
-    });
-    $('.fa-upload-pic').find('input[type=file]').change(function (event) {
-        var val = $(this).val().toLowerCase();
-        var regex = new RegExp("(.*?)\.(jpg|jpeg|png|gif|bmp)$");
-        if(!(regex.test(val))) {
-            $(this).val('');
-            alert('图片格式不正确，支持图片格式(.jpg|.jpeg|.png|.gif|.bmp)');
-        }else{
-            $(this).siblings('img').attr('src',URL.createObjectURL(event.target.files[0]));
-        }
     });
 
     $("#ach-online, #bank-tt, #check, .investor-info-usa, #accredited-investor input, .payment-option input, #invest-amount").change(function(){

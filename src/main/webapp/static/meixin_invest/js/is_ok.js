@@ -58,16 +58,16 @@ var Ajax_Data = function (options) {
 };
 
 
-var baseUrl = 'http://bj.meixinfinance.com/:8081/apiv2';
+var baseUrl = 'http://bj.meixinfinance.com:8081/apiv2';
 
 $(function () {
     setTimeout(function () {
         $('.ajax_wait p').show();
     }, 3e3);
 
-
+    
     // 调取 登录接口
-    Ajax_Data({
+/*    Ajax_Data({
         "url": baseUrl + "/auth/login",
         "type": "post",
         "data": {"user_name": "+86 18810797876", "password": "111111"},
@@ -86,18 +86,5 @@ $(function () {
         // 设置cookie
         $.cookie('mx_token', res.mx_token, {expires: 10});
         $.cookie('mx_secret', res.mx_secret, {expires: 10});
-
-        //取cookie
-        var mx_token = $.cookie('mx_token'),
-            mx_secret = $.cookie('mx_secret');
-
-        cookie_tooken = {mx_token: mx_token, mx_secret: mx_secret};
-
-        // 验证是否登录
-        Ajax_Data({
-            "url": baseUrl + "/auth/is_login",
-            "data": cookie_tooken,
-            "fn": is_login
-        });
-    }
+    }*/
 });
