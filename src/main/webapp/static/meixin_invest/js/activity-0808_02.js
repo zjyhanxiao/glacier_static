@@ -65,7 +65,7 @@ $(function () {
                 } else if(res.code = -1){
                     // $('body').html(res.msg);
                     // $('.mian').html(res.msg);
-                    $('.mian').append("<p style='text-align: center'> res.msg</p>");
+                    $('.mian').append("<p style='text-align: center'>" + res.msg + "</p>");
                 }
             }
         })
