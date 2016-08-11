@@ -37,7 +37,6 @@ $(function () {
                 data: data,
                 success: function (result) {
                     $('#signUp').click(function () {
-                        $("#phone,#pwd,#email").next('p').remove();
                         checkPhone() && checkPwd() && checkEmail();
                         var jsonStr = $.cookie("key_cookie");
                         var data = {
@@ -62,10 +61,9 @@ $(function () {
                                         $("div").remove(".bg-logo");
                                         $('.mian').append("<p style='font-size: 18px; color: #0d2a78; letter-spacing: 1px; text-align: center; padding-top: 230px; line-height: 2em;'>" + '恭喜您' + res.msg + "<br>" + '您的抽奖码:' + res.no + "</p>"
                                             + "<p style='font-size: 15px;color: #666; line-height: 20px; text-align: center; padding: 0 50px;'>" + '请您将此页面展示给我们的工作人员,即可抽取美元奖励!' + "</p>");
-                                    } else if (res.code = -1) {/*
+                                    } else if (res.code = -1) {
                                         $('.mian').append("<p style='font-size: 15px;color: #666; line-height: 20px;" +
-                                            "text-align: center; padding: 0 50px'>" + res.msg + "</p>");*/
-                                        $('#infor').html(res.msg);
+                                            "text-align: center; padding: 0 50px'>" + res.msg + "</p>");
                                     }
                                 }
                             })
@@ -131,9 +129,9 @@ $(function () {
         var emailEle = document.getElementById("email");
         var reg = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
         if (!reg.test(emailEle.value)) {
-            $("#email").after("<p style='text-align: center; color: #900'>邮箱格式不正确</P>");
-            $("#email").focus(function () {
-                $("#email").next('p').remove();
+            $("#pwd").after("<p style='text-align: center; color: #900'>邮箱格式不正确</P>");
+            $("#pwd").focus(function () {
+                $("#pwd").next('p').remove();
             });
             return false;
         } else {
