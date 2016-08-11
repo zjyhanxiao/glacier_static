@@ -61,7 +61,7 @@ $(function () {
                     $("div").remove(".bg-logo");
                     // $('body').html(res.msg + res.no);
                     // $('.mian').html(res.msg + res.no);
-                    $('.mian').append("<p style='text-align: center'>'恭喜您'+ res.msg + res.no </p>");
+                    $('.mian').append("<p style='text-align: center'>恭喜您"+ res.msg + "注册码" + res.no "</p>");
                 } else if(res.code = -1){
                     // $('body').html(res.msg);
                     // $('.mian').html(res.msg);
