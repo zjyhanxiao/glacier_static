@@ -62,8 +62,9 @@ $(function () {
                                         $('.mian').append("<p style='font-size: 18px; color: #0d2a78; letter-spacing: 1px; text-align: center; padding-top: 230px; line-height: 2em;'>" + '恭喜您' + res.msg + "<br>" + '您的抽奖码:' + res.no + "</p>"
                                             + "<p style='font-size: 15px;color: #666; line-height: 20px; text-align: center; padding: 0 50px;'>" + '请您将此页面展示给我们的工作人员,即可抽取美元奖励!' + "</p>");
                                     } else if (res.code = -1) {
-                                        $('.mian').append("<p style='font-size: 15px;color: #666; line-height: 20px;" +
-                                            "text-align: center; padding: 0 50px'>" + res.msg + "</p>");
+                                       /* $('.mian').append("<p style='font-size: 15px;color: #666; line-height: 20px;" +
+                                            "text-align: center; padding: 0 50px'>" + res.msg + "</p>");*/
+                                       $('#infor').html(res.msg);
                                     }
                                 }
                             })
@@ -110,20 +111,7 @@ $(function () {
         }
     }
 
-//确认密码: 与密码一致
-    /*function checkPwd2 () {
-     var pwdEle2 = document.getElementById("pwd2");
-     var pwdEle = document.getElementById("pwd");
-     if(pwdEle2.value!=pwdEle.value) {
-     $("#pwd2").after("<p style='text-align: center; color: #900'>两次密码不一致</P>");
-     $("#pwd2").focus(function () {
-     $("#pwd2").next('p').remove();
-     });
-     return false;
-     } else {
-     return true;
-     }
-     }*/
+
 //电子邮箱: 必须满足邮箱格式
     function checkEmail() {
         var emailEle = document.getElementById("email");
