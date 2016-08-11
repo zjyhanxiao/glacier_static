@@ -25,6 +25,7 @@ body{
     margin: 1rem auto 1rem;
 }
 .mian-list-1{
+    margin: 0 auto;
     padding-top: 30px;
 }
 .mian-list-title{
@@ -147,8 +148,8 @@ span>img{
 #infor{
     height: 40px;
     width: 100%;
-    background-color: #fff;
     text-align: center;
+    background-color: #fff;
 }
 
 
