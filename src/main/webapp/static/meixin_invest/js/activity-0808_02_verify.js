@@ -11,8 +11,11 @@ window.onload = function () {
         var phoneEle = document.getElementById("phone");
         var reg = /\d{11}/;
         if(!reg.test(phoneEle.value)) {
-            phoneEle.focus();
-            alert("请输入正确的手机号码");
+            $("#phone").after("<p style='text-align: center; color: #900'>请输入正确的手机号码</P>");
+            $("#phone").focus(function () {
+                $("#phone").next('p').remove();
+            });
+            // alert("请输入正确的手机号码");
             return false;
         }
         return true;
@@ -21,9 +24,10 @@ window.onload = function () {
     function checkPwd () {
         var pwdEle = document.getElementById("pwd");
         if(pwdEle.value.length<6) {
-            pwdEle.focus();
-            pwdEle.value = '';
-            alert("密码长度不能小于6位");
+            $("#pwd").after("<p style='text-align: center; color: #900'>密码长度不能小于6位</P>");
+            $("#pwd").focus(function () {
+                $("#pwd").next('p').remove();
+            });
             return false;
         } else {
             return true;
@@ -34,9 +38,10 @@ window.onload = function () {
         var pwdEle2 = document.getElementById("pwd2");
         var pwdEle = document.getElementById("pwd");
         if(pwdEle2.value!=pwdEle.value) {
-            pwdEle2.focus();
-            pwdEle2.value = '';
-            alert("确认密码必须与密码相同");
+            $("#pwd2").after("<p style='text-align: center; color: #900'>两次密码不一致</P>");
+            $("#pwd2").focus(function () {
+                $("#pwd2").next('p').remove();
+            });
             return false;
         } else {
             return true;
@@ -47,9 +52,10 @@ window.onload = function () {
         var emailEle = document.getElementById("email");
         var reg = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
         if(!reg.test(emailEle.value)) {
-            emailEle.focus();
-            emailEle.value = '';
-            alert("邮箱格式不正确");
+            $("#pwd").after("<p style='text-align: center; color: #900'>邮箱格式不正确</P>");
+            $("#pwd").focus(function () {
+                $("#pwd").next('p').remove();
+            });
             return false;
         }
         return true;

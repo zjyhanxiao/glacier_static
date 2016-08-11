@@ -15,7 +15,10 @@
     <form name="username" method="post" action="">
         <div class="form-list form-list-1">
             <span><img src="../../../static/meixin_invest/img/activity/activity_0808/icon/telephone-icon@2x.png"></span>
-            <input type="text" id="phone" placeholder="请输入您的手机号"/>
+            <input type="text" id="phone" name="phone" data-parsley-group="block1"
+                   required="" data-parsley-pattern="/\d{11}/"
+                   data-parsley-pattern-message="输入信息格式有误"
+                   placeholder="请输入您的手机号"/>
         </div>
         <div class="form-list form-list-2">
             <span><img style="width: 12px; height: 18px;" src="../../../static/meixin_invest/img/activity/activity_0808/icon/yanzhengmaicon@2x.png"></span>
@@ -46,5 +49,6 @@
 <script type="text/javascript" src="../../../static/vendor/js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="../../../static/dist/meixin_invest/js/jquery.cookie.min.js"></script>
 <script type="text/javascript" src="../../../static/meixin_invest/js/activity-0808_02.js"></script>
+<!--<script type="text/javascript" src="../../../static/meixin_invest/js/parsley.min.js"></script>-->
 <script type="text/javascript" src="../../../static/meixin_invest/js/activity-0808_02_verify.js"></script>
 </html>
