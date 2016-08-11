@@ -1,39 +1,41 @@
 body{
-    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
     background-color: #e3e3e3;
 }
 #wrap{
-    height: 1024px;
-    width: 100%;
+    margin: 0;
+    padding: 0;
+    /*height: 667px;*/
 }
 .mian{
     width: 100%;
-    height: 1000px;
+    height: 667px;
     margin: 0 auto;
-    /*text-align: center;*/
-    padding-bottom: 6rem;
+    /*padding-bottom: 6rem;*/
     background-color: #fff;
-    background-image: url("../img/activity/activity_0808/bg.jpg");
+    background-image: url("../../../static/meixin_invest/img/activity/activity_0808/bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }
 /*html_01*/
 .mian-list{
-    width: 70%;
-    margin: 2rem auto 3rem;
+    width: 80%;
+    margin: 1rem auto 1rem;
 }
 .mian-list-title{
     color: #0d2a78;
-    font: 1.5rem '微软雅黑';
+    font: 20px '微软雅黑';
     text-align: center;
-    padding-top: 4rem;
-    margin-bottom: 5rem;
+    padding-top: 12px;
+    margin-bottom: 2rem;
 }
 .mian-list-style p{
     color: #fff;
     border-radius: 5px;
     background-color: #0d2a78;
-    padding: 1rem;
+    padding: 9px;
 }
 .mian-list-style>a>p{
     width: 100%;
@@ -51,13 +53,14 @@ body{
 }
 .mian-list-4>input{
     color: #fff;
-    font-size: 1rem;
+    line-height: 30px;
     border-radius: 5px;
     background-color: #0d2a78;
     border: none;
-    width: 50%;
-    padding: 1rem;
-    /*margin: 4rem auto 0;*/
+    width: 138px;
+    /*height: 30px;*/
+    /*padding: .8rem;*/
+    margin: 1rem auto 0;
 }
 .mian-list-style>a{
     text-decoration: none;
@@ -66,28 +69,38 @@ body{
     color: #0d2a78;
 }
 .mian-l-sel-sty{
-    margin-top: 2rem;
+    margin-top: 15px;
 }
 /*html_02*/
 .bg-logo{
     width: 30%;
+    height: 128px;
     margin: 0 auto;
-    padding: 5rem 0 2rem;
+    padding: 2rem 0 0;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100%;
+}
+.bg-logo>img{
+    width: 84px;
+    height: 96px;
 }
 .form-list{
-    width: 70%;
-    margin: 40px auto 0;
+    width: 80%;
+    height: 25px;
+    margin: 24px auto 0;
     border-bottom: 1px solid #999;
 }
+.form-list>span>img{
+    width: 12px;
+    height: 18px;
+}
 .form-list input{
-    width: 45%;
+    /*width: 45%;*/
     border: none;
     outline: none;
-    font-size: 1.5rem;
+    font-size: 13px;
     margin-left: .3rem;
-    margin-bottom: 15px;
+    /*margin-bottom: 15px;*/
     background-color: transparent;
 }
 
@@ -96,11 +109,14 @@ input:-webkit-autofill {
 }
 
 #yzm{
-    font-size: 1.2rem;
-    width: 130px;
+    padding: 2px;
+    /*margin: ;*/
+    font-size: 12px;
+    width: 72px;
+    height: 22px;
 }
 span>img{
-    margin-bottom: -.5rem;
+    margin-bottom: -3px;
 }
 .form-list-yam{
     float: right;
@@ -113,117 +129,17 @@ span>img{
     border: none;
 }
 .form-list-6>input{
-    margin: 6rem auto 0;
-    font: 2rem "微软雅黑";
+    margin: 40px auto 0;
+    font: normal 16px/40px "";
+    letter-spacing: 4px;
     display: block;
-    width: 40%;
+    width: 240px;
     text-align: center;
     color: #fff;
     border: none;
     border-radius: 2.5rem;
     background-color: #0d2a78;
-    padding: .8rem;
 }
-@media (max-width: 640px) {
-    /*form_01*/
-    .mian-l-sel-sty{
-        margin-top: 1rem;
-    }
-    .mian-list{
-        width: 70%;
-        margin: 1rem auto 1rem;
-    }
-    .mian-list-title{
-        color: #0d2a78;
-        font: 1.5rem '微软雅黑';
-        text-align: center;
-        padding-top: 15%;
-        margin-bottom: 5rem;
-    }
-    /*form_02*/
-    #wrap{
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 700px;
-    }
-    .mian{
-        margin: 0;
-        width: 100%;
-        height: 700px;
-        background-color: #fff;
-    }
-    .form-list>span>img{
-        width: 6%;
-        height: auto;
-    }
-    .form-list>input{
-        font-size: .5rem;
-    }
-    #yzm{
-        font-size: .8rem;
-        width: 34%;
-        height: auto;
-    }
-    .form-list-6>input{
-        font-size: 1rem;
-    }
-}
-@media (max-width: 440px) {
-    #wrap{
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 600px;
-    }
-    .mian{
-        margin: 0;
-        width: 100%;
-        /*height: 600px;*/
-        background-color: #fff;
-    }
-    .form-list>span>img{
-        width: 6%;
-        height: auto;
-    }
-    .form-list>input{
-        font-size: .5rem;
-    }
-    #yzm{
-        font-size: .8rem;
-        width: 34%;
-        height: auto;
-    }
-    .form-list-6>input{
-        font-size: 1rem;
-    }
-}
-@media (max-width: 320px) {
-    #wrap{
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 500px;
-    }
-    .mian{
-        margin: 0;
-        width: 100%;
-        height: 600px;
-        background-color: #fff;
-    }
-    .form-list>span>img{
-        width: 6%;
-        height: auto;
-    }
-    .form-list>input{
-        font-size: 1rem;
-    }
-    #yzm{
-        font-size: .6rem;
-        width: 34%;
-        height: auto;
-    }
-    .form-list-6>input{
-        font-size: 1.2rem;
-    }
-}
+
+
+
