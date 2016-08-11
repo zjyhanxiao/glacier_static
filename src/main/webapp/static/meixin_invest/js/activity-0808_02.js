@@ -33,7 +33,7 @@ $(function () {
             }
             $.ajax({
                 type: "get",
-                url: "http://101.201.112.171//sendVerifyCode",
+                url: "http://101.201.112.171/sendVerifyCode",
                 data: data,
                 success: function (result) {
                     $('#signUp').click(function () {
