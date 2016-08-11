@@ -33,7 +33,7 @@ $(function () {
             }
             $.ajax({
                 type: "get",
-                url: "http://192.168.1.100:8080/sendVerifyCode",
+                url: "http://101.201.112.171//sendVerifyCode",
                 data: data,
                 success: function (result) {
                     $('#signUp').click(function () {
@@ -52,7 +52,7 @@ $(function () {
                         if (b_checkPhone && b_checkPwd && b_checkEmail && b_verify_code) {
                             $.ajax({
                                 type: 'post',
-                                url: "http://192.168.1.100:8080/simple_signup",
+                                url: "http://http://101.201.112.171/simple_signup",
                                 data: data,
                                 success: function (res) {
                                     console.log(JSON.stringify(res));
