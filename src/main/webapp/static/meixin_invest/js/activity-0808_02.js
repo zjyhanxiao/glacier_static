@@ -52,7 +52,7 @@ $(function () {
         };
         $.ajax({
             type: 'post',
-            url: "http://124.65.197.114:8080/simple_signup",
+            url: "http://101.201.112.171/simple_signup",
             data: data,
             success: function (res) {
                 console.log(JSON.stringify(res));
