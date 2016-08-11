@@ -37,6 +37,7 @@ $(function () {
                 data: data,
                 success: function (result) {
                     $('#signUp').click(function () {
+                        $('#phone,#pwd,#email').next('p').remove();
                         checkPhone() && checkPwd() && checkEmail();
                         var jsonStr = $.cookie("key_cookie");
                         var data = {
@@ -129,9 +130,9 @@ $(function () {
         var emailEle = document.getElementById("email");
         var reg = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
         if (!reg.test(emailEle.value)) {
-            $("#pwd").after("<p style='text-align: center; color: #900'>邮箱格式不正确</P>");
-            $("#pwd").focus(function () {
-                $("#pwd").next('p').remove();
+            $("#email").after("<p style='text-align: center; color: #900'>邮箱格式不正确</P>");
+            $("#email").focus(function () {
+                $("#email").next('p').remove();
             });
             return false;
         } else {
