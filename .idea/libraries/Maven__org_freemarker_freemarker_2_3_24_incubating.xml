@@ -3,6 +3,7 @@
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/org/freemarker/freemarker/2.3.24-incubating/freemarker-2.3.24-incubating.jar!/" />
     </CLASSES>
+    <JAVADOC />
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/org/freemarker/freemarker/2.3.24-incubating/freemarker-2.3.24-incubating-sources.jar!/" />
     </SOURCES>

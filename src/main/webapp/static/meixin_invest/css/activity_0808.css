@@ -11,11 +11,19 @@ body{
 }
 .mian{
     width: 100%;
+<<<<<<< HEAD
     height: 667px;
     margin: 0 auto;
     /*padding-bottom: 6rem;*/
     background-color: #fff;
     background-image: url("../../../static/meixin_invest/img/activity/activity_0808/bg.jpg");
+=======
+    height: 637px;
+    margin: 0 auto;
+    /*padding-bottom: 6rem;*/
+    background-color: #fff;
+    background-image: url("../img/activity/activity_0808/bg.jpg");
+>>>>>>> c47294a9ff283526e01c9874bda3f94927c2fe14
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -24,6 +32,13 @@ body{
     width: 80%;
     margin: 1rem auto 1rem;
 }
+<<<<<<< HEAD
+=======
+.mian-list-1{
+    margin: 0 auto;
+    padding-top: 30px;
+}
+>>>>>>> c47294a9ff283526e01c9874bda3f94927c2fe14
 .mian-list-title{
     color: #0d2a78;
     font: 20px '微软雅黑';
@@ -45,8 +60,14 @@ body{
     background-color: #0d2a78;
     padding: 1rem;
 }
+<<<<<<< HEAD
 .sub{
     width: 15%;
+=======
+#sub{
+    width: 240px;
+    height: 40px;
+>>>>>>> c47294a9ff283526e01c9874bda3f94927c2fe14
 }
 .mian-list-4{
     position: relative;
@@ -140,6 +161,15 @@ span>img{
     border-radius: 2.5rem;
     background-color: #0d2a78;
 }
+<<<<<<< HEAD
 
+=======
+#infor{
+    height: 40px;
+    width: 100%;
+    text-align: center;
+    background-color: #fff;
+}
+>>>>>>> c47294a9ff283526e01c9874bda3f94927c2fe14
 
 

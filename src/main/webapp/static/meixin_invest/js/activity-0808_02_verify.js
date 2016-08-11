@@ -33,6 +33,7 @@ window.onload = function () {
             return true;
         }
     }
+    <<<<<<< HEAD
 //确认密码: 与密码一致
     /*function checkPwd2 () {
         var pwdEle2 = document.getElementById("pwd2");
@@ -47,6 +48,9 @@ window.onload = function () {
             return true;
         }
     }*/
+=======
+
+>>>>>>> c47294a9ff283526e01c9874bda3f94927c2fe14
 //电子邮箱: 必须满足邮箱格式
     function checkEmail () {
         var emailEle = document.getElementById("email");
