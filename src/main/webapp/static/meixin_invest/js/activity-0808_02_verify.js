@@ -33,20 +33,7 @@ window.onload = function () {
             return true;
         }
     }
-//确认密码: 与密码一致
-    /*function checkPwd2 () {
-        var pwdEle2 = document.getElementById("pwd2");
-        var pwdEle = document.getElementById("pwd");
-        if(pwdEle2.value!=pwdEle.value) {
-            $("#pwd2").after("<p style='text-align: center; color: #900'>两次密码不一致</P>");
-            $("#pwd2").focus(function () {
-                $("#pwd2").next('p').remove();
-            });
-            return false;
-        } else {
-            return true;
-        }
-    }*/
+
 //电子邮箱: 必须满足邮箱格式
     function checkEmail () {
         var emailEle = document.getElementById("email");
