@@ -35,7 +35,7 @@ var Ajax_Data = function (options) {
             console.log(options.url + ": " + JSON.stringify(data));
             var res = data.body || null;
             if (data && data.code && data.code == -1) {
-                options.fail_fn&&options.fail_fn(res);
+                options.fail_fn && options.fail_fn(res);
             }
 
             if (data && data.code && data.code == 0) {
@@ -67,37 +67,37 @@ $(function () {
 
 
     // 调取 登录接口
-    /*Ajax_Data({
-     "url": baseUrl + "/auth/login",
-     "type": "post",
-     "data": {"user_name": "+86 18810797876", "password": "111111"},
-     "fn": login
-     });
+    Ajax_Data({
+        "url": baseUrl + "/auth/login",
+        "type": "post",
+        "data": {"user_name": "+86 18810797876", "password": "111111"},
+        "fn": login
+    });
 
 
-     function login(res) {
-     $('.navbar ul li:last-child').html('<a class="btn btn-min-width" href="/investor/dashboard">我的账户</a>');
-     $('.navbar ul li:nth-last-child(2)').html('<a class="btn btn-min-width-sm" href="/logout">退出</a>');
-     $('.ajax_wait p,.ajax_wait').hide();
+    function login(res) {
+        $('.navbar ul li:last-child').html('<a class="btn btn-min-width" href="/investor/dashboard">我的账户</a>');
+        $('.navbar ul li:nth-last-child(2)').html('<a class="btn btn-min-width-sm" href="/logout">退出</a>');
+        $('.ajax_wait p,.ajax_wait').hide();
 
-     //清楚cookie
-     $.cookie('mx_token', '', {expires: -1});
-     $.cookie('mx_secret', '', {expires: -1});
-     // 设置cookie
-     $.cookie('mx_token', res.mx_token, {expires: 10});
-     $.cookie('mx_secret', res.mx_secret, {expires: 10});
+        //清楚cookie
+        $.cookie('mx_token', '', {expires: -1});
+        $.cookie('mx_secret', '', {expires: -1});
+        // 设置cookie
+        $.cookie('mx_token', res.mx_token, {expires: 10});
+        $.cookie('mx_secret', res.mx_secret, {expires: 10});
 
-     //取cookie
-     var mx_token = $.cookie('mx_token'),
-     mx_secret = $.cookie('mx_secret');
+        //取cookie
+        var mx_token = $.cookie('mx_token'),
+            mx_secret = $.cookie('mx_secret');
 
-     cookie_tooken = {mx_token: mx_token, mx_secret: mx_secret};
+        cookie_tooken = {mx_token: mx_token, mx_secret: mx_secret};
 
-     // 验证是否登录
-     Ajax_Data({
-     "url": baseUrl + "/auth/is_login",
-     "data": cookie_tooken,
-     "fn": is_login
-     });
-     }*/
+        // 验证是否登录
+        Ajax_Data({
+            "url": baseUrl + "/auth/is_login",
+            "data": cookie_tooken,
+            "fn": is_login
+        });
+    }
 });

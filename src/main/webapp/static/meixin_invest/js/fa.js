@@ -11,10 +11,10 @@ $(function () {
         $('.step-navigation [type=fasubmit]').toggle(last);
     }
 
-    function curIndex() {
+ /*   function curIndex() {
         return sections.index(sections.filter('.current'));
     }
-/*
+
     $('.step-navigation .previous').click(function() {
         navigateTo(curIndex() - 1);
     });
