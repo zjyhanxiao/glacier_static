@@ -49,18 +49,19 @@ body{
     width: 15%;
 }
 .mian-list-4{
-    margin-left: calc(40% - 30px);
+    position: relative;
 }
 .mian-list-4>input{
+    position: absolute;
+    margin: auto;
+    left:0;
+    right:0;
     color: #fff;
     line-height: 30px;
     border-radius: 5px;
     background-color: #0d2a78;
     border: none;
     width: 138px;
-    /*height: 30px;*/
-    /*padding: .8rem;*/
-    margin: 1rem auto 0;
 }
 .mian-list-style>a{
     text-decoration: none;
@@ -73,7 +74,7 @@ body{
 }
 /*html_02*/
 .bg-logo{
-    width: 30%;
+    width: 25%;
     height: 128px;
     margin: 0 auto;
     padding: 2rem 0 0;
@@ -95,12 +96,10 @@ body{
     height: 18px;
 }
 .form-list input{
-    /*width: 45%;*/
     border: none;
     outline: none;
     font-size: 13px;
     margin-left: .3rem;
-    /*margin-bottom: 15px;*/
     background-color: transparent;
 }
 
@@ -131,6 +130,7 @@ span>img{
 .form-list-6>input{
     margin: 40px auto 0;
     font: normal 16px/40px "";
+    height: 40px;
     letter-spacing: 4px;
     display: block;
     width: 240px;
