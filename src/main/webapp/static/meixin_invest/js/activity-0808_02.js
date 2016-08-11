@@ -7,7 +7,7 @@ $(function () {
         checkPhone();
         if (b_checkPhone) {
             var stop;
-            var countdown = 6;
+            var countdown = 60;
 
             function setTime(myVal) {
                 if (countdown == 0) {
@@ -52,7 +52,7 @@ $(function () {
                         if (b_checkPhone && b_checkPwd && b_checkEmail && b_verify_code) {
                             $.ajax({
                                 type: 'post',
-                                url: "http://http://101.201.112.171/simple_signup",
+                                url: "http://101.201.112.171/simple_signup",
                                 data: data,
                                 success: function (res) {
                                     console.log(JSON.stringify(res));
