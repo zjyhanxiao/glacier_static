@@ -190,7 +190,7 @@
                 mx_secret = $.cookie('mx_secret');
         cookie_tooken = {mx_token: mx_token, mx_secret: mx_secret};
         Ajax_Data({
-            "url": baseUrl + "/auth/is_login",
+            "url": baseUrl + "/auth/authentication",
             "data": cookie_tooken,
             "fn": is_login,
             "fail_fn":login_fail
