@@ -340,6 +340,7 @@
         function get_profile(d) {
             if (d.address_proof != "" && d.address_proof != null) {
                 $('#address-proof').siblings('img').attr('src', d.address_proof);
+                $('#identity-proof').prop("required", false);
             }
             if (d.resident_country != "" && d.resident_country != null) {
                 $('#resident-countries-states').val(d.resident_country);

@@ -192,8 +192,9 @@
 
         //获取profile信息
         function get_profile(d) {
-            if (d.source_of_income != "" && d.source_of_income != null) {
+            if (d.passport_photo != "" && d.passport_photo != null) {
                 $('.fa-upload-id-pic').find('img').attr('src', d.passport_photo);
+                $('#identity-proof').prop("required", false);
             }
         }
 
