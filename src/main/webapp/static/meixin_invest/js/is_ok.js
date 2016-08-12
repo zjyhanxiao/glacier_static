@@ -58,7 +58,7 @@ var Ajax_Data = function (options) {
 };
 
 
-var baseUrl = 'http://bj.meixinfinance.com:8081/apiv2';
+var baseUrl = 'http://bj.meixinfinance.com:8081/web';
 
 $(function () {
     setTimeout(function () {
