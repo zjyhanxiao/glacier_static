@@ -185,6 +185,7 @@
         });
 
         var address_proof;
+        var order_number;
         //验证登录
         var mx_token = $.cookie('mx_token'),
                 mx_secret = $.cookie('mx_secret');
@@ -204,136 +205,76 @@
             $('.navbar ul li:last-child').html('<a class="btn btn-min-width" href="/investor/dashboard">我的账户</a>');
             $('.navbar ul li:nth-last-child(2)').html('<a class="btn btn-min-width-sm" href="/logout">退出</a>');
             $('.ajax_wait p,.ajax_wait').hide();
-            //新建订单
-            if (is_new) {
-                // 获取profile信息
-                var get_profile_data = {
-                    "fields": "address_proof,resident_country,resident_region,resident_city,resident_street,resident_door,resident_apartment,resident_zipcode,permanent_country,permanent_region,permanent_city,permanent_street,permanent_door,permanent_apartment,permanent_zipcode"
-                };
-                var object = $.extend({}, cookie_tooken, get_profile_data);
-                var get_profile_data = $.extend({}, get_profile_data, cookie_tooken);
+
+            // 获取profile信息
+            var get_profile_data = {
+                "fields": "address_proof,resident_country,resident_region,resident_city,resident_street,resident_door,resident_apartment,resident_zipcode,permanent_country,permanent_region,permanent_city,permanent_street,permanent_door,permanent_apartment,permanent_zipcode"
+            };
+            get_profile_data = $.extend({}, get_profile_data, cookie_tooken);
+            Ajax_Data({
+                "url": baseUrl + "/profile/get",
+                "data": get_profile_data,
+                "fn": get_profile
+            });
+
+            //上传图片
+            $('#address-proof').change(function (event) {
+                var val = $(this).val().toLowerCase();
+                var regex = new RegExp("(.*?)\.(jpg|jpeg|png|gif|bmp)$");
+                if (!(regex.test(val))) {
+                    $(this).val('');
+                    alert('图片格式不正确，支持图片格式(.jpg|.jpeg|.png|.gif|.bmp)');
+                } else {
+                    file_upload();
+                    $(this).siblings('img').attr('src', URL.createObjectURL(event.target.files[0]));
+                }
+            });
+
+            $('#submit_step_four').on('click', function () {
+                $('.ajax_wait').show();
+                setTimeout(function () {
+                    $('.ajax_wait p').show();
+                }, 3e3);
+
+                order_number = getUrlParam("order_number");
+
+                //上传profile信息
+                var update_profile_data = {};
+                update_profile_data.address_proof = address_proof;
+                update_profile_data.resident_country = $('#resident-countries-states').val();
+                update_profile_data.resident_region = $('#resident-state').val();
+                update_profile_data.resident_city = $('#resident-city').val();
+                update_profile_data.resident_street = $('#resident-street').val();
+                update_profile_data.resident_door = $('#resident-door').val();
+                update_profile_data.resident_apartment = $('#resident-apartment').val();
+                update_profile_data.resident_zipcode = $('#resident-zipcode').val();
+
+                if (!$("#is-address-permanent").is(':checked')) {
+                    update_profile_data.permanent_country = $('#permanent-countries-states').val();
+                    update_profile_data.permanent_region = $('#permanent-state').val();
+                    update_profile_data.permanent_city = $('#permanent-city').val();
+                    update_profile_data.permanent_street = $('#permanent-street').val();
+                    update_profile_data.permanent_door = $('#permanent-door').val();
+                    update_profile_data.permanent_apartment = $('#permanent-apartment').val();
+                    update_profile_data.permanent_zipcode = $('#permanent-zipcode').val();
+                } else {
+                    update_profile_data.permanent_country = $('#resident-countries-states').val();
+                    update_profile_data.permanent_region = $('#resident-state').val();
+                    update_profile_data.permanent_city = $('#resident-city').val();
+                    update_profile_data.permanent_street = $('#resident-street').val();
+                    update_profile_data.permanent_door = $('#resident-door').val();
+                    update_profile_data.permanent_apartment = $('#resident-apartment').val();
+                    update_profile_data.permanent_zipcode = $('#resident-zipcode').val();
+                }
+                update_profile_data = $.extend({}, update_profile_data, cookie_tooken);
                 Ajax_Data({
-                    "url": baseUrl + "/profile/get",
-                    "data": get_profile_data,
-                    "fn": get_profile
+                    "type": "post",
+                    "url": baseUrl + "/profile/update",
+                    "data": update_profile_data,
+                    "fn": update_profile
                 });
-
-                //上传图片
-                $('#address-proof').change(function (event) {
-                    var val = $(this).val().toLowerCase();
-                    var regex = new RegExp("(.*?)\.(jpg|jpeg|png|gif|bmp)$");
-                    if (!(regex.test(val))) {
-                        $(this).val('');
-                        alert('图片格式不正确，支持图片格式(.jpg|.jpeg|.png|.gif|.bmp)');
-                    } else {
-                        file_upload();
-                        $(this).siblings('img').attr('src', URL.createObjectURL(event.target.files[0]));
-                    }
-                });
-
-                $('#submit_step_four').on('click', function () {
-                    $('.ajax_wait').show();
-                    setTimeout(function () {
-                        $('.ajax_wait p').show();
-                    }, 3e3);
-
-                    order_id = "7b601f8239fd106cb9a452984ad966b5";
-
-                    //上传profile信息
-                    var update_profile_data = {};
-                    update_profile_data.address_proof = address_proof;
-                    update_profile_data.resident_country = $('#resident-countries-states').val();
-                    update_profile_data.resident_region = $('#resident-state').val();
-                    update_profile_data.resident_city = $('#resident-city').val();
-                    update_profile_data.resident_street = $('#resident-street').val();
-                    update_profile_data.resident_door = $('#resident-door').val();
-                    update_profile_data.resident_apartment = $('#resident-apartment').val();
-                    update_profile_data.resident_zipcode = $('#resident-zipcode').val();
-
-                    if (!$("#is-address-permanent").is(':checked')) {
-                        update_profile_data.permanent_country = $('#permanent-countries-states').val();
-                        update_profile_data.permanent_region = $('#permanent-state').val();
-                        update_profile_data.permanent_city = $('#permanent-city').val();
-                        update_profile_data.permanent_street = $('#permanent-street').val();
-                        update_profile_data.permanent_door = $('#permanent-door').val();
-                        update_profile_data.permanent_apartment = $('#permanent-apartment').val();
-                        update_profile_data.permanent_zipcode = $('#permanent-zipcode').val();
-                    } else {
-                        update_profile_data.permanent_country = $('#resident-countries-states').val();
-                        update_profile_data.permanent_region = $('#resident-state').val();
-                        update_profile_data.permanent_city = $('#resident-city').val();
-                        update_profile_data.permanent_street = $('#resident-street').val();
-                        update_profile_data.permanent_door = $('#resident-door').val();
-                        update_profile_data.permanent_apartment = $('#resident-apartment').val();
-                        update_profile_data.permanent_zipcode = $('#resident-zipcode').val();
-                    }
-                    update_profile_data = $.extend({}, update_profile_data, cookie_tooken);
-                    Ajax_Data({
-                        "type": "post",
-                        "url": baseUrl + "/profile/update",
-                        "data": update_profile_data,
-                        "fn": update_profile
-                    });
-                    return false;
-                })
-            } else if (is_old) {
-                // 获取profile信息
-                var get_profile_data = {
-                    "fields": "address_proof,resident_country,resident_region,resident_city,resident_street,resident_door,resident_apartment,resident_zipcode,permanent_country,permanent_region,permanent_city,permanent_street,permanent_door,permanent_apartment,permanent_zipcode"
-                };
-                var object = $.extend({}, cookie_tooken, get_profile_data);
-                var get_profile_data = $.extend({}, get_profile_data, cookie_tooken);
-                Ajax_Data({
-                    "url": baseUrl + "/profile/get",
-                    "data": get_profile_data,
-                    "fn": get_profile
-                });
-
-
-                $('#submit_step_four').on('click', function () {
-                    $('.ajax_wait').show();
-                    setTimeout(function () {
-                        $('.ajax_wait p').show();
-                    }, 3e3);
-
-                    order_id = "7b601f8239fd106cb9a452984ad966b5";
-                    //上传profile信息
-                    var update_profile_data = {};
-                    update_profile_data.address_proof = address_proof;
-                    update_profile_data.resident_country = $('#resident-countries-states').val();
-                    update_profile_data.resident_region = $('#resident-state').val();
-                    update_profile_data.resident_city = $('#resident-city').val();
-                    update_profile_data.resident_street = $('#resident-street').val();
-                    update_profile_data.resident_door = $('#resident-door').val();
-                    update_profile_data.resident_apartment = $('#resident-apartment').val();
-                    update_profile_data.resident_zipcode = $('#resident-zipcode').val();
-                    if (!$("#is-address-permanent").is(':checked')) {
-                        update_profile_data.permanent_country = $('#permanent-countries-states').val();
-                        update_profile_data.permanent_region = $('#permanent-state').val();
-                        update_profile_data.permanent_city = $('#permanent-city').val();
-                        update_profile_data.permanent_street = $('#permanent-street').val();
-                        update_profile_data.permanent_door = $('#permanent-door').val();
-                        update_profile_data.permanent_apartment = $('#permanent-apartment').val();
-                        update_profile_data.permanent_zipcode = $('#permanent-zipcode').val();
-                    } else {
-                        update_profile_data.permanent_country = $('#resident-countries-states').val();
-                        update_profile_data.permanent_region = $('#resident-state').val();
-                        update_profile_data.permanent_city = $('#resident-city').val();
-                        update_profile_data.permanent_street = $('#resident-street').val();
-                        update_profile_data.permanent_door = $('#resident-door').val();
-                        update_profile_data.permanent_apartment = $('#resident-apartment').val();
-                        update_profile_data.permanent_zipcode = $('#resident-zipcode').val();
-                    }
-                    update_profile_data = $.extend({}, update_profile_data, cookie_tooken);
-                    Ajax_Data({
-                        "type": "post",
-                        "url": baseUrl + "/profile/update",
-                        "data": update_profile_data,
-                        "fn": update_profile
-                    });
-                    return false;
-                })
-            }
+                return false;
+            })
         }
 
         //获取profile信息
@@ -414,7 +355,7 @@
         //更新profile信息
         function update_profile(res) {
             $('.ajax_wait p,.ajax_wait').hide();
-            window.location.href = "http://lcoal.meixinfinance.com:8081/fa_invest/invest_yellowstone_step_5.html?order_id=" + order_id;
+            window.location.href = "http://lcoal.meixinfinance.com:8081/fa_invest/invest_yellowstone_step_5.html?order_number=" + order_number;
         }
     });
 </script>

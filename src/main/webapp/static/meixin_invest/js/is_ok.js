@@ -13,7 +13,7 @@ function getUrlParam(name) {
 
 var is_new = true, is_old = false;
 
-var is_success = false, cookie_tooken = {}, order_id = '', passport_photo = '';
+var is_success = false, cookie_tooken = {}, passport_photo = '';
 var token = $.cookie('mx_sid');
 if (!token) {
     window.location = 'https://www.meixinfinance.com';
@@ -31,8 +31,9 @@ var Ajax_Data = function (options) {
         url: options.url,
         data: options.data,
         timeout: 5e3,
+        async:options.async,
         success: function (data) {
-            console.log(options.url + ": " + JSON.stringify(data));
+            // console.log(options.url + ": " + JSON.stringify(data));
             var res = data.body || null;
             if (data && data.code && data.code == -1) {
                 options.fail_fn && options.fail_fn(res);
@@ -58,18 +59,20 @@ var Ajax_Data = function (options) {
 };
 
 
-var baseUrl = 'http://bj.meixinfinance.com:8081/web';
+// var baseUrl = 'http://bj.meixinfinance.com:8081/web';
+var baseUrl = 'http://101.201.112.171:8082/web';
 
 $(function () {
     setTimeout(function () {
         $('.ajax_wait p').show();
     }, 3e3);
 
-    
+
     // 调取 登录接口
 /*    Ajax_Data({
         "url": baseUrl + "/auth/login",
         "type": "post",
+        // "data": {"user_name": "+86 15001393659", "password": "123456"},
         "data": {"user_name": "+86 18810797876", "password": "111111"},
         "fn": login
     });
