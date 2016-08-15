@@ -7,13 +7,11 @@ body{
 #wrap{
     margin: 0;
     padding: 0;
-    /*height: 667px;*/
 }
 .mian{
     width: 100%;
-    height: 637px;
+    height: 667px;
     margin: 0 auto;
-    /*padding-bottom: 6rem;*/
     background-color: #fff;
     background-image: url("../img/activity/activity_0808/bg.jpg");
     background-size: cover;
@@ -50,7 +48,9 @@ body{
     padding: 1rem;
 }
 #sub{
-    width: 240px;
+    font-size: 16px;
+    margin-top: 10px;
+    width: 180px;
     height: 40px;
 }
 .mian-list-4{
@@ -63,7 +63,7 @@ body{
     right:0;
     color: #fff;
     line-height: 30px;
-    border-radius: 5px;
+    border-radius: 20px;
     background-color: #0d2a78;
     border: none;
     width: 138px;
@@ -104,7 +104,7 @@ body{
     border: none;
     outline: none;
     font-size: 13px;
-    margin-left: .3rem;
+    margin-right: -3px;
     background-color: transparent;
 }
 
@@ -151,5 +151,15 @@ span>img{
     text-align: center;
     background-color: #fff;
 }
+#id_verify{
+    width: 110px;
+}
+textarea{
+    appearance:none;
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari 和 Chrome */
+}
 
-
+input[type="button"], input[type="submit"], input[type="reset"] {
+    -webkit-appearance: none;
+}

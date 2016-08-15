@@ -21,7 +21,7 @@ $(function () {
             && (document.getElementById('input7').checked || document.getElementById('input8').checked || document.getElementById('input9').checked)
         ) {
             // alert("全都选了");
-            window.location.pathname = "/activity/mb_02.html";
+            window.location.pathname = "/activity/simple_signup.html";
         } else {
             alert("您尚有未选择项");
         }
