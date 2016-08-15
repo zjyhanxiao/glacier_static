@@ -1,17 +1,17 @@
 $(function () {
-    var sections = $('.step-section'),
+/*    var sections = $('.step-section'),
         bullets = $('.fa-steps-bullets');
 
-/*    function navigateTo(index) {
+    function navigateTo(index) {
         sections.removeClass('current').eq(index).addClass('current');
         bullets.find('p').css("background-color", "#c8d6e0").eq(index).css("background-color", "#029DE0");
         $('.step-navigation .previous').toggle(index > 0);
         var last = index >= sections.length - 1;
         $('.step-navigation .next').toggle(!last);
         $('.step-navigation [type=fasubmit]').toggle(last);
-    }*/
+    }
 
- /*   function curIndex() {
+    function curIndex() {
         return sections.index(sections.filter('.current'));
     }
 
@@ -22,13 +22,13 @@ $(function () {
     $('.step-navigation .next').click(function() {
         if ($('.fa-steps').parsley().validate({group: 'block-' + curIndex()}))
             navigateTo(curIndex() + 1);
-    });*/
-
+    });
     sections.each(function(index, section) {
         $(section).find(':input').attr('data-parsley-group', 'block-' + index);
+        index++;
     });
 
-/*    navigateTo(0);*/
+    navigateTo(0);*/
 
     $('.fa-upload-pic').find('a').click(function(){
         $(this).siblings('input').trigger('click');

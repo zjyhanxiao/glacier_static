@@ -148,27 +148,29 @@
 
 
             $('#submit_step_two').on('click', function () {
-                $('.ajax_wait').show();
-                setTimeout(function () {
-                    $('.ajax_wait p').show();
-                }, 3e3);
+                if ($('.fa-steps').parsley().validate()){
+                    $('.ajax_wait').show();
+                    setTimeout(function () {
+                        $('.ajax_wait p').show();
+                    }, 3e3);
 
-                order_number = getUrlParam("order_number");
+                    order_number = getUrlParam("order_number");
 
-                //上传profile信息
-                var update_profile_data = {};
-                update_profile_data.source_of_income = $('#source-of-investment').val();
-                update_profile_data.tax_country = $('#countries_states').val();
-                update_profile_data.tax_card_type = $('#tax-number-type').val();
-                update_profile_data.tax_card_number = $('#tax-id-number').val();
-                update_profile_data = $.extend({}, update_profile_data, cookie_tooken);
-                Ajax_Data({
-                    "type": "post",
-                    "url": baseUrl + "/profile/update",
-                    "data": update_profile_data,
-                    "fn": update_profile
-                });
-                return false;
+                    //上传profile信息
+                    var update_profile_data = {};
+                    update_profile_data.source_of_income = $('#source-of-investment').val();
+                    update_profile_data.tax_country = $('#countries_states').val();
+                    update_profile_data.tax_card_type = $('#tax-number-type').val();
+                    update_profile_data.tax_card_number = $('#tax-id-number').val();
+                    update_profile_data = $.extend({}, update_profile_data, cookie_tooken);
+                    Ajax_Data({
+                        "type": "post",
+                        "url": baseUrl + "/profile/update",
+                        "data": update_profile_data,
+                        "fn": update_profile
+                    });
+                    return false;
+                }
             });
 
             //获取profile信息

@@ -137,23 +137,29 @@
                 }
             });
             $('#submit_step_three').on('click', function () {
-                $('.ajax_wait').show();
-                setTimeout(function () {
-                    $('.ajax_wait p').show();
-                }, 3e3);
-                order_number = getUrlParam("order_number");
+                var default_passport_photo="https://static.2015bz.com/static/24/meixin_invest/img/upload_id_placeholder_518x348.png";
+                if($('#identity-proof').siblings('img').attr('src')!=default_passport_photo){
+                    $('#identity-proof').prop("required", false);
+                }
+                if ($('.fa-steps').parsley().validate()){
+                    $('.ajax_wait').show();
+                    setTimeout(function () {
+                        $('.ajax_wait p').show();
+                    }, 3e3);
+                    order_number = getUrlParam("order_number");
 
-                //上传profile信息
-                var update_profile_data = {};
-                update_profile_data.passport_photo = passport_photo;
-                update_profile_data = $.extend({}, update_profile_data, cookie_tooken);
-                Ajax_Data({
-                    "type": "post",
-                    "url": baseUrl + "/profile/update",
-                    "data": update_profile_data,
-                    "fn": update_profile
-                });
-                return false;
+                    //上传profile信息
+                    var update_profile_data = {};
+                    update_profile_data.passport_photo = passport_photo;
+                    update_profile_data = $.extend({}, update_profile_data, cookie_tooken);
+                    Ajax_Data({
+                        "type": "post",
+                        "url": baseUrl + "/profile/update",
+                        "data": update_profile_data,
+                        "fn": update_profile
+                    });
+                    return false;
+                }
             })
         }
 

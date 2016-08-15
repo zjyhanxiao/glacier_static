@@ -24,7 +24,7 @@ function setHeight() {
     $('.ajax_wait').height($(window).height());
 }
 
-//页面加载完成,get请求
+//页面加载完成,发送ajax请求
 var Ajax_Data = function (options) {
     $.ajax({
         type: options.type || 'get',
@@ -59,17 +59,18 @@ var Ajax_Data = function (options) {
 };
 
 
-// var baseUrl = 'http://bj.meixinfinance.com:8081/web';
-var baseUrl = 'http://101.201.112.171:8082/web';
+var baseUrl = 'http://bj.meixinfinance.com:8081/web';
+// var baseUrl = 'http://101.201.112.171:8082/web';
 
 $(function () {
     setTimeout(function () {
         $('.ajax_wait p').show();
     }, 3e3);
-
-
+    $('section input').each(function (index) {
+        $('section input').eq(index).attr('data-parsley-group', 'block-' + index);
+    });
     // 调取 登录接口
-/*    Ajax_Data({
+    /*Ajax_Data({
         "url": baseUrl + "/auth/login",
         "type": "post",
         // "data": {"user_name": "+86 15001393659", "password": "123456"},

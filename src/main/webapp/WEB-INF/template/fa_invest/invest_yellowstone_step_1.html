@@ -168,45 +168,47 @@
 
 
             $('#submit_step_one').on('click', function () {
-                $('.ajax_wait').show();
-                setTimeout(function () {
-                    $('.ajax_wait p').show();
-                }, 3e3);
+                if ($('.fa-steps').parsley().validate()){
+                    $('.ajax_wait').show();
+                    setTimeout(function () {
+                        $('.ajax_wait p').show();
+                    }, 3e3);
 
-                // 创建订单
-                if (is_new) {
-                    var create_order_data = {
-                        "product_id": 8,
-                        "invest_amount": 10000
-                    };
-                    create_order_data = $.extend({}, create_order_data, cookie_tooken);
+                    // 创建订单
+                    if (is_new) {
+                        var create_order_data = {
+                            "product_id": 8,
+                            "invest_amount": 10000
+                        };
+                        create_order_data = $.extend({}, create_order_data, cookie_tooken);
+                        Ajax_Data({
+                            "type": "post",
+                            "url": baseUrl + "/order/create",
+                            "data": create_order_data,
+                            "fn": create_order_res
+                        });
+                    }
+                    if (is_old) {
+                        order_number = getUrlParam("order_number");
+                    }
+                    //上传profile信息
+                    var update_profile_data = {};
+                    update_profile_data.last_name = $('#lastname').val();
+                    update_profile_data.first_name = $('#firstname').val();
+                    update_profile_data.real_name = $('#firstname').val() + " " + $('#lastname').val();
+                    update_profile_data.date_of_birth = $('#birth-date').val();
+                    update_profile_data.country_of_birth = $('#birth-countries-states').val();
+                    update_profile_data.nationality = $('#citizenship-countries-states').val();
+                    update_profile_data.occupation = $('#occupation').val();
+                    update_profile_data = $.extend({}, update_profile_data, cookie_tooken);
                     Ajax_Data({
                         "type": "post",
-                        "url": baseUrl + "/order/create",
-                        "data": create_order_data,
-                        "fn": create_order_res
+                        "url": baseUrl + "/profile/update",
+                        "data": update_profile_data,
+                        "fn": update_profile
                     });
+                    return false;
                 }
-                if (is_old) {
-                    order_number = getUrlParam("order_number");
-                }
-                //上传profile信息
-                var update_profile_data = {};
-                update_profile_data.last_name = $('#lastname').val();
-                update_profile_data.first_name = $('#firstname').val();
-                update_profile_data.real_name = $('#firstname').val() + " " + $('#lastname').val();
-                update_profile_data.date_of_birth = $('#birth-date').val();
-                update_profile_data.country_of_birth = $('#birth-countries-states').val();
-                update_profile_data.nationality = $('#citizenship-countries-states').val();
-                update_profile_data.occupation = $('#occupation').val();
-                update_profile_data = $.extend({}, update_profile_data, cookie_tooken);
-                Ajax_Data({
-                    "type": "post",
-                    "url": baseUrl + "/profile/update",
-                    "data": update_profile_data,
-                    "fn": update_profile
-                });
-                return false;
             });
         }
 

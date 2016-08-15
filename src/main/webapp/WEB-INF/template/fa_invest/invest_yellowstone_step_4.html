@@ -208,7 +208,7 @@
 
             // 获取profile信息
             var get_profile_data = {
-                "fields": "address_proof,resident_country,resident_region,resident_city,resident_street,resident_door,resident_apartment,resident_zipcode,permanent_country,permanent_region,permanent_city,permanent_street,permanent_door,permanent_apartment,permanent_zipcode"
+                "fields": "address_proof,mailing_address_country,mailing_address_region,mailing_address_city,mailing_address_street,mailing_address_door,mailing_address_apartment,mailing_address_zipcode,permanent_address_country,permanent_address_region,permanent_address_city,permanent_address_street,permanent_address_door,permanent_address_apartment,permanent_address_zipcode"
             };
             get_profile_data = $.extend({}, get_profile_data, cookie_tooken);
             Ajax_Data({
@@ -231,49 +231,55 @@
             });
 
             $('#submit_step_four').on('click', function () {
-                $('.ajax_wait').show();
-                setTimeout(function () {
-                    $('.ajax_wait p').show();
-                }, 3e3);
-
-                order_number = getUrlParam("order_number");
-
-                //上传profile信息
-                var update_profile_data = {};
-                update_profile_data.address_proof = address_proof;
-                update_profile_data.resident_country = $('#resident-countries-states').val();
-                update_profile_data.resident_region = $('#resident-state').val();
-                update_profile_data.resident_city = $('#resident-city').val();
-                update_profile_data.resident_street = $('#resident-street').val();
-                update_profile_data.resident_door = $('#resident-door').val();
-                update_profile_data.resident_apartment = $('#resident-apartment').val();
-                update_profile_data.resident_zipcode = $('#resident-zipcode').val();
-
-                if (!$("#is-address-permanent").is(':checked')) {
-                    update_profile_data.permanent_country = $('#permanent-countries-states').val();
-                    update_profile_data.permanent_region = $('#permanent-state').val();
-                    update_profile_data.permanent_city = $('#permanent-city').val();
-                    update_profile_data.permanent_street = $('#permanent-street').val();
-                    update_profile_data.permanent_door = $('#permanent-door').val();
-                    update_profile_data.permanent_apartment = $('#permanent-apartment').val();
-                    update_profile_data.permanent_zipcode = $('#permanent-zipcode').val();
-                } else {
-                    update_profile_data.permanent_country = $('#resident-countries-states').val();
-                    update_profile_data.permanent_region = $('#resident-state').val();
-                    update_profile_data.permanent_city = $('#resident-city').val();
-                    update_profile_data.permanent_street = $('#resident-street').val();
-                    update_profile_data.permanent_door = $('#resident-door').val();
-                    update_profile_data.permanent_apartment = $('#resident-apartment').val();
-                    update_profile_data.permanent_zipcode = $('#resident-zipcode').val();
+                var default_address_proof="https://static.2015bz.com/static/24/meixin_invest/img/upload_address_proof_placeholder_325x198.png";
+                if($('#address-proof').siblings('img').attr('src')!=default_address_proof){
+                    $('#address-proof').prop("required", false);
                 }
-                update_profile_data = $.extend({}, update_profile_data, cookie_tooken);
-                Ajax_Data({
-                    "type": "post",
-                    "url": baseUrl + "/profile/update",
-                    "data": update_profile_data,
-                    "fn": update_profile
-                });
-                return false;
+                if ($('.fa-steps').parsley().validate()) {
+                    $('.ajax_wait').show();
+                    setTimeout(function () {
+                        $('.ajax_wait p').show();
+                    }, 3e3);
+
+                    order_number = getUrlParam("order_number");
+
+                    //上传profile信息
+                    var update_profile_data = {};
+                    update_profile_data.address_proof = address_proof;
+                    update_profile_data.mailing_address_country = $('#resident-countries-states').val();
+                    update_profile_data.mailing_address_region = $('#resident-state').val();
+                    update_profile_data.mailing_address_city = $('#resident-city').val();
+                    update_profile_data.mailing_address_street = $('#resident-street').val();
+                    update_profile_data.mailing_address_door = $('#resident-door').val();
+                    update_profile_data.mailing_address_apartment = $('#resident-apartment').val();
+                    update_profile_data.mailing_address_zipcode = $('#resident-zipcode').val();
+
+                    if (!$("#is-address-permanent").is(':checked')) {
+                        update_profile_data.permanent_address_country = $('#permanent-countries-states').val();
+                        update_profile_data.permanent_address_region = $('#permanent-state').val();
+                        update_profile_data.permanent_address_city = $('#permanent-city').val();
+                        update_profile_data.permanent_address_street = $('#permanent-street').val();
+                        update_profile_data.permanent_address_door = $('#permanent-door').val();
+                        update_profile_data.permanent_address_apartment = $('#permanent-apartment').val();
+                        update_profile_data.permanent_address_zipcode = $('#permanent-zipcode').val();
+                    } else {
+                        update_profile_data.permanent_address_country = $('#resident-countries-states').val();
+                        update_profile_data.permanent_region = $('#resident-state').val();
+                        update_profile_data.permanent_address_city = $('#resident-city').val();
+                        update_profile_data.permanent_street = $('#resident-street').val();
+                        update_profile_data.permanent_address_door = $('#resident-door').val();
+                        update_profile_data.permanent_apartment = $('#resident-apartment').val();
+                        update_profile_data.permanent_address_zipcode = $('#resident-zipcode').val();
+                    }
+                    update_profile_data = $.extend({}, update_profile_data, cookie_tooken);
+                    Ajax_Data({
+                        "type": "post",
+                        "url": baseUrl + "/profile/update",
+                        "data": update_profile_data,
+                        "fn": update_profile
+                    });
+                    return false;
+                }
             })
         }
 
@@ -283,47 +289,47 @@
                 $('#address-proof').siblings('img').attr('src', d.address_proof);
                 $('#identity-proof').prop("required", false);
             }
-            if (d.resident_country != "" && d.resident_country != null) {
-                $('#resident-countries-states').val(d.resident_country);
+            if (d.mailing_address_country != "" && d.mailing_address_country != null) {
+                $('#resident-countries-states').val(d.mailing_address_country);
             }
-            if (d.resident_region != "" && d.resident_region != null) {
-                $('#resident-state').val(d.resident_region);
+            if (d.mailing_address_region != "" && d.mailing_address_region != null) {
+                $('#resident-state').val(d.mailing_address_region);
             }
-            if (d.resident_city != "" && d.resident_city != null) {
-                $('#resident-city').val(d.resident_city);
+            if (d.mailing_address_city != "" && d.mailing_address_city != null) {
+                $('#resident-city').val(d.mailing_address_city);
             }
-            if (d.resident_street != "" && d.resident_street != null) {
-                $('#resident-street').val(d.resident_street);
+            if (d.mailing_address_street != "" && d.mailing_address_street != null) {
+                $('#resident-street').val(d.mailing_address_street);
             }
-            if (d.resident_door != "" && d.resident_door != null) {
-                $('#resident-door').val(d.resident_door);
+            if (d.mailing_address_door != "" && d.mailing_address_door != null) {
+                $('#resident-door').val(d.mailing_address_door);
             }
-            if (d.resident_apartment != "" && d.resident_apartment != null) {
-                $('#resident-apartment').val(d.resident_apartment);
+            if (d.mailing_address_apartment != "" && d.mailing_address_apartment != null) {
+                $('#resident-apartment').val(d.mailing_address_apartment);
             }
-            if (d.resident_zipcode != "" && d.resident_zipcode != null) {
-                $('#resident-zipcode').val(d.resident_zipcode);
+            if (d.mailing_address_zipcode != "" && d.mailing_address_zipcode != null) {
+                $('#resident-zipcode').val(d.mailing_address_zipcode);
             }
-            if (d.permanent_country != "" && d.permanent_country != null) {
-                $('#permanent-countries-states').val(d.permanent_country);
+            if (d.permanent_address_country != "" && d.permanent_address_country != null) {
+                $('#permanent-countries-states').val(d.permanent_address_country);
             }
-            if (d.permanent_region != "" && d.permanent_region != null) {
-                $('#permanent-state').val(d.permanent_region);
+            if (d.permanent_address_region != "" && d.permanent_address_region != null) {
+                $('#permanent-state').val(d.permanent_address_region);
             }
-            if (d.permanent_city != "" && d.permanent_city != null) {
-                $('#permanent-city').val(d.permanent_city);
+            if (d.permanent_address_city != "" && d.permanent_address_city != null) {
+                $('#permanent-city').val(d.permanent_address_city);
             }
-            if (d.permanent_street != "" && d.permanent_street != null) {
-                $('#permanent-street').val(d.permanent_street);
+            if (d.permanent_address_street != "" && d.permanent_address_street != null) {
+                $('#permanent-street').val(d.permanent_address_street);
             }
-            if (d.permanent_door != "" && d.permanent_door != null) {
-                $('#permanent-door').val(d.permanent_door);
+            if (d.permanent_address_door != "" && d.permanent_address_door != null) {
+                $('#permanent-door').val(d.permanent_address_door);
             }
-            if (d.permanent_apartment != "" && d.permanent_apartment != null) {
-                $('#permanent-apartment').val(d.permanent_apartment);
+            if (d.permanent_address_apartment != "" && d.permanent_address_apartment != null) {
+                $('#permanent-apartment').val(d.permanent_address_apartment);
             }
-            if (d.permanent_zipcode != "" && d.permanent_zipcode != null) {
-                $('#permanent-zipcode').val(d.permanent_zipcode);
+            if (d.permanent_address_zipcode != "" && d.permanent_address_zipcode != null) {
+                $('#permanent-zipcode').val(d.permanent_address_zipcode);
             }
         }
 
