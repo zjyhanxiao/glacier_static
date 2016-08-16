@@ -195,9 +195,6 @@
         });
 
         //验证登录
-        var mx_token = $.cookie('mx_token'),
-                mx_secret = $.cookie('mx_secret');
-        cookie_tooken = {mx_token: mx_token, mx_secret: mx_secret};
         Ajax_Data({
             "url": baseUrl + "/auth/authentication",
             "data": cookie_tooken,
@@ -205,7 +202,7 @@
             "no_login": no_login
         });
         function no_login() {
-            window.location = 'https://www.meixinfinance.com/login';
+            window.location = '/login';
         }
 
         //is_login  调取登录接口
@@ -239,7 +236,7 @@
             });
 
             $('#submit_step_four').on('click', function () {
-                var default_address_proof = "https://static.2015bz.com/static/24/meixin_invest/img/upload_address_proof_placeholder_325x198.png";
+                var default_address_proof = "/meixin_invest/img/upload_address_proof_placeholder_325x198.png";
                 var img_src = $('#address-proof').siblings('img').attr('src');
                 if (img_src != default_address_proof) {
                     $('#address-proof').prop("required", false);
@@ -254,10 +251,10 @@
 
                     //上传profile信息
                     var update_profile_data = {};
-                    if (img_src != default_address_proof) {
-                        update_profile_data.address_proof = img_src;
-                    } else {
+                    if (is_changed) {
                         update_profile_data.address_proof = address_proof;
+                    } else {
+                        update_profile_data.address_proof = img_src;
                     }
                     update_profile_data.mailing_address_country = $('#resident-countries-states').val();
                     update_profile_data.mailing_address_region = $('#resident-state').val();
@@ -299,6 +296,9 @@
 
         //获取profile信息
         function get_profile(d) {
+            if (d.address_proof == '' || d.address_proof != null) {
+                default_address_proof=true;
+            }
             if (d.address_proof != "" && d.address_proof != null) {
                 $('#address-proof').siblings('img').attr('src', d.address_proof);
                 $('#identity-proof').prop("required", false);
@@ -364,16 +364,7 @@
                 success: function (result, status) {
                     if (result.code == 1) {
                         address_proof = result.body;
-                        var update_profile_data = {};
-                        update_profile_data.address_proof = address_proof;
-                        update_profile_data = $.extend({}, update_profile_data, cookie_tooken);
-                        Ajax_Data({
-                            "type": "post",
-                            "url": baseUrl + "/profile/update",
-                            "data": update_profile_data,
-                            "fn": update_profile,
-                            "fail_fn": update_profile_fail
-                        });
+                        is_changed = true;
                     }
                     if (result.code == -1) {
                         alert("上传失败,请重新上传");

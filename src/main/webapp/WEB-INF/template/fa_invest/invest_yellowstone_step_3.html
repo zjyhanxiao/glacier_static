@@ -106,12 +106,7 @@
 </script>
 <script>
     $(function () {
-        var order_number;
-        var passport_photo = '';
         //验证登录
-        var mx_token = $.cookie('mx_token'),
-                mx_secret = $.cookie('mx_secret');
-        cookie_tooken = {mx_token: mx_token, mx_secret: mx_secret};
         Ajax_Data({
             "url": baseUrl + "/auth/authentication",
             "data": cookie_tooken,
@@ -119,7 +114,7 @@
             "no_login": no_login
         });
         function no_login() {
-            window.location = 'https://www.meixinfinance.com/login';
+            window.location = '/login';
         }
 
         //is_login  调取登录接口
@@ -157,7 +152,7 @@
                 }
             });
             $('#submit_step_three').on('click', function () {
-                var default_passport_photo = "https://static.2015bz.com/static/24/meixin_invest/img/upload_id_placeholder_518x348.png";
+                var default_passport_photo = "/meixin_invest/img/upload_id_placeholder_518x348.png";
                 var img_src = $('#identity-proof').siblings('img').attr('src');
                 if (img_src != default_passport_photo) {
                     $('#identity-proof').prop("required", false);
@@ -169,8 +164,14 @@
                     }, 3e3);
                     order_number = getUrlParam("order_number");
 
+
                     //上传profile信息
                     var update_profile_data = {};
+                    if (is_changed) {
+                        update_profile_data.passport_photo = passport_photo;
+                    } else {
+                        update_profile_data.passport_photo = img_src;
+                    }
                     update_profile_data = $.extend({}, update_profile_data, cookie_tooken);
                     Ajax_Data({
                         "type": "post",
@@ -216,18 +217,8 @@
                 success: function (result, status) {
                     if (result.code == 1) {
                         passport_photo = result.body;
+                        is_changed = true;
                         $('.ajax_wait p,.ajax_wait').hide();
-                        //上传profile信息
-                        var update_profile_data = {};
-                            update_profile_data.passport_photo = passport_photo;
-                        update_profile_data = $.extend({}, update_profile_data, cookie_tooken);
-                        Ajax_Data({
-                            "type": "post",
-                            "url": baseUrl + "/profile/update",
-                            "data": update_profile_data,
-                            "fail_fn": update_profile_fail
-                        });
-                        return false;
                     }
                     if (result.code == -1) {
                         alert("上传失败,请重新上传");

@@ -132,11 +132,7 @@
 </script>
 <script>
     $(function () {
-        var order_number;
         //验证登录
-        var mx_token = $.cookie('mx_token'),
-                mx_secret = $.cookie('mx_secret');
-        cookie_tooken = {mx_token: mx_token, mx_secret: mx_secret};
         Ajax_Data({
             "url": baseUrl + "/auth/authentication",
             "data": cookie_tooken,
@@ -144,7 +140,7 @@
             "no_login": no_login
         });
         function no_login() {
-            window.location = 'https://www.meixinfinance.com/login';
+            window.location = '/login';
         }
 
         //is_login  调取登录接口
