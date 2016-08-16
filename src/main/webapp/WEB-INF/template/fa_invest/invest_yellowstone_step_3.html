@@ -152,9 +152,8 @@
                 }
             });
             $('#submit_step_three').on('click', function () {
-                var default_passport_photo = "/meixin_invest/img/upload_id_placeholder_518x348.png";
                 var img_src = $('#identity-proof').siblings('img').attr('src');
-                if (img_src != default_passport_photo) {
+                if (!default_passport_photo) {
                     $('#identity-proof').prop("required", false);
                 }
                 if ($('.fa-steps').parsley().validate()) {
@@ -167,7 +166,7 @@
 
                     //上传profile信息
                     var update_profile_data = {};
-                    if (is_changed) {
+                    if (!default_passport_photo) {
                         update_profile_data.passport_photo = passport_photo;
                     } else {
                         update_profile_data.passport_photo = img_src;
@@ -190,7 +189,7 @@
             if (d.passport_photo != "" && d.passport_photo != null) {
                 $('.fa-upload-id-pic').find('img').attr('src', d.passport_photo);
                 $('#identity-proof').prop("required", false);
-            }
+                default_passport_photo = false;
         }
 
         //更新profile信息
