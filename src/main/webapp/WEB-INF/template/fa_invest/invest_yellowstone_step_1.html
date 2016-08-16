@@ -213,23 +213,6 @@
 
         function create_order_res(res) {
             order_number = res;
-            //上传profile信息
-            var update_profile_data = {};
-            update_profile_data.last_name = $('#lastname').val();
-            update_profile_data.first_name = $('#firstname').val();
-            update_profile_data.real_name = $('#firstname').val() + " " + $('#lastname').val();
-            update_profile_data.date_of_birth = $('#birth-date').val();
-            update_profile_data.country_of_birth = $('#birth-countries-states').val();
-            update_profile_data.nationality = $('#citizenship-countries-states').val();
-            update_profile_data.occupation = $('#occupation').val();
-            update_profile_data = $.extend({}, update_profile_data, cookie_tooken);
-            Ajax_Data({
-                "type": "post",
-                "url": baseUrl + "/profile/update",
-                "data": update_profile_data,
-                "fn": update_profile,
-                "fail_fn": create_order_fail
-            });
         }
 
 

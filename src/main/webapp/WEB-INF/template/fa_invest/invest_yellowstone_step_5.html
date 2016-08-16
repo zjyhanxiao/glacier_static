@@ -251,7 +251,7 @@
                 $.each(res, function (key) {
                     switch (res[key].need_check) {
                         case true:
-                            div.append('<input type="checkbox" name=' + res[key].document_name + ' required="" data-parsley-required-message="请确认所填写的' + res[key].document_name + '信息无误"/><label><span><span class="invest-check-mark"></span></span><a href="javascript:;" class="get_pdf" data-document-id=' + res[key].id + '>' + res[key].document_name + '</a></label><br>');
+                            div.append('<input type="checkbox" id=' + res[key].id + ' name=' + res[key].document_name + ' required="" data-parsley-required-message="请确认所填写的' + res[key].document_name + '信息无误"/><label for="#' + res[key].id + '"><span><span class="invest-check-mark"></span></span><a href="javascript:;" class="get_pdf" data-document-id=' + res[key].id + '>' + res[key].document_name + '</a></label><br>');
                             break;
                         case false:
                             div.append('<a href=' + res[key].url + ' target="_blank">' + res[key].document_name + '</a><br>');
@@ -325,7 +325,6 @@
 
                         //上传profile信息
                         var update_profile_data = {};
-                        update_profile_data.passport_photo = passport_photo;
                         update_profile_data.signature = $('#signature-line').jSignature('getData');
                         update_profile_data = $.extend({}, update_profile_data, cookie_tooken);
                         Ajax_Data({

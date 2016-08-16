@@ -39,7 +39,7 @@ var Ajax_Data = function (options) {
         timeout: 5e3,
         async: options.async,
         success: function (data) {
-            console.log(options.url + ": " + JSON.stringify(data));
+            // console.log(options.url + ": " + JSON.stringify(data));
             var res = data.body || null;
             var login_fail_data = data.msg || null;
             if (data.code == -1) {
@@ -103,8 +103,8 @@ function getUrlParam(name) {
 }
 
 
-var baseUrl = 'http://192.168.1.100:8081/web';
-// var baseUrl = 'http://101.201.112.171:8082/web';
+// var baseUrl = 'http://192.168.1.100:8081/web';
+var baseUrl = 'http://101.201.112.171:8082/web';
 
 $(function () {
     setTimeout(function () {
@@ -112,6 +112,9 @@ $(function () {
     }, 3e3);
     $('section input').each(function (index) {
         $('section input').eq(index).attr('data-parsley-group', 'block-' + index);
+    });
+    $('.previous').on('click',function(){
+       window.history.go(-1);
     });
     // 调取 登录接口
 /*    Ajax_Data({

@@ -79,28 +79,6 @@
                             <span class="clearfix"></span>
                         </div>
                     </form>
-
-                    <div class="invest_info">
-                        <h2>申购成功</h2>
-                        <p>您的款项到账后将收到邮件通知</p>
-                        <p></p>
-                        <div class="row success-links">
-                            <h3>与此同时，您还可以：</h3>
-                            <div class="col-sm-offset-3 col-sm-2">
-                                <img src="/static/meixin_invest/img/fa_invest/icon_moreproducts_512x512.png"/>
-                                <a href="/product_list" target="_blank" class="btn btn-primary">浏览更多产品</a>
-                            </div>
-                            <div class="col-sm-2">
-                                <img src="/static/meixin_invest/img/fa_invest/icon_myaccount_512x512.png"/>
-                                <a href="/investor/dashboard" target="_blank" class="btn btn-primary">查看我的账户</a>
-                            </div>
-                            <div class="col-sm-2">
-                                <img src="/static/meixin_invest/img/fa_invest/icon_news_512x512.png"/>
-                                <a href="//news.meixinfinance.com" target="_blank" class="btn btn-primary">查看财经资讯</a>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </section>
@@ -232,13 +210,13 @@
         //获取profile信息
         function get_profile(d) {
             if (d.id_card_photo != "" && d.id_card_photo != null) {
-                $('#id_card_photo').siblings('img').attr('src', d.passport_photo);
+                $('#id_card_photo').siblings('img').attr('src', d.id_card_photo);
                 $('#id_card_photo').siblings('p').html('您已上传的身份证照片');
                 $('#id_card_photo').prop("required", false);
                 default_id_card_photo = false;
             }
             if (d.passport_photo != "" && d.passport_photo != null) {
-                $('#passport_photo').find('img').attr('src', d.passport_photo);
+                $('#passport_photo').siblings('img').attr('src', d.passport_photo);
                 $('#passport_photo').siblings('p').html('您已上传的护照照片');
                 default_passport_photo = false;
             }
@@ -247,23 +225,6 @@
         // 创建订单
         function create_order_res(res) {
             order_number = res;
-            //上传profile信息
-            var update_profile_data = {};
-            update_profile_data.last_name = $('#lastname').val();
-            update_profile_data.first_name = $('#firstname').val();
-            update_profile_data.real_name = $('#firstname').val() + " " + $('#lastname').val();
-            update_profile_data.date_of_birth = $('#birth-date').val();
-            update_profile_data.country_of_birth = $('#birth-countries-states').val();
-            update_profile_data.nationality = $('#citizenship-countries-states').val();
-            update_profile_data.occupation = $('#occupation').val();
-            update_profile_data = $.extend({}, update_profile_data, cookie_tooken);
-            Ajax_Data({
-                "type": "post",
-                "url": baseUrl + "/profile/update",
-                "data": update_profile_data,
-                "fn": update_profile,
-                "fail_fn": create_order_fail
-            });
         }
 
         //更新profile信息

@@ -2,7 +2,10 @@
 .check-box, .investor-info-usa-box, .accredited-investor-box {
     display: none;
 }*/
-
+.ach-online-box, .bank-tt-box,
+.check-box, .investor-info-usa-box, .accredited-investor-box {
+    display: none;
+}
 .step-section.current {
     display: inherit;
 }
