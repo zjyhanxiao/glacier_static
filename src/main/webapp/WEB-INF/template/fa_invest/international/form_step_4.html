@@ -232,16 +232,6 @@
             $('.navbar ul li:nth-last-child(2)').html('<a class="btn btn-min-width-sm" href="/logout">退出</a>');
             $('.ajax_wait p,.ajax_wait').hide();
 
-
-            // 获取投资金额
-            var get_invest_data = {};
-            get_invest_data.order_number = order_number;
-            get_invest_data = $.extend({}, get_invest_data, cookie_tooken);
-            Ajax_Data({
-                "url": baseUrl + "/order/" + order_number,
-                "data": get_invest_data,
-                "fn": invest_data
-            });
             // 获取bank信息
             var get_bank_data = cookie_tooken;
             Ajax_Data({
@@ -353,6 +343,7 @@
                     var order_commit_data = {};
                     order_commit_data.invest_amount = $('#invest-amount').val();
                     order_commit_data.order_number = order_number;
+                    order_commit_data.payment_method = $('.payment-option>input:checked').attr('payment-method');
                     order_commit_data = $.extend({}, order_commit_data, cookie_tooken);
                     Ajax_Data({
                         "type": "post",
@@ -364,13 +355,6 @@
                     return false;
                 }
             })
-        }
-
-        // 获取用户投资金额
-        function invest_data(d) {
-            if (d.invest_amount != '' && d.invest_amount != null) {
-                $('#invest-amount').val(d.invest_amount);
-            }
         }
 
         //获取bank信息
@@ -421,7 +405,7 @@
 
         // 提交订单
         function commit_order() {
-            window.location = "/glacier-static/src/main/webapp/WEB-INF/template/fa_invest/form_success.html";
+            //window.location = "/glacier-static/src/main/webapp/WEB-INF/template/fa_invest/international/form_success.html";
         }
     })
 </script>
