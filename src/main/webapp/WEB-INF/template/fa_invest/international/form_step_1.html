@@ -153,8 +153,6 @@
                 });
             });
             $('#submit_step_one').on('click', function () {
-                var img_src = $('#id_card_photo').siblings('img').attr('src');
-                var passport_photo_img = $('#passport_photo').siblings('img').attr('src');
                 if (!default_id_card_photo) {
                     $('#id_card_photo').prop("required", false);
                 }
@@ -182,17 +180,19 @@
                     }
 
 
+                    var img_src = $('#id_card_photo').siblings('img').attr('src');
+                    var passport_photo_img = $('#passport_photo').siblings('img').attr('src');
                     //上传profile信息
                     var update_profile_data = {};
-                    if (!default_id_card_photo) {
+                    if (default_id_card_photo) {
                         update_profile_data.id_card_photo = id_card_photo;
                     } else {
                         update_profile_data.id_card_photo = img_src;
                     }
-                    if (!default_passport_photo) {
+                    if (default_passport_photo) {
                         update_profile_data.passport_photo = passport_photo;
                     } else {
-                        update_profile_data.passport_photo = img_src;
+                        update_profile_data.passport_photo = passport_photo_img;
                     }
                     update_profile_data = $.extend({}, update_profile_data, cookie_tooken);
                     Ajax_Data({
@@ -225,6 +225,7 @@
         // 创建订单
         function create_order_res(res) {
             order_number = res;
+            alert(res);
         }
 
         //更新profile信息

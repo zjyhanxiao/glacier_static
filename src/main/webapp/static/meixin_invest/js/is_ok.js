@@ -103,8 +103,8 @@ function getUrlParam(name) {
 }
 
 
-// var baseUrl = 'http://192.168.1.100:8081/web';
-var baseUrl = 'http://101.201.112.171:8082/web';
+var baseUrl = 'http://192.168.1.100:8081/web';
+// var baseUrl = 'http://101.201.112.171:8082/web';
 
 $(function () {
     setTimeout(function () {
