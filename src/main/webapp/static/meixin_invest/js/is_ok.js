@@ -2,24 +2,26 @@
  * Created by zhangjingyu on 16/8/5.
  */
 
-var is_new = true,           //新建订单
-    is_old = false,          //已有订单,链接来源-mycount
-    order_number,            //订单order_number;
-    is_changed = false,      //是否上传图片,默认否
-    cookie_tooken = {},      //登录cookie
-    id_card_photo = '',        //上传身份证,返回的身份证链接
-    passport_photo = '',     //上传护照,返回的护照链接
-    address_proof = '',      //上传地址证明,返回的地址证明链接
-    default_address_proof = true,//地址证明为默认图片
-    default_passport_photo = true,//护照为默认图片
-    default_id_card_photo = true;//身份证为默认图片
+var is_new = true,                  //新建订单
+    is_old = false,                 //已有订单,链接来源-mycount
+    order_number,                   //订单order_number;
+    is_changed = false,             //是否上传图片,默认否
+    cookie_tooken = {},             //登录cookie
+    id_card_photo = '',             //上传身份证,返回的身份证链接
+    passport_photo = '',            //上传护照,返回的护照链接
+    address_proof = '',             //上传地址证明,返回的地址证明链接
+    create_is_ok = false,           //创建订单成功
+    update_is_ok = false,           //更新文件成功
+    default_address_proof = true,   //地址证明为默认图片
+    default_passport_photo = true,  //护照为默认图片
+    default_id_card_photo = true;   //身份证为默认图片
 
 
 /*var token1 = $.cookie('mx_token');
-var token2 = $.cookie('mx_secret');
-if (!token1 && token2) {
-    window.location = 'https://www.meixinfinance.com';
-}*/
+ var token2 = $.cookie('mx_secret');
+ if (!token1 && token2) {
+ window.location = 'https://www.meixinfinance.com';
+ }*/
 
 // 取cookie
 var mx_token = $.cookie('mx_token'),
@@ -103,6 +105,8 @@ function getUrlParam(name) {
     return null; //返回参数值
 }
 
+var product_id = getUrlParam('product_id') || 8;//获取产品id
+var product_invest_amount = getUrlParam('product_invest_amount') || 10000;//获取投资金额
 
 var baseUrl = 'http://192.168.1.100:8081/web';
 // var baseUrl = 'http://101.201.112.171:8082/web';
@@ -114,8 +118,8 @@ $(function () {
     $('section input').each(function (index) {
         $('section input').eq(index).attr('data-parsley-group', 'block-' + index);
     });
-    $('.previous').on('click',function(){
-       window.history.go(-1);
+    $('.previous').on('click', function () {
+        window.history.go(-1);
     });
     // 调取 登录接口
     Ajax_Data({
