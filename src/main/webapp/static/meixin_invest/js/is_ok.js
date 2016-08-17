@@ -15,11 +15,11 @@ var is_new = true,           //新建订单
     default_id_card_photo = true;//身份证为默认图片
 
 
-var token1 = $.cookie('mx_token');
+/*var token1 = $.cookie('mx_token');
 var token2 = $.cookie('mx_secret');
 if (!token1 && token2) {
     window.location = 'https://www.meixinfinance.com';
-}
+}*/
 
 // 取cookie
 var mx_token = $.cookie('mx_token'),
@@ -36,7 +36,7 @@ var Ajax_Data = function (options) {
         type: options.type || 'get',
         url: options.url,
         data: options.data,
-        timeout: 5e3,
+        timeout: 10e3,
         async: options.async,
         success: function (data) {
             // console.log(options.url + ": " + JSON.stringify(data));
@@ -58,6 +58,7 @@ var Ajax_Data = function (options) {
         complete: function (XMLHttpRequest, status) { //请求完成后最终执行参数
             if (status == 'timeout') {//超时,status还有success,error等值的情况
                 // ajaxTimeoutTest.abort();
+                console.log('超时');
                 //提示网络问题
                 $('.ajax_wait_gif img').attr('url', '/dist/meixin_invest/img/net_lazy.png');
             }
