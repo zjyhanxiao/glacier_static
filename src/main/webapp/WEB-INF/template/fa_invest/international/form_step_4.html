@@ -250,6 +250,7 @@
                 "fn": get_bank_profile
             });
             //获取文档信息
+            var index = $('.payment-option>input:checked').index() / 3;      // 获取投资方式选中的索引值
             var product_document_data = {"product_id": 8};
             product_document_data = $.extend({}, product_document_data, cookie_tooken);
             Ajax_Data({
@@ -262,14 +263,19 @@
                 $.each(res, function (key) {
                     switch (res[key].need_check) {
                         case true:
-                            div.append('<input type="checkbox" id=' + res[key].id + ' name=' + res[key].document_name + ' required="" data-parsley-required-message="请填写信息"/><label for="#' + res[key].id + '"><span><span class="invest-check-mark"></span></span>我已认真阅读并接受<a href=' + res[key].url + ' class="get_pdf" data-document-id=' + res[key].id + '>《' + res[key].document_name + '》</a></label><br>');
+                            div.append('<div><input type="checkbox" id="doc_' + res[key].id + '" name=' + res[key].document_name + ' required="" data-parsley-required-message="请填写信息"/><label for="#doc_' + res[key].id + '"><span><span class="invest-check-mark"></span></span>我已认真阅读并接受<a href=' + res[key].url + ' class="get_pdf" data-document-id=' + res[key].id + '>《' + res[key].document_name + '》</a></label><br></div>');
                             break;
                         case false:
-                            div.append('<a href=' + res[key].url + ' target="_blank">' + res[key].document_name + '</a><br>');
+                            div.append('<div><a href=' + res[key].url + ' target="_blank">' + res[key].document_name + '</a><br></div>');
                             break;
                     }
                 });
-                $('.agreement').append(div);
+                var not_ach_doc = div.clone();
+                not_ach_doc.children().first().remove();
+                var check_box=not_ach_doc.clone();
+                $('.ach-online-box .agreement').append(div);
+                $('.bank-tt-box .agreement').append(not_ach_doc);
+                $('.check-box .agreement').append(check_box);
                 $('#agreements-preview').find('a.get_pdf').on('click', function () {
                     var result = "";
                     var $this = $(this);
@@ -311,17 +317,15 @@
                     setTimeout(function () {
                         $('.ajax_wait p').show();
                     }, 3e3);
-
-                    var index = $('.payment-option>input:checked').index() / 3;
-
+                    order_number = getUrlParam("order_number");
                     //上传bank信息
-                    if(index==0){
+                    if (index == 0) {
                         var update_bank_data = {};
                         update_bank_data.account_number = $('#bank-account-number').val();
                         update_bank_data.account_name = $('#bank-account-name').val();
                         update_bank_data.routing_number = $('#bank-routing-number').val();
-                        update_bank_data.ach_account_type=$('#accouttype input:checked').attr('accounttype');
-                        update_bank_data.ach_check_type=$('#checktype input:checked').attr('checktype');
+                        update_bank_data.ach_account_type = $('#accouttype input:checked').attr('accounttype');
+                        update_bank_data.ach_check_type = $('#checktype input:checked').attr('checktype');
                         update_bank_data = $.extend({}, update_bank_data, cookie_tooken);
                         Ajax_Data({
                             "type": "post",
@@ -383,7 +387,7 @@
             if (d.ach_account_type != '' && d.ach_account_type != null) {
                 var accoutType = $('#accouttype').find('span');
                 accoutType.each(function (index) {
-                    if (accoutType[index].text().toLowerCase()  == d.ach_account_type) {
+                    if (accoutType[index].text().toLowerCase() == d.ach_account_type) {
                         accoutType[index].siblings('input').attr('checked', true);
                     }
                 });
@@ -417,7 +421,7 @@
 
         // 提交订单
         function commit_order() {
-            //window.location = "/glacier-static/src/main/webapp/WEB-INF/template/fa_invest/form_success.html";
+            window.location = "/glacier-static/src/main/webapp/WEB-INF/template/fa_invest/form_success.html";
         }
     })
 </script>
