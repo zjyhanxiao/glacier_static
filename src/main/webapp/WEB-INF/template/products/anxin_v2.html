@@ -23,99 +23,127 @@
 </head>
 <body>
 <div id="wrapper" class="customer">
-<#include "includes/navbar.html" />
-<div class="container">
-    <section style="margin-top: 30px;">
-        <div class="row">
-            <div class="col-sm-offset-1 col-sm-10 col-xs-12">
-                <div class="product_top_section">
-                    <h2>安心定期二期 - Beacon Hill II期项目债权投资</h2>
-						<p>预计年化收益率<br><span>7%</span></p>
+    <#include "includes/navbar.html" />
+    <div class="container">
+        <section style="margin-top: 30px;">
+            <div class="row">
+                <div class="col-sm-offset-1 col-sm-10 col-xs-12">
+                    <div class="product_top_section">
+                        <h2>安心定期二期 - Beacon Hill II期项目债权投资</h2>
+                        <p>预计年化收益率<br><span>7%</span></p>
 
-					    <!--<#if investor_profile.investor_type == 1>
-					        <a href="/invest/international/${anxin_product.id}/" type="button" class="btn btn-primary" data-titlename="安心定期二期">立即投资</a>
-					    <#elseif investor_profile.investor_type == 2 >
-					        <a href="/invest/american/${anxin_product.id}/" type="button" class="btn btn-primary" data-titlename="安心定期二期">立即投资</a>
-					    </#if>-->
-						<button class="btn sold-out-button" style="cursor: default;">已售罄</button>
-						
-						<ul>
-						    <li>投资期限<br><span>9个月</span></li>
-						    <li>融资总额<br><span>$1,000,000</span></li>
-						    <li>起投金额<br><span>$10,000</span></li>
-						</ul>
-                    <div class="clearLeft"></div>
-                </div>
-                <div class="product_mid_section">
-                    <ul>
-					    <li><img src="${static}/dist/meixin_invest/img/products/anxin_v2_icon1_128x128.png"><span>季度派息，到期回本</span></li>
-					    <li><img src="${static}/dist/meixin_invest/img/products/anxin_v2_icon2_512x512.png"><span>150%土地抵押，公司资产担保</span></li>
-					    <li><img src="${static}/dist/meixin_invest/img/products/anxin_v2_icon3_512x512.png"><span>当地经验开发商</span></li>
-					    <li><img src="${static}/dist/meixin_invest/img/products/anxin_v2_icon4_512x512.png"><span>优质地产项目</span></li>
-					</ul>
-                </div>
-                <div class="product_bot_section">
-                    <div class="col-sm-5">
-					    <h3>产品信息</h3>
-					    <ul>
-					        <li>安心定期2期的所投资底层资产为康涅狄格州格林威治地产开发项目Beacon Hill II期的夹层债，项目已完成设计和前期审批，并已开始动工和预售。预计于明年2月完工回款。Beacon Hill I期在当地有良好的口碑，开发商Belpointe为当地知名开发商,简介请看https://belpointe.com/real-estate/。Beacon Hill II期项目销售官网：http://www.beaconhill2ofgreenwich.com/</li>
-					        <li>该债权由项目公司80%大股东投资方JZ Investments公司资产担保，并附加其位于格林威治区的另一块土地（地址：598 North Street, Greenwich, CT 06830）的完全抵押（第一顺位）。抵押物将在康州登记，投资人自计息日起可从抵押地块的产权查询中查看债权人登记情况。经第三方会计事务所核查，开发商抵押的土地为居住用地，面积不低于2亩，地产价值约为150万美元。</li>
-					        <li>该债权融资总额为100万美金，最低起投金额为1万美元，以5千美元为单位向上递增。每季度配息，9个月到期时偿还本金。具体项目信息请查看安心定期2期产品计划书。</li>
-					    </ul>
-					</div>
-					<div class="col-sm-7">
-					    <ul class="nav nav-tabs" role="tablist">
-					        <li role="description" class="active"><a href="#01" role="tab" data-toggle="tab">投资亮点</a></li>
-					        <li role="description"><a href="#02" role="tab" data-toggle="tab">财务情况</a></li>
-					        <li role="description"><a href="#03" role="tab" data-toggle="tab">项目环境介绍</a></li>
-					        <li role="description"><a href="#04" role="tab" data-toggle="tab">项目图片</a></li>
-					        <li role="description"><a href="#05" role="tab" data-toggle="tab">相关文件</a></li>
-					    </ul>
-					    <div class="tab-content">
-					        <div role="tabpanel" class="tab-pane active" id="01">
-					            <ul>
-					                <li>短投资期：九个月还本还息</li>
-					                <li>美金高息：预计年化7%收益，季度配息</li>
-					                <li>优质资产：高信誉当地开发商的优质项目债权投资</li>
-					                <li>完全资产抵押担保：本夹层债由项目大股东公司资产担保，附加价值150万的土地的专项抵押，抵押品价值超过夹层债融资规模</li>
-					                <li>专款专用：客户资金直接进入第三方监管账户，之后直接交予开发商用于开发项目</li>
-					                <li>互联网化：客户线上完成产品购买流程，一键购买，轻松高效</li>
-					            </ul>
-					        </div>
-					        <div role="tabpanel" class="tab-pane" id="02">
-					            <ul>
-					                <li>此开发项目为康涅狄格州格林威治的九套现代叠加式别墅。地址为：62-68 Sound View Drive, Greenwich, Connecticut 06830，可查看项目地图。 项目总需资金$16,762,125美元，资金来源包括：1）已批准建筑贷款$12,262,125美金（第一顺位债权）；2）安心定期2期债权投资100万美金（第二顺位债权）；3）开发商自有股权投资350万美金。</li>
-					                <li>项目于2015年12月正式动工，今年1季度开始预售目前已成功售出两套PHW及2E, 成交价分别320万和245万，占总预计销售总额25%。预计17年2月份清盘完工与业主正式交割，收到回款；建造完毕后的销售总收入预计约为2251万美金，按顺位依次清还债权人相应本息。据当地中介，至2016年3月31号统计格林威治区的房屋平均售价为$3,360,475。</li>
-					            </ul>
-					        </div>
-					        <div role="tabpanel" class="tab-pane" id="03">
-					            <p>格林威治位于康涅狄格州的最南端，与纽约州接壤，拥有迷人的海岸线和茂密的植被，是一个拥有独特风情的小镇，被人们亲切的称为居住的天堂。格林威治方圆48平方英里的土地上，有超过1000亩的公园，35个网球场，2个室内溜冰场，14个公共游艇码头和18个高尔夫球场等等。格林威治距离曼哈顿仅有30英里，到拉瓜地亚机场、肯尼迪机场只需要30分钟时间。格林威治是全美最富有的城镇之一，其多个社区被著名媒体Business Insider选入美国最富有的25个社区之列，格林威治也曾被CNN媒体评为美国最佳居住的100个社区中的第一位。很多纽约的对冲基金经理与公司高管定居于此，可谓是纽约的后花园。</p>
-					        </div>
-					        <div role="tabpanel" class="tab-pane" id="04">
-					            <img src="${static}/dist/meixin_invest/img/products/anxin_v2_prod_img_01_1197x443.jpg" />
-					            <img src="${static}/dist/meixin_invest/img/products/anxin_v2_prod_img_02_1197x443.jpg" />
-					            <img src="${static}/dist/meixin_invest/img/products/anxin_v2_prod_img_03_1197x443.jpg" />
-					            <img src="${static}/dist/meixin_invest/img/products/anxin_v2_prod_img_04_1197x443.jpg" />
-					        </div>
-					        <div role="tabpanel" class="tab-pane" id="05">
-					            <p><img style="width: 16px; margin-right: 5px;" src="${static}/dist/meixin_invest/img/pdf_file_icon_32x32.png" /><a href="${static}/meixin_invest/doc/Anxin_V2_Product_Book.pdf" download>安心定期2期产品书</a></p>
+                        <!--<#if investor_profile.investor_type == 1>
+                            <a href="/invest/international/${anxin_product.id}/" type="button" class="btn btn-primary" data-titlename="安心定期二期">立即投资</a>
+                        <#elseif investor_profile.investor_type == 2 >
+                            <a href="/invest/american/${anxin_product.id}/" type="button" class="btn btn-primary" data-titlename="安心定期二期">立即投资</a>
+                        </#if>-->
+                        <button class="btn sold-out-button" style="cursor: default;">已售罄</button>
 
-					                <#if investor_profile.investor_type == 1>
-					                    <p><img style="width: 16px; margin-right: 5px;" src="${static}/dist/meixin_invest/img/pdf_file_icon_32x32.png" /><a href="${static}/meixin_invest/doc/Sound_View_Drive_Private_Placement_Memorandum_International_Investor.pdf" download>安心定期2期国际投资人私募基金备忘录</a></p>
-					                <#elseif investor_profile.investor_type == 2 >
-					                    <p><img style="width: 16px; margin-right: 5px;" src="${static}/dist/meixin_invest/img/pdf_file_icon_32x32.png" /><a href="${static}/meixin_invest/doc/Sound_View_Drive_Private_Placement_Memorandum_US_Investor.pdf" download>安心定期2期美国投资人私募基金备忘录</a></p>
-					                </#if>
-					            
-					
-					        </div>
-					    </div>
-					</div>
-                    <div class="clearLeft"></div>
+                        <ul>
+                            <li>投资期限<br><span>9个月</span></li>
+                            <li>融资总额<br><span>$1,000,000</span></li>
+                            <li>起投金额<br><span>$10,000</span></li>
+                        </ul>
+                        <div class="clearLeft"></div>
+                    </div>
+                    <div class="product_mid_section">
+                        <ul>
+                            <li><img src="${static}/dist/meixin_invest/img/products/anxin_v2_icon1_128x128.png"><span>季度派息，到期回本</span>
+                            </li>
+                            <li><img src="${static}/dist/meixin_invest/img/products/anxin_v2_icon2_512x512.png"><span>150%土地抵押，公司资产担保</span>
+                            </li>
+                            <li><img src="${static}/dist/meixin_invest/img/products/anxin_v2_icon3_512x512.png"><span>当地经验开发商</span>
+                            </li>
+                            <li><img src="${static}/dist/meixin_invest/img/products/anxin_v2_icon4_512x512.png"><span>优质地产项目</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="product_bot_section">
+                        <div class="col-sm-5">
+                            <h3>产品信息</h3>
+                            <ul>
+                                <li>安心定期2期的所投资底层资产为康涅狄格州格林威治地产开发项目Beacon Hill
+                                    II期的夹层债，项目已完成设计和前期审批，并已开始动工和预售。预计于明年2月完工回款。Beacon Hill
+                                    I期在当地有良好的口碑，开发商Belpointe为当地知名开发商,简介请看https://belpointe.com/real-estate/。Beacon Hill
+                                    II期项目销售官网：http://www.beaconhill2ofgreenwich.com/
+                                </li>
+                                <li>该债权由项目公司80%大股东投资方JZ Investments公司资产担保，并附加其位于格林威治区的另一块土地（地址：598 North Street,
+                                    Greenwich, CT
+                                    06830）的完全抵押（第一顺位）。抵押物将在康州登记，投资人自计息日起可从抵押地块的产权查询中查看债权人登记情况。经第三方会计事务所核查，开发商抵押的土地为居住用地，面积不低于2亩，地产价值约为150万美元。
+                                </li>
+                                <li>该债权融资总额为100万美金，最低起投金额为1万美元，以5千美元为单位向上递增。每季度配息，9个月到期时偿还本金。具体项目信息请查看安心定期2期产品计划书。</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-7">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="description" class="active"><a href="#01" role="tab"
+                                                                         data-toggle="tab">投资亮点</a></li>
+                                <li role="description"><a href="#02" role="tab" data-toggle="tab">财务情况</a></li>
+                                <li role="description"><a href="#03" role="tab" data-toggle="tab">项目环境介绍</a></li>
+                                <li role="description"><a href="#04" role="tab" data-toggle="tab">项目图片</a></li>
+                                <li role="description"><a href="#05" role="tab" data-toggle="tab">相关文件</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="01">
+                                    <ul>
+                                        <li>短投资期：九个月还本还息</li>
+                                        <li>美金高息：预计年化7%收益，季度配息</li>
+                                        <li>优质资产：高信誉当地开发商的优质项目债权投资</li>
+                                        <li>完全资产抵押担保：本夹层债由项目大股东公司资产担保，附加价值150万的土地的专项抵押，抵押品价值超过夹层债融资规模</li>
+                                        <li>专款专用：客户资金直接进入第三方监管账户，之后直接交予开发商用于开发项目</li>
+                                        <li>互联网化：客户线上完成产品购买流程，一键购买，轻松高效</li>
+                                    </ul>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="02">
+                                    <ul>
+                                        <li>此开发项目为康涅狄格州格林威治的九套现代叠加式别墅。地址为：62-68 Sound View Drive, Greenwich, Connecticut
+                                            06830，可查看项目地图。
+                                            项目总需资金$16,762,125美元，资金来源包括：1）已批准建筑贷款$12,262,125美金（第一顺位债权）；2）安心定期2期债权投资100万美金（第二顺位债权）；3）开发商自有股权投资350万美金。
+                                        </li>
+                                        <li>项目于2015年12月正式动工，今年1季度开始预售目前已成功售出两套PHW及2E,
+                                            成交价分别320万和245万，占总预计销售总额25%。预计17年2月份清盘完工与业主正式交割，收到回款；建造完毕后的销售总收入预计约为2251万美金，按顺位依次清还债权人相应本息。据当地中介，至2016年3月31号统计格林威治区的房屋平均售价为$3,360,475。
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="03">
+                                    <p>
+                                        格林威治位于康涅狄格州的最南端，与纽约州接壤，拥有迷人的海岸线和茂密的植被，是一个拥有独特风情的小镇，被人们亲切的称为居住的天堂。格林威治方圆48平方英里的土地上，有超过1000亩的公园，35个网球场，2个室内溜冰场，14个公共游艇码头和18个高尔夫球场等等。格林威治距离曼哈顿仅有30英里，到拉瓜地亚机场、肯尼迪机场只需要30分钟时间。格林威治是全美最富有的城镇之一，其多个社区被著名媒体Business
+                                        Insider选入美国最富有的25个社区之列，格林威治也曾被CNN媒体评为美国最佳居住的100个社区中的第一位。很多纽约的对冲基金经理与公司高管定居于此，可谓是纽约的后花园。</p>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="04">
+                                    <img src="${static}/dist/meixin_invest/img/products/anxin_v2_prod_img_01_1197x443.jpg"/>
+                                    <img src="${static}/dist/meixin_invest/img/products/anxin_v2_prod_img_02_1197x443.jpg"/>
+                                    <img src="${static}/dist/meixin_invest/img/products/anxin_v2_prod_img_03_1197x443.jpg"/>
+                                    <img src="${static}/dist/meixin_invest/img/products/anxin_v2_prod_img_04_1197x443.jpg"/>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="05">
+                                    <p><img style="width: 16px; margin-right: 5px;"
+                                            src="${static}/dist/meixin_invest/img/pdf_file_icon_32x32.png"/><a
+                                            href="${static}/meixin_invest/doc/Anxin_V2_Product_Book.pdf" download>安心定期2期产品书</a>
+                                    </p>
+
+                                    <#if investor_profile.investor_type == 1>
+                                        <p><img style="width: 16px; margin-right: 5px;"
+                                                src="${static}/dist/meixin_invest/img/pdf_file_icon_32x32.png"/><a
+                                                href="${static}/meixin_invest/doc/Sound_View_Drive_Private_Placement_Memorandum_International_Investor.pdf"
+                                                download>安心定期2期国际投资人私募基金备忘录</a></p>
+                                        <#elseif investor_profile.investor_type == 2 >
+                                            <p><img style="width: 16px; margin-right: 5px;"
+                                                    src="${static}/dist/meixin_invest/img/pdf_file_icon_32x32.png"/><a
+                                                    href="${static}/meixin_invest/doc/Sound_View_Drive_Private_Placement_Memorandum_US_Investor.pdf"
+                                                    download>安心定期2期美国投资人私募基金备忘录</a></p>
+                                    </#if>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearLeft"></div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-</div>
+        </section>
+    </div>
 </div>
 <#include "includes/footer.html" />
 
@@ -126,14 +154,14 @@
 <script src="${static}/vendor/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="${static}/dist/meixin_invest/js/navi.min.js" type="text/javascript"></script>
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
         $('#wechat-popover').popover({
-            html : true,
-            placement : 'bottom',
-            trigger : 'hover',
-            content : '<img style="width: 200px;padding:0;margin:0;" src="${static}/meixin_invest/img/meixin_new_qr_code_300x300.jpg" />';;
-	})
-	});
+            html: true,
+            placement: 'bottom',
+            trigger: 'hover',
+            content: '<img style="width: 200px;padding:0;margin:0;" src="${static}/meixin_invest/img/meixin_new_qr_code_300x300.jpg" />'
+        })
+    });
 </script>
 <script src="${static}/dist/meixin_invest/js/bootstrap-formhelpers.min.js" type="text/javascript"></script>
 <script src="${static}/dist/meixin_invest/js/bootstrap-formhelpers-countries-nousa.zh_CN.min.js"></script>

@@ -239,7 +239,7 @@
                 "fn": get_bank_profile
             });
 //获取文档信息
-            var product_document_data = {"product_id": 8};
+            var product_document_data = {"product_id": product_id};
             product_document_data = $.extend({}, product_document_data, cookie_tooken);
             Ajax_Data({
                 "url": baseUrl + "/product_document/get",

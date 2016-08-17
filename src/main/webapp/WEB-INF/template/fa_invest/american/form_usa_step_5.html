@@ -19,11 +19,11 @@
     <script>
         var _hmt = _hmt || [];
         (function () {
-            var hm = document.createElement("script");
-            hm.src = "//hm.baidu.com/hm.js?36100da860ed74085d2bdd67bdbdbf5e";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
+                    var hm = document.createElement("script");
+                    hm.src = "//hm.baidu.com/hm.js?36100da860ed74085d2bdd67bdbdbf5e";
+                    var s = document.getElementsByTagName("script")[0];
+                    s.parentNode.insertBefore(hm, s);
+                })();
     </script>
     <!--[if lt IE 9]>
     <script src="/static/vendor/js/html5shiv"></script>
@@ -47,29 +47,28 @@
         <section class="text-center" style="margin-top: 70px;">
             <div class="row">
                 <div class="col-sm-10 col-sm-offset-1">
-                    <div class="fa-steps-bullets international-bullets-extra-styles">
-                        <div><p><span>1</span></p>上传身份证件</div>
-                        <div><p><span>2</span></p>投资人基本信息</div>
-                        <div><p><span>3</span></p>家庭住址</div>
-                        <div><p class="active"><span>4</span></p>确认投资</div>
+                    <div class="fa-steps-bullets">
+                        <div><p><span>1</span></p>投资人基本信息</div>
+                        <div><p><span>2</span></p>合格投资人身份</div>
+                        <div><p><span>3</span></p>合格投资人信息</div>
+                        <div><p><span>4</span></p>投资者身份</div>
+                        <div><p class="active"><span>5</span></p>确认投资</div>
                         <hr/>
                         <span class="clearfix"></span>
                     </div>
                     <form class="fa-steps col-sm-10 col-sm-offset-1" data-parsley-validate>
-
                         <div class="step-section payment-section text-left radio-custom label-left">
                             <label>投资金额：</label>
                             <input data-parsley-pattern="/^([1-9][0-9]{0,1}0000)$|^([1-9][0-9]{0,1}[5]000)$/"
                                    data-parsley-pattern-message="最低投资金额：$10,000，必须为5000的倍数" id="invest-amount"
-                                   name="invest-amount"
-                                   class="form-control"
+                                   name="invest-amount" class="form-control"
                                    placeholder="最低投资金额：$10,000，必须为5000的倍数" required=""
                                    onkeypress="return event.charCode === 0 || /\d/.test(String.fromCharCode(event.charCode));"/>
                             <section>
                                 <label>投资方式：</label>
                                 <div class="payment-option">
-                                    <input type="radio" name="payment" id="ach-online" payment-method="ach"
-                                           required="" data-parsley-required-message="请选择支付方式"/>
+                                    <input type="radio" name="payment" id="ach-online" payment-method="ach" required=""
+                                           data-parsley-required-message="请选择支付方式"/>
                                     <label for="ach-online"><span><span></span></span>ACH在线自动转账（最方便、需要美国银行账户、账户姓名需与投资人姓名一致）</label><br>
                                     <input type="radio" name="payment" id="bank-tt" payment-method="wire"/>
                                     <label for="bank-tt"><span><span></span></span>银行电汇（从非美国银行账户）</label><br>
@@ -85,39 +84,41 @@
                                         src="/static/meixin_invest/img/fa_invest/fa_pay_routing_60x54.png"/></label>
                                 <input id="routing-number" class="form-control"
                                        placeholder="9 Digit Bank Routing Number"/>
-                                <label><img src="/static/meixin_invest/img/fa_invest/fa_pay_account_54x60.png"/></label>
+                                <label><img
+                                        src="/static/meixin_invest/img/fa_invest/fa_pay_account_54x60.png"/></label>
                                 <input id="bank-account-number" class="form-control"
                                        placeholder="Bank Account Number"/>
                                 <div class="accout-check-type">
                                     <label>Accout Type</label>
-                                     <span id="accouttype">
-                                     <label for="accoutType-checking"><input type="radio" name="accoutType"
-                                                                             id="accoutType-checking"
-                                                                             accounttype="checking"/><span>Checking</span></label>
-                                     <label for="accoutType-saving"><input type="radio" name="accoutType"
-                                                                           id="accoutType-saving"
-                                                                           accounttype="savings"/><span>Savings</span></label>
-                                     </span>
+                                <span id="accouttype">
+                                <label for="accoutType-checking"><input type="radio" name="accoutType"
+                                                                        id="accoutType-checking"
+                                                                        accounttype="checking"/><span>Checking</span></label>
+                                <label for="accoutType-saving"><input type="radio" name="accoutType"
+                                                                      id="accoutType-saving"
+                                                                      accounttype="savings"/><span>Savings</span></label>
+                                </span>
                                     <label>Check Type</label>
-                                     <span id="checktype">
-                                     <label for="checkType-personal"><input type="radio" name="checkType"
-                                                                            id="checkType-personal"
-                                                                            checktype="personal"/><span>Personal</span></label>
-                                     <label for="checkType-business"><input type="radio" name="checkType"
-                                                                            id="checkType-business"
-                                                                            checktype="business"/><span>Business</span></label>
-                                     </span>
+                                <span id="checktype">
+                                <label for="checkType-personal"><input type="radio" name="checkType"
+                                                                       id="checkType-personal"
+                                                                       checktype="personal"/><span>Personal</span></label>
+                                <label for="checkType-business"><input type="radio" name="checkType"
+                                                                       id="checkType-business"
+                                                                       checktype="business"/><span>Business</span></label>
+                                </span>
                                 </div>
+
                                 <div class="agreement"></div>
-                                <!--<input type="checkbox" name="agreement" id="achAgreement"/>
-                                <label for="achAgreement"><span><span></span></span>我已认真阅读并接受<a
-                                        href="/static/meixin_invest/doc/ACH-AUTHORIZATION-AGREEMENT.pdf"
-                                        target="blank">《ACH AUTHORIZATION
+                                <!--<input type="checkbox" name="agreement" id="achAgreement" />
+                                <label for="achAgreement"><span><span></span></span>我已认真阅读并接受<a href="/static/meixin_invest/doc/ACH-AUTHORIZATION-AGREEMENT.pdf" target="blank">《ACH AUTHORIZATION
                                     AGREEMENT》</a></label><br>
-                                <input type="checkbox" name="agreement" id="agreement-01"/>
+                                <input type="checkbox" name="agreement" id="agreement-01" />
+
                                 <label for="agreement-01"><span><span></span></span>我已认真阅读并接受<a
                                         href="/static/meixin_invest/doc/${product.subscription_agreement_name}"
                                         target="blank">《认购协议》</a></label>-->
+
                                 <div class="sign-name">
                                     <label>签名：</label>
                                     <input id="ach-signature" class="form-control literal" placeholder="请输入您的名字与姓的拼音以确认"
@@ -127,12 +128,13 @@
                             <div class="bank-tt-box">
                                 <p><span>汇款信息：</span></p>
                                 <p><span>备注栏请填写：</span>
+                                    <!--<input type="checkbox" name="agreement" id="agreement-01"/>-->
 
-                                    YOUR NAME & ${product.external_name}
+                                    YOUR NAME ${product.external_name}
 
                                 </p>
                                 <p><span>收款人名字：</span>Fund America Securities, LLC</p>
-                                <p><span>收款人地址：</span>3455 Peachtree Road, NE 5th Floor Atlanta, GA 30326</p>
+                                <p><span>收款人地址：</span>3455 Peachtree Road, NE 5th Floor Atlanta, GA 30325</p>
                                 <p><span>账户号Account #：</span>0001476100</p>
                                 <p><span>收款路径号ABA/Routing #：</span>122242869</p>
                                 <p><span>Swift Code：</span>PMERU66</p>
@@ -141,22 +143,22 @@
                                     (714)438-2500</p>
                                 <p><span>注意：请您在接收到我们邮件通知您投资人身份审核通过后再前往银行进行汇款</span></p>
                                 <div class="agreement"></div>
-                                <!--<input type="radio" name="agreement" id="agreement-02"
-                                       data-parsley-required-message="请阅读并接受认购协议"/>
+                                <!--<input type="radio" name="agreement" id="agreement-02" data-parsley-required-message="请阅读并接受认购协议" />
 
                                 <label for="agreement-02"><span><span></span></span>我已认真阅读并接受<a
                                         href="/static/meixin_invest/doc/${product.subscription_agreement_name}"
                                         target="blank">《认购协议》</a></label>-->
+
                                 <div class="sign-name">
                                     <label>签名：</label>
-                                    <input id="wire-signature" class="form-control literal"
-                                           placeholder="请输入您的名字与姓的拼音以确认">
+                                    <input id="wire-signature" class="form-control literal" placeholder="请输入您的名字与姓的拼音以确认">
                                 </div>
                             </div>
                             <div class="check-box">
                                 <p><span>收款人：</span>FUNDAMERICA SECURITIES</p>
                                 <p><span>备注栏请填写：</span>
-                                    YOUR NAME ${product.external_name}
+                                    <!--<input type="checkbox" name="agreement" id="agreement-01"/>-->
+                                    YOUR NAME & ${product.external_name}
                                 </p>
                                 <p><span>请将支票寄至以下地址：</span></p>
                                 <p>FundAmerica Securities</p>
@@ -165,28 +167,27 @@
                                 <p>Atlanta, GA 30326</p>
                                 <p><span>注意：我们目前只接受来自美国银行账户的支票</span></p>
                                 <div class="agreement"></div>
-                                <!--<input type="radio" name="agreement" id="agreement-03"
-                                       data-parsley-required-message="请阅读并接受认购协议"/>
+                                <!--<input type="radio" name="agreement" id="agreement-03" data-parsley-required-message="请阅读并接受认购协议" />
+
                                 <label for="agreement-03"><span><span></span></span>我已认真阅读并接受<a
                                         href="/static/meixin_invest/doc/${product.subscription_agreement_name}"
                                         target="blank">《认购协议》</a></label>-->
+
                                 <div class="sign-name">
                                     <label>签名：</label>
-                                    <input id="check-signature" class="form-control literal"
-                                           placeholder="请输入您的名字与姓的拼音以确认">
+                                    <input id="check-signature" class="form-control literal" placeholder="请输入您的名字与姓的拼音以确认">
                                 </div>
                             </div>
                         </div>
 
                         <div class="step-navigation">
                             <button type="button" class="previous btn btn-primary pull-left">返回</button>
-                            <button type="button" id="submit_step_four" class="btn btn-primary pull-right"><span
+                            <button type="button" id="submit_step_five" class="btn btn-primary pull-right"><span
                                     class="glyphicon glyphicon-refresh spinning"
                                     style="display: none;"></span><span>提交</span></button>
                             <span class="clearfix"></span>
                         </div>
                     </form>
-
                 </div>
             </div>
         </section>
@@ -259,13 +260,14 @@
                             div.append('<div><a href=' + res[key].url + ' target="_blank">' + res[key].document_name + '</a><br></div>');
                             break;
                     }
-                });
+                });/*
                 var not_ach_doc = div.clone();
                 not_ach_doc.children().first().remove();
-                var check_box=not_ach_doc.clone();
+                var check_box = not_ach_doc.clone();
                 $('.ach-online-box .agreement').append(div);
                 $('.bank-tt-box .agreement').append(not_ach_doc);
-                $('.check-box .agreement').append(check_box);
+                $('.check-box .agreement').append(check_box);*/
+                $('.agreement').append(div);
                 $('#agreements-preview').find('a.get_pdf').on('click', function () {
                     var result = "";
                     var $this = $(this);
@@ -301,7 +303,7 @@
                 "fn": get_profile
             });
 
-            $('#submit_step_four').on('click', function () {
+            $('#submit_step_five').on('click', function () {
                 if ($('.fa-steps').parsley().validate()) {
                     $('.ajax_wait').show();
                     setTimeout(function () {
@@ -330,6 +332,7 @@
                     //上传profile信息
                     var update_profile_data = {};
                     update_profile_data.literal = $('.literal').eq(index).val();
+                    console.log(update_profile_data);
                     update_profile_data = $.extend({}, update_profile_data, cookie_tooken);
                     Ajax_Data({
                         "type": "post",
@@ -406,9 +409,10 @@
         // 提交订单
         function commit_order() {
             $('.ajax_wait p,.ajax_wait').hide();
-            window.location = "/glacier-static/src/main/webapp/WEB-INF/template/fa_invest/international/form_success.html";
+            //window.location = "/glacier-static/src/main/webapp/WEB-INF/template/fa_invest/american/form_usa_success.html";
         }
     })
 </script>
 </body>
 </html>
+

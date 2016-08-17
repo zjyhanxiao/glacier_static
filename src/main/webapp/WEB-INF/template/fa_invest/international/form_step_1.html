@@ -163,8 +163,8 @@
                     }, 3e3);// 创建订单
                     if (is_new) {
                         var create_order_data = {
-                            "product_id": 8,
-                            "invest_amount": 10000
+                            "product_id": product_id,
+                            "invest_amount": product_invest_amount
                         };
                         create_order_data = $.extend({}, create_order_data, cookie_tooken);
                         Ajax_Data({
