@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'/>
+    <title>
+        美信金融|投资流程
+    </title>
+    <script src="/static/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="/static/dist/meixin_invest/js/jquery.cookie.min.js"></script>
+    <script src="/static/meixin_invest/js/is_ok.js"></script>
+    <link rel="stylesheet" href="/static/vendor/css/bootstrap.min.css">
+    <link href="/static/dist/meixin_invest/css/base.min.css" rel="stylesheet">
+    <link href="/static/dist/meixin_invest/css/detail-new.min.css" rel="stylesheet">
+    <link href="/static/dist/meixin_invest/css/index.min.css" rel="stylesheet">
+    <link href="/static/meixin_invest/css/fa_invest.css" rel="stylesheet">
+    <link href="/static/meixin_invest/css/agreement-forms.css" rel="stylesheet">
+    <#include "includes/oneapm.html" />
+    <#include "includes/ga.html" />
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?36100da860ed74085d2bdd67bdbdbf5e";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!--[if lt IE 9]>
+    <script src="/static/vendor/js/html5shiv"></script>
+    <script src="/static/vendor/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="ajax_wait">
+    <div class="ajax_wait_gif"><img src="/static/dist/meixin_invest/img/Unknown.gif" alt=""></div>
+    <p>哎吆喂！网速似乎有点慢，点击这里<a href="/web/index.html">跳回首页!</a></p>
+</div>
+<script>
+    setHeight();
+    $(window).resize(function () {
+        setHeight();
+    });
+</script>
+<div id="wrapper" class="customer">
+    <#include "includes/navbar.html" />
+    <div class="container-fluid">
+        <section class="text-center" style="margin-top: 70px;">
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1">
+                    <div class="fa-steps-bullets international-bullets-extra-styles yellow-bullets-point">
+                        <div style="width:19%"><p><span>1</span></p>个人信息</div>
+                        <div><p><span>2</span></p>合规信息</div>
+                        <div><p class="active"><span>3</span></p>护照证件上传</div>
+                        <div><p><span>4</span></p>地址证明上传</div>
+                        <div><p><span>5</span></p>签字确认</div>
+                        <hr/>
+                        <span class="clearfix"></span>
+                    </div>
+                    <form class="fa-steps col-sm-10 col-sm-offset-1" data-parsley-validate>
+                        <div class="step-section">
+                            <p>根据监管要求, 投资人需要上传护照证件及地址证明以核实投资者身份信息。</p>
+                            <div class="fa-upload-id-pic fa-upload-pic col-sm-5">
+                                <a class="btn btn-primary">点击上传护照证件</a>
+                                <img src="/static/meixin_invest/img/upload_id_placeholder_518x348.png">
+                                <input id="identity-proof" name="identity-proof" type="file"
+                                       data-parsley-required-message="请上传护照证件照片！" required/>
+                            </div>
+                            <div class="fa-upload-passport-pic fa-upload-pic col-sm-5 col-sm-offset-2">
+                                <p>请在以下证件类型中选择一项进行上传</p>
+                                <p>符合要求的护照证件包括:</p>
+                                <p>有效的护照信息页(包括签名)</p>
+                                <p>注意: 如果您的护照证件(例如:旧版中国护照)不包含签名部分,请将证件置于白纸之上, 并于证件下方签名, 牌照或扫描上传。证件必须为原件, 不能为复印件。</p>
+                            </div>
+                            <span class="clearfix"></span>
+                        </div>
+
+                        <div class="step-navigation">
+                            <button type="button" class="previous btn btn-primary pull-left">返回</button>
+
+                            <button type="fasubmit" id="submit_step_three" class="btn btn-primary pull-right"><span
+                                    class="glyphicon glyphicon-refresh spinning"
+                                    style="display: none;"></span><span>下一步</span></button>
+                            <span class="clearfix"></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<link rel="shortcut icon" type="image/png" href="/static/dist/meixin_invest/img/favicon.png">
+<link rel="stylesheet" href="/static/vendor/css/font-awesome.min.css">
+<script src="/static/vendor/js/jquery-ui.min.js" type="text/javascript"></script>
+<script src="/static/vendor/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="/static/dist/meixin_invest/js/navi.min.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function () {
+        $('#wechat-popover').popover({
+            html: true,
+            placement: 'bottom',
+            trigger: 'hover',
+            content: '<img style="width: 200px;padding:0;margin:0;" src="/static/meixin_invest/img/meixin_new_qr_code_300x300.jpg" />'
+        });
+    });
+</script>
+<script>
+    $(function () {
+        //验证登录
+        Ajax_Data({
+            "url": baseUrl + "/auth/authentication",
+            "data": cookie_tooken,
+            "fn": is_login,
+            "no_login": no_login
+        });
+        function no_login() {
+            window.location = '/login';
+        }
+
+        //is_login  调取登录接口
+        function is_login(res) {
+            $('.navbar ul li:last-child').html('<a class="btn btn-min-width" href="/web/investor/dashboard">我的账户</a>');
+            $('.navbar ul li:nth-last-child(2)').html('<a class="btn btn-min-width-sm" href="/logout">退出</a>');
+            $('.ajax_wait p,.ajax_wait').hide();
+
+            // 获取profile信息
+            var get_profile_data = {
+                "fields": "passport_photo"
+            };
+            get_profile_data = $.extend({}, get_profile_data, cookie_tooken);
+            Ajax_Data({
+                "url": baseUrl + "/profile/get",
+                "data": get_profile_data,
+                "fn": get_profile
+            });
+
+            // 上传证件图片
+            $('#identity-proof').change(function (event) {
+                setTimeout(function () {
+                    $('.ajax_wait p').show();
+                }, 3e3);
+                var val = $(this).val().toLowerCase();
+                var regex = new RegExp("(.*?)\.(jpg|jpeg|png|gif|bmp)$");
+                if (!(regex.test(val))) {
+                    $(this).val('');
+                    alert('图片格式不正确，支持图片格式(.jpg|.jpeg|.png|.gif|.bmp)');
+                    $('.ajax_wait p,.ajax_wait').hide();
+
+                } else {
+                    file_upload();
+                    $(this).siblings('img').attr('src', URL.createObjectURL(event.target.files[0]));
+                }
+            });
+            $('#submit_step_three').on('click', function () {
+                var img_src = $('#identity-proof').siblings('img').attr('src');
+                if (!default_passport_photo) {
+                    $('#identity-proof').prop("required", false);
+                }
+                if ($('.fa-steps').parsley().validate()) {
+                    $('.ajax_wait').show();
+                    setTimeout(function () {
+                        $('.ajax_wait p').show();
+                    }, 3e3);
+                    order_number = getUrlParam("order_number");
+
+
+                    //上传profile信息
+                    var update_profile_data = {};
+                    if (!default_passport_photo) {
+                        update_profile_data.passport_photo = passport_photo;
+                    } else {
+                        update_profile_data.passport_photo = img_src;
+                    }
+                    update_profile_data = $.extend({}, update_profile_data, cookie_tooken);
+                    Ajax_Data({
+                        "type": "post",
+                        "url": baseUrl + "/profile/update",
+                        "data": update_profile_data,
+                        "fn": update_profile,
+                        "fail_fn": update_profile_fail
+                    });
+                    return false;
+                }
+            })
+        }
+
+        //获取profile信息
+        function get_profile(d) {
+            if (d.passport_photo != "" && d.passport_photo != null) {
+                $('.fa-upload-id-pic').find('img').attr('src', d.passport_photo);
+                $('#identity-proof').prop("required", false);
+                default_passport_photo = false;
+        }
+
+        //更新profile信息
+        function update_profile(res) {
+            $('.ajax_wait p,.ajax_wait').hide();
+            window.location.href = "/fa_invest/invest_yellowstone_step_4.html?order_number=" + order_number;
+        }
+
+
+        function file_upload() {
+            var formData = new FormData($('form')[0]);
+            formData.append('file', $("#identity-proof")[0].files[0]);
+            formData.append('mx_token', mx_token);
+            formData.append('mx_secret', mx_secret);
+            $.ajax({
+                url: baseUrl + '/upload/user_file',
+                dataType: 'json',
+                type: 'post',
+                data: formData,
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (result, status) {
+                    if (result.code == 1) {
+                        passport_photo = result.body;
+                        is_changed = true;
+                        $('.ajax_wait p,.ajax_wait').hide();
+                    }
+                    if (result.code == -1) {
+                        alert("上传失败,请重新上传");
+                    }
+                }
+            });
+        }
+    })
+</script>
+<script src="/static/dist/meixin_invest/js/bootstrap-formhelpers-yellowstone.min.js" type="text/javascript"></script>
+<script src="/static/dist/meixin_invest/js/bootstrap-formhelpers-countries.zh_CN.min.js"
+        type="text/javascript"></script>
+<script src="/static/dist/meixin_invest/js/bootstrap-formhelpers-phone.min.js" type="text/javascript"></script>
+<script src="/static/meixin_invest/js/parsley.min.js"></script>
+<script src="/static/dist/meixin_invest/js/fa_invest_general.min.js"></script>
+<script src="/static/meixin_invest/js/fa.js"></script>
+<script src="/static/dist/meixin_invest/js/jSignature.min.js" type="text/javascript"></script>
+</body>
+</html>

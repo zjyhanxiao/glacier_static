@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'/>
+    <title>
+        美信金融 - 账户注册
+    </title>
+    <link rel="stylesheet" href="${static}/vendor/css/bootstrap.min.css">
+    <link href="${static}/meixin_invest/css/base.css" rel="stylesheet">
+
+    <link href="${static}/meixin_invest/css/detail-new.css" rel="stylesheet">
+    <link href="${static}/meixin_invest/css/index.css" rel="stylesheet">
+    <#include "includes/oneapm.html" />
+    <#include "includes/ga.html" />
+    <!--[if lt IE 9]>
+    <script src="${static}/vendor/js/html5shiv"></script>
+    <script src="${static}/vendor/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div id="wrapper" class="customer">
+
+<#include "includes/navbar.html" />
+
+
+<div class="customerPage">
+
+    <div id="customerChilantro">
+        <div id="content" class="container">
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-5 col-sm-offset-4 form-box">
+
+                            <#if registered >
+                                <header>
+                                    <h1>谢谢更新资料!</h1>
+                                    <a href="/"
+                                       class="btn btn-primary">返回首页</a>
+                                    <h1 id="count-down-notice"></h1>
+                                </header>
+                            <#else>
+                                <header>
+                                    <h3>根据美国证券交易委员会SEC的法律规定</h3>
+                                    <h3>您需要提供基本的信息</h3>
+                                </header>
+                                <div class="wrapper project-wrapper container-fluid">
+                                <h5 id="form-title">美国投资人注册确认</h5>
+                                <hr/>
+                                <p style="color: #262626;">美国联邦政府要求每个证券发行人独立核实每位投资人在接受产品认购协议之前均为合规投资人。在您决定投资时将会被要求提供更多的信息。</p>
+                                <p style="color: #262626;">我在此向美信确认我是美国合规投资人，因为我符合1933年证券法D条例下合规投资人的以下定义标准之一：</p>
+                                <br/>
+
+                                <form method="post"
+                                      action="/web/investor/do_update_investor_profile_step3"
+                                      enctype="multipart/form-data">
+                                    ${csrf_token}
+
+                                    <div class="form-group">
+                                        <div class="checkbox">
+                                            <label><label for="id_questionaire_answer_0"><input id="id_questionaire_answer_0" name="questionaire_answer" type="radio" value="1">我是个人投资者, 且满足以下任一条件</label></label>
+
+                                            <p class="investor-requirement">
+                                                <small>  • 个人或与配偶联合资产超过1百万美金，包括退休金、401K、IRA、任何现金、投资基金、股票、投资房产(但不包括自己现居住的一处房产)及其他任何资产</small>
+                                            </p>
+                                            <p class="investor-requirement">
+                                                <small> • 过去两年内个人年总收入超过20万美金，或与配偶联合年总收入超过30万美金，同时今年收入预期和前两年接近</small>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="checkbox">
+                                            <label><label for="id_questionaire_answer_1"><input id="id_questionaire_answer_1" name="questionaire_answer" type="radio" value="2">我是机构投资者, 且满足以下任一条件</label></label>
+                                            <p class="investor-requirement">
+                                                <small> • 资产超过5百万美金的银行、保险公司、退休基金或其他注册投资公司；</small>
+                                            </p>
+                                            <p class="investor-requirement">
+                                                <small> • 资产超过5百万美金的公司、合伙企业或慈善组织；</small>
+                                            </p>
+                                            <p class="investor-requirement">
+                                                <small> • 股东均为合格投资人的公司；</small>
+                                            </p>
+                                            <p class="investor-requirement">
+                                                <small> • 符合雇员退休收入保障法案(ERISA)的雇员福利计划，总资产超过5百万美金，或由银行、保险公司或注册投资顾问做出投资决策；
+                                                </small>
+                                            </p>
+                                            <p class="investor-requirement">
+                                                <small> • 资产超过5百万美金的信托基金，且该基金并非专门为此项目特别组建，且由有经验的投资人进行投资决策。
+                                                </small>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+
+                                        <div class="checkbox">
+                                           <label><label for="id_questionaire_answer_2"><input id="id_questionaire_answer_2" name="questionaire_answer" type="radio" value="3">我不满足以上条件</label></label>
+                                        </div>
+                                    </div>
+                                    <input style="margin-top: 15px;" type="checkbox" name="agree" value="" required> 我同意网站的
+                                    <a target="_blank" href="/terms">使用条款 </a>和
+                                    <a target="_blank" href="/privacy">隐私协议</a><br>
+
+                                    <div class="text-center" style="margin-top: 10px;">
+                                            <button type="submit" class="btn-solid btn-solid-blue signup-button">
+                                                完成
+                                            </button>
+
+                                        </div>
+                                    </form>
+                                </#if>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<#include "includes/footer.html" />
+<link rel="shortcut icon" type="image/png" href="${static}/dist/meixin_invest/img/favicon.png">
+<link rel="stylesheet" href="${static}/vendor/css/font-awesome.min.css">
+<script src="${static}/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="${static}/vendor/js/jquery-ui.min.js" type="text/javascript"></script>
+<script src="${static}/vendor/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="${static}/dist/meixin_invest/js/navi.min.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function(){
+        $('#wechat-popover').popover({
+            html : true,
+            placement : 'bottom',
+            trigger : 'hover',
+            content : '<img style="width: 200px;padding:0;margin:0;" src="${static}/meixin_invest/img/meixin_new_qr_code_300x300.jpg" />'
+        });
+    });
+</script>
+<script type="text/javascript" src="${static}/dist/meixin_invest/js/count-down-jump.min.js"></script>
+</body>
+</html>
