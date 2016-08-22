@@ -157,7 +157,7 @@
                                     <div id="page2">
                                         <div id="form_02" class="wrapper project-wrapper container-fluid">
                                             <div class="error-div"></div>
-                                            <h5 id="form-title">投资人信息</h5>
+                                            <h5 id="form-title1">投资人信息</h5>
                                             <hr/>
 
                                             <div class="form-group">
@@ -182,7 +182,7 @@
                                     <div id="american_page3" class="page3">
                                         <div class="wrapper project-wrapper container-fluid">
 
-                                            <h5 id="form-title">美国投资人注册确认</h5>
+                                            <h5 id="form-title2">美国投资人注册确认</h5>
                                             <hr/>
                                             <p style="color: #262626;">
                                                 美国联邦政府要求每个证券发行人独立核实每位投资人在接受产品认购协议之前均为合规投资人。在您决定投资时将会被要求提供更多的信息。</p>
@@ -246,7 +246,7 @@
                                                 <input style="margin-top: 15px;" type="checkbox"
                                                        name="american-agree" value=""> 我同意网站的
                                                 <a target="_blank"
-                                                   href="{terms">使用条款 </a>和
+                                                   href="terms">使用条款 </a>和
                                                 <a target="_blank"
                                                    href="privacy">隐私协议</a><br>
                                                 <button style="margin: 10px 5px;" type="button" class="btn btn-previous btn-next btn-primary">
@@ -272,11 +272,7 @@
                                                                                          data-target="#american-investor-modal">美国投资人</a>
                                             </p>
                                             <p style="color: #262626;">2）我定居在美国境外</p>
-                                            <div class="<#if error >alert alert-warning</#if>">
-                                                <#list errors as error>
-                                                    ${error}
-                                                </#list>
-                                            </div>
+                                            <div class="<#if error >alert alert-warning</#if>"></div>
                                             <div class="text-center" style="margin-top: 10px;">
                                                 <input style="margin-top: 15px;" type="checkbox"
                                                        name="international-agree" value=""> 我同意网站的

@@ -191,22 +191,20 @@ $(document).ready(function () {
     });
 
 
-    // third page back step
-    $('.registration-form .btn-previous').on('click', function () {
-        $(this).parents('.page3').fadeOut(400, function () {
-            $('#page2').fadeIn();
-        });
-    });
-
     //数据
-    var data = {
-        "phone":$("#id_telephone").val(),
-        "verify_code":$("#id_verify").val(),
-        "password":$("#id_password").val(),
-        "email":$("#id_email").val(),
-        "referral_code":$("#id_referral_code").val(),
-        "is_international_investor":$("#form_02").find(".is_international_investor input[type='radio']:checked").val()
-    };
+    var data;
+    function getData() {
+        var data = {
+            "phone":$("#id_telephone").val(),
+            "verify_code":$("#id_verify").val(),
+            "password":$("#id_password").val(),
+            "email":$("#id_email").val(),
+            "referral_code":$("#id_referral_code").val(),
+            "is_international_investor":$("#form_02").find(".is_international_investor input[type='radio']:checked").val()
+        };
+        return data;
+    }
+
 
 
     // american submit
@@ -229,52 +227,46 @@ $(document).ready(function () {
             $.ajax({
                 type: 'post',
                 url: "http://101.201.112.171:8082/web/auth/signup",
-                data: data,
+                data: getData(),
                 success: function (res) {
-                    console.log(JSON.stringify(data));
-                    console.log(JSON.stringify(res));
-                    console.log($("#id_telephone").val());
-                    console.log(phone);
-                    alert();
                     if (res.code == 1) {
-                        alert('1');
+
                     } else if (res.code = 0) {
-                        alert('2');
+
                     }
                 }
-            })
+            });
 
         //});
         return false;
     });
-
-
+    
     // international submit
     $('#international-submit').on('click', function (e) {
-        alert('不要急.慢慢来2');
         var parent_div = $(this).parents('.page3');
-        if (!$('input[name="international-agree"]').is(':checked')) {
+        /*if (!$('input[name="international-agree"]').is(':checked')) {
             e.preventDefault();
             $(this).addClass('input-error');
             $("#international-page3-error-div").html("<div class='alert alert-warning'>请同意网站的使用条款和隐私协议</div>");
-        }
-        else {
+        }*/
+        /*else {
             $(this).removeClass('input-error');
-            /*$.ajax({
-                type: 'post',
-                url: "http://101.201.112.171:8082/web/auth/signup",
-                data: data,
-                success: function (res) {
-                    if (res.code == 1) {
-                        alert('恭喜您注册成功');
-                    } else if (res.code = -1) {
 
-                    }
+        }*/
+        $.ajax({
+            type: 'post',
+            url: "http://101.201.112.171:8082/web/auth/signup",
+            data: getData(),
+            success: function (res) {
+                if (res.code == 1) {
+
+                } else if (res.code = 0) {
+
                 }
-            })*/
-        }
+            }
+        });
     });
 
-
+    return false;
 
 });
