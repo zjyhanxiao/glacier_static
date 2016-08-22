@@ -43,7 +43,7 @@ $(document).ready(function () {
     });
 
     //  获取手机验证码
-    var first_next_step = false;
+    var first_next_step = true;
     $('#get_verify').click(function () {
         var $that = $(this);
         $(this).prop('disabled', true);
@@ -62,8 +62,8 @@ $(document).ready(function () {
         }, 1000);
         if ((country != 'China' && tel.length > 6) || (country == 'China' && tel.length >= 15)) {
             $.ajax({
-                type: 'get',
-                url: '/sendVerifyCode',
+                type: 'post',
+                url: 'http://101.201.112.171:8082/web/verify_code/send',
                 data: {"phone": tel},
                 dataType:"json",
                 success: function (res) {
@@ -79,7 +79,8 @@ $(document).ready(function () {
 
         return false;
     });
-// first step
+
+    // first step
     $('.registration-form #first-page-next-btn').on('click', function () {
         var parent_div = $(this).parents('.div-group');
         var next_step = true;
@@ -87,6 +88,7 @@ $(document).ready(function () {
         var verify = parent_div.find('input[name="verifyCode"]');
         var password = parent_div.find('input[type="password"]');
         var email = parent_div.find('input[name="email"]');
+        //var data = {"phone": $('#id_telephone').val()};
 
 
         if (phone.val().length < 6) {
@@ -141,7 +143,7 @@ $(document).ready(function () {
         console.log(first_next_step);
         if(!first_next_step){
             alert("请获取手机验证码!");
-        }else if (next_step) {
+       }else if (next_step) {
             parent_div.fadeOut(400, function () {
                 $('#page1').next().fadeIn();
             });
@@ -196,31 +198,60 @@ $(document).ready(function () {
         });
     });
 
+    //数据
+    var data = {
+        "phone":$("#id_telephone").val(),
+        "verify_code":$("#id_verify").val(),
+        "password":$("#id_password").val(),
+        "email":$("#id_email").val(),
+        "referral_code":$("#id_referral_code").val(),
+        "is_international_investor":$("#form_02").find(".is_international_investor input[type='radio']:checked").val()
+    };
+
 
     // american submit
     $('#american-submit').on('click', function (e) {
         var parent_div = $(this).parents('.page3');
-        parent_div.find('input[name="questionaire_answer"]').each(function () {
-            if (!$('input[name="american-agree"]').is(':checked')) {
+        //parent_div.find('input[name="questionaire_answer"]').each(function () {
+            /*if (!$('input[name="american-agree"]').is(':checked')) {
                 e.preventDefault();
                 $(this).addClass('input-error');
                 $("#page3-error-div").html("<div class='alert alert-warning'>请同意网站的使用条款和隐私协议</div>");
-            }
-            else if (!$('input[name="questionaire_answer"]').is(':checked')) {
+            }*/
+            /*else if (!$('input[name="questionaire_answer"]').is(':checked')) {
                 e.preventDefault();
                 $(this).addClass('input-error');
                 $("#page3-error-div").html("<div class='alert alert-warning'>请选择您的投资者条件</div>");
-            }
-            else {
+            }*/
+            /*else {
                 $(this).removeClass('input-error');
-            }
+            }*/
+            $.ajax({
+                type: 'post',
+                url: "http://101.201.112.171:8082/web/auth/signup",
+                data: data,
+                success: function (res) {
+                    console.log(JSON.stringify(data));
+                    console.log(JSON.stringify(res));
+                    console.log($("#id_telephone").val());
+                    console.log(phone);
+                    alert();
+                    if (res.code == 1) {
+                        alert('1');
+                    } else if (res.code = 0) {
+                        alert('2');
+                    }
+                }
+            })
 
-        });
+        //});
+        return false;
     });
 
 
     // international submit
     $('#international-submit').on('click', function (e) {
+        alert('不要急.慢慢来2');
         var parent_div = $(this).parents('.page3');
         if (!$('input[name="international-agree"]').is(':checked')) {
             e.preventDefault();
@@ -229,7 +260,21 @@ $(document).ready(function () {
         }
         else {
             $(this).removeClass('input-error');
+            /*$.ajax({
+                type: 'post',
+                url: "http://101.201.112.171:8082/web/auth/signup",
+                data: data,
+                success: function (res) {
+                    if (res.code == 1) {
+                        alert('恭喜您注册成功');
+                    } else if (res.code = -1) {
+
+                    }
+                }
+            })*/
         }
     });
+
+
 
 });
