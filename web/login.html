@@ -321,35 +321,34 @@ $(document).ready(function() {
         trigger: 'hover',
         content: '<img style="width: 200px;padding:0;margin:0;" src="/version1.0/meixin_invest/img/meixin_new_qr_code_300x300.jpg" />'
     });
-    $("#login_form").submit(function(e) {
-        if($('#general').hasClass('active')){
-
-            var val = $('#general input[name="user_name"]').val();
+    $("#login").on('click',function() {
+        if($('#reset_type_phone').hasClass('active')){
+            var val = $('#reset_type_phone input[name="user_name"]').val();
             if (val.length < 6) {
-                e.preventDefault();
+                //e.preventDefault();
                 alert("请输入手机号");
                 return false;
             }
         } else {
-            $('#general input[name="user_name"]').removeAttr('name');
+            $('#reset_type_phone input[name="user_name"]').removeAttr('name');
         }
-        if($('#invest').hasClass('active')){
-            var val = $(' #invest input[name="user_name"]').val();
+        if($('#reset_type_email').hasClass('active')){
+            var val = $(' #reset_type_email input[name="user_name"]').val();
             if (val.indexOf('@') <= 0 ) {
-                e.preventDefault();
+                //e.preventDefault();
                 alert("请输入邮箱");
                 return false;
             }
             if (val.indexOf('@') <= 0) {
-                e.preventDefault();
+                //e.preventDefault();
                 alert("请输入正确的邮箱格式");
                 return false;
             }
         } else {
-            $('#invest input[name="user_name"]').removeAttr('name');
+            $('#reset_type_email input[name="user_name"]').removeAttr('name');
         }
         if ($('input[type="password"]').val() == '') {
-            e.preventDefault();
+            //e.preventDefault();
             alert("请输入密码");
             return false;
         }
