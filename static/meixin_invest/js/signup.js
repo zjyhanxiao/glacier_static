@@ -79,6 +79,8 @@ $(document).ready(function () {
         return false;
     });
 
+    //数据
+    var data={};
     // first step
     $('.registration-form #first-page-next-btn').on('click', function () {
         var parent_div = $(this).parents('.div-group');
@@ -145,9 +147,15 @@ $(document).ready(function () {
             parent_div.fadeOut(400, function () {
                 $('#page1').next().fadeIn();
             });
+
+            data.email=$("#id_email").val();
+            data.password=$("#id_password").val();
+            data.phone=$("#id_telephone").val();
+            data.country=$("#countries_phone").val();
+            data.verify_code=$("#id_verify").val();
+            data.referral_code=$("#id_referral_code").val();
         }
     });
-
     // second page back step
     $('.registration-form .btn-previous').on('click', function () {
         $(this).parents('#page2').fadeOut(400, function () {
@@ -175,6 +183,7 @@ $(document).ready(function () {
 
         if (next_step) {
             console.log(is_international_investor);
+            data.is_international_investor=$(".form-group").find("input[type='radio']:checked").val();
             if (is_international_investor == 'True') {
                 parent_div.fadeOut(400, function () {
                     $('#international_page3').fadeIn();
@@ -189,25 +198,12 @@ $(document).ready(function () {
     });
 
 
-    //数据
-    var data = {};
-    function getData() {
-         data = {
-             "email":$("#id_email").val(),
-             "password":$("#id_password").val(),
-             "phone":$("#id_telephone").val(),
-             "country":$("#countries_phone").val(),
-             "verify_code":$("#id_verify").val(),
-             "referral_code":$("#id_referral_code").val(),
-             "is_international_investor":$(".form-group").find("input[type='radio']:checked").val()
-        };
-        return data;
-    }
+
 
 
 
     // american submit
-    $('#american-submit').on('click', function (e) {
+    $('#american-submit').on('click', function () {
         if (!$('input[name="questionaire_answer"]').is(':checked')) {
             $("#page3-error-div").html("<div class='alert alert-warning'>请选择您的投资者条件</div>");
         }
@@ -215,10 +211,11 @@ $(document).ready(function () {
         $("#page3-error-div").html("<div class='alert alert-warning'>请同意网站的使用条款和隐私协议</div>");
         }
         else {
+            console.log(data);
             $.ajax({
                 type: 'post',
                 url: "http://101.201.112.171:8082/web/auth/signup",
-                data: getData(),
+                data: data,
                 success: function (res) {
                     if (res.code == 1) {
                         window.location.href = "/https://www.meixinfinance.com/";
@@ -232,25 +229,26 @@ $(document).ready(function () {
     });
     
     // international submit
-    $('#international-submit').on('click', function (e) {
+    $('#international-submit').on('click', function () {
         if (!$('input[name="international-agree"]').is(':checked')) {
             $("#international-page3-error-div").html("<div class='alert alert-warning'>请同意网站的使用条款和隐私协议</div>");
         }
         else if($('input[name="international-agree"]').is(':checked')){
+            console.log(data);
             $.ajax({
                 type: 'post',
                 url: "http://101.201.112.171:8082/web/auth/signup",
-                data: getData(),
+                data: data,
                 success: function (res) {
                     if (res.code == 1) {
-                        window.location.href = "https://www.meixinfinance.com";
+                        //window.location.href = "https://www.meixinfinance.com";
                     } else if (res.code != 1) {
-                        alert(res.msg);
-                        window.location.href = "https://www.meixinfinance.com";
+                        //alert(res.msg);
+                        //window.location.href = "https://www.meixinfinance.com";
                     }
                 }
             });
         }
+        return false;
     });
-    return false;
 });
