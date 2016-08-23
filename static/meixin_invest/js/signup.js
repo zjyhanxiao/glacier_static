@@ -1,3 +1,11 @@
+// 取cookie
+var mx_token = $.cookie('mx_token'),
+    mx_secret = $.cookie('mx_secret');
+cookie_tooken = {mx_token: mx_token, mx_secret: mx_secret};
+//设置遮罩层高度
+function setHeight() {
+    $('.ajax_wait').height($(window).height());
+}
 $(document).ready(function () {
     var options = {};
 
@@ -37,13 +45,12 @@ $(document).ready(function () {
     $('.registration-form .div-group:first').fadeIn('slow');
 
     // onfocus effect
-
     $('.registration-form input[type="text"], .registration-form input[type="password"], .registration-form textarea').on('focus', function () {
         $(this).removeClass('input-error');
     });
 
     //  获取手机验证码
-    var first_next_step = false;
+    var first_next_step = true;
     $('#get_verify').click(function () {
         var $that = $(this);
         $(this).prop('disabled', true);
@@ -62,15 +69,15 @@ $(document).ready(function () {
         }, 1000);
         if ((country != 'China' && tel.length > 6) || (country == 'China' && tel.length >= 15)) {
             $.ajax({
-                type: 'get',
-                url: '/sendVerifyCode',
+                type: 'post',
+                url: 'http://101.201.112.171:8082/web/verify_code/send',
                 data: {"phone": tel},
                 dataType:"json",
                 success: function (res) {
                     if (res == true) {
                         first_next_step = true;
                     }
-                    if(res==false){
+                    if(res == false){
                         alert('');
                     }
                 }
@@ -79,7 +86,10 @@ $(document).ready(function () {
 
         return false;
     });
-// first step
+
+    //data
+    var data={};
+    // first step
     $('.registration-form #first-page-next-btn').on('click', function () {
         var parent_div = $(this).parents('.div-group');
         var next_step = true;
@@ -87,7 +97,6 @@ $(document).ready(function () {
         var verify = parent_div.find('input[name="verifyCode"]');
         var password = parent_div.find('input[type="password"]');
         var email = parent_div.find('input[name="email"]');
-
 
         if (phone.val().length < 6) {
             phone.addClass('input-error');
@@ -101,11 +110,11 @@ $(document).ready(function () {
             verify.addClass('input-error');
             next_step = false;
         }
-        else if (password.val() == '') {
+        else if (password.val() === ''||password.val() == null) {
             password.addClass('input-error');
             next_step = false;
         }
-        else if (email.val() == '') {
+        else if (email.val() == ''|| email.valueOf('@') <= 0) {
             email.addClass('input-error');
             next_step = false;
         }
@@ -120,6 +129,11 @@ $(document).ready(function () {
                 return false;
             }
             else if ($('#countries_phone').val() != 'China' && $('input[name="phone"]').val().length < 6) {
+                $(this).addClass('input-error');
+                next_step = false;
+                return false;
+            }
+            else if ($('#password').val() == "") {
                 $(this).addClass('input-error');
                 next_step = false;
                 return false;
@@ -141,13 +155,19 @@ $(document).ready(function () {
         console.log(first_next_step);
         if(!first_next_step){
             alert("请获取手机验证码!");
-        }else if (next_step) {
+       }else if (next_step) {
             parent_div.fadeOut(400, function () {
                 $('#page1').next().fadeIn();
             });
+
+            data.email=$("#id_email").val();
+            data.password=$("#id_password").val();
+            data.phone=$("#id_telephone").val();
+            data.country=$("#countries_phone").val();
+            data.verify_code=$("#id_verify").val();
+            data.referral_code=$("#id_referral_code").val();
         }
     });
-
     // second page back step
     $('.registration-form .btn-previous').on('click', function () {
         $(this).parents('#page2').fadeOut(400, function () {
@@ -175,6 +195,7 @@ $(document).ready(function () {
 
         if (next_step) {
             console.log(is_international_investor);
+            data.is_international_investor=$(".form-group").find("input[type='radio']:checked").val();
             if (is_international_investor == 'True') {
                 parent_div.fadeOut(400, function () {
                     $('#international_page3').fadeIn();
@@ -189,47 +210,68 @@ $(document).ready(function () {
     });
 
 
-    // third page back step
-    $('.registration-form .btn-previous').on('click', function () {
-        $(this).parents('.page3').fadeOut(400, function () {
-            $('#page2').fadeIn();
-        });
-    });
-
-
     // american submit
-    $('#american-submit').on('click', function (e) {
-        var parent_div = $(this).parents('.page3');
-        parent_div.find('input[name="questionaire_answer"]').each(function () {
-            if (!$('input[name="american-agree"]').is(':checked')) {
-                e.preventDefault();
-                $(this).addClass('input-error');
-                $("#page3-error-div").html("<div class='alert alert-warning'>请同意网站的使用条款和隐私协议</div>");
-            }
-            else if (!$('input[name="questionaire_answer"]').is(':checked')) {
-                e.preventDefault();
-                $(this).addClass('input-error');
-                $("#page3-error-div").html("<div class='alert alert-warning'>请选择您的投资者条件</div>");
-            }
-            else {
-                $(this).removeClass('input-error');
-            }
-
-        });
-    });
-
-
-    // international submit
-    $('#international-submit').on('click', function (e) {
-        var parent_div = $(this).parents('.page3');
-        if (!$('input[name="international-agree"]').is(':checked')) {
-            e.preventDefault();
-            $(this).addClass('input-error');
-            $("#international-page3-error-div").html("<div class='alert alert-warning'>请同意网站的使用条款和隐私协议</div>");
+    $('#american-submit').on('click', function () {
+        if (!$('input[name="questionaire_answer"]').is(':checked')) {
+            $("#page3-error-div").html("<div class='alert alert-warning'>请选择您的投资者条件</div>");
+        }
+        else if (!$('input[name="american-agree"]').is(':checked')) {
+        $("#page3-error-div").html("<div class='alert alert-warning'>请同意网站的使用条款和隐私协议</div>");
         }
         else {
-            $(this).removeClass('input-error');
+            console.log(data);
+            $.ajax({
+                type: 'post',
+                url: "http://101.201.112.171:8082/web/auth/signup",
+                data: data,
+                success: function (res) {
+                    if (res.code == 1) {
+                        
+                    } else if (res.code != 1) {
+                        alert(res.msg);
+                    }
+                },
+                complete: function (XMLHttpRequest, status) { //请求完成后最终执行参数
+                    if (status == 'timeout') {//超时,status还有success,error等值的情况
+                        // ajaxTimeoutTest.abort();
+                        console.log('超时');
+                        //提示网络问题
+                        $('.ajax_wait_gif img').attr('url', '/dist/meixin_invest/img/net_lazy.png');
+                    }
+                }
+            });
         }
+        return false;
     });
+    
+    // international submit
+    $('#international-submit').on('click', function () {
+        if (!$('input[name="international-agree"]').is(':checked')) {
+            $("#international-page3-error-div").html("<div class='alert alert-warning'>请同意网站的使用条款和隐私协议</div>");
+        }
+        else if($('input[name="international-agree"]').is(':checked')){
+            console.log(data);
+            $.ajax({
+                type: 'post',
+                url: "http://101.201.112.171:8082/web/auth/signup",
+                data: data,
+                success: function (res) {
+                    if (res.code == 1) {
 
+                    } else if (res.code != 1) {
+                        alert(res.msg);
+                    }
+                },
+                complete: function (XMLHttpRequest, status) { //请求完成后最终执行参数
+                    if (status == 'timeout') {//超时,status还有success,error等值的情况
+                        // ajaxTimeoutTest.abort();
+                        console.log('超时');
+                        //提示网络问题
+                        $('.ajax_wait_gif img').attr('url', '/dist/meixin_invest/img/net_lazy.png');
+                    }
+                }
+            });
+        }
+        return false;
+    });
 });
