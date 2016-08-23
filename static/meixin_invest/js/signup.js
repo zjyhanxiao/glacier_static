@@ -69,7 +69,7 @@ $(document).ready(function () {
                     if (res == true) {
                         first_next_step = true;
                     }
-                    if(res==false){
+                    if(res == false){
                         alert('');
                     }
                 }
@@ -79,7 +79,7 @@ $(document).ready(function () {
         return false;
     });
 
-    //数据
+    //data
     var data={};
     // first step
     $('.registration-form #first-page-next-btn').on('click', function () {
@@ -103,7 +103,7 @@ $(document).ready(function () {
             verify.addClass('input-error');
             next_step = false;
         }
-        else if (password.val() == '') {
+        else if (password.val() === ''||password.val() == null) {
             password.addClass('input-error');
             next_step = false;
         }
@@ -122,6 +122,11 @@ $(document).ready(function () {
                 return false;
             }
             else if ($('#countries_phone').val() != 'China' && $('input[name="phone"]').val().length < 6) {
+                $(this).addClass('input-error');
+                next_step = false;
+                return false;
+            }
+            else if ($('#password').val() == "") {
                 $(this).addClass('input-error');
                 next_step = false;
                 return false;
@@ -198,10 +203,6 @@ $(document).ready(function () {
     });
 
 
-
-
-
-
     // american submit
     $('#american-submit').on('click', function () {
         if (!$('input[name="questionaire_answer"]').is(':checked')) {
@@ -218,7 +219,7 @@ $(document).ready(function () {
                 data: data,
                 success: function (res) {
                     if (res.code == 1) {
-                        
+
                     } else if (res.code != 1) {
                         alert(res.msg);
                     }
@@ -243,7 +244,7 @@ $(document).ready(function () {
                     if (res.code == 1) {
 
                     } else if (res.code != 1) {
-
+                        alert(res.msg);
                     }
                 }
             });
