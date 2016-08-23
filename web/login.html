@@ -26,6 +26,16 @@
     <style>#reset_type { border-bottom: 1px solid #ededed; } #reset_type li.reset_type { width: 50%; margin: 0; } .nav-pills > li > a { border-radius: 0; color: #000; text-align: center; } .nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover { background-color: #ecf7fb; color: #000; }</style></head>
 
 <body>
+<div class="ajax_wait">
+    <div class="ajax_wait_gif"><img src="/version1.0/dist/meixin_invest/img/Unknown.gif" alt=""></div>
+    <p>哎吆喂！网速似乎有点慢，点击这里<a href="/">跳回首页!</a></p>
+</div>
+<script>
+    setHeight();
+    $(window).resize(function () {
+        setHeight();
+    });
+</script>
 <div id="wrapper" class="customer">
     <nav id="navChilantro">
         <div class="page-top-bar">联系我们：400-094-1580<a href="http://weibo.com/meixingroup" target="_blank"><img src="/version1.0/meixin_invest/img/top_weibo_icon_55x47.png" /></a><a id="wechat-popover" data-toggle="popover"><img src="/version1.0/meixin_invest/img/top_wechat_icon_57x47.png" /></a>

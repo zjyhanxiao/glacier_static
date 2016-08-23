@@ -1,3 +1,11 @@
+// 取cookie
+var mx_token = $.cookie('mx_token'),
+    mx_secret = $.cookie('mx_secret');
+cookie_tooken = {mx_token: mx_token, mx_secret: mx_secret};
+//设置遮罩层高度
+function setHeight() {
+    $('.ajax_wait').height($(window).height());
+}
 $(document).ready(function () {
     var options = {};
 
@@ -222,6 +230,14 @@ $(document).ready(function () {
                     } else if (res.code != 1) {
                         alert(res.msg);
                     }
+                },
+                complete: function (XMLHttpRequest, status) { //请求完成后最终执行参数
+                    if (status == 'timeout') {//超时,status还有success,error等值的情况
+                        // ajaxTimeoutTest.abort();
+                        console.log('超时');
+                        //提示网络问题
+                        $('.ajax_wait_gif img').attr('url', '/dist/meixin_invest/img/net_lazy.png');
+                    }
                 }
             });
         }
@@ -244,6 +260,14 @@ $(document).ready(function () {
 
                     } else if (res.code != 1) {
                         alert(res.msg);
+                    }
+                },
+                complete: function (XMLHttpRequest, status) { //请求完成后最终执行参数
+                    if (status == 'timeout') {//超时,status还有success,error等值的情况
+                        // ajaxTimeoutTest.abort();
+                        console.log('超时');
+                        //提示网络问题
+                        $('.ajax_wait_gif img').attr('url', '/dist/meixin_invest/img/net_lazy.png');
                     }
                 }
             });
