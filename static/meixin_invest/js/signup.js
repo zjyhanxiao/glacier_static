@@ -37,7 +37,6 @@ $(document).ready(function () {
     $('.registration-form .div-group:first').fadeIn('slow');
 
     // onfocus effect
-
     $('.registration-form input[type="text"], .registration-form input[type="password"], .registration-form textarea').on('focus', function () {
         $(this).removeClass('input-error');
     });
@@ -88,7 +87,6 @@ $(document).ready(function () {
         var verify = parent_div.find('input[name="verifyCode"]');
         var password = parent_div.find('input[type="password"]');
         var email = parent_div.find('input[name="email"]');
-        //var data = {"phone": $('#id_telephone').val()};
 
 
         if (phone.val().length < 6) {
@@ -192,15 +190,16 @@ $(document).ready(function () {
 
 
     //数据
-    var data;
+    var data = {};
     function getData() {
-        var data = {
-            "phone":$("#id_telephone").val(),
-            "verify_code":$("#id_verify").val(),
-            "password":$("#id_password").val(),
-            "email":$("#id_email").val(),
-            "referral_code":$("#id_referral_code").val(),
-            "is_international_investor":$("#form_02").find(".is_international_investor input[type='radio']:checked").val()
+         data = {
+             "email":$("#id_email").val(),
+             "password":$("#id_password").val(),
+             "phone":$("#id_telephone").val(),
+             "country":$("#countries_phone").val(),
+             "verify_code":$("#id_verify").val(),
+             "referral_code":$("#id_referral_code").val(),
+             "is_international_investor":$(".form-group").find("input[type='radio']:checked").val()
         };
         return data;
     }
@@ -209,64 +208,49 @@ $(document).ready(function () {
 
     // american submit
     $('#american-submit').on('click', function (e) {
-        var parent_div = $(this).parents('.page3');
-        //parent_div.find('input[name="questionaire_answer"]').each(function () {
-            /*if (!$('input[name="american-agree"]').is(':checked')) {
-                e.preventDefault();
-                $(this).addClass('input-error');
-                $("#page3-error-div").html("<div class='alert alert-warning'>请同意网站的使用条款和隐私协议</div>");
-            }*/
-            /*else if (!$('input[name="questionaire_answer"]').is(':checked')) {
-                e.preventDefault();
-                $(this).addClass('input-error');
-                $("#page3-error-div").html("<div class='alert alert-warning'>请选择您的投资者条件</div>");
-            }*/
-            /*else {
-                $(this).removeClass('input-error');
-            }*/
+        if (!$('input[name="questionaire_answer"]').is(':checked')) {
+            $("#page3-error-div").html("<div class='alert alert-warning'>请选择您的投资者条件</div>");
+        }
+        else if (!$('input[name="american-agree"]').is(':checked')) {
+        $("#page3-error-div").html("<div class='alert alert-warning'>请同意网站的使用条款和隐私协议</div>");
+        }
+        else {
             $.ajax({
                 type: 'post',
                 url: "http://101.201.112.171:8082/web/auth/signup",
                 data: getData(),
                 success: function (res) {
                     if (res.code == 1) {
-
-                    } else if (res.code = 0) {
-
+                        window.location.href = "/https://www.meixinfinance.com/";
+                    } else if (res.code != 1) {
+                        alert(res.msg);
                     }
                 }
             });
-
-        //});
+        }
         return false;
     });
     
     // international submit
     $('#international-submit').on('click', function (e) {
-        var parent_div = $(this).parents('.page3');
-        /*if (!$('input[name="international-agree"]').is(':checked')) {
-            e.preventDefault();
-            $(this).addClass('input-error');
+        if (!$('input[name="international-agree"]').is(':checked')) {
             $("#international-page3-error-div").html("<div class='alert alert-warning'>请同意网站的使用条款和隐私协议</div>");
-        }*/
-        /*else {
-            $(this).removeClass('input-error');
-
-        }*/
-        $.ajax({
-            type: 'post',
-            url: "http://101.201.112.171:8082/web/auth/signup",
-            data: getData(),
-            success: function (res) {
-                if (res.code == 1) {
-
-                } else if (res.code = 0) {
-
+        }
+        else if($('input[name="international-agree"]').is(':checked')){
+            $.ajax({
+                type: 'post',
+                url: "http://101.201.112.171:8082/web/auth/signup",
+                data: getData(),
+                success: function (res) {
+                    if (res.code == 1) {
+                        window.location.href = "https://www.meixinfinance.com";
+                    } else if (res.code != 1) {
+                        alert(res.msg);
+                        window.location.href = "https://www.meixinfinance.com";
+                    }
                 }
-            }
-        });
+            });
+        }
     });
-
     return false;
-
 });
