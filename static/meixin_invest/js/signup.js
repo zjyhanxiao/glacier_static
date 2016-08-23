@@ -218,7 +218,7 @@ $(document).ready(function () {
                 data: data,
                 success: function (res) {
                     if (res.code == 1) {
-                        window.location.href = "/https://www.meixinfinance.com/";
+                        
                     } else if (res.code != 1) {
                         alert(res.msg);
                     }
@@ -241,10 +241,9 @@ $(document).ready(function () {
                 data: data,
                 success: function (res) {
                     if (res.code == 1) {
-                        //window.location.href = "https://www.meixinfinance.com";
+
                     } else if (res.code != 1) {
-                        //alert(res.msg);
-                        //window.location.href = "https://www.meixinfinance.com";
+
                     }
                 }
             });
