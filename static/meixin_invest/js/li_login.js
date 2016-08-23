@@ -36,7 +36,7 @@ $(function () {
             data1.user_name = $('#email').val();
             data1.password = $('#password').val();
             if ($('#email').val().length<6) {
-                alert("请输入手机号");
+                alert("请输入邮箱");
                 return false;
             }
             else if ($('input[type="password"]').val() == '') {
