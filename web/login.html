@@ -321,40 +321,20 @@ $(document).ready(function() {
         trigger: 'hover',
         content: '<img style="width: 200px;padding:0;margin:0;" src="/version1.0/meixin_invest/img/meixin_new_qr_code_300x300.jpg" />'
     });
-    $("#login_form").submit(function(e) {
-        if($('#general').hasClass('active')){
-
-            var val = $('#general input[name="user_name"]').val();
-            if (val.length < 6) {
-                e.preventDefault();
-                alert("请输入手机号");
-                return false;
-            }
-        } else {
-            $('#general input[name="user_name"]').removeAttr('name');
-        }
-        if($('#invest').hasClass('active')){
-            var val = $(' #invest input[name="user_name"]').val();
-            if (val.indexOf('@') <= 0 ) {
-                e.preventDefault();
-                alert("请输入邮箱");
-                return false;
-            }
-            if (val.indexOf('@') <= 0) {
-                e.preventDefault();
-                alert("请输入正确的邮箱格式");
-                return false;
-            }
-        } else {
-            $('#invest input[name="user_name"]').removeAttr('name');
-        }
-        if ($('input[type="password"]').val() == '') {
-            e.preventDefault();
-            alert("请输入密码");
-            return false;
-        }
-    });
 });
+</script>
+<script type="text/javascript">
+    //获取url中的参数
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r != null) return unescape(r[2]);
+        return null; //返回参数值
+    }
+    var source=getUrlParam('source');
+    var expiresDate= new Date();
+    expiresDate.setTime(expiresDate.getTime() + (30 * 24 * 60 * 60 * 1000));
+    $.cookie('source',source,{expires: expiresDate});
 </script>
 </body>
 

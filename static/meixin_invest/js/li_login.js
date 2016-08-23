@@ -1,6 +1,13 @@
 /**
  * Created by admin on 2016/8/22.
  */
+// 取cookie
+var cookie_tooken = {};
+
+var mx_token = $.cookie('mx_token'),
+    mx_secret = $.cookie('mx_secret');
+cookie_tooken = {mx_token: mx_token, mx_secret: mx_secret};
+
 $(function () {
     $("#login").on('click',function() {
         var data = {};
