@@ -29,7 +29,6 @@
                 <div class="product_top_section">
                     <h2>盛心计划 - SpaceX Pre-IPO股权投资</h2>
 					<img style="width: 200px; padding-left: 3%" src="/version1.0/dist/meixin_invest/img/products/shengxin_spacex_1024x126.png" /><br><br>
-					<#if user >
 					    <a type="button" class="btn btn-primary" data-toggle="modal" data-titlename="盛心计划一期" data-target="#popup">立即预约</a>
 						<div class="modal fade" id="popup" tabindex="-1" role="dialog">
 							<div class="modal-dialog modal-sm" role="document">
@@ -38,7 +37,6 @@
 										<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 										<h4 class="modal-title" id="exampleModalLabel">申购预约</h4>
 									</div>
-									<#if scheduled >
 										<!--  预约完成页面，处理完表单提交之后显示-->
 										<div class="is_book">
 											<p>
@@ -46,17 +44,12 @@
 											</p>
 											<a href="/" type="button" class="btn btn-primary">查看所有产品</a>
 										</div>
-										<#else>
 											<div class="modal-body">
 												<form method="post"
 													  action="/submit_appointment"
 													  enctype="multipart/form-data">
 													<input type="hidden" name="product_id" value="${product_id}">
-													${csrf_token}
 													<div class="<#if errors >alert alert-warning</#if>">
-														<#list errors as error >
-															${error}
-														</#list>
 													</div>
 													<div class="form-group">
 														<input class="form-control" id="id_user_contact_name" maxlength="128" name="user_contact_name" oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('请输入姓名！')" placeholder="姓名" required="required" type="text">
@@ -89,17 +82,12 @@
 											</div>
 											<div class="modal-footer">
 											</div>
-									</#if>
-
-
 
 								</div>
 							</div>
 						</div>
-					<#else>
 					    <a class="btn btn-primary" href="/protected">立即预约</a>
-					</#if>
-					
+
 					<ul>
 					    <li>当前估值<br><span>120亿</span></li>
 					    <li>起投金额<br><span>$500,000</span></li>
