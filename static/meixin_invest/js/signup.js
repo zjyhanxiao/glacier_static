@@ -90,7 +90,6 @@ $(document).ready(function () {
         var password = parent_div.find('input[type="password"]');
         var email = parent_div.find('input[name="email"]');
 
-
         if (phone.val().length < 6) {
             phone.addClass('input-error');
             next_step = false;
@@ -107,7 +106,7 @@ $(document).ready(function () {
             password.addClass('input-error');
             next_step = false;
         }
-        else if (email.val() == '') {
+        else if (email.val() == ''|| email.valueOf('@') <= 0) {
             email.addClass('input-error');
             next_step = false;
         }
@@ -219,7 +218,7 @@ $(document).ready(function () {
                 data: data,
                 success: function (res) {
                     if (res.code == 1) {
-
+                        
                     } else if (res.code != 1) {
                         alert(res.msg);
                     }

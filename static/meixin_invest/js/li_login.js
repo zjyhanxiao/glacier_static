@@ -42,8 +42,10 @@ $(function () {
         if($('#invest').hasClass('active')){
             data1.user_name = $('#email').val();
             data1.password = $('#password').val();
-            if ($('#email').val().length<6) {
-                alert("请输入邮箱");
+            var emailEle = document.getElementById("email");
+            var reg = /^([a-zA-Z0-9_\.-]+)@([\da-zA-Z\.-]+)\.([a-zA-Z0-9\.]{2,6})$/;
+            if (!reg.test(emailEle.value)) {
+                alert("请输入正确的邮箱格式");
                 return false;
             }
             else if ($('input[type="password"]').val() == '') {
