@@ -122,32 +122,30 @@
                                     <br/>
                                     <br/>
                                     <ul id="reset_type" class="nav nav-pills">
-                                        <li class="active reset_type">
+                                        <li class="active reset_type" id="reset_type_phone">
                                             <a data-toggle="pill" href="#general">手机号</a></li>
-                                        <li class="reset_type">
+                                        <li class="reset_type" id="reset_type_email">
                                             <a data-toggle="pill" href="#invest">邮箱</a></li>
                                     </ul>
-                                    <form id="login_form" method="post"
-                                          action="/dologin/">
+                                    <form id="login_form" method="post" action="/dologin/">
                                     <div class="tab-content" style="padding: 40px 40px 0 40px;">
                                         <div id="general" class="tab-pane fade in active">
-                                                <div class="container-fluid">
-                                                    <div class="form-group">
-                                                        <select id="countries_phone" class="input-medium bfh-countries form-control" data-country="China" style="width: 33%;display: inline-block;" required=""></select>
-                                                        <input class="form-control bfh-phone phone-field" cols="20"
-                                                               data-country="countries_phone" id="id_telephone"
-                                                               maxlength="75" name="user_name" placeholder="电话号码"
-                                                               type="text" style="width: 63%; display: inline-block;
-                                margin-left: 2%;">
-                                                    </div>
+                                            <div class="container-fluid">
+                                                <div class="form-group">
+                                                    <select id="countries_phone" class="input-medium bfh-countries form-control" data-country="China" style="width: 33%;display: inline-block;" required=""></select>
+                                                    <input class="form-control bfh-phone phone-field" cols="20"
+                                                           data-country="countries_phone" id="id_telephone"
+                                                           maxlength="75" name="user_name" placeholder="电话号码"
+                                                           type="text" style="width: 63%; display: inline-block;margin-left: 2%;">
                                                 </div>
+                                            </div>
                                         </div>
                                         <div id="invest" class="tab-pane fade">
-                                                <div class="container-fluid" style="margin-bottom: 15px;">
-                                                    <input id="email" class="form-control" placeholder="email" type="text"
-                                                           name="user_name" value=""
-                                                           size="50" />
-                                                </div>
+                                            <div class="container-fluid" style="margin-bottom: 15px;">
+                                                <input id="email" class="form-control" placeholder="email" type="text"
+                                                       name="user_name" value=""
+                                                       size="50" />
+                                            </div>
 
                                         </div>
                                     </div>
@@ -161,13 +159,13 @@
                                             <div class="text-center" style="margin-top: 10px;">
                                                 <button id="login" type="submit" class="btn-solid btn-solid-blue signup-button" style="border-radius: 20px;">登录</button>
                                                 <br/>
-                                <span class="text-muted text-center">需要
-                                  <a href="/signup/">注册账户</a>?</span>
+                                                <span class="text-muted text-center">需要
+                                                <a href="/signup/">注册账户</a>?</span>
                                                 <br/></div>
                                             <br/>
                                         </div>
 
-                                        </form>
+                                    </form>
                                 </div>
                             </div>
                         </div>
