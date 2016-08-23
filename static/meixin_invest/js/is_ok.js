@@ -115,19 +115,20 @@ $(function () {
     setTimeout(function () {
         $('.ajax_wait p').show();
     }, 3e3);
+    /*
     $('section input').each(function (index) {
         $('section input').eq(index).attr('data-parsley-group', 'block-' + index);
-    });
+    });*/
     $('.previous').on('click', function () {
         window.history.go(-1);
     });
     // 调取 登录接口
-/*    Ajax_Data({
+    /*Ajax_Data({
         "url": baseUrl + "/auth/login",
         "type": "post",
         //"data": {"user_name": "+86 15001393659", "password": "123456789"},
-        // "data": {"user_name": "+86 13146046568", "password": "111111"},
-        "data": {"user_name": "+86 18810797876", "password": "111111"},
+        "data": {"user_name": "+86 13146046568", "password": "111111"},
+        // "data": {"user_name": "+86 18810797876", "password": "111111"},
         "fn": login,
         "fail_fn": login_fail
     });
