@@ -40,9 +40,8 @@ $(function () {
         if($('#invest').hasClass('active')){
             data1.user_name = $('#email').val();
             data1.password = $('#password').val();
-            var emailEle = document.getElementById("email");
-            var reg = /^([a-zA-Z0-9_\.-]+)@([\da-zA-Z\.-]+)\.([a-zA-Z0-9\.]{2,6})$/;
-            if (!reg.test(emailEle.value)) {
+            var val = $('#email').val();
+            if (val.indexOf('@') <= 0) {
                 alert("请输入正确的邮箱格式");
                 return false;
             }
