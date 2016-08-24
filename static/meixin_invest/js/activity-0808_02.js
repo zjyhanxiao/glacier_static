@@ -113,9 +113,8 @@ $(function () {
 
 //电子邮箱: 必须满足邮箱格式
     function checkEmail() {
-        var emailEle = document.getElementById("email");
-        var reg = /^([a-zA-Z0-9_\.-]+)@([\da-zA-Z\.-]+)\.([a-zA-Z0-9\.]{2,6})$/;
-        if (!reg.test(emailEle.value)) {
+        var val = $('#email').val();
+        if (val.indexOf('@') <= 0) {
             $("#email").after("<p style='text-align: center; color: #900'>邮箱格式不正确</P>");
             $("#email").focus(function () {
                 $("#email").next('p').remove();
