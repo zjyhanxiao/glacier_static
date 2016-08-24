@@ -307,6 +307,7 @@ a.status_btn,a.status_btn:hover{
 .pwd_list span {
     color: red;
     margin-left: 20px;
+    line-height: 32px;
 }
 
 .pwd_btn {
