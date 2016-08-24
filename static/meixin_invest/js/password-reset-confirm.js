@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var options = {};
+   /* var options = {};
 
     options.ui = {
         verdicts: [
@@ -28,5 +28,7 @@ $(document).ready(function () {
             }
         }
     };
-    $('#id_new_password1').pwstrength(options);
+    $('#id_new_password1').pwstrength(options);*/
+ 
+    
 });
