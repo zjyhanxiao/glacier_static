@@ -128,12 +128,6 @@ a.status_btn,a.status_btn:hover{
     margin-right: 20px;
 }
 
-@media (min-width: 768px) {
-    .modal-sm {
-        width: 600px;
-    }
-}
-
 .modal-title {
     text-align: center;
 }
@@ -182,6 +176,8 @@ a.status_btn,a.status_btn:hover{
 .error_msg {
     color: red;
     text-align: center;
+    margin-top: -20px;
+    height: 20px;
 }
 
 .modal-footer {
@@ -323,7 +319,11 @@ a.status_btn,a.status_btn:hover{
 a,a:hover{
     color: #fff;
 }
-
+@media (min-width: 768px) {
+    .modal-sm {
+        width: 600px;
+    }
+}
 /*
 
 .jumbotron {

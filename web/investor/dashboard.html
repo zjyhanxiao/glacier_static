@@ -620,9 +620,9 @@
                     <div class="error_msg"></div>
                     <form id="invest_form">
                         <label>用户名：</label>
-                        <input id="real_name" class="form-control" disabled>
+                        <input id="full_name" class="form-control">
                         <label>现居地址：</label>
-                        <input id="residence-address" disabled class="form-control">
+                        <input id="residence-address" class="form-control">
                         <label>收款银行名称：</label>
                         <input id="bank_name" class="form-control">
                         <label>收款银行地址：</label>
@@ -649,41 +649,41 @@
                     <table>
                         <tr>
                             <td>用户名：</td>
-                            <td colspan="3"></td>
+                            <td colspan="3">user_name</td>
                         </tr>
                         <tr>
                             <td>现居地址：</td>
-                            <td colspan="3"></td>
+                            <td colspan="3">address</td>
                         </tr>
                         <tr>
                             <td>收款银行名称：</td>
-                            <td colspan="3"></td>
+                            <td colspan="3">bank_name</td>
                         </tr>
                         <tr>
                             <td>收款银行地址：</td>
-                            <td colspan="3"></td>
+                            <td colspan="3">bank_address</td>
                         </tr>
                         <tr>
                             <td>收款银行账户：</td>
-                            <td colspan="3"></td>
+                            <td colspan="3">bank_account</td>
                         </tr>
                         <tr>
                             <td>Swift Code：</td>
-                            <td colspan="3"></td>
+                            <td colspan="3">swift_code</td>
                         </tr>
                         <tr>
                             <td>ABA Number：</td>
-                            <td colspan="3"></td>
+                            <td colspan="3">aba_number</td>
                         </tr>
                         <tr>
                             <td>投资总额：</td>
-                            <td width="30%"></td>
+                            <td width="30%">invest_total</td>
                             <td width="20%">可提现金额：</td>
-                            <td width="30%"></td>
+                            <td width="30%">withdraw_able_amount</td>
                         </tr>
                         <tr>
                             <td>提现金额：</td>
-                            <td colspan="3"></td>
+                            <td colspan="3">withdraw_amount</td>
                         </tr>
                     </table>
                     <div class="text-center">
@@ -709,50 +709,7 @@
 <script>
 
     $(function () {
-        //写入title
-        $('#popup').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget);
-            var title = button.data('titlename');
-            var modal = $(this);
-            modal.find('.modal-title span').empty();
-            modal.find('.modal-title').prepend('<span>' + title + '</span>');
-        });
-        //提现显示预览
-        $('#get_view').on('click', function () {
-            $('.modal-body').hide();
-            $('.modal-body-success').show();
-        });
-        //返回修改提现
-        $('#back_prev').on('click', function () {
-            $('.modal-body-success').hide();
-            $('.modal-body').show();
-        });
-        //提现成功
-        $('#invest_submit').on('click', function () {
-            $('.modal-body-success').hide();
-            $('.modal-footer').html('<p>提交成功</p>您的提现申请已提交成功，我们会尽快办理，请您保持通讯畅通，以方便与您联系。').show();
-        });
-        $('.close').on('click', function () {
-            $('.modal-body-success').hide();
-            $('.modal-footer').html(' ').hide();
-            $('.modal-body').show();
-        });
-        //显示/隐藏更多
-        $('.order_list .more').each(function () {
-            var $this = $(this);
-            $this.on('click', function () {
-                var isShow = $this.attr('data-show');
-                if (isShow == 0) {
-                    $this.text('隐藏更多');
-                    $this.attr('data-show', 1);
-                    $this.parents('li').nextAll().removeClass('hide');
-                } else {
-                    $this.text('显示更多');
-                    $this.attr('data-show', 0);
-                    $this.parents('li').nextAll().addClass('hide');
-                }
-            })
-        });
+
     })
 </script>
 </body>
