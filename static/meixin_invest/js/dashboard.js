@@ -185,6 +185,31 @@ $(document).ready(function () {
                 "fn": closefundFn
             });
         })
+        //重置密码
+        $('#pwd_reset').on('click', function () {
+            $('.pws_reset').find('span').remove();
+            var old_password = $('#id_old_password').val(),
+                password = $('#id_password').val(),
+                password_confirm = $('#id_password_confirm').val();
+
+            if (old_password == '') {
+                $('#id_old_password').after('<span>请输入原密码</span>');
+                return false;
+            } else if (password == '') {
+                $('#id_password').after('<span>请输入新密码</span>');
+                return false;
+            }else if(old_password == password){
+
+            }
+            if (password_confirm == '') {
+                $('#id_password_confirm').after('<span>请再次输入新密码</span>');
+                return false;
+            }
+            if (old_password == password) {
+
+            }
+            return false;
+        })
     }
 
     //获取投资人类型
@@ -299,19 +324,19 @@ $(document).ready(function () {
                     var promotion = d[i].promotion_name + ': ' + d[i].promotion_value || '';
                 }
                 //是否可提现
-                var is_disable,can_withdraw='';
-                if(d[i].withdraw_able_amount>0){
-                    is_disable='';
-                }else{
-                    is_disable='disabled';
+                var is_disable, can_withdraw = '';
+                if (d[i].withdraw_able_amount > 0) {
+                    is_disable = '';
+                } else {
+                    is_disable = 'disabled';
                 }
-                if(d[i].can_withdraw){
-                        can_withdraw='<button class="status_btn" data-toggle="modal" data-titlename='+d[i].product_name+ ' '+ d[i].product_number+' data-target="#popup" '+is_disable+'>提现</button>';
-                    if(d[i].has_withdraw_record){
-                        can_withdraw='<button type="button" class="withdraw">提现记录</button><button class="status_btn"' + ' style="margin-left: 20px;"' + ' data-toggle="modal"' + ' data-titlename='+d[i].product_name+ ' '+ d[i].product_number+' data-target="#popup" '+is_disable+'>提现</button>';
+                if (d[i].can_withdraw) {
+                    can_withdraw = '<button class="status_btn" data-toggle="modal" data-titlename=' + d[i].product_name + ' ' + d[i].product_number + ' data-target="#popup" ' + is_disable + '>提现</button>';
+                    if (d[i].has_withdraw_record) {
+                        can_withdraw = '<button type="button" class="withdraw">提现记录</button><button class="status_btn"' + ' style="margin-left: 20px;"' + ' data-toggle="modal"' + ' data-titlename=' + d[i].product_name + ' ' + d[i].product_number + ' data-target="#popup" ' + is_disable + ' data-order-number=' + d[i].order_number + '>提现</button>';
                     }
                 }
-                html += '<div class="order_list"><h4>'+d[i].product_name+ ' '+ d[i].product_number+'<span class="invet_status">投资状态：'+d[i].status_desc+'</span></h4><ul class="invest_table clearfix"><li>产品类型：债权型</li><li>总金额：'+total_amount+'</li><li>累计收益：'+total_income+'</li><li>投资日期：'+d[i].created_at+'</li><li>投资周期：'+d[i].invest_term+'个月</li><li><button class="status_btn more" data-show="0">显示更多</button></li><li class="hide">投资总额： '+invest_amount+'</li><li class="hide">入金金额：'+received_amount+'</li><li class="hide">入金余额：'+received_balance+'</li><li class="hide">可提现金额：'+withdraw_able_amount+'</li><li class="hide">投资收益：'+invest_income+'</li><li class="hide">权益收益：'+promotion_income+'</li><li class="hide">'+promotion+'</li><li class="hide"><a href="+d[i].sub_doc_url+" target="_blank">合同</a></li><li class="hide">'+can_withdraw+'</li></ul></div>';
+                html += '<div class="order_list"><h4>' + d[i].product_name + ' ' + d[i].product_number + '<span class="invet_status">投资状态：' + d[i].status_desc + '</span></h4><ul class="invest_table clearfix"><li>产品类型：债权型</li><li>总金额：' + total_amount + '</li><li>累计收益：' + total_income + '</li><li>投资日期：' + d[i].created_at + '</li><li>投资周期：' + d[i].invest_term + '个月</li><li><button class="status_btn more" data-show="0">显示更多</button></li><li class="hide">投资总额： ' + invest_amount + '</li><li class="hide">入金金额：' + received_amount + '</li><li class="hide">入金余额：' + received_balance + '</li><li class="hide">可提现金额：' + withdraw_able_amount + '</li><li class="hide">投资收益：' + invest_income + '</li><li class="hide">权益收益：' + promotion_income + '</li><li class="hide">' + promotion + '</li><li class="hide"><a href="+d[i].sub_doc_url+" target="_blank">合同</a></li><li class="hide">' + can_withdraw + '</li></ul></div>';
             });
             $('.invest_order').html(html);
         }
