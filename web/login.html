@@ -150,7 +150,7 @@
                                     </div>
                                         <div class="container-fluid"  style="padding:0 55px;">密码
                                             <input id="password" class="form-control" type="password" name="password" value="" size="50" />
-                                            <a style="margin-top:2px;" class="pull-right" href="/account/password_reset">忘记密码了?</a>
+                                            <a style="margin-top:2px;" class="pull-right" href="/password_reset_form">忘记密码了?</a>
                                             <br/>
                                             <br/>
                                             <a style="margin-top:2px;" class="pull-right" href="/find_email">忘记邮箱了?</a>
@@ -160,7 +160,8 @@
                                                 <br/>
                                                 <span class="text-muted text-center">需要
                                                 <a href="/signup.html">注册账户</a>?</span>
-                                                <br/></div>
+                                                <br/>
+                                            </div>
                                             <br/>
                                         </div>
 
@@ -324,12 +325,6 @@ $(document).ready(function() {
 </script>
 <script type="text/javascript">
     //获取url中的参数
-    function getUrlParam(name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
-        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
-        if (r != null) return unescape(r[2]);
-        return null; //返回参数值
-    }
     var source=getUrlParam('source');
     var expiresDate= new Date();
     expiresDate.setTime(expiresDate.getTime() + (30 * 24 * 60 * 60 * 1000));

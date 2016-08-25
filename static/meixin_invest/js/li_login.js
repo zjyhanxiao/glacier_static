@@ -1,11 +1,6 @@
 /**
  * Created by admin on 2016/8/22.
  */
-// 取cookie
-var mx_token = $.cookie('mx_token'),
-    mx_secret = $.cookie('mx_secret');
-cookie_tooken = {mx_token: mx_token, mx_secret: mx_secret};
-
 $(function () {
     $("#login").on('click',function() {
         var data = {};
@@ -23,11 +18,11 @@ $(function () {
             else {
                 $.ajax({
                     type: 'post',
-                    url: "http://101.201.112.171:8082/web/auth/login",
+                    url: baseUrl + "/auth/login",
                     data: data,
                     success: function (res) {
                         if (res.code == 1) {
-                            alert(res.msg);
+                            window.location.href = '/web/index.html';
                         } else if (res.code == -1) {
                             alert(res.msg);
                         }
@@ -52,7 +47,7 @@ $(function () {
             else {
                 $.ajax({
                     type: 'post',
-                    url: "http://101.201.112.171:8082/web/auth/login",
+                    url: baseUrl + "/auth/login",
                     data: data1,
                     success: function (res) {
                         if (res.code == 1) {

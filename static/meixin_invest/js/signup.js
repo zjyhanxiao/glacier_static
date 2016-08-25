@@ -1,7 +1,3 @@
-// 取cookie
-var mx_token = $.cookie('mx_token'),
-    mx_secret = $.cookie('mx_secret');
-cookie_tooken = {mx_token: mx_token, mx_secret: mx_secret};
 
 $(document).ready(function () {
     var options = {};
@@ -67,7 +63,7 @@ $(document).ready(function () {
         if ((country != 'China' && tel.length > 6) || (country == 'China' && tel.length >= 15)) {
             $.ajax({
                 type: 'post',
-                url: 'http://101.201.112.171:8082/web/verify_code/send',
+                url: baseUrl + '/verify_code/send',
                 data: {"phone": tel},
                 dataType:"json",
                 success: function (res) {
@@ -75,7 +71,7 @@ $(document).ready(function () {
                         first_next_step = true;
                     }
                     if(res == false){
-                        alert('');
+                        alert('验证码获取失败');
                     }
                 }
             });
@@ -149,7 +145,6 @@ $(document).ready(function () {
                 $(this).removeClass('input-error');
             }
         });
-        console.log(first_next_step);
         if(!first_next_step){
             alert("请获取手机验证码!");
        }else if (next_step) {
@@ -216,14 +211,13 @@ $(document).ready(function () {
         $("#page3-error-div").html("<div class='alert alert-warning'>请同意网站的使用条款和隐私协议</div>");
         }
         else {
-            console.log(data);
             $.ajax({
                 type: 'post',
-                url: "http://101.201.112.171:8082/web/auth/signup",
+                url: baseUrl + "/auth/signup",
                 data: data,
                 success: function (res) {
                     if (res.code == 1) {
-                        
+                        window.location.href = '/web/login.html';
                     } else if (res.code != 1) {
                         alert(res.msg);
                     }
@@ -239,14 +233,13 @@ $(document).ready(function () {
             $("#international-page3-error-div").html("<div class='alert alert-warning'>请同意网站的使用条款和隐私协议</div>");
         }
         else if($('input[name="international-agree"]').is(':checked')){
-            console.log(data);
             $.ajax({
                 type: 'post',
-                url: "http://101.201.112.171:8082/web/auth/signup",
+                url: baseUrl + "/auth/signup",
                 data: data,
                 success: function (res) {
                     if (res.code == 1) {
-
+                        window.location.href = '/web/login.html';
                     } else if (res.code != 1) {
                         alert(res.msg);
                     }
