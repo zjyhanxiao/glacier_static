@@ -675,13 +675,14 @@ $(document).ready(function () {
                 '<input id="swift_code" class="form-control">' +
                 '<label>ABA Number：</label>' +
                 '<input id="routing_number" class="form-control">' +
-                '<div class="text-center">' +
+                '<div class="text-center flexibleWithDraw">' +
                 '<input type="radio" name="redeem_type" id="part" checked>' +
                 '<label class="radio_label" for="part">部分赎回</label>' +
                 '<input type="radio" name="redeem_type" id="all">' +
                 '<label class="radio_label" for="all">全部赎回</label><br>' +
                 '赎回份额:<input type="text"><br>' +
-                '<p>温馨提示：您的赎回份数需满足(500.00&lt;赎回份额&lt;4000.00),详情见规则，第一次赎回时候我们将把账户内的入金余额一并赎回。</p></div>' +
+                '<p' +
+                ' class="text-left">温馨提示：您的赎回份数需满足(500.00&lt;赎回份额&lt;4000.00),详情见规则，第一次赎回时候我们将把账户内的入金余额一并赎回。</p></div>' +
                 '<div class="text-center"><button type="button" class="btn btn-primary" style="width:30%"' +
                 ' id="get_view">生成预览</button></div></form>';
             modal.find('.modal-body').append(bodyStr);
