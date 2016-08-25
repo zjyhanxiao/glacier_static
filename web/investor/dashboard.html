@@ -137,7 +137,7 @@
                     <li role="description"><a href="#03" role="tab" data-toggle="tab" class="uncommit">未完成订单</a></li>
                     <li role="description"><a href="#04" role="tab" data-toggle="tab" class="closefund">投资订单</a></li>
                     <li role="description"><a href="#05" role="tab" data-toggle="tab" class="history">历史订单</a></li>
-                    <li role="description"><a href="#06" role="tab" data-toggle="tab">灵活理财</a></li>
+                    <li role="description"><a href="#06" role="tab" data-toggle="tab" class="flexible">灵活理财</a></li>
                     <li><h2 class="text-center">账户设置</h2></li>
                     <li role="description"><a href="#07" role="tab" data-toggle="tab" class="user_info">账户信息
                     </a></li>
@@ -150,9 +150,9 @@
                     <div role="tabpanel" class="tab-pane active" id="01">
                         <h2>我的账户</h2>
                         <div class="row my_index">
-                            <div class="col-lg-4">已投项目<p>invested_product_value</p></div>
+                            <!--<div class="col-lg-4">已投项目<p>invested_product_value</p></div>
                             <div class="col-lg-4">投资总额($)<p>invested_total_value</p></div>
-                            <div class="col-lg-4">投资收益($)<p>invested_value</p></div>
+                            <div class="col-lg-4">投资收益($)<p>invested_value</p></div>-->
                         </div>
                     </div>
                     <div role="tabpanel" class="tab-pane" id="02">
@@ -348,24 +348,26 @@
                     <div role="tabpanel" class="tab-pane" id="05">
                         <h2>历史订单</h2>
                         <div class="history_order">
-                            <div class="order_list">
-                                <h4>安心计划6个月20160901 <span class="redeem_date">赎回日期：2017.03.16</span></h4>
+                            <!--<div class="order_list">
+                                <h4>'+d.product_name+' '+ d.product_number+'
+                                    <span class="redeem_date">赎回日期：d.created_at</span></h4>
                                 <ul class="invest_table clearfix">
                                     <li>产品类型：债券型</li>
-                                    <li>总金额：$30170</li>
-                                    <li>累计收益：$170</li>
-                                    <li>投资日期：2016.08.16</li>
-                                    <li>投资金额：$30000</li>
-                                    <li>赎回金额：$10170</li>
+                                    <li>总金额：$'+d.total_amount+'</li>
+                                    <li>累计收益：$'+d.total_income+'</li>
+                                    <li>投资日期：'+d.created_at+'</li>
+                                    <li>投资金额：$'+d.invest_amount+'</li>
+                                    <li>赎回金额：$'+d.total_income+'</li>
                                 </ul>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                     <div role="tabpanel" class="tab-pane" id="06">
-                        <h2>灵活理财</h2>
+                        <h2>灵活理财 <button class="redeem_records btn btn-primary btn-sm" style="margin-top: 5px;">赎回记录
+                        </button></h2>
                         <div class="flexible_invest">
                             <div class="order_list">
-                                <h4>安心计划6个月20160901 <span class="redeem_date">赎回日期：2017.03.16</span></h4>
+                                <h4>安心计划6个月20160901 </h4>
                                 <ul class="invest_table clearfix">
                                     <li>产品类型：债券型</li>
                                     <li>总金额：$30170</li>
@@ -615,7 +617,33 @@
                 </div>
                 <div class="modal-body">
                     <div class="error_msg"></div>
-                    <form id="invest_form">
+                    <form  id="invest_form">
+                        <label>用户名：</label>
+                        <input id="full_name" class="form-control">
+                        <label>现居地址：</label>
+                        <input id="residence-address" class="form-control">
+                        <label>收款银行名称：</label>
+                        <input id="bank_name" class="form-control">
+                        <label>收款银行地址：</label>
+                        <input id="bank_address" class="form-control">
+                        <label>收款银行账户：</label>
+                        <input id="account_name" class="form-control">
+                        <label>Swift Code：</label>
+                        <input id="swift_code" class="form-control">
+                        <label>ABA Number：</label>
+                        <input id="routing_number" class="form-control">
+                        <div class="text-center">
+                            <input type="radio" name="redeem_type" id="part" checked><label class="radio_label" for="part">
+                            部分赎回</label>
+                            <input type="radio" name="redeem_type" id="all"><label class="radio_label" for="all">全部赎回
+                        </label><br>
+                            赎回份额:<input type="text"><br>
+                            <p>温馨提示：您的赎回份数需满足(500.00&lt;赎回份额&lt;4000.00),详情见规则，第一次赎回时候我们将把账户内的入金余额一并赎回。</p>
+
+                            <p>温馨提示：您全部赎回的份额是10000.00，第一次赎回时候我们将把账户内的入金余额一并赎回。</p>
+                        </div>
+                    </form>
+                    <!--<form id="invest_form">
                         <label>用户名：</label>
                         <input id="full_name" class="form-control">
                         <label>现居地址：</label>
@@ -639,11 +667,11 @@
                         <div class="text-center">
                             <button type="button" class="btn btn-primary" style="width: 30%" id="get_view">生成预览</button>
                         </div>
-                    </form>
+                    </form>-->
                 </div>
 
                 <div class="modal-body-success">
-                    <table>
+                    <!--<table>
                         <tr>
                             <td>用户名：</td>
                             <td colspan="3">user_name</td>
@@ -685,10 +713,8 @@
                     </table>
                     <div class="text-center">
                         <button type="button" id="back_prev" class="btn" style="width: 8em;">返 回</button>
-                        <button type="button" id="invest_submit" class="btn btn-primary" style="width: 8em;">提
-                            现
-                        </button>
-                    </div>
+                        <button type="button" id="invest_submit" class="btn btn-primary" style="width: 8em;">确认提现</button>
+                    </div>-->
                 </div>
 
                 <div class="modal-footer"></div>
@@ -703,5 +729,15 @@
 <script src="/version1.0/vendor/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="/version1.0/dist/meixin_invest/js/navi.min.js" type="text/javascript"></script>
 <script src="/version1.0/meixin_invest/js/dashboard.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#wechat-popover').popover({
+            html: true,
+            placement: 'bottom',
+            trigger: 'hover',
+            content: '<img style="width: 200px;padding:0;margin:0;" src="/version1.0/meixin_invest/img/meixin_new_qr_code_300x300.jpg" />'
+        });
+    });
+</script>
 </body>
 </html>
