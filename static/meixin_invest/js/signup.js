@@ -217,9 +217,9 @@ $(document).ready(function () {
                 data: data,
                 success: function (res) {
                     if (res.code == 1) {
-                        window.location.href = '/web/login.html';
+                        window.location.href = '/web/index.html';
                     } else if (res.code != 1) {
-                        alert(res.msg);
+                        $("#page3-error-div").html("<div class='alert alert-warning'>" + res.msg + "</div>");
                     }
                 }
             });
@@ -239,13 +239,23 @@ $(document).ready(function () {
                 data: data,
                 success: function (res) {
                     if (res.code == 1) {
-                        window.location.href = '/web/login.html';
+                        var result = res.body;
+                        $.cookie('mx_token',result.mx_token);
+                        $.cookie('mx_secret',result.mx_secret);
+                        login();
                     } else if (res.code != 1) {
-                        alert(res.msg);
+                        $("#page3-error-div").html("<div class='alert alert-warning'>" + res.msg + "</div>");
                     }
                 }
             });
         }
         return false;
     });
+    function login() {
+        $.ajax({
+            type: 'post',
+            url: baseUrl + "/auth/login",
+            data: {mx_token: mx_token, mx_secret: mx_secret}
+        })
+    }
 });

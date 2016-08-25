@@ -323,6 +323,9 @@ $(document).ready(function() {
 });
 </script>
 <script type="text/javascript">
+    $(".form-control").on("focus",function () {
+        $(".form-control").css("border-color","#D4D4E9");
+    });
     //获取url中的参数
     var source=getUrlParam('source');
     var expiresDate= new Date();
