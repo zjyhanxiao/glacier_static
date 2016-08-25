@@ -23,8 +23,8 @@ $(function () {
                     success: function (res) {
                         if (res.code == 1) {
                             window.location.href = '/web/index.html';
-                        } else if (res.code == -1) {
-                            alert(res.msg);
+                        } else if (res.code != 1) {
+                            $("#error-place").html("<div style='text-align: center;' class='alert alert-warning'>" + res.msg +"</div>");
                         }
                     }
                 })
@@ -51,9 +51,9 @@ $(function () {
                     data: data1,
                     success: function (res) {
                         if (res.code == 1) {
-                            alert(res.msg);
-                        } else if (res.code == -1) {
-                            alert(res.msg);
+                            window.location.href = '/web/index.html';
+                        } else if (res.code != 1) {
+                            $("#error-place").html("<div style='text-align: center;' class='alert alert-warning'>" + res.msg + "</div>");
                         }
                     }
                 })
