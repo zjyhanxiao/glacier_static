@@ -24,9 +24,8 @@ $(function () {
                     data: data,
                     success: function (res) {
                         if (res.code == 1) {
-                            var mx_token = $.cookie('mx_token'),
-                                mx_secret = $.cookie('mx_secret');
-                            cookie_tooken = {mx_token: mx_token, mx_secret: mx_secret};
+                            $.cookie('mx_token', res.mx_token, {expires: 30});
+                            $.cookie('mx_secret', res.mx_secret, {expires: 30});
                             //window.location.href = '/web/index.html';
                         } else if (res.code != 1) {
                             $("#error-place").html("<div style='text-align: center;' class='alert alert-warning'>" + res.msg +"</div>");
