@@ -8,11 +8,13 @@ $(function () {
             data.user_name = $('#id_telephone').val();
             data.password = $('#password').val();
             if ($('#id_telephone').val().length<6) {
-                alert("请输入手机号");
+                $("#id_telephone").css("border-color","#ff0000");
+                //alert("请输入手机号");
                 return false;
             }
             else if ($('input[type="password"]').val() == '') {
-                alert("请输入密码");
+                $("#password").css("border-color","#ff0000");
+                //alert("请输入密码");
                 return false;
             }
             else {
@@ -22,7 +24,10 @@ $(function () {
                     data: data,
                     success: function (res) {
                         if (res.code == 1) {
-                            window.location.href = '/web/index.html';
+                            var mx_token = $.cookie('mx_token'),
+                                mx_secret = $.cookie('mx_secret');
+                            cookie_tooken = {mx_token: mx_token, mx_secret: mx_secret};
+                            //window.location.href = '/web/index.html';
                         } else if (res.code != 1) {
                             $("#error-place").html("<div style='text-align: center;' class='alert alert-warning'>" + res.msg +"</div>");
                         }
@@ -37,11 +42,13 @@ $(function () {
             data1.password = $('#password').val();
             var val = $('#email').val();
             if (val.indexOf('@') <= 0) {
-                alert("请输入正确的邮箱格式");
+                $("#email").css("border-color","#ff0000");
+                //alert("请输入正确的邮箱格式");
                 return false;
             }
             else if ($('input[type="password"]').val() == '') {
-                alert("请输入密码");
+                $("#password").css("border-color","#ff0000");
+                //alert("请输入密码");
                 return false;
             }
             else {
@@ -51,7 +58,10 @@ $(function () {
                     data: data1,
                     success: function (res) {
                         if (res.code == 1) {
-                            window.location.href = '/web/index.html';
+                            var mx_token = $.cookie('mx_token'),
+                                mx_secret = $.cookie('mx_secret');
+                            cookie_tooken = {mx_token: mx_token, mx_secret: mx_secret};
+                            //window.location.href = '/web/index.html';
                         } else if (res.code != 1) {
                             $("#error-place").html("<div style='text-align: center;' class='alert alert-warning'>" + res.msg + "</div>");
                         }
