@@ -122,6 +122,7 @@ $(function () {
     $('.previous').on('click', function () {
         window.history.go(-1);
     });
+    $('.ajax_wait p,.ajax_wait').hide();
     // 调取 登录接口
 /*    Ajax_Data({
         "url": baseUrl + "/auth/login",
