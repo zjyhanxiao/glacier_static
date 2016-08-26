@@ -637,7 +637,8 @@ $(document).ready(function () {
                 "type": "post",
                 "url": baseUrl + "/withdraw/submit",
                 "data": withdraw_submit_data,
-                "fn": withdraw_submit
+                "fn": withdraw_submit,
+                "fail_fn":withdraw_fail
             });
             function withdraw_submit(d) {
                 $('.modal-body-success').hide();
@@ -692,9 +693,9 @@ $(document).ready(function () {
                 '<label class="radio_label" for="part">部分赎回</label>' +
                 '<input type="radio" name="redeem_type" value="false" id="all">' +
                 '<label class="radio_label" for="all">全部赎回</label></div>' +
-                '赎回份额:<input type="text" id="withdraw_value"><br>' +
-                '<p' +
-                ' class="text-left">温馨提示：您的赎回份数需满足(500.00&lt;赎回份额&lt;4000.00),详情见规则，第一次赎回时候我们将把账户内的入金余额一并赎回。</p></div>' +
+                '<span>赎回份额:</span><input type="text" class="form-control"  id="withdraw_value"><br>' +
+                '<p class="text-left blue">' +
+                '温馨提示：您的赎回份数需满足(500.00&lt;赎回份额&lt;4000.00),详情见规则，第一次赎回时候我们将把账户内的入金余额一并赎回。</p></div>' +
                 '<div class="text-center"><button type="button" class="btn btn-primary" style="width:30%"' +
                 ' id="get_view">生成预览</button></div></form>';
             modal.find('.modal-body').append(bodyStr);
@@ -783,7 +784,8 @@ $(document).ready(function () {
                 "type": "post",
                 "url": baseUrl + "/withdraw/submit",
                 "data": withdraw_submit_data,
-                "fn": withdraw_submit
+                "fn": withdraw_submit,
+                "fail_fn":withdraw_fail
             });
             function withdraw_submit(d) {
                 $('.modal-body-success').hide();
@@ -886,7 +888,7 @@ $(document).ready(function () {
             $('body').on('change', '.flexibleWithDraw input[type="radio"]', function (e) {
                 console.log(e.target.id);
                 if (e.target.id=='part') {
-                    $('#withdraw_value').val(' ');
+                    $('#withdraw_value').val(' ').prop('disabled',false);
                     $('.flexibleWithDraw p').html(value_true);
                 }
                 if(e.target.id=='all'){
@@ -894,18 +896,6 @@ $(document).ready(function () {
                     $('.flexibleWithDraw p').html(value_false);
                 }
             });
-            /*if ($('.flexibleWithDraw input[type="radio"]:checked').val()) {
-             var str = $('.flexibleWithDraw p').html();
-             str = str.replace('500.00', d.min_withdraw_count);
-             str = str.replace('4000.00', d.max_withdraw_count);
-             $('.flexibleWithDraw p').html(str);
-             } else {
-             //<p>温馨提示：您全部赎回的份额是10000.00，第一次赎回时候我们将把账户内的入金余额一并赎回。</p>
-             str = '温馨提示：您全部赎回的份额是10000.00，第一次赎回时候我们将把账户内的入金余额一并赎回。';
-             str = str.replace('10000.00', d.left_count);
-             $('.flexibleWithDraw p').html(str);
-             $('#withdraw_value').val(d.left_count).prop('disabled',true);
-             }*/
         }
     }
 
@@ -917,6 +907,11 @@ $(document).ready(function () {
         $('#account_name').val(d.account_name);
         $('#swift_code').val(d.swift_code);
         $('#routing_number').val(d.routing_number);
+    }
+
+    // 提现失败,弹出错误信息
+    function withdraw_fail(d) {
+        alert(d);
     }
 
     //h5  file_upload
