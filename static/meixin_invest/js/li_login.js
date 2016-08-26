@@ -27,8 +27,7 @@ $(function () {
                             var mx = res.body;
                             $.cookie('mx_token', mx.mx_token, {expires: 30});
                             $.cookie('mx_secret', mx.mx_secret, {expires: 30});
-                            alert($.cookie('mx_token', mx.mx_token));
-                           // window.location.href = '/';
+                            window.location.href = '/';
                         } else if (res.code != 1) {
                             $("#error-place").html("<div style='text-align: center;' class='alert alert-warning'>" + res.msg +"</div>");
                         }
