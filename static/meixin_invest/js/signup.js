@@ -91,29 +91,6 @@ $(document).ready(function () {
         var password = parent_div.find('input[type="password"]');
         var email = parent_div.find('input[name="email"]');
 
-        if (phone.val().length < 6) {
-            phone.addClass('input-error');
-            next_step = false;
-            if ($('#countries_phone').val() != 'China' && phone.val().length < 15) {
-                phone.addClass('input-error');
-                next_step = false;
-            }
-        }
-        else if (verify.val().length < 6) {
-            verify.addClass('input-error');
-            next_step = false;
-        }
-        else if (password.val() === ''||password.val() == null) {
-            password.addClass('input-error');
-            next_step = false;
-        }
-        else if (email.val() == ''|| email.valueOf('@') <= 0) {
-            email.addClass('input-error');
-            next_step = false;
-        }
-        else {
-            parent_div.find('.input-error').removeClass('input-error');
-        }
         parent_div.find('input[name="phone"], input[name="verifyCode"], input[type="password"], input[name="email"]').each(function () {
 
             if ($('#countries_phone').val() == 'China' && $('input[name="phone"]').val().length < 15) {
@@ -121,23 +98,29 @@ $(document).ready(function () {
                 next_step = false;
                 return false;
             }
-            else if ($('#countries_phone').val() != 'China' && $('input[name="phone"]').val().length < 6) {
+            if ($('#countries_phone').val() != 'China' && $('input[name="phone"]').val().length < 6) {
                 $(this).addClass('input-error');
                 next_step = false;
                 return false;
             }
-            else if ($('#password').val() == "") {
+            if ($('input[name="verifyCode"]').val().length < 6) {
+                $('#id_verify').addClass('input-error');
+                next_step = false;
+                return false;
+            }
+            if ($('#id_password').val() == "") {
+                $('#id_password').addClass('input-error');
+                next_step = false;
+                return false;
+            }
+            if ($(this).val() == "") {
                 $(this).addClass('input-error');
                 next_step = false;
                 return false;
             }
-            else if ($(this).val() == "") {
-                $(this).addClass('input-error');
-                next_step = false;
-                return false;
-            }
-            else if ($('input[name="verifyCode"]').val().length < 6) {
-                $(this).addClass('input-error');
+            var emailStr = $('#id_email').val();
+            if (emailStr.indexOf('@') == -1 ||emailStr.indexOf('.') == -1) {
+                $('#id_email').addClass('input-error');
                 next_step = false;
                 return false;
             }
@@ -152,7 +135,8 @@ $(document).ready(function () {
                 $('#page1').next().fadeIn();
             });
 
-            data.email=$("#id_email").val();
+            var emailData = $.trim($("#id_email").val());
+            data.email=emailData;
             data.password=$("#id_password").val();
             data.phone=$("#id_telephone").val();
             data.country=$("#countries_phone").val();
@@ -239,10 +223,8 @@ $(document).ready(function () {
                 data: data,
                 success: function (res) {
                     if (res.code == 1) {
-                        var result = res.body;
-                        $.cookie('mx_token',result.mx_token);
-                        $.cookie('mx_secret',result.mx_secret);
-                        login();
+                        $.cookie('mx_token', res.mx_token, {expires: 30});
+                        $.cookie('mx_secret', res.mx_secret, {expires: 30});
                     } else if (res.code != 1) {
                         $("#page3-error-div").html("<div class='alert alert-warning'>" + res.msg + "</div>");
                     }
@@ -251,11 +233,4 @@ $(document).ready(function () {
         }
         return false;
     });
-    function login() {
-        $.ajax({
-            type: 'post',
-            url: baseUrl + "/auth/login",
-            data: {mx_token: mx_token, mx_secret: mx_secret}
-        })
-    }
 });
