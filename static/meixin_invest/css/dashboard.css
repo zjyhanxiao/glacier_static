@@ -127,7 +127,7 @@ a.status_btn, a.status_btn:hover {
     color: #555;
 }
 
-.invest_status, .redeem_date ,.redeem_records{
+.invest_status, .redeem_date, .redeem_records {
     float: right;
     margin-right: 20px;
 }
@@ -243,7 +243,11 @@ a.status_btn, a.status_btn:hover {
     width: 300px;
     height: 200px;
 }
-.user_information .form-control{margin-top: 5px;}
+
+.user_information .form-control {
+    margin-top: 5px;
+}
+
 .user_information button {
     margin-top: 40px;
     margin-bottom: 30px;
@@ -322,15 +326,22 @@ a, a:hover {
     color: #fff;
 }
 
-.my_index,.order_list ,.user_information{
+.my_index, .order_list, .user_information {
     background: #fff;
 }
 
-
-
-.flexibleWithDraw label,.flexibleWithDraw input[type='radio']{
+.flexibleWithDraw label, .flexibleWithDraw input[type='radio'] {
     width: auto;
     display: inline-block;
+}
+
+.flexibleWithDraw p {
+    color: #00b2ef;
+}
+
+.btn-primary {
+    background: #00b2ef;
+    border: none;
 }
 
 @media (min-width: 768px) {

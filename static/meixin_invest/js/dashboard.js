@@ -447,8 +447,9 @@ $(document).ready(function () {
             $('.flexible_invest').html('暂无灵活理财订单');
             return false;
         }
+        var left_count = 0, max_withdraw_count = 0, minimum_invest_amount = 0;
         if (d) {
-            var total_income = 0, received_amount = 0, received_balance = 0;
+            var total_income = 0, received_amount = 0, received_balance = 0, can_withdraw = '';
             $.each(d, function (i) {
                 if (d[i].total_income != '' && d[i].total_income != null) {
                     total_income = d[i].total_income;
@@ -459,6 +460,16 @@ $(document).ready(function () {
                 if (d[i].received_balance != '' && d[i].received_balance != null) {
                     received_balance = d[i].received_balance;
                 }
+                if (d[i].can_withdraw) {
+                    if (received_balance < 0) {
+                        can_withdraw = '<button class="status_btn" data-toggle="modal" data-order-number = ' + d[i].order_number + ' data-titlename="' + d[i].product_name + ' ' + d[i].product_number + '" data-target="#popup">提现</button>';
+                    } else {
+                        can_withdraw = '<button class="status_btn" data-toggle="modal" disabled' +
+                            ' style="background:#ccc"' +
+                            ' data-titlename="' + d[i].product_name + ' ' + d[i].product_number + '" data-target="#popup">提现</button>';
+                    }
+                }
+
                 html += '<div class="order_list">' +
                     '<h4>' + d[i].product_name + ' ' + d[i].product_number + '</h4>' +
                     '<ul' + ' class="invest_table clearfix">' +
@@ -469,10 +480,7 @@ $(document).ready(function () {
                     '<li>入金金额：$' + received_amount + '</li>' +
                     '<li>入金余额：$' + received_balance + '</li>' +
                     '<li></li><li><a href=' + d[i].sub_doc_url + '>合同</a></li>' +
-                    '<li><button class="status_btn buy_again">再次购买</button> ' +
-                    '<button class="status_btn" data-toggle="modal" data-titlename="'
-                    + d[i].product_name + ' ' + d[i].product_number +
-                    '" data-target="#popup">提现</button></li></ul></div>';
+                    '<li><button class="status_btn buy_again">再次购买</button> ' + can_withdraw + '</li></ul></div>';
             })
             $('.flexible_invest').html(html);
         }
@@ -515,7 +523,7 @@ $(document).ready(function () {
             modal.find('.modal-title span').empty();
             modal.find('.modal-title').prepend('<span>' + title + '</span>');
             modal.find('.modal-body').empty();
-            var bodyStr='<form id="invest_form">' +
+            var bodyStr = '<form id="invest_form">' +
                 '<label>用户名：</label>' +
                 '<input id="full_name" class="form-control">' +
                 '<label>现居地址：</label>' +
@@ -645,6 +653,10 @@ $(document).ready(function () {
             $('.modal-body').show();
             return false;
         });
+        $('body').on('click', '.modal-footer .close', function () {
+            window.location.reload();
+            return false;
+        });
     }
 
     /*
@@ -661,7 +673,7 @@ $(document).ready(function () {
             modal.find('.modal-title').prepend('<span>' + title + '</span>');
             modal.find('.modal-body').empty();
             var bodyStr = '<form id="invest_form">' +
-                '<label>用户名：</label>' +
+                '<div class="clearfix"><label>用户名：</label>' +
                 '<input id="full_name" class="form-control">' +
                 '<label>现居地址：</label>' +
                 '<input id="residence-address" class="form-control">' +
@@ -674,19 +686,18 @@ $(document).ready(function () {
                 '<label>Swift Code：</label>' +
                 '<input id="swift_code" class="form-control">' +
                 '<label>ABA Number：</label>' +
-                '<input id="routing_number" class="form-control">' +
+                '<input id="routing_number" class="form-control"></div>' +
                 '<div class="text-center flexibleWithDraw">' +
-                '<input type="radio" name="redeem_type" id="part" checked>' +
+                '<div class="clearfix"><input type="radio" name="redeem_type" value="true" id="part" checked>' +
                 '<label class="radio_label" for="part">部分赎回</label>' +
-                '<input type="radio" name="redeem_type" id="all">' +
-                '<label class="radio_label" for="all">全部赎回</label><br>' +
-                '赎回份额:<input type="text"><br>' +
+                '<input type="radio" name="redeem_type" value="false" id="all">' +
+                '<label class="radio_label" for="all">全部赎回</label></div>' +
+                '赎回份额:<input type="text" id="withdraw_value"><br>' +
                 '<p' +
                 ' class="text-left">温馨提示：您的赎回份数需满足(500.00&lt;赎回份额&lt;4000.00),详情见规则，第一次赎回时候我们将把账户内的入金余额一并赎回。</p></div>' +
                 '<div class="text-center"><button type="button" class="btn btn-primary" style="width:30%"' +
                 ' id="get_view">生成预览</button></div></form>';
             modal.find('.modal-body').append(bodyStr);
-            //<p>温馨提示：您全部赎回的份额是10000.00，第一次赎回时候我们将把账户内的入金余额一并赎回。</p>
             $('#full_name').val(full_name);
             $('#residence-address').val(user_address);
             order_number = button.data('order-number');
@@ -698,7 +709,7 @@ $(document).ready(function () {
             Ajax_Data({
                 "url": baseUrl + "/order/" + order_number,
                 "data": get_order_data,
-                "fn": get_order
+                "fn": flexible_get_order
             });
 
             //获取bank信息
@@ -710,7 +721,7 @@ $(document).ready(function () {
         });
         //提现显示预览
         $('body').on('click', '#get_view', function () {
-            var arrDom = $('.modal-body input');
+            var arrDom = $('.modal-body input[type="text"]');
             var can_view = true;
             $.each(arrDom, function (index) {
                 if (arrDom.eq(-(index + 1)).val() == '') {
@@ -719,6 +730,7 @@ $(document).ready(function () {
                     can_view = false;
                 }
             });
+            console.log(can_view);
             if (can_view) {
 
                 $('.modal-body').hide();
@@ -730,8 +742,7 @@ $(document).ready(function () {
                     '<tr><td>收款银行账户：</td><td colspan="3">bank_account</td></tr>' +
                     '<tr><td>Swift Code：</td><td colspan="3">swift_code</td></tr>' +
                     '<tr><td>ABA Number：</td><td colspan="3">aba_number</td></tr>' +
-                    '<tr><td>投资总额：</td><td width="30%">invest_total</td><td width="20%">可提现金额：</td><td width="30%">withdraw_able_amount</td></tr>' +
-                    '<tr><td>提现金额：</td><td colspan="3">withdraw_amount</td></tr></table>';
+                    '<tr><td>赎回份额：</td><td colspan="3">withdraw_amount</td></tr></table>';
                 str = str.replace('user_name', $('#full_name').val());
                 str = str.replace('address', $('#residence-address').val());
                 str = str.replace('bank_name', $('#bank_name').val());
@@ -739,9 +750,7 @@ $(document).ready(function () {
                 str = str.replace('bank_account', $('#account_name').val());
                 str = str.replace('swift_code', $('#swift_code').val());
                 str = str.replace('aba_number', $('#routing_number').val());
-                str = str.replace('invest_total', $('#invest_total').val());
-                str = str.replace('withdraw_able_amount', $('#interest_amount').val());
-                str = str.replace('withdraw_amount', $('#invest_value').val());
+                str = str.replace('withdraw_amount', $('#withdraw_value').val());
                 str += '<div class="text-center"><button type="button" id="back_prev" class="btn"' + ' style="width:8em">返  回</button> <button type="button" id="invest_submit" class="btn btn-primary" style="width:8em">确认提现</button></div>';
                 $('.modal-body-success').html(str);
                 $('.modal-body-success').show();
@@ -759,7 +768,7 @@ $(document).ready(function () {
 
             var withdraw_submit_data = {
                 "order_number": order_number,
-                "withdraw_amount": $('#invest_value').val(),
+                "withdraw_count": $('#withdraw_value').val(),
                 "user_name": $('#full_name').val(),
                 "user_address": $('#residence-address').val(),
                 "bank_name": $('#bank_name').val(),
@@ -788,6 +797,11 @@ $(document).ready(function () {
             $('.modal-body-success').hide();
             $('.modal-footer').html(' ').hide();
             $('.modal-body').show();
+            return false;
+        });
+
+        $('body').on('click', '.modal-footer .close', function () {
+            window.location.reload();
             return false;
         });
     }
@@ -858,6 +872,43 @@ $(document).ready(function () {
             $('#interest_amount').val(d.withdraw_able_amount);
         }
     }
+
+    //灵活理财,获取订单信息
+    function flexible_get_order(d) {
+        if (d) {
+            var all_value = d.left_count;
+            value_true = '温馨提示：您的赎回份数需满足(' + d.min_withdraw_count + '&lt;赎回份额&lt;' + d.max_withdraw_count + '),详情见规则，第一次赎回时候我们将把账户内的入金余额一并赎回。';
+
+            value_false = '温馨提示：您全部赎回的份额是' + all_value + '，第一次赎回时候我们将把账户内的入金余额一并赎回。';
+            $('.flexibleWithDraw p').html(value_true);
+
+
+            $('body').on('change', '.flexibleWithDraw input[type="radio"]', function (e) {
+                console.log(e.target.id);
+                if (e.target.id=='part') {
+                    $('#withdraw_value').val(' ');
+                    $('.flexibleWithDraw p').html(value_true);
+                }
+                if(e.target.id=='all'){
+                    $('#withdraw_value').val(all_value).prop('disabled',true);
+                    $('.flexibleWithDraw p').html(value_false);
+                }
+            });
+            /*if ($('.flexibleWithDraw input[type="radio"]:checked').val()) {
+             var str = $('.flexibleWithDraw p').html();
+             str = str.replace('500.00', d.min_withdraw_count);
+             str = str.replace('4000.00', d.max_withdraw_count);
+             $('.flexibleWithDraw p').html(str);
+             } else {
+             //<p>温馨提示：您全部赎回的份额是10000.00，第一次赎回时候我们将把账户内的入金余额一并赎回。</p>
+             str = '温馨提示：您全部赎回的份额是10000.00，第一次赎回时候我们将把账户内的入金余额一并赎回。';
+             str = str.replace('10000.00', d.left_count);
+             $('.flexibleWithDraw p').html(str);
+             $('#withdraw_value').val(d.left_count).prop('disabled',true);
+             }*/
+        }
+    }
+
 
     //投资订单,提现获取银行信息
     function get_bank(d) {
