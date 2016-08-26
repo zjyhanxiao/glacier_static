@@ -232,9 +232,9 @@ $(document).ready(function () {
         }
     }
 
-    /*
-     * 获取我的主页信息
-     * */
+
+    //获取我的主页信息
+
     function get_summary(d) {
         if (d) {
             // console.log(JSON.stringify(d));
@@ -249,9 +249,7 @@ $(document).ready(function () {
     }
 
 
-    /*
-     * 获取预约记录
-     * */
+    // 获取预约记录
     function get_appointment(d) {
         var html = '';
         if (d.length < 1) {
@@ -282,9 +280,7 @@ $(document).ready(function () {
         }
     }
 
-    /*
-     * 获取未完成订单
-     * */
+    // 获取未完成订单
     function uncommitFn(d) {
         var html = '';
         if (d.length < 1) {
@@ -332,9 +328,7 @@ $(document).ready(function () {
         }
     }
 
-    /*
-     * 获取投资订单
-     * */
+    // 获取投资订单
     function closefundFn(d) {
         var html = '';
         if (d.length < 1) {
@@ -429,10 +423,10 @@ $(document).ready(function () {
                 if (d[i].has_withdraw_record) {
                     if (d[i].operation_mode == 'OPEN') {
                         can_show_history = '<li></li><li></li><li><button type="button"' +
-                            ' class="withdraw" data-order-number='+d[i].order_number+'>赎回记录</button></li>';
+                            ' class="withdraw" data-order-number=' + d[i].order_number + '>赎回记录</button></li>';
                     } else {
                         can_show_history = '<li></li><li></li><li><button type="button"' +
-                            ' class="withdraw" data-order-number='+d[i].order_number+'>提现记录</button></li>';
+                            ' class="withdraw" data-order-number=' + d[i].order_number + '>提现记录</button></li>';
                     }
                 }
                 html += '<div class="order_list">' +
@@ -573,9 +567,7 @@ $(document).ready(function () {
     }
 
 
-    /*
-     * 提现
-     * */
+    // 提现
     function withDraw() {
         //写入title,请求数据
         $('#popup').on('show.bs.modal', function (event) {
@@ -722,10 +714,7 @@ $(document).ready(function () {
         });
     }
 
-    /*
-     * 灵活理财提现
-     * */
-
+    // 灵活理财提现
     function flexibleWithDraw() {
         //写入title,请求数据
         $('#popup').on('show.bs.modal', function (event) {
