@@ -331,9 +331,19 @@ a, a:hover {
 }
 
 .flexibleWithDraw label, .flexibleWithDraw input[type='radio'] {
-    width: auto;
     display: inline-block;
+    clear: none;
+    float: none;
+    width: auto;
+    vertical-align: middle;
+    margin: 5px 10px;
 }
+.flexibleWithDraw span{
+    display: inline-block;
+    color: #262626;
+    margin-top: 8px;
+}
+/*.flexibleWithDraw .*/
 
 .flexibleWithDraw p {
     color: #00b2ef;
