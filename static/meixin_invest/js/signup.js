@@ -201,7 +201,9 @@ $(document).ready(function () {
                 data: data,
                 success: function (res) {
                     if (res.code == 1) {
-                        window.location.href = '/web/index.html';
+                        $.cookie('mx_token', res.mx_token, {expires: 30});
+                        $.cookie('mx_secret', res.mx_secret, {expires: 30});
+                        window.location.href = '/';
                     } else if (res.code != 1) {
                         $("#page3-error-div").html("<div class='alert alert-warning'>" + res.msg + "</div>");
                     }
@@ -225,6 +227,7 @@ $(document).ready(function () {
                     if (res.code == 1) {
                         $.cookie('mx_token', res.mx_token, {expires: 30});
                         $.cookie('mx_secret', res.mx_secret, {expires: 30});
+                        window.location.href = '/';
                     } else if (res.code != 1) {
                         $("#page3-error-div").html("<div class='alert alert-warning'>" + res.msg + "</div>");
                     }
