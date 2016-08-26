@@ -1,4 +1,6 @@
 $(document).ready(function () {
+
+    var withdraw_list = '', is_open;
     var dateFormat = "yyyy-mm-dd";
     var match = new RegExp(dateFormat.replace(/(\w+)\W(\w+)\W(\w+)/, "^\\s*($1)\\W*($2)?\\W*($3)?([0-9]*).*").replace(/m|d|y/g, "\\d"));
     var replace = "$1/$2/$3$4".replace(/\//g, dateFormat.match(/\W/));
@@ -11,7 +13,6 @@ $(document).ready(function () {
         if (!e.ctrlKey && !e.metaKey && (e.keyCode == 32 || e.keyCode > 46))
             doFormat(e.target)
     });
-
 
     var full_name, user_address;
 
@@ -31,6 +32,7 @@ $(document).ready(function () {
         $('.navbar ul li:last-child').html('<a class="btn btn-min-width" href="/investor/dashboard">我的账户</a>');
         $('.navbar ul li:nth-last-child(2)').html('<a class="btn btn-min-width-sm logout" href="javascript:;">退出</a>');
         $('.ajax_wait p,.ajax_wait').hide();
+
         //获取profile信息
         var get_profile_data = {
             "fields": "investor_type,real_name,mailing_address_country,mailing_address_region,mailing_address_city,mailing_address_street,mailing_address_door,mailing_address_apartment,phone,email,id_card_code,id_card_photo,passport_code,passport_photo"
@@ -92,7 +94,6 @@ $(document).ready(function () {
             });
         });
 
-        //灵活理财赎回记录
 
         //修改用户信息
         $('#change_btn').on('click', function () {
@@ -376,7 +377,7 @@ $(document).ready(function () {
                 if (d[i].withdraw_able_amount > 0) {
                     is_disable = '';
                 } else {
-                    is_disable = 'disabled';
+                    is_disable = 'disabled style="background:#ccc"';
                 }
                 if (d[i].can_withdraw) {
                     can_withdraw = '<button class="status_btn" data-toggle="modal" ' +
@@ -426,19 +427,43 @@ $(document).ready(function () {
             $.each(d, function (i) {
                 var can_show_history = '';
                 if (d[i].has_withdraw_record) {
-                    can_show_history = '<li></li><li></li><li><button type="button" class="withdraw">提现记录</button></li>';
+                    if (d[i].operation_mode == 'OPEN') {
+                        can_show_history = '<li></li><li></li><li><button type="button"' +
+                            ' class="withdraw" data-order-number='+d[i].order_number+'>赎回记录</button></li>';
+                    } else {
+                        can_show_history = '<li></li><li></li><li><button type="button"' +
+                            ' class="withdraw" data-order-number='+d[i].order_number+'>提现记录</button></li>';
+                    }
                 }
                 html += '<div class="order_list">' +
-                    '<h4>' + d[i].product_name + ' ' + d[i].product_number + ' <span class="redeem_date">赎回日期：d[i].created_at</span></h4>' +
+                    '<h4>' + d[i].product_name + ' ' + d[i].product_number + ' <span class="redeem_date">赎回日期：d[i].refund_date</span></h4>' +
                     '<ul class="invest_table clearfix">' +
                     '<li>产品类型：债券型</li>' +
                     '<li>总金额：$' + d[i].total_amount + '</li>' +
                     '<li>累计收益：$' + d[i].total_income + '</li>' +
                     '<li>投资日期：' + d[i].created_at + '</li>' +
                     '<li>投资金额：$' + d[i].invest_amount + '</li>' +
-                    '<li>赎回金额：$' + d[i].total_income + '</li></ul></div>';
+                    '<li>赎回金额：$' + d[i].refund_amount + '</li>' + can_show_history + '</ul></div>';
             })
             $('.history_order').html(html);
+            //获取提现记录
+            $('.history_order').on('click', '.withdraw', function () {
+                var $this = $(this);
+                var order_num = $(this).prev().attr('data-order-number');
+                is_open = $(this).attr('data-type');
+
+                $this.parents('.invest_table').nextAll().remove();
+                var withdraw_history_data = {"order_number": order_num};
+                withdraw_history_data = $.extend({}, withdraw_history_data, cookie_tooken);
+                $.when(Ajax_Data({
+                    "url": baseUrl + "/withdraw/list",
+                    "data": withdraw_history_data,
+                    "async": false,
+                    "fn": withdraw_history
+                })).done(
+                    $this.parents('.invest_table').after(withdraw_list)
+                );
+            });
         }
     }
 
@@ -449,7 +474,6 @@ $(document).ready(function () {
             $('.flexible_invest').html('暂无灵活理财订单');
             return false;
         }
-        var left_count = 0, max_withdraw_count = 0, minimum_invest_amount = 0;
         if (d) {
             var total_income = 0, received_amount = 0, received_balance = 0, can_withdraw = '';
             $.each(d, function (i) {
@@ -462,13 +486,23 @@ $(document).ready(function () {
                 if (d[i].received_balance != '' && d[i].received_balance != null) {
                     received_balance = d[i].received_balance;
                 }
+                //是否可提现
+                var is_disable;
+                if (d[i].withdraw_able_amount > 0) {
+                    is_disable = '';
+                } else {
+                    is_disable = 'disabled style="background:#ccc"';
+                }
                 if (d[i].can_withdraw) {
-                    if (received_balance < 0) {
-                        can_withdraw = '<button class="status_btn" data-toggle="modal" data-order-number = ' + d[i].order_number + ' data-titlename="' + d[i].product_name + ' ' + d[i].product_number + '" data-target="#popup">提现</button>';
-                    } else {
-                        can_withdraw = '<button class="status_btn" data-toggle="modal" disabled' +
-                            ' style="background:#ccc"' +
-                            ' data-titlename="' + d[i].product_name + ' ' + d[i].product_number + '" data-target="#popup">提现</button>';
+                    can_withdraw = '<button class="status_btn" data-toggle="modal" ' +
+                        'data-titlename=' + d[i].product_name + ' ' + d[i].product_number + ' data-target="#popup" '
+                        + is_disable + ' data-order-number = ' + d[i].order_number + '>赎回</button>';
+                    //是否可赎回
+                    if (d[i].has_withdraw_record) {
+                        can_withdraw = '<button' + ' class="status_btn" data-toggle="modal" data-titlename="'
+                            + d[i].product_name + ' ' + d[i].product_number + '" data-target="#popup" ' + is_disable +
+                            ' data-order-number = ' + d[i].order_number + '>赎回</button>' +
+                            ' <button type="button" class="withdraw-history status_btn" data-type=' + d[i].operation_mode + '>赎回记录</button>';
                     }
                 }
 
@@ -478,13 +512,39 @@ $(document).ready(function () {
                     '<li>产品类型：债券型</li>' +
                     '<li>总金额：$' + d[i].total_amount + '</li>' +
                     '<li>累计收益：$' + total_income + '</li>' +
-                    '<li>投资总额：$' + d[i].invest_amount + '</li>' +
+                    '<li>投资日期：' + d[i].created_at + '</li>' +
+                    '<li>最新NAV：' + d[i].current_nav + '</li>' +
+                    '<li>投资状态：' + d[i].status_desc + '</li>' +
+                    '<li>投资金额：$' + d[i].invest_amount + '</li>' +
                     '<li>入金金额：$' + received_amount + '</li>' +
                     '<li>入金余额：$' + received_balance + '</li>' +
+                    '<li>份&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数：' + d[i].left_count + '</li>' +
+                    '<li>购买时NAV：' + d[i].first_nav + '</li>' +
+                    '<li>投资周期：' + d[i].invest_term + '月起</li>' +
                     '<li></li><li><a href=' + d[i].sub_doc_url + '>合同</a></li>' +
                     '<li><button class="status_btn buy_again">再次购买</button> ' + can_withdraw + '</li></ul></div>';
             })
             $('.flexible_invest').html(html);
+            //获取提现记录
+            $('.flexible_invest').on('click', '.withdraw-history', function () {
+                var $this = $(this);
+                var order_num = $(this).prev().attr('data-order-number');
+                is_open = $(this).attr('data-type');
+
+                $this.parents('.invest_table').nextAll().remove();
+                var withdraw_history_data = {"order_number": order_num};
+                withdraw_history_data = $.extend({}, withdraw_history_data, cookie_tooken);
+
+
+                $.when(Ajax_Data({
+                    "url": baseUrl + "/withdraw/list",
+                    "data": withdraw_history_data,
+                    "async": false,
+                    "fn": withdraw_history
+                })).done(
+                    $this.parents('.invest_table').after(withdraw_list)
+                );
+            });
         }
 
         $('.flexible_invest').on('click', '.buy_again', function () {
@@ -523,7 +583,7 @@ $(document).ready(function () {
             var title = button.data('titlename');
             var modal = $(this);
             modal.find('.modal-title span').empty();
-            modal.find('.modal-title').prepend('<span>' + title + '</span>');
+            modal.find('.modal-title').prepend('<span>' + title + '提现</span>');
             modal.find('.modal-body').empty();
             var bodyStr = '<div class="error_msg"></div><form id="invest_form">' +
                 '<label>用户名：</label>' +
@@ -640,7 +700,7 @@ $(document).ready(function () {
                 "url": baseUrl + "/withdraw/submit",
                 "data": withdraw_submit_data,
                 "fn": withdraw_submit,
-                "fail_fn":withdraw_fail
+                "fail_fn": withdraw_fail
             });
             function withdraw_submit(d) {
                 $('.modal-body-success').hide();
@@ -673,7 +733,7 @@ $(document).ready(function () {
             var title = button.data('titlename');
             var modal = $(this);
             modal.find('.modal-title span').empty();
-            modal.find('.modal-title').prepend('<span>' + title + '</span>');
+            modal.find('.modal-title').prepend('<span>' + title + '赎回</span>');
             modal.find('.modal-body').empty();
             var bodyStr = '<div class="error_msg"></div><form id="invest_form">' +
                 '<div class="clearfix"><label>用户名：</label>' +
@@ -792,7 +852,7 @@ $(document).ready(function () {
                 "url": baseUrl + "/withdraw/submit",
                 "data": withdraw_submit_data,
                 "fn": withdraw_submit,
-                "fail_fn":withdraw_fail
+                "fail_fn": withdraw_fail
             });
             function withdraw_submit(d) {
                 $('.modal-body-success').hide();
@@ -894,12 +954,12 @@ $(document).ready(function () {
 
             $('body').on('change', '.flexibleWithDraw input[type="radio"]', function (e) {
                 console.log(e.target.id);
-                if (e.target.id=='part') {
-                    $('#withdraw_value').val(' ').prop('disabled',false);
+                if (e.target.id == 'part') {
+                    $('#withdraw_value').val(' ').prop('disabled', false);
                     $('.flexibleWithDraw p').html(value_true);
                 }
-                if(e.target.id=='all'){
-                    $('#withdraw_value').val(all_value).prop('disabled',true);
+                if (e.target.id == 'all') {
+                    $('#withdraw_value').val(all_value).prop('disabled', true);
                     $('.flexibleWithDraw p').html(value_false);
                 }
             });
@@ -921,6 +981,31 @@ $(document).ready(function () {
         alert(d);
     }
 
+    //赎回记录
+
+    function withdraw_history(d) {
+        if (d) {
+            $.each(d, function (i) {
+                if (is_open == 'OPEN') {
+                    withdraw_list = '<div class="withdraw_list"><ul class="invest_table clearfix">' +
+                        '<li>赎回金额: ' + d[i].amount + '</li>' +
+                        '<li>赎回时净值: ' + d[i].withdraw_net_value + '</li>' +
+                        '<li>赎回日期: ' + d[i].withdraw_date + '</li>' +
+                        '<li>赎回份数: ' + d[i].count + '</li>' +
+                        '<li>购买时净值: ' + d[i].buy_net_value + '</li>' +
+                        '<li>状态: ' + d[i].status + '</li>' +
+                        '</ul></div>'
+                } else {
+                    withdraw_list = '<div class="withdraw_list"><ul class="invest_table clearfix">' +
+                        '<li>提现时间: ' + d[i].withdraw_date + '</li>' +
+                        '<li>提现金额: $' + d[i].amount + '</li>' +
+                        '<li>状态: ' + d[i].status + '</li>' +
+                        '</ul></div>'
+                }
+            });
+        }
+    }
+
     //h5  file_upload
     function file_upload(id) {
         var formData = new FormData($('form')[0]);
@@ -940,9 +1025,11 @@ $(document).ready(function () {
                 if (result.code == 1) {
                     if (event.target.id == 'id_identification_card_photo') {
                         id_card_photo = result.body;
+                        default_id_card_photo = false;
                     }
                     if (event.target.id == 'id_passport_photo') {
                         passport_photo = result.body;
+                        default_passport_photo = false;
                     }
                 }
                 if (result.code == -1) {
