@@ -24,9 +24,11 @@ $(function () {
                     data: data,
                     success: function (res) {
                         if (res.code == 1) {
-                            $.cookie('mx_token', res.mx_token, {expires: 30});
-                            $.cookie('mx_secret', res.mx_secret, {expires: 30});
-                            window.location.href = '/';
+                            var mx = res.body;
+                            $.cookie('mx_token', mx.mx_token, {expires: 30});
+                            $.cookie('mx_secret', mx.mx_secret, {expires: 30});
+                            alert($.cookie('mx_token', mx.mx_token));
+                           // window.location.href = '/';
                         } else if (res.code != 1) {
                             $("#error-place").html("<div style='text-align: center;' class='alert alert-warning'>" + res.msg +"</div>");
                         }
@@ -57,8 +59,9 @@ $(function () {
                     data: data1,
                     success: function (res) {
                         if (res.code == 1) {
-                            $.cookie('mx_token', res.mx_token, {expires: 30});
-                            $.cookie('mx_secret', res.mx_secret, {expires: 30});
+                            var mx = res.body;
+                            $.cookie('mx_token', mx.mx_token, {expires: 30});
+                            $.cookie('mx_secret', mx.mx_secret, {expires: 30});
                             window.location.href = '/';
                         } else if (res.code != 1) {
                             $("#error-place").html("<div style='text-align: center;' class='alert alert-warning'>" + res.msg + "</div>");
