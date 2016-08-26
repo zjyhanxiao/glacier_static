@@ -340,6 +340,7 @@
         //获取产品信息
         function get_product(d) {
             if(d.status=='FOR_APPOINTMENT'){
+                //获取是否预约过
                 var is_book_data={"product_id": product_id};
                 is_book_data = $.extend({}, is_book_data, cookie_tooken);
                 Ajax_Data({

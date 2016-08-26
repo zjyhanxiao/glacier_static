@@ -330,7 +330,7 @@ a, a:hover {
     background: #fff;
 }
 
-.flexibleWithDraw label, .flexibleWithDraw input[type='radio'] {
+.flexibleWithDraw label.radio_label, .flexibleWithDraw input[type='radio'] {
     display: inline-block;
     clear: none;
     float: none;
