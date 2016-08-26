@@ -105,7 +105,7 @@ function getUrlParam(name) {
     return null; //返回参数值
 }
 
-var product_id = getUrlParam('product_id') || 8;//获取产品id
+var product_id = getUrlParam('product_id') || 7;//获取产品id
 var product_invest_amount = getUrlParam('product_invest_amount') || 10000;//获取投资金额
 
 var baseUrl = 'http://192.168.1.100:8081/web';
@@ -124,7 +124,7 @@ $(function () {
     });
     $('.ajax_wait p,.ajax_wait').hide();
     // 调取 登录接口
-/*    Ajax_Data({
+    Ajax_Data({
         "url": baseUrl + "/auth/login",
         "type": "post",
         //"data": {"user_name": "+86 15001393659", "password": "123456789"},
@@ -151,5 +151,5 @@ $(function () {
         // 设置cookie
         $.cookie('mx_token', res.mx_token, {expires: 10});
         $.cookie('mx_secret', res.mx_secret, {expires: 10});
-    }*/
+    }
 });

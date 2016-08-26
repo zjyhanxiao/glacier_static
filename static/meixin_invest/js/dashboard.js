@@ -92,6 +92,8 @@ $(document).ready(function () {
             });
         });
 
+        //灵活理财赎回记录
+
         //修改用户信息
         $('#change_btn').on('click', function () {
             $('#id_real_name,#id_investor_type,#id_card,#passport_code,#id_birth_date').prop('disabled', false).removeAttr('style');
@@ -523,7 +525,7 @@ $(document).ready(function () {
             modal.find('.modal-title span').empty();
             modal.find('.modal-title').prepend('<span>' + title + '</span>');
             modal.find('.modal-body').empty();
-            var bodyStr = '<form id="invest_form">' +
+            var bodyStr = '<div class="error_msg"></div><form id="invest_form">' +
                 '<label>用户名：</label>' +
                 '<input id="full_name" class="form-control">' +
                 '<label>现居地址：</label>' +
@@ -673,7 +675,7 @@ $(document).ready(function () {
             modal.find('.modal-title span').empty();
             modal.find('.modal-title').prepend('<span>' + title + '</span>');
             modal.find('.modal-body').empty();
-            var bodyStr = '<form id="invest_form">' +
+            var bodyStr = '<div class="error_msg"></div><form id="invest_form">' +
                 '<div class="clearfix"><label>用户名：</label>' +
                 '<input id="full_name" class="form-control">' +
                 '<label>现居地址：</label>' +
@@ -693,7 +695,8 @@ $(document).ready(function () {
                 '<label class="radio_label" for="part">部分赎回</label>' +
                 '<input type="radio" name="redeem_type" value="false" id="all">' +
                 '<label class="radio_label" for="all">全部赎回</label></div>' +
-                '<span>赎回份额:</span><input type="text" class="form-control"  id="withdraw_value"><br>' +
+                '<label class="withdraw_number">赎回份额：</label><input type="text" class="form-control"' +
+                '  id="withdraw_value"><br>' +
                 '<p class="text-left blue">' +
                 '温馨提示：您的赎回份数需满足(500.00&lt;赎回份额&lt;4000.00),详情见规则，第一次赎回时候我们将把账户内的入金余额一并赎回。</p></div>' +
                 '<div class="text-center"><button type="button" class="btn btn-primary" style="width:30%"' +
@@ -722,16 +725,20 @@ $(document).ready(function () {
         });
         //提现显示预览
         $('body').on('click', '#get_view', function () {
-            var arrDom = $('.modal-body input[type="text"]');
+            var arrDom = $('.modal-body input.form-control');
+            console.log(arrDom.length);
             var can_view = true;
             $.each(arrDom, function (index) {
                 if (arrDom.eq(-(index + 1)).val() == '') {
-                    console.log(-index);
+                    console.log(-(index + 1));
+                    console.log(arrDom.eq(-(index + 1)).prev('label').html());
+                    console.log(arrDom.eq(-(index + 1)).prev('label').html().replace('：', ''));
+
                     $('.error_msg').html(arrDom.eq(-(index + 1)).prev('label').html().replace('：', '') + '不能为空');
                     can_view = false;
                 }
             });
-            console.log(can_view);
+            // console.log(can_view);
             if (can_view) {
 
                 $('.modal-body').hide();
