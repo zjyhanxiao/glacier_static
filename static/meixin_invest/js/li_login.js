@@ -38,17 +38,16 @@ $(function () {
 
         var data1 = {};
         if($('#invest').hasClass('active')){
-            data1.user_name = $('#email').val();
+            var emailData = $.trim($("#email").val());
+            data1.user_name=emailData;
             data1.password = $('#password').val();
             var val = $('#email').val();
             if (val.indexOf('@') == -1) {
                 $("#email").css("border-color","#ff0000");
-                //alert("请输入正确的邮箱格式");
                 return false;
             }
             else if ($('input[type="password"]').val() == '') {
                 $("#password").css("border-color","#ff0000");
-                //alert("请输入密码");
                 return false;
             }
             else {
