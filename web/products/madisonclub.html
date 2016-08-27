@@ -53,7 +53,7 @@
 									<h4 class="modal-title" id="exampleModalLabel">申购预约</h4>
 								</div>
 									<!--  预约完成页面，处理完表单提交之后显示-->
-									<div class="is_book" style="display: none">
+									<div class="is_book">
 										<p>
 											您已成功完成本产品的预约。美信的专业理财顾问将尽快与您取得联系。您可以在“我的账户”页面查看预约记录。
 										</p>
@@ -84,7 +84,7 @@
 												<div class="form-group">
 													<textarea class="form-control" cols="40" id="id_question" name="question" placeholder="问题（选填）" rows="10" style="min-height:150px;"></textarea>
 												</div>
-												<button type="submit" class="btn btn-primary sub-btn" style="width: 100%">提交</button>
+												<button type="submit" id="book_submit" class="btn btn-primary sub-btn" style="width: 100%">提交</button>
 											</form>
 										</div>
 										<div class="modal-body-success">
@@ -201,7 +201,7 @@
 		}
 
 		//is_login  调取登录接口
-		function is_login(res) {
+		function is_login() {
 			$('.navbar ul li:last-child').html('<a class="btn btn-min-width" href=" ">我的账户</a>');
 			$('.navbar ul li:nth-last-child(2)').html('<a class="btn btn-min-width-sm logout" href="javascript:;">退出</a>');
 			$('.ajax_wait p,.ajax_wait').hide();
@@ -216,7 +216,7 @@
 		}
 
 		//判断用户是否预约过该商品
-		function get_product(d) {
+		function get_product() {
 			var is_book_data={"product_id": product_id};
 			is_book_data = $.extend({}, is_book_data, cookie_tooken);
 			Ajax_Data({
@@ -225,10 +225,7 @@
 				"fn": for_book
 			});
 			function for_book(d) {
-				alert(d);
-				if(d.code == 1){
-					//is_book = true;
-					$('#');
+				if(d == true){
 					$('#popup').find('.modal-body').hide();
 					$('#popup').find('.is_book').show();
 				}
