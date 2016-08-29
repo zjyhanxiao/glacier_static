@@ -437,7 +437,7 @@
 <script src="/version1.0/dist/meixin_invest/js/navi.min.js" type="text/javascript"></script>
 <script src="/version1.0/dist/meixin_invest/js/jquery.cookie.min.js"></script>
 <script src="/version1.0/meixin_invest/js/is_ok.js"></script>
-<!--<script type="text/javascript" src="../static/meixin_invest/js/li_signup.js"></script>-->
+<script type="text/javascript" src="/version1.0/meixin_invest/js/li_signup.js"></script>
 <script>
     $(document).ready(function(){
         $('#wechat-popover').popover({
@@ -460,5 +460,29 @@
     var expiresDate= new Date();
     expiresDate.setTime(expiresDate.getTime() + (30 * 24 * 60 * 60 * 1000));
     $.cookie('source',source,{expires: expiresDate});
+
+    //data
+    var data={};
+    $('#id_referral_code').one('blur',function () {
+        var referral =  $("#id_referral_code").val();
+        data.id_referral_code = referral;
+        if(referral != ''){
+            $.ajax({
+                type: 'post',
+                url: baseUrl + "/auth/ ",
+                data: data,
+                success: function (res) {
+                    if (res.code == 1) {
+
+                    } else if (res.code != 1) {
+                        $("page1-error-report").html("<div class='alert alert-warning' style='color: orangered'>" + res.msg + "</div>");
+                        $(".error-div").html("<div class='alert alert-warning' style='color: orangered'>" + res.msg + "</div>");
+                        return false;
+                    }
+                }
+            });
+        }
+        return false;
+    });
 </script>
 </html>

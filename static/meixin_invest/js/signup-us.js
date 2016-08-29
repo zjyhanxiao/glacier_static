@@ -47,7 +47,7 @@ $(document).ready(function () {
     });
 
     //data
-    var data={};
+   /* var data={};
     $('#id_referral_code').on('blur',function () {
         var referral =  $("#id_referral_code").val();
         data.id_referral_code = referral;
@@ -68,7 +68,7 @@ $(document).ready(function () {
             });
         }
        return false;
-    });
+    });*/
     // first step
     $('.registration-form #first-page-next-btn').on('click', function () {
         var parent_div = $(this).parents('.div-group');
