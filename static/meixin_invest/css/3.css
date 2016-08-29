@@ -5,10 +5,11 @@ html,body{
 .row-style{
     background-color: #fff;
     line-height: 40px;
+    padding-left: 10px;
 }
-/*.col-md-2,.col-md-4,.col-md-6{
-    background-color: #fff;
-}*/
+ul{
+    list-style: disc !important;
+}
 .header-section{
     margin-top: 30px;
 }
@@ -31,31 +32,21 @@ html,body{
     border-radius: 10px;
 }
 
-.fund-section{
-
+.row-style-2{
+    background-color: #e8f4f9 !important;
+    line-height: 40px;
 }
+
 .line-left-icon{
     margin: 20px 0 10px;
     border-left: solid 4px;
-    /*height: 18px;*/
     line-height: 18px;
     border-color: #159bd6;
     background-color: #f4f4f4;
 }
 
-.report-section{
-
-}
-.target-section{
-
-}
-
-.strategy-section{
-
-}
-
-.risk-section .li-style{
-    display: block;
+.li-style{
+    margin-left: 20px;
 }
 
 
