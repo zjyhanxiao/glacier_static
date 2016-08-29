@@ -351,6 +351,9 @@ $(document).ready(function () {
                     received_amount = '$' + d[i].received_amount; //入金金额
                 }
                 if (d[i].received_balance != '' && d[i].received_balance != null) {
+                    if (d[i].received_balance < 0) {
+                        d[i].received_balance = 0;
+                    }
                     received_balance = '$' + d[i].received_balance; //入金余额
                 }
                 if (d[i].withdraw_able_amount != '' && d[i].withdraw_able_amount != null) {
@@ -496,6 +499,9 @@ $(document).ready(function () {
                     received_amount = d[i].received_amount;
                 }
                 if (d[i].received_balance != '' && d[i].received_balance != null) {
+                    if (d[i].received_balance < 0) {
+                        d[i].received_balance = 0;
+                    }
                     received_balance = d[i].received_balance;
                 }
                 //是否可提现
@@ -926,12 +932,12 @@ $(document).ready(function () {
             });
             function change_password(d) {
                 alert('修改成功');
-                d.prop('disabled', false);
+                $('#pwd_reset').prop('disabled', false);
             }
 
             function change_password_fail(d) {
                 alert(d);
-                d.prop('disabled', false);
+                $('#pwd_reset').prop('disabled', false);
             }
         }
     }
