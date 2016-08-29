@@ -1,39 +1,5 @@
 
 $(document).ready(function () {
-    var options = {};
-
-    options.ui = {
-        verdicts: [
-            "<span class='fa fa-exclamation-triangle'></span>请设置密码复杂度更高的密码",
-            "通过;不过复杂度再高一点,更安全",
-            "<span class='fa fa-thumbs-up'></span>安全",
-            "<span class='fa fa-thumbs-up'></span><span class='fa fa-thumbs-up'></span>很安全",
-            "<span class='fa fa-thumbs-up'></span><span class='fa fa-thumbs-up'></span><span class='fa fa-thumbs-up'></span>非常安全!"],
-        showPopover: true,
-        popoverPlacement: 'top'
-    };
-
-    options.common = {
-        onLoad: function () {
-            $('#messages').text('Start typing password');
-        },
-        onKeyUp: function (evt, data) {
-            if (data.verdictLevel < 1) {
-                var signupButton = $('#next_button');
-
-                signupButton.attr('disabled', 'disabled');
-            } else {
-                var signupButton = $('#next_button');
-
-                signupButton.removeAttr('disabled');
-            }
-        }
-    };
-
-    $(':password').pwstrength(options);
-});
-
-$(document).ready(function () {
     // display on board step 1 at page rendering
     $('.registration-form .div-group:first').fadeIn('slow');
 
@@ -79,9 +45,41 @@ $(document).ready(function () {
 
         return false;
     });
-
-    //data
-    var data={};
+    
+    //data                                                                                                                                                                                                                                                                             
+    var data = {};
+    $('#id_referral_code').on('blur', function () {
+        var referral = $.trim($("#id_referral_code").val());
+        data.referral_code = referral;
+        if (referral != '') {
+            $.ajax({
+                type: 'get',
+                url: "/verifyReferralCode",
+                data: data,
+                success: function (res) {
+                    if (res.code == 1) {
+                        $(".error-div-page1").html("<div class='alert alert-warning' style='height: 45px; margin-top: -18px; background-color: #fff; border: none; font-size: 12px; color: orangered'>" + '邀请码有效  注册成功后礼品卡将发送至您的邮箱!' + "</div>");
+                        $(".error-div").html("<div class='alert alert-warning' style='font-size: 12px; color: orangered'>" + '邀请码有效  注册成功后礼品卡将发送至您的邮箱!' + "</div>");
+                    }
+                    if (res.code == 2 || res.code == 3) {
+                        $(".error-div-page1").html("<div class='alert alert-warning' style='height: 45px; margin-top: -18px; background-color: #fff; border: none; font-size: 12px; color: orangered'>" + '亲爱的用户，邀请码失效,活动礼品已全部派完，感谢您对美信金融的关注!' + "</div>");
+                        $(".error-div").html("<div class='alert alert-warning' style='font-size: 12px; color: orangered'>" + '亲爱的用户，邀请码失效,活动礼品已全部派完，感谢您对美信金融的关注!' + "</div>");
+                        return false;
+                    }
+                    if (res.code == 4) {
+                        $(".error-div-page1").html("<div class='alert alert-warning' style='height: 45px; margin-top: -18px; background-color: #fff; border: none; font-size: 12px; color: orangered'>" + '亲爱的用户,您的验证码错误,请核对后填写!' + "</div>");
+                        $(".error-div").html("<div class='alert alert-warning' style='font-size: 12px; color: orangered'>" + '亲爱的用户,您的验证码错误,请核对后填写!' + "</div>");
+                        return false;
+                    }
+                }
+            });
+        }
+        return false;
+    });
+    $("#id_referral_code").on('focus', function () {
+        $(".alert").remove();
+    });
+    
     // first step
     $('.registration-form #first-page-next-btn').on('click', function () {
         var parent_div = $(this).parents('.div-group');
