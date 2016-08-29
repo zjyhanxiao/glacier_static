@@ -1,0 +1,83 @@
+html,body{
+    margin: 0;
+    padding: 0;
+}
+.row-style{
+    background-color: #fff;
+    line-height: 40px;
+}
+/*.col-md-2,.col-md-4,.col-md-6{
+    background-color: #fff;
+}*/
+.header-section{
+    margin-top: 30px;
+}
+.head-sec-title{
+    background-color: #e7f5fb;
+    height: 75px;
+    line-height: 75px;
+    font: normal 24px/75px 微软雅黑;
+}
+.head-sec-title a span{
+    display: block;
+    font-size: 18px;
+    text-align: center;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 18px;
+    color: white;
+    background-color: #f39800;
+    border-radius: 10px;
+}
+
+.fund-section{
+
+}
+.line-left-icon{
+    margin: 20px 0 10px;
+    border-left: solid 4px;
+    /*height: 18px;*/
+    line-height: 18px;
+    border-color: #159bd6;
+    background-color: #f4f4f4;
+}
+
+.report-section{
+
+}
+.target-section{
+
+}
+
+.strategy-section{
+
+}
+
+.risk-section .li-style{
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
