@@ -5,7 +5,7 @@ html,body{
 .row-style{
     background-color: #fff;
     line-height: 40px;
-    padding-left: 10px;
+    padding-left: 30px;
 }
 ul{
     list-style: disc !important;
@@ -38,6 +38,7 @@ ul{
 .row-style-2{
     background-color: #e8f4f9 !important;
     line-height: 40px;
+    padding-left: 30px;
 }
 
 .line-left-icon{
@@ -49,7 +50,7 @@ ul{
 }
 
 .li-style{
-    margin-left: 20px;
+    margin-left: 15px;
 }
 
 
