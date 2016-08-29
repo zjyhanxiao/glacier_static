@@ -381,7 +381,7 @@ $(document).ready(function () {
                         can_withdraw = '<button' + ' class="status_btn" data-toggle="modal" data-titlename="'
                             + d[i].product_name + ' ' + d[i].product_number + '" data-target="#popup" ' + is_disable +
                             ' data-order-number = ' + d[i].order_number + '>提现</button>' +
-                            '<button style="margin-left: 20px;" type="button" class="withdraw">提现记录</button>';
+                            '<button style="margin-left: 20px;" type="button" class="withdraw" data-order-number=' + d[i].order_number + '>提现记录</button>';
                     }
                 }
                 html += '<div class="order_list">' +
@@ -406,6 +406,24 @@ $(document).ready(function () {
             $('.invest_order').html(html);
             showMore();//显示、隐藏更多
             withDraw();//提现
+            //获取提现记录
+            $('.invest_order').on('click', '.withdraw', function () {
+                var $this = $(this);
+                var order_num = $(this).prev().attr('data-order-number');
+                is_open = $(this).attr('data-type');
+
+                $this.parents('.invest_table').nextAll().remove();
+                var withdraw_history_data = {"order_number": order_num};
+                withdraw_history_data = $.extend({}, withdraw_history_data, cookie_tooken);
+                $.when(Ajax_Data({
+                    "url": baseUrl + "/withdraw/list",
+                    "data": withdraw_history_data,
+                    "async": false,
+                    "fn": withdraw_history
+                })).done(
+                    $this.parents('.invest_table').after(withdraw_list)
+                );
+            });
         }
     }
 
