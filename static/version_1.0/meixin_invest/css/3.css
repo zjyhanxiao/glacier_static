@@ -31,6 +31,9 @@ ul{
     background-color: #f39800;
     border-radius: 10px;
 }
+.text-center{
+    text-align: center;
+}
 
 .row-style-2{
     background-color: #e8f4f9 !important;
