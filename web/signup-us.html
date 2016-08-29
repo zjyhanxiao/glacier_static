@@ -187,7 +187,7 @@
                                                 <input class="form-control" id="id_referral_code" maxlength="6"
                                                        name="referral_code" type="text" value="">
                                             </div>
-                                            <div class="error-div-page1" style="height: 45px; overflow: hidden"></div>
+                                            <div class="error-div-page1" style="height: 45px; overflow: hidden; margin-top: -10px;"></div>
                                             <div class="text-center" style="margin: 15px 0;">
                                                 <button id="first-page-next-btn" type="button"
                                                         class="btn btn-next btn-primary">下一步
@@ -528,7 +528,7 @@
         if (referral != '') {
             $.ajax({
                 type: 'get',
-                url: "http://101.201.112.171/verifyReferralCode",
+                url: "/verifyReferralCode",
                 data: data,
                 success: function (res) {
                     if (res.code == 1) {
