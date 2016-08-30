@@ -632,6 +632,12 @@ div.activity_message::before {
   width: 70%;
 }
 
+@media (min-width: 768px) {
+  #popup .modal-sm {
+    width: 600px;
+  }
+}
+
 .modal-body-success {
   display: none;
   text-align: left;
@@ -645,10 +651,4 @@ div.activity_message::before {
 
 .modal-footer {
   text-align: center;
-}
-
-@media (min-width: 768px) {
-  #popup .modal-sm {
-    width: 600px;
-  }
 }
