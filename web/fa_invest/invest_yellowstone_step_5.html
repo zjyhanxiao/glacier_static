@@ -101,7 +101,7 @@
                                             </li>
                                             <li style="float: right;">
                                                 <a class="btn btn-min-width"
-                                                   href="/investor/dashboard">我的账户<#if anxin1_interest_flag=="1"><span class="red_dot"></span></#if></a>
+                                                   href="/investor/dashboard.html">我的账户<#if anxin1_interest_flag=="1"><span class="red_dot"></span></#if></a>
                                             </li>-->
                         <li style="float: right;"><a class="login_no_margin_right nav_login_button" href="/login.html">登录</a></li>
                         <li style="float: right;"><a href="/signup.html"
@@ -403,7 +403,7 @@
 
         //is_login  调取登录接口
         function is_login(res) {
-            $('.navbar ul li:last-child').html('<a class="btn btn-min-width" href="/investor/dashboard">我的账户</a>');
+            $('.navbar ul li:last-child').html('<a class="btn btn-min-width" href="/investor/dashboard.html">我的账户</a>');
             $('.navbar ul li:nth-last-child(2)').html('<a class="btn btn-min-width-sm logout" href="javascript:;">退出</a>');
             $('.ajax_wait p,.ajax_wait').hide();
 
