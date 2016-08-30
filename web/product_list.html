@@ -38,6 +38,36 @@
                         <div class="tab-content text-left">
                             <div role="tabpanel" class="tab-pane active">
                                 <ul class="products">
+                                    <li data-title="shengxin">
+                                        <h2><span>盛心计划</span><span>盛心计划1期</span></h2>
+                                        <ul>
+                                            <li>产品类型：Pre-IPO股权</li>
+                                            <li>投资对象：SpaceX</li>
+                                            <li>起投金额：50万美元</li>
+                                            <li>当前估值：120亿</li>
+                                            <li><a class="btn btn-info" href="/products/anxin_plan.html?product_id=2">立即投资</a></li>
+                                        </ul>
+                                    </li>
+                                    <li data-title="fangxin">
+                                        <h2><span>放心计划</span><span>放心计划1期</span></h2>
+                                        <ul>
+                                            <li>产品类型：万能型指数寿险</li>
+                                            <li>平均年回报：6%</li>
+                                            <li>保额：高达100万美元</li>
+                                            <li>保费：1000美元起</li>
+                                            <li><a class="btn btn-info" href="/products/anxin_plan.html?product_id=3">立即投资</a></li>
+                                        </ul>
+                                    </li>
+                                    <li data-title="madison">
+                                        <h2><span>麦迪逊俱乐部</span><span>麦迪逊俱乐部</span></h2>
+                                        <ul>
+                                            <li>服务类型：高端财富个人订制</li>
+                                            <li>投资移民</li>
+                                            <li>高端访问</li>
+                                            <li>家族办公室</li>
+                                            <li><a class="btn btn-info" href="/products/anxin_plan.html?product_id=4">立即咨询</a></li>
+                                        </ul>
+                                    </li>
                                     <!--<li data-title="anxin">
                                         <h2><span>安心计划</span><span>安心计划 | 6个月</span></h2>
                                         <ul>
@@ -213,7 +243,6 @@ $(function(){
             }
             $("#categoryNav").append(nav.clone());
         });*/
-        $(".products").html("");
         $.each(productList,function(index,product){
             var li = $("<li data-title='"+product.category_name+"'></li>");
             //显示名字和分类
@@ -247,7 +276,7 @@ $(function(){
                     break;
             }
             li.append(ul);
-            $(".products").append(li);
+            $(".products").prepend(li);
         });
     }
 </script>
