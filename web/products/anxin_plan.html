@@ -417,7 +417,7 @@
                 switch (d.status) {
                     case "FOR_INVEST": //在售
                         if (investor_type == 1) {//国际投资人
-                            if(d.international == 'true'){//可投
+                            if(d.international == 1){//可投
                                 if(d.product_location == 'ON_SHORE' && d.product_type == 'CROWD_FUNDING'){//安心定期
                                     $('.product_top_section .row').append('<a id="invest-button" type="button" class="btn btn-primary" data-titlename="'+ d.name +' '+ d.number+' " style="padding:6px 60px" href="/fa_invest/international/form_step_1.html?product_id=' + product_id + '&invest_value='+ invest_value +'">立 即 投 资</a>');
                                 }
@@ -430,7 +430,7 @@
                             }
                         }
                         if(investor_type == 2){//美国合格投资人
-                            if(d.american == 'true'){//可投
+                            if(d.american == 1){//可投
                                 if(d.product_location == 'ON_SHORE' && d.product_type == 'CROWD_FUNDING'){//安心定期
                                     $('.product_top_section .row').append('<a id="invest-button" type="button" class="btn btn-primary" data-titlename="'+ d.name +' '+ d.number+' " style="padding:6px 60px" href="/fa_invest/american/form_usa_step_1.html?product_id=' + product_id + '&invest_value='+ invest_value +'">立 即 投 资</a>');
                                 }
