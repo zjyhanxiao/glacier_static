@@ -107,14 +107,19 @@ $(function () {
     setTimeout(function () {
         $('.ajax_wait p').show();
     }, 3e3);
-    /*
-    $('section input').each(function (index) {
-        $('section input').eq(index).attr('data-parsley-group', 'block-' + index);
-    });*/
     $('.previous').on('click', function () {
         window.history.go(-1);
     });
     $('.ajax_wait p,.ajax_wait').hide();
+    $('body').on('click','.logout',function () {
+        //清楚cookie
+        $.cookie('mx_token', '', {expires: -1});
+        $.cookie('mx_secret', '', {expires: -1});
+        /*$('.navbar ul li:last-child').html('<a href="/signup.html" class="hidden-xs nav_register_button">注册</a>');
+        $('.navbar ul li:nth-last-child(2)').html('<a class="login_no_margin_right nav_login_button" href="/login.html" style="border-bottom: 3px solid rgb(75, 183, 232);">登录</a>');
+        */
+        window.location='/';
+    });
     // 调取 登录接口
 /*    Ajax_Data({
         "url": baseUrl + "/auth/login",
