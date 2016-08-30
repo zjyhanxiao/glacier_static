@@ -108,8 +108,8 @@ function getUrlParam(name) {
 var product_id = getUrlParam('product_id') || 7;//获取产品id
 var product_invest_amount = getUrlParam('product_invest_amount') || 10000;//获取投资金额
 
-var baseUrl = 'http://192.168.1.100:8080/web';
-// var baseUrl = 'http://101.201.112.171:8082/web';
+// var baseUrl = 'http://192.168.1.100:8080/web';
+var baseUrl = 'http://101.201.112.171:8082/web';
 
 $(function () {
     setTimeout(function () {
