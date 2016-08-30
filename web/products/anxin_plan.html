@@ -427,8 +427,6 @@
                                 if(d.product_location == 'ON_SHORE' && d.product_type == 'NON_CROWD_FUNDING' && d.operation_mode == 'OPEN'){//灵活理财
                                     $('.product_top_section .row').append('<a id="invest-button" type="button" class="btn btn-primary" data-titlename="'+ d.name +' '+ d.number+' " style="padding:6px 60px" href="/fa_invest/invest_yellowstone_step_1.html?product_id=' + product_id + '&invest_value='+ invest_value +'">立 即 投 资</a>');
                                 }
-                            }else{//不可投
-                                window.location='/';
                             }
                         }else if(investor_type == 2){//美国合格投资人
                             if(d.american == 'true'){//可投
