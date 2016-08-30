@@ -128,7 +128,7 @@
                             <p>预计年化收益<span style="padding-left: 0.8em; line-height: 1em;">7.0</span><span
                                     style="font-size: 2em;">%</span></p>
                             <span class="login" style="display: none;">
-                                <a href="/invest_product/7"><button class="btn">立即投资</button></a>
+                                <a href="/products/anxin_plan.html?product_id=7"><button class="btn">立即投资</button></a>
                             </span>
                             <span class="no_login">
                                 <a href="/signup"><button class="btn">立即注册</button></a>
@@ -239,7 +239,7 @@
                     <div class="col-sm-2 color-orange col-xs-4"><span>7.0</span><span>%</span><br>预计年化收益</div>
                     <div class="col-sm-2 col-xs-4"><span>13</span><span>个月</span><br>投资期限</div>
                     <div class="col-sm-2 col-xs-4"><span>1</span><span>万美元</span><br>起投金额</div>
-                    <div class="col-sm-2 col-xs-12"><a href="/invest_product/7">
+                    <div class="col-sm-2 col-xs-12"><a href="/products/anxin_plan.html?product_id=7">
                         <button class="btn">立即投资</button>
                     </a></div>
                     <div class="col-sm-4 col-xs-12">
@@ -273,7 +273,7 @@
                     <div class="col-sm-4 border-right-grey" style="margin-bottom: 30px;">
                         <h3>安心计划 | 6个月</h3>
                         <p><span>5.0</span><span>%</span><br>预计年化收益率</p>
-                        <a href="/invest_product/6" style="padding: 6px 50px; background-color: #e17738; color: white;"
+                        <a href="/products/anxin_plan.html?product_id=6" style="padding: 6px 50px; background-color: #e17738; color: white;"
                            class="btn">立即投资</a>
                     </div>
                     <div class="col-sm-4 border-right-grey" style="margin-bottom: 30px;">
@@ -312,7 +312,7 @@
                         <td><img
                                 src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/landing/landing_prod_status_onsell_124x124.png"/>
                         </td>
-                        <td><a href="/invest_product/7">
+                        <td><a href="/products/anxin_plan.html?product_id=7">
                             <button class="btn" style="background-color: #e17738; color: white;">立即投资</button>
                         </a></td>
                     </tr>
@@ -357,16 +357,16 @@
                         <th style="border-top: 3px solid #f08686;">私人理财</th>
                     </tr>
                     <tr class="section-six-mid">
-                        <td>顶级华尔街对冲基金<br><a href="/invest_product/1">
+                        <td>顶级华尔街对冲基金<br><a href="/products/anxin_plan.html?product_id=1">
                             <button class="btn btn-mobile-padding">点击了解</button>
                         </a></td>
-                        <td>海外独角兽公司股权<br><a href="/invest_product/2">
+                        <td>海外独角兽公司股权<br><a href="/products/anxin_plan.html?product_id=2">
                             <button class="btn btn-mobile-padding">点击了解</button>
                         </a></td>
-                        <td>海外理财万能寿险<br><a href="/invest_product/3">
+                        <td>海外理财万能寿险<br><a href="/products/anxin_plan.html?product_id=3">
                             <button class="btn btn-mobile-padding">点击了解</button>
                         </a></td>
-                        <td>私人投资理财服务<br><a href="/invest_product/4">
+                        <td>私人投资理财服务<br><a href="/products/anxin_plan.html?product_id=4">
                             <button class="btn btn-mobile-padding">点击了解</button>
                         </a></td>
                     </tr>
@@ -853,7 +853,7 @@
             //显示年化收益率，保留1位小数
             $("#NEW_USER_EXCLUSIVE p span:first").text(rate.toFixed(1));
             //替换对应的URL
-            $("span.login a").attr("href", "/invest_product/" + product.id);
+            $("span.login a").attr("href", "/products/anxin_plan.html?product_id=" + product.id);
         }
     }
     /**
@@ -875,7 +875,7 @@
             //最小起投金额
             returnRate.next().next().children("span:first").text(product.minimumInvestAmount);
             //点击的按钮
-            $("#newUserPlain").children("div:last").prev().children("a").attr("href", "/invest_product/" + product.id);
+            $("#newUserPlain").children("div:last").prev().children("a").attr("href", "/products/anxin_plan.html?product_id=" + product.id);
         }
     }
     /**
@@ -904,9 +904,9 @@
                     $(this).append("<button class='btn btn-primary' style='cursor: default;'>立即预约</button>");
                     break;
                 case "FOR_INVEST":
-//                        console.log( "/invest_product/" + product.id);
-                    var invest = $("<a href='/invest_product/6' style='padding: 6px 50px; background-color: #e17738; color: white;' class='btn'>立即投资</a>");
-                    $(this).append(invest.attr("href", "/invest_product/" + product.id));
+//                        console.log( "/products/anxin_plan.html?product_id=" + product.id);
+                    var invest = $("<a href='/products/anxin_plan.html?product_id=6' style='padding: 6px 50px; background-color: #e17738; color: white;' class='btn'>立即投资</a>");
+                    $(this).append(invest.attr("href", "/products/anxin_plan.html?product_id=" + product.id));
                     break;
                 case "SOLD_OUT":
                     $(this).append("<button class='btn default_span' style='cursor: default;'>已售罄</button>");
@@ -945,12 +945,12 @@
                     break;
                 case "FOR_APPOINTMENT":
                     $(childList[3]).html($("<img/>").attr("src", "http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/landing/landing_prod_status_schsell_124x124.png"));
-                    var a = $("<a></a>").attr("href", "/invest_product/" + product.id).append("<button class='btn' style='background-color: #e17738; color: white;'>立即预约</button>");
+                    var a = $("<a></a>").attr("href", "/products/anxin_plan.html?product_id=" + product.id).append("<button class='btn' style='background-color: #e17738; color: white;'>立即预约</button>");
                     $(childList[4]).html(a);
                     break;
                 case "FOR_INVEST":
                     $(childList[3]).html($("<img/>").attr("src", "http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/landing/landing_prod_status_onsell_124x124.png"));
-                    var a = $("<a></a>").attr("href", "/invest_product/" + product.id).append("<button class='btn' style='background-color: #e17738; color: white;'>立即投资</button>");
+                    var a = $("<a></a>").attr("href", "/products/anxin_plan.html?product_id=" + product.id).append("<button class='btn' style='background-color: #e17738; color: white;'>立即投资</button>");
                     $(childList[4]).html(a);
                     break;
                 case "SOLD_OUT":

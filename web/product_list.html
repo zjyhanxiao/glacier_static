@@ -45,7 +45,7 @@
                                             <li>预计年化收益：5.0%</li>
                                             <li>起投金额：1万美元</li>
                                             <li>项目周期：6个月</li>
-                                            <li><a class="btn btn-info" href="/invest_product/6">立即投资</a></li>
+                                            <li><a class="btn btn-info" href="/products/anxin_plan.html?product_id=6">立即投资</a></li>
                                         </ul>
                                     </li>
                                     <li data-title="anxin">
@@ -55,7 +55,7 @@
                                             <li>预计年化收益：7.0%</li>
                                             <li>起投金额：1万美元</li>
                                             <li>项目周期：13个月</li>
-                                            <li><a class="btn btn-info" href="/invest_product/7">立即投资</a></li>
+                                            <li><a class="btn btn-info" href="/products/anxin_plan.html?product_id=7">立即投资</a></li>
                                         </ul>
                                     </li>
                                     <li data-title="anxin">
@@ -65,7 +65,7 @@
                                             <li>预计年化收益：6.0%</li>
                                             <li>起投金额：1万美元</li>
                                             <li>项目周期：9个月</li>
-                                            <li><a class="btn btn-info disabled" href="/invest_product/6">即将上线</a></li>
+                                            <li><a class="btn btn-info disabled" href="/products/anxin_plan.html?product_id=6">即将上线</a></li>
                                         </ul>
                                     </li>
                                     <li data-title="anxin">
@@ -75,7 +75,7 @@
                                             <li>预计年化收益：7.0%</li>
                                             <li>起投金额：1万美元</li>
                                             <li>项目周期：12个月</li>
-                                            <li><a class="btn btn-info disabled" href="/invest_product/6">即将上线</a></li>
+                                            <li><a class="btn btn-info disabled" href="/products/anxin_plan.html?product_id=6">即将上线</a></li>
                                         </ul>
                                     </li>
                                     <li data-title="gaoxin">
@@ -85,7 +85,7 @@
                                             <li>近一年的历史年化收益： 9.21%</li>
                                             <li>起投金额：50万美元</li>
                                             <li>赎回方式：每月赎回</li>
-                                            <li><a class="btn btn-info disabled" href="/invest_product/1">即将上线</a></li>
+                                            <li><a class="btn btn-info disabled" href="/products/anxin_plan.html?product_id=1">即将上线</a></li>
                                         </ul>
                                     </li>
                                     <li data-title="shengxin">
@@ -95,7 +95,7 @@
                                             <li>投资对象：SpaceX</li>
                                             <li>起投金额：50万美元</li>
                                             <li>当前估值：120亿</li>
-                                            <li><a class="btn btn-info" href="/invest_product/2">立即投资</a></li>
+                                            <li><a class="btn btn-info" href="/products/anxin_plan.html?product_id=2">立即投资</a></li>
                                         </ul>
                                     </li>
                                     <li data-title="fangxin">
@@ -105,7 +105,7 @@
                                             <li>平均年回报：6%</li>
                                             <li>保额：高达100万美元</li>
                                             <li>保费：1000美元起</li>
-                                            <li><a class="btn btn-info" href="/invest_product/3">立即投资</a></li>
+                                            <li><a class="btn btn-info" href="/products/anxin_plan.html?product_id=3">立即投资</a></li>
                                         </ul>
                                     </li>
                                     <li data-title="madison">
@@ -115,7 +115,7 @@
                                             <li>投资移民</li>
                                             <li>高端访问</li>
                                             <li>家族办公室</li>
-                                            <li><a class="btn btn-info" href="/invest_product/4">立即咨询</a></li>
+                                            <li><a class="btn btn-info" href="/products/anxin_plan.html?product_id=4">立即咨询</a></li>
                                         </ul>
                                     </li>
                                     <li data-title="anxin">
@@ -237,10 +237,10 @@ $(function(){
                     ul.append("<li><button class='btn sold-out-button' style='cursor: default;'>即将上线</button></li>");
                     break;
                 case "FOR_APPOINTMENT":
-                    ul.append($("<li><a class='btn btn-info' href=''>立即预约</a></li>").children("a").attr("href","/invest_product/" + product.id));
+                    ul.append($("<li><a class='btn btn-info' href=''>立即预约</a></li>").children("a").attr("href","/products/anxin_plan.html?product_id=" + product.id));
                     break;
                 case "FOR_INVEST":
-                    ul.append($("<li><a class='btn btn-info' href=''>立即投资</a></li>").children("a").attr("href","/invest_product/" + product.id));
+                    ul.append($("<li><a class='btn btn-info' href=''>立即投资</a></li>").children("a").attr("href","/products/anxin_plan.html?product_id=" + product.id));
                     break;
                 case "SOLD_OUT":
                     ul.append("<li><button class='btn sold-out-button' style='cursor: default;'>已售罄</button></li>");
