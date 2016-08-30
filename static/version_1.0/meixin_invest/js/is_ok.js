@@ -1,7 +1,6 @@
 /**
  * Created by zhangjingyu on 16/8/5.
  */
-
 var is_new = true,                  //新建订单
     is_old = false,                 //已有订单,链接来源-mycount
     order_number,                   //订单order_number;
@@ -17,11 +16,11 @@ var is_new = true,                  //新建订单
     default_id_card_photo = true;   //身份证为默认图片
 
 
-/*var token1 = $.cookie('mx_token');
+ var token1 = $.cookie('mx_token');
  var token2 = $.cookie('mx_secret');
- if (!token1 && token2) {
- window.location = 'https://www.meixinfinance.com';
- }*/
+ if (token1==undefined || token2==undefined) {
+     window.location = '/login.html';
+ }
 
 // 取cookie
 var mx_token = $.cookie('mx_token'),
@@ -109,7 +108,7 @@ var product_id = getUrlParam('product_id') || 7;//获取产品id
 var product_invest_amount = getUrlParam('product_invest_amount') || 10000;//获取投资金额
 
 // var baseUrl = 'http://192.168.1.100:8080/web';
-var baseUrl = 'http://101.201.112.171:8082/web';
+
 
 $(function () {
     setTimeout(function () {

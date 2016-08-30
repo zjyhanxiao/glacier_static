@@ -229,7 +229,7 @@ $(document).ready(function () {
                         $.cookie('mx_secret', mx.mx_secret, {expires: 30});
                         window.location.href = '/';
                     } else if (res.code != 1) {
-                        $("#page3-error-div").html("<div class='alert alert-warning'>" + res.msg + "</div>");
+                        $("#international-page3-error-div").html("<div class='alert alert-warning'>" + res.msg + "</div>");
                     }
                 }
             });
