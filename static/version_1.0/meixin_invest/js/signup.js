@@ -183,9 +183,16 @@ $(document).ready(function () {
         }
     });
 
+    // third page back step
+    $('.registration-form .btn-previous').on('click', function () {
+        $(this).parents('.page3').fadeOut(400, function () {
+            $('#page2').fadeIn();
+        });
+    });
 
     // american submit
     $('#american-submit').on('click', function () {
+        data.questionaire_answer = $("#american_page3").find("input[type='radio']:checked").val();
         if (!$('input[name="questionaire_answer"]').is(':checked')) {
             $("#page3-error-div").html("<div class='alert alert-warning'>请选择您的投资者条件</div>");
         }
@@ -204,7 +211,9 @@ $(document).ready(function () {
                         $.cookie('mx_secret', mx.mx_secret, {expires: 30});
                         window.location.href = '/';
                     } else if (res.code != 1) {
-                        $("#page3-error-div").html("<div class='alert alert-warning'>" + res.msg + "</div>");
+                        $(".page3-error-div").html("<div class='alert alert-warning'>" + res.msg + "</div>");
+                        $(".page2-error-div").html("<div class='alert alert-warning'>" + res.msg + "</div>");
+                        $(".page1-error-div").html("<div class='alert alert-warning'>" + res.msg + "</div>");
                     }
                 }
             });
@@ -230,6 +239,8 @@ $(document).ready(function () {
                         window.location.href = '/';
                     } else if (res.code != 1) {
                         $("#international-page3-error-div").html("<div class='alert alert-warning'>" + res.msg + "</div>");
+                        $(".page2-error-div").html("<div class='alert alert-warning'>" + res.msg + "</div>");
+                        $(".page1-error-div").html("<div class='alert alert-warning'>" + res.msg + "</div>");
                     }
                 }
             });
