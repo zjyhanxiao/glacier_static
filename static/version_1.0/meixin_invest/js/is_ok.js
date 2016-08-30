@@ -15,13 +15,6 @@ var is_new = true,                  //新建订单
     default_passport_photo = true,  //护照为默认图片
     default_id_card_photo = true;   //身份证为默认图片
 
-
- var token1 = $.cookie('mx_token');
- var token2 = $.cookie('mx_secret');
- if (token1==undefined || token2==undefined) {
-     window.location = '/login.html';
- }
-
 // 取cookie
 var mx_token = $.cookie('mx_token'),
     mx_secret = $.cookie('mx_secret');
