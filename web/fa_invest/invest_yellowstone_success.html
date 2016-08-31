@@ -92,7 +92,7 @@
                                 <h3 class="zjy-fn18">恭喜！您已经成功完成在线认购流程,汇款银行信息请查收您的邮箱,我们将开始对您提供的资料进行审核。</h3><br>
                                 <h3 class="zjy-fn18" style="color: #0662e2;">请您在3个工作日内将款项按下列要求汇至监管银行账户。</h3><br>
                                 <div class="bank_about">
-                                    <p style="font-weight: 600;">汇款银行信息：</p>
+                                    <!--<p style="font-weight: 600;">汇款银行信息：</p>
                                     <p>银行名（Beneficiary Bank：): DMS Bank And Trust Ltd</p>
                                     <p>账户名（Account Name): Meixin Portfolio 1</p>
                                     <p>账户号（Account No）: 01747100</p>
@@ -100,18 +100,18 @@
                                         KY1-1104</p>
                                     <p>Swift Code: CAYIKYKY</p>
                                     <p>A/C # at BNY: 890 1050 210</p>
-                                    <p>Reference: &lt;名的拼音 姓的拼音 如：San Zhang&gt;</p><br>
-                                    <p style="font-weight: 600;">中间银行信息（此信息仅用于银行询问）：</p>
+                                    <p>Reference: &lt;名的拼音 姓的拼音 如：San Zhang&gt;</p><br>-->
+                                    <!--<p style="font-weight: 600;">中间银行信息（此信息仅用于银行询问）：</p>
                                     <p>银行名（Intermediary Bank): The Bank of New York Mellon</p>
                                     <p>地址（Address）: One Wall Street, New York, NY 10286</p>
                                     <p>汇款路径号（ABA/Routing）：021-000-018</p>
-                                    <p>Swift Code: IRVTUS3N</p>
+                                    <p>Swift Code: IRVTUS3N</p>-->
                                 </div>
                                 <br>
                                 <h3 class="zjy-fn18" style="color: #0662e2;">温馨提示：请存储上述汇款及中间行银行信息（拍照或者截屏），以便您在汇款时查询。
                                 </h3><br>
                                 <h3 class="zjy-fn18">款项达到监管账户后我们会立即通知您。若您有任何问题请联系 invest@meixinfinance.com。</h3>
-                                <h3 class="zjy-fn18">与此同时，您还可以：</h3>
+                                <!--<h3 class="zjy-fn18">与此同时，您还可以：</h3>-->
                             </div>
                             <div class="row success-links">
                                 <h3>与此同时，您还可以：</h3>
@@ -291,6 +291,102 @@
         function is_login(res) {
             $('.navbar ul li:last-child').html('<a class="btn btn-min-width" href="/investor/dashboard.html">我的账户</a>');
             $('.navbar ul li:nth-last-child(2)').html('<a class="btn btn-min-width-sm logout" href="javascript:;">退出</a>');
+            // 获取相关信息
+            var get_about_data = {"product_id": product_id};
+            get_about_data = $.extend({}, get_about_data, cookie_tooken);
+            Ajax_Data({
+                "url": baseUrl + "/product/payment_list/" + product_id,
+                "data": get_about_data,
+                "fn": get_about
+            });
+        }
+
+
+        //获取相关信息
+        function get_about(d) {
+            if (d) {
+                if (d.is_receive_bank_enabled == 1) {
+                    var remark = '', account_name = '', account_address = '', account_number = '',
+                            routing_number = '', swift_code = '', bank_name = '', bank_address = '', reference = '';
+                    if (d.receiveBank.remark != '' && d.receiveBank.remark != null) {
+                        remark = d.receiveBank.remark;
+                    }
+                    if (d.receiveBank.account_name != '' && d.receiveBank.account_name != null) {
+                        account_name = d.receiveBank.account_name;
+                    }
+                    if (d.receiveBank.account_address != '' && d.receiveBank.account_address != null) {
+                        account_address = d.receiveBank.account_address;
+                    }
+                    if (d.receiveBank.account_number != '' && d.receiveBank.account_number != null) {
+                        account_number = d.receiveBank.account_number;
+                    }
+                    if (d.receiveBank.routing_number != '' && d.receiveBank.routing_number != null) {
+                        routing_number = d.receiveBank.routing_number;
+                    }
+                    if (d.receiveBank.swift_code != '' && d.receiveBank.swift_code != null) {
+                        swift_code = d.receiveBank.swift_code;
+                    }
+                    if (d.receiveBank.bank_name != '' && d.receiveBank.bank_name != null) {
+                        bank_name = d.receiveBank.bank_name;
+                    }
+                    if (d.receiveBank.bank_address != '' && d.receiveBank.bank_address != null) {
+                        bank_address = d.receiveBank.bank_address;
+                    }
+                    if (d.receiveBank.reference != '' && d.receiveBank.reference != null) {
+                        reference = d.receiveBank.reference;
+                    }
+                    var str = '<p style="font-weight:600">汇款银行信息：</p>' +
+                            '<p>银行名（Beneficiary Bank：): '+bank_name+'</p>' +
+                            '<p>账户名（Account Name): '+account_name+'</p>' +
+                            '<p>账户号（Account No）: "+account_number+"</p>' +
+                            '<p>地址（Address）: '+account_address+'</p>' +
+                            '<p>Swift Code: '+swift_code+'</p>' +
+                            '<p>A/C # at BNY: '+routing_number+'</p>' +
+                            '<p>Reference: &lt;'+reference+'&gt;</p><br>';
+                    if($('.bank_about').children().length>0){
+                        $('.bank_about').prepend(str);
+                    }else{
+                        $('.bank_about').append(str);
+                    }
+                }
+                if (d.is_middle_bank_enabled == 1) {
+                    var remark = '', account_address = '', account_name = '', account_number = '', bank_address = '', bank_name = '', reference = '', routing_number = '', swift_code = '';
+                    if (d.receiveBank.remark != '' && d.receiveBank.remark != null) {
+                        remark = d.receiveBank.remark;
+                    }
+                    if (d.receiveBank.account_name != '' && d.receiveBank.account_name != null) {
+                        account_name = d.receiveBank.account_name;
+                    }
+                    if (d.receiveBank.account_address != '' && d.receiveBank.account_address != null) {
+                        account_address = d.receiveBank.account_address;
+                    }
+                    if (d.receiveBank.account_number != '' && d.receiveBank.account_number != null) {
+                        account_number = d.receiveBank.account_number;
+                    }
+                    if (d.receiveBank.routing_number != '' && d.receiveBank.routing_number != null) {
+                        routing_number = d.receiveBank.routing_number;
+                    }
+                    if (d.receiveBank.swift_code != '' && d.receiveBank.swift_code != null) {
+                        swift_code = d.receiveBank.swift_code;
+                    }
+                    if (d.receiveBank.bank_name != '' && d.receiveBank.bank_name != null) {
+                        bank_name = d.receiveBank.bank_name;
+                    }
+                    if (d.receiveBank.bank_address != '' && d.receiveBank.bank_address != null) {
+                        bank_address = d.receiveBank.bank_address;
+                    }
+                    if (d.receiveBank.reference != '' && d.receiveBank.reference != null) {
+                        reference = d.receiveBank.reference;
+                    }
+                    var str = '<p style="font-weight: 600;">中间银行信息（此信息仅用于银行询问）：</p>' +
+                            '<p>银行名（Intermediary Bank):' + bank_name + '</p>' +
+                            '<p>地址（Address）: ' + bank_address + '</p>' +
+                            '<p>汇款路径号（ABA/Routing）：' + routing_number + '</p>' +
+                            '<p>Swift Code: ' + swift_code + '</p>' +
+                            '<p>注意：请您在接收到我们邮件通知您投资人身份审核通过后再前往银行进行汇款</p>';
+                    $('.bank_about').append(str);
+                }
+            }
         }
     })
 </script>

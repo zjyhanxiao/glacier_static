@@ -237,7 +237,14 @@
             $('.navbar ul li:last-child').html('<a class="btn btn-min-width" href="/investor/dashboard.html">我的账户</a>');
             $('.navbar ul li:nth-last-child(2)').html('<a class="btn btn-min-width-sm logout" href="javascript:;">退出</a>');
             $('.ajax_wait p,.ajax_wait').hide();
-
+            // 获取相关信息
+            var get_about_data = {"product_id": product_id};
+            get_about_data = $.extend({}, get_about_data, cookie_tooken);
+            Ajax_Data({
+                "url": baseUrl + "/product/payment_list/" + product_id,
+                "data": get_about_data,
+                "fn": get_about
+            });
             // 获取bank信息
             var get_bank_data = cookie_tooken;
             Ajax_Data({
@@ -365,6 +372,112 @@
             })
         }
 
+        //获取相关信息
+        function get_about(d) {
+            if (d) {
+                if (d.is_ach_enabled == 1) {
+                    var div = $('<div class="agreements-preview"></div>');
+                    div.append('<div><input type="checkbox" id="#doc" required="" data-parsley-required-message="请填写信息"/>' +
+                            '<label for="#doc">' +
+                            '<span><span class="invest-check-mark"></span></span>我已认真阅读并接受' +
+                            '<a href=' + d.ach.document + '>《ACH AUTHORIZATION AGREEMENT》</a></label><br></div>');
+                    if ($('.ach-online-box .agreement').length > 0) {
+                        $('.ach-online-box .agreement').prepend(div);
+                    } else {
+                        $('.ach-online-box .agreement').append(div);
+                    }
+                }
+                if (d.is_receive_bank_enabled == 1) {
+                    var remark = '', account_name = '', account_address = '', account_number = '',
+                            routing_number = '', swift_code = '', bank_name = '', bank_address = '', reference = '';
+                    if (d.receiveBank.remark != '' && d.receiveBank.remark != null) {
+                        remark = d.receiveBank.remark;
+                    }
+                    if (d.receiveBank.account_name != '' && d.receiveBank.account_name != null) {
+                        account_name = d.receiveBank.account_name;
+                    }
+                    if (d.receiveBank.account_address != '' && d.receiveBank.account_address != null) {
+                        account_address = d.receiveBank.account_address;
+                    }
+                    if (d.receiveBank.account_number != '' && d.receiveBank.account_number != null) {
+                        account_number = d.receiveBank.account_number;
+                    }
+                    if (d.receiveBank.routing_number != '' && d.receiveBank.routing_number != null) {
+                        routing_number = d.receiveBank.routing_number;
+                    }
+                    if (d.receiveBank.swift_code != '' && d.receiveBank.swift_code != null) {
+                        swift_code = d.receiveBank.swift_code;
+                    }
+                    if (d.receiveBank.bank_name != '' && d.receiveBank.bank_name != null) {
+                        bank_name = d.receiveBank.bank_name;
+                    }
+                    if (d.receiveBank.bank_address != '' && d.receiveBank.bank_address != null) {
+                        bank_address = d.receiveBank.bank_address;
+                    }
+                    if (d.receiveBank.reference != '' && d.receiveBank.reference != null) {
+                        reference = d.receiveBank.reference;
+                    }
+                    var str = '<p><span>汇款信息：</span></p>' +
+                            '<p><span>备注栏请填写：</span>' + remark + '</p>' +
+                            '<p><span>收款人名字：</span>' + account_name + '</p>' +
+                            '<p><span>收款人地址：</span>' + account_address + '</p>' +
+                            '<p><span>账户号Account #：</span>' + account_number + '</p>' +
+                            '<p><span>收款路径号ABA/Routing #：</span>' + routing_number + '</p>' +
+                            '<p><span>Swift Code：</span>' + swift_code + '</p>' +
+                            '<p><span>收款银行：</span>' + bank_name + '</p>' +
+                            '<p><span>收款银行地址：</span>' + bank_address + '</p>' +
+                            '<p><span>注意：请您在接收到我们邮件通知您投资人身份审核通过后再前往银行进行汇款</span></p>';
+                    $('.bank-tt-box').prepend(str);
+                }
+                if (d.is_middle_bank_enabled == 1) {
+                    var remark = '', account_address = '', account_name = '', account_number = '', bank_address = '', bank_name = '', reference = '', routing_number = '', swift_code = '';
+                    if (d.receiveBank.remark != '' && d.receiveBank.remark != null) {
+                        remark = d.receiveBank.remark;
+                    }
+                    if (d.receiveBank.account_name != '' && d.receiveBank.account_name != null) {
+                        account_name = d.receiveBank.account_name;
+                    }
+                    if (d.receiveBank.account_address != '' && d.receiveBank.account_address != null) {
+                        account_address = d.receiveBank.account_address;
+                    }
+                    if (d.receiveBank.account_number != '' && d.receiveBank.account_number != null) {
+                        account_number = d.receiveBank.account_number;
+                    }
+                    if (d.receiveBank.routing_number != '' && d.receiveBank.routing_number != null) {
+                        routing_number = d.receiveBank.routing_number;
+                    }
+                    if (d.receiveBank.swift_code != '' && d.receiveBank.swift_code != null) {
+                        swift_code = d.receiveBank.swift_code;
+                    }
+                    if (d.receiveBank.bank_name != '' && d.receiveBank.bank_name != null) {
+                        bank_name = d.receiveBank.bank_name;
+                    }
+                    if (d.receiveBank.bank_address != '' && d.receiveBank.bank_address != null) {
+                        bank_address = d.receiveBank.bank_address;
+                    }
+                    if (d.receiveBank.reference != '' && d.receiveBank.reference != null) {
+                        reference = d.receiveBank.reference;
+                    }
+                    var str = '<p><span>中间银行信息（此信息仅用于银行询问）：</span></p>' +
+                            '<p><span>银行名（Intermediary Bank):</span>' + bank_name + '</p>' +
+                            '<p><span>地址（Address）: </span>' + bank_address + '</p>' +
+                            '<p><span>汇款路径号（ABA/Routing）：</span>' + routing_number + '</p>' +
+                            '<p><span>Swift Code: </span>' + swift_code + '</p>' +
+                            '<p><span>注意：请您在接收到我们邮件通知您投资人身份审核通过后再前往银行进行汇款</span></p>';
+                    $('.bank-tt-box .agreement').before(str);
+                }
+
+                if (d.is_check_enabled == 1) {
+                    var mailing_address = '', receiver_name = '', remark = '';
+                    var str = '<p><span>收款人：</span>' + receiver_name.toUpperCase + '</p>' +
+                            '<p><span>备注栏请填写：</span>' + remark + '</p>' +
+                            '<p><span>请将支票寄至以下地址：</span></p>' +
+                            '<p>' + receiver_name + '</p>';
+                    '<p>' + mailing_address + '</p>';
+                    $('.check-box').prepend(str);
+                }
+            }
+        }
         //获取bank信息
         function get_bank_profile(d) {
             if (d.account_number != "" && d.account_number != null) {
