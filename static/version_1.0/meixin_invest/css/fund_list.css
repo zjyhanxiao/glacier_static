@@ -1,0 +1,23 @@
+html,body{
+    margin: 0;
+    padding: 0;
+}
+.row-style{
+    padding: 30px 25px;
+    background-color: #fff;
+    line-height: 60px;
+}
+.row-style .row{
+    border : solid 1px silver;
+    border-bottom: none;
+}
+.row-style .row div{
+    border-right: solid 1px silver;
+}
+.last-row{
+    border-bottom : solid 1px silver !important;
+    margin-bottom: 30px;
+}
+.col-md-2{
+    line-height: 30px;
+}
