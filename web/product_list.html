@@ -469,10 +469,10 @@
                     ul.append("<li><button class='btn sold-out-button' style='cursor: default;'>即将上线</button></li>");
                     break;
                 case "FOR_APPOINTMENT":
-                    ul.append($("<li><a class='btn btn-info' href=''>立即预约</a></li>").children("a").attr("href", "/products/anxin_plan.html?product_id=" + product.id));
+                    ul.append($("<li><a class='btn btn-info' href='/products/anxin_plan.html?product_id="+product.id+"'>立即预约</a></li>"));
                     break;
                 case "FOR_INVEST":
-                    ul.append($("<li><a class='btn btn-info' href=''>立即投资</a></li>").children("a").attr("href", "/products/anxin_plan.html?product_id=" + product.id));
+                    ul.append($("<li><a class='btn btn-info' href='/products/anxin_plan.html?product_id="+product.id+"'>立即投资</a></li>"));
                     break;
                 case "SOLD_OUT":
                     ul.append("<li><button class='btn sold-out-button' style='cursor: default;'>已售罄</button></li>");
