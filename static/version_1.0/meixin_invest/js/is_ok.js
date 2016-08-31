@@ -112,16 +112,17 @@ $(function () {
     });
     $('.ajax_wait p,.ajax_wait').hide();
     $('body').on('click','.logout',function () {
-        //清楚cookie
-        $.cookie('mx_token', null);
-        $.cookie('mx_secret', null);
-        cookie_tooken=null;
-        alert($.cookie('mx_token'));
-        alert($.cookie('mx_secret'));
-        /*$('.navbar ul li:last-child').html('<a href="/signup.html" class="hidden-xs nav_register_button">注册</a>');
-        $('.navbar ul li:nth-last-child(2)').html('<a class="login_no_margin_right nav_login_button" href="/login.html" style="border-bottom: 3px solid rgb(75, 183, 232);">登录</a>');
-        */
-        window.location='/';
+        Ajax_Data({
+            "url": baseUrl + "/auth/logout",
+            "data": cookie_tooken,
+            "fn": logout
+        });
+        function logout(d) {
+            //清楚cookie
+            $.cookie('mx_token', null, {expires: -1});
+            $.cookie('mx_secret', null, {expires: -1});
+            window.location='/';
+        }
     });
     // 调取 登录接口
 /*    Ajax_Data({
