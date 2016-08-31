@@ -121,7 +121,7 @@ $(function () {
             //清楚cookie
             $.cookie('mx_token', null, {expires: -1});
             $.cookie('mx_secret', null, {expires: -1});
-            //window.location='/';
+            window.location='/';
         }
     });
     // 调取 登录接口
