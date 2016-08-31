@@ -111,7 +111,7 @@
                     <div class="tab-content text-left">
                         <div role="tabpanel" class="tab-pane active">
                             <ul class="products">
-                                <li data-title="gaoxin">
+                                <li data-title="高心计划">
                                     <h2><span>高心计划</span><span>高心计划1期</span></h2>
                                     <ul>
                                         <li>产品类型：美元市场间借贷基金</li>
@@ -122,7 +122,7 @@
                                                href="/products/gaoxin.html?product_id=1">即将上线</a></li>
                                     </ul>
                                 </li>
-                                <li data-title="shengxin">
+                                <li data-title="盛心计划">
                                     <h2><span>盛心计划</span><span>盛心计划1期</span></h2>
                                     <ul>
                                         <li>产品类型：Pre-IPO股权</li>
@@ -133,7 +133,7 @@
                                                href="/products/shengxin.html?product_id=2">立即投资</a></li>
                                     </ul>
                                 </li>
-                                <li data-title="fangxin">
+                                <li data-title="放心计划">
                                     <h2><span>放心计划</span><span>放心计划1期</span></h2>
                                     <ul>
                                         <li>产品类型：万能型指数寿险</li>
@@ -144,7 +144,7 @@
                                                href="/products/fangxin.html?product_id=3">立即投资</a></li>
                                     </ul>
                                 </li>
-                                <li data-title="madison">
+                                <li data-title="麦迪逊俱乐部">
                                     <h2><span>麦迪逊俱乐部</span><span>麦迪逊俱乐部</span></h2>
                                     <ul>
                                         <li>服务类型：高端财富个人订制</li>
@@ -460,19 +460,19 @@
             } else {
                 invest_term = product.invest_term + '个月';
             }
-            ul.append("<li>产品类型：name</li>".replace("name", product.product_type_desc))
-                    .append("<li>预计年化收益：rate%</li>".replace("rate", rate.toFixed(1)))
-                    .append("<li>起投金额：amount美元</li>".replace("amount", amount))
-                    .append("<li>项目周期：month</li>".replace("month", invest_term));
+            ul.append("<li>产品类型：name</li> ".replace("name", product.product_type_desc))
+                    .append("<li>预计年化收益：rate%</li> ".replace("rate", rate.toFixed(1)))
+                    .append("<li>起投金额：amount美元</li> ".replace("amount", amount))
+                    .append("<li>项目周期：month</li> ".replace("month", invest_term));
             switch (product.status) {
                 case "CREATED":
-                    ul.append("<li><button class='btn sold-out-button' style='cursor: default;'>即将上线</button></li>");
+                    ul.append("<li><button class='btn sold-out-button' style='cursor: default;background-color: rgb(170, 170, 170);'>即将上线</button></li>");
                     break;
                 case "FOR_APPOINTMENT":
-                    ul.append($("<li><a class='btn btn-info' href=''>立即预约</a></li>").children("a").attr("href", "/products/anxin_plan.html?product_id=" + product.id));
+                    ul.append($("<li><a class='btn btn-info' href='/products/anxin_plan.html?product_id="+product.id+"'>立即预约</a></li>"));
                     break;
                 case "FOR_INVEST":
-                    ul.append($("<li><a class='btn btn-info' href=''>立即投资</a></li>").children("a").attr("href", "/products/anxin_plan.html?product_id=" + product.id));
+                    ul.append($("<li><a class='btn btn-info' href='/products/anxin_plan.html?product_id="+product.id+"'>立即投资</a></li>"));
                     break;
                 case "SOLD_OUT":
                     ul.append("<li><button class='btn sold-out-button' style='cursor: default;'>已售罄</button></li>");
