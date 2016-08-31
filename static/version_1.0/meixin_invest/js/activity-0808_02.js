@@ -22,7 +22,7 @@ $(function () {
                     myVal.prop("disabled", true);
                     myVal.val("" + countdown + 's' + "");
                 }
-                console.log(countdown);
+                // console.log(countdown);
             }
 
             stop = setInterval(function () {
@@ -33,7 +33,7 @@ $(function () {
             }
             $.ajax({
                 type: "get",
-                url: baseUrl + "/sendVerifyCode",
+                url: "http://192.168.1.100:8080//web/verify_code/send",
                 data: data,
                 success: function (result) {
                 }
@@ -59,7 +59,7 @@ $(function () {
         if (b_checkPhone && b_checkPwd && b_checkEmail && b_verify_code) {
             $.ajax({
                 type: 'post',
-                url: baseUrl + "/simple_signup",
+                url: "http://192.168.1.100:8080//web/simple_signup",
                 data: data,
                 success: function (res) {
                     if (res.code == 1) {
