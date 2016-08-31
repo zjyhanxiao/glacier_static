@@ -33,7 +33,7 @@ $(function () {
             }
             $.ajax({
                 type: "get",
-                url: "/sendVerifyCode",
+                url: baseUrl + "/sendVerifyCode",
                 data: data,
                 success: function (result) {
                 }
@@ -59,23 +59,49 @@ $(function () {
         if (b_checkPhone && b_checkPwd && b_checkEmail && b_verify_code) {
             $.ajax({
                 type: 'post',
-                url: "/simple_signup",
+                url: baseUrl + "/simple_signup",
                 data: data,
                 success: function (res) {
-                    // console.log(JSON.stringify(res));
                     if (res.code == 1) {
+                        var mx = res.body;
+                        $.cookie('mx_token', mx.mx_token, {expires: 30});
+                        $.cookie('mx_secret', mx.mx_secret, {expires: 30});
+
+                        var countdown = 5;
+                        function setTime(myVal) {
+                            --countdown;
+                            myVal.prop("disabled", true);
+                            myVal.val("" + countdown + 's' + "");
+                        }
+
+                        setInterval(function () {
+                            setTime($('#loginTime'));
+                        }, 1000);
+                        if (countdown == 0) {
+                            if($.cookie('mx_token') != ''){
+                                window.location.href = '/';
+                            } else {
+                                window.location.href = '/web/activity/lose_track.html';
+                            }
+
+                        }
+
+
                         $("form").remove();
                         $("div").remove(".bg-logo");
                         $('.mian').append("<p style='font-size: 18px; color: #0d2a78; letter-spacing: 1px; text-align: center; margin: 0 auto; padding-top: 230px; line-height: 2em;'>" + '恭喜您' + res.msg + "<br>" + '您的抽奖码:' + res.no + "</p>"
-                            + "<p style='font-size: 15px;color: #666; margin: 0 auto; line-height: 20px; text-align: center; padding: 0 50px;'>" + '请您将此页面展示给我们的工作人员,即可抽取美元奖励!' + "</p>" +"<p>"+ '' +"</p>");
+                            + "<p style='font-size: 15px;color: #666; margin: 0 auto; line-height: 20px; text-align: center; padding: 0 50px;'>" + '请您将此页面展示给我们的工作人员,即可抽取美元奖励!' + "</p>" 
+                            + "<input style='color: #666; text-align: center;' id='loginTime'/>"+ '' + "<p>"+ '后自动跳转到官网' +"</p>"
+                        );
                     } else if (res.code = -1) {
                         $('#infor').html(res.msg);
+
                     }
                 }
             })
         }
         return false;
-    })
+    });
 
 //位手机号码11
     function checkPhone() {
@@ -86,7 +112,6 @@ $(function () {
             $("#phone").focus(function () {
                 $("#phone").next('p').remove();
             });
-            // alert("请输入正确的手机号码");
             return false;
         }
         else {
