@@ -466,7 +466,7 @@
                     .append("<li>项目周期：month</li>".replace("month", invest_term));
             switch (product.status) {
                 case "CREATED":
-                    ul.append("<li><button class='btn sold-out-button' style='cursor: default;'>即将上线</button></li>");
+                    ul.append("<li><button class='btn sold-out-button' style='cursor: default;background-color: rgb(170, 170, 170);'>即将上线</button></li>");
                     break;
                 case "FOR_APPOINTMENT":
                     ul.append($("<li><a class='btn btn-info' href='/products/anxin_plan.html?product_id="+product.id+"'>立即预约</a></li>"));
