@@ -460,10 +460,10 @@
             } else {
                 invest_term = product.invest_term + '个月';
             }
-            ul.append("<li>产品类型：name</li>".replace("name", product.product_type_desc))
-                    .append("<li>预计年化收益：rate%</li>".replace("rate", rate.toFixed(1)))
-                    .append("<li>起投金额：amount美元</li>".replace("amount", amount))
-                    .append("<li>项目周期：month</li>".replace("month", invest_term));
+            ul.append("<li>产品类型：name</li> ".replace("name", product.product_type_desc))
+                    .append("<li>预计年化收益：rate%</li> ".replace("rate", rate.toFixed(1)))
+                    .append("<li>起投金额：amount美元</li> ".replace("amount", amount))
+                    .append("<li>项目周期：month</li> ".replace("month", invest_term));
             switch (product.status) {
                 case "CREATED":
                     ul.append("<li><button class='btn sold-out-button' style='cursor: default;background-color: rgb(170, 170, 170);'>即将上线</button></li>");
