@@ -455,7 +455,7 @@
                 amount = amount / 10000 + "万";
             }
             var invest_term = 0;
-            if (product.operation_mode == 'CLOSED') {
+            if (product.operation_mode == 'OPEN') {
                 invest_term = product.invest_term + '个月起';
             } else {
                 invest_term = product.invest_term + '个月';
@@ -473,6 +473,9 @@
                     break;
                 case "FOR_INVEST":
                     ul.append($("<li><a class='btn btn-info' href=''>立即投资</a></li>").children("a").attr("href", "/products/anxin_plan.html?product_id=" + product.id));
+                    break;
+                case "SOLD_OUT":
+                    ul.append("<li><button class='btn sold-out-button' style='cursor: default;'>已售罄</button></li>");
                     break;
                 case "SOLD_OUT":
                     ul.append("<li><button class='btn sold-out-button' style='cursor: default;'>已售罄</button></li>");
