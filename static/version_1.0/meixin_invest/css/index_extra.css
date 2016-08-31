@@ -70,7 +70,7 @@ nav .navbar .navbar-nav > li > a:not(.btn-solid):hover:after {
 }
 
 /* index.css */
-@font-face { font-family: numberSeven; src: url('../font/StencilStd.otf'); }
+@font-face { font-family: numberSeven; src: url('../../vendor/font/StencilStd.otf'); }
 .advantage-icon {
 	width: 120px;
 	height: 120px;
