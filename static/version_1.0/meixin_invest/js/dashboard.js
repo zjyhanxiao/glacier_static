@@ -29,7 +29,7 @@ $(document).ready(function () {
 
     //is_login  调取登录接口
     function is_login(res) {
-        $('.navbar ul li:last-child').html('<a class="btn btn-min-width" href="/investor/dashboard">我的账户</a>');
+        $('.navbar ul li:last-child').html('<a class="btn btn-min-width" href="/investor/dashboard.html">我的账户</a>');
         $('.navbar ul li:nth-last-child(2)').html('<a class="btn btn-min-width-sm logout" href="javascript:;">退出</a>');
         $('.ajax_wait p,.ajax_wait').hide();
 
