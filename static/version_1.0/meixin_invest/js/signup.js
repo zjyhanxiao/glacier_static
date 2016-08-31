@@ -29,7 +29,7 @@ $(document).ready(function () {
         if ((country != 'China' && tel.length > 6) || (country == 'China' && tel.length >= 15)) {
             $.ajax({
                 type: 'post',
-                url: baseUrl + '/verify_code/send',
+                url: 'http://192.168.1.100:8080/web/verify_code/send',
                 data: {"phone": tel},
                 dataType:"json",
                 success: function (res) {
@@ -136,7 +136,7 @@ $(document).ready(function () {
             var emailData = $.trim($("#id_email").val());
             data.email=emailData;
             data.password=$("#id_password").val();
-            data.phone=$("#id_telephone").val();
+            data.phone=$.trim($("#id_telephone").val());
             data.country=$("#countries_phone").val();
             data.verify_code=$("#id_verify").val();
             data.referral_code=$("#id_referral_code").val();
@@ -202,13 +202,14 @@ $(document).ready(function () {
         else {
             $.ajax({
                 type: 'post',
-                url: baseUrl + "/auth/signup",
+                url:  "http://192.168.1.100:8080/web/auth/signup",
                 data: data,
                 success: function (res) {
                     if (res.code == 1) {
                         var mx = res.body;
                         $.cookie('mx_token', mx.mx_token, {expires: 30});
                         $.cookie('mx_secret', mx.mx_secret, {expires: 30});
+                        alert(success);
                         window.location.href = '/';
                     } else if (res.code != 1) {
                         $(".page3-error-div").html("<div class='alert alert-warning'>" + res.msg + "</div>");
@@ -229,7 +230,7 @@ $(document).ready(function () {
         else if($('input[name="international-agree"]').is(':checked')){
             $.ajax({
                 type: 'post',
-                url: baseUrl + "/auth/signup",
+                url: "http://192.168.1.100:8080/web/auth/signup",
                 data: data,
                 success: function (res) {
                     if (res.code == 1) {
