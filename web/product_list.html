@@ -455,7 +455,7 @@
                 amount = amount / 10000 + "万";
             }
             var invest_term = 0;
-            if (product.operation_mode == 'CLOSED') {
+            if (product.operation_mode == 'OPEN') {
                 invest_term = product.invest_term + '个月起';
             } else {
                 invest_term = product.invest_term + '个月';

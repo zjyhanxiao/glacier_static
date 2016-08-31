@@ -24,7 +24,7 @@ $(document).ready(function () {
         "no_login": no_login
     });
     function no_login() {
-        window.location = '/login';
+        window.location = '/login.html';
     }
 
     //is_login  调取登录接口
