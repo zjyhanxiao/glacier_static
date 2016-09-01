@@ -14,10 +14,19 @@ html,body{
 .row-style .row div{
     border-right: solid 1px silver;
 }
+.fir-row-4{
+    line-height: 60px !important;
+}
 .last-row{
     border-bottom : solid 1px silver !important;
     margin-bottom: 30px;
 }
 .col-md-2{
     line-height: 30px;
+}
+
+@media (max-width: 380px){
+    .row-style{
+        line-height: 30px;
+    }
 }
