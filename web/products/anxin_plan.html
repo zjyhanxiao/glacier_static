@@ -159,7 +159,7 @@
                         </ul>
                         <div class="clearLeft"></div>
                     </div>
-                    <div class="product_mid_section">
+                    <!--<div class="product_mid_section">
                         <ul>
                             <li><img
                                     src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/products/linghuo_icon01_512x512.png"><span>灵活投资期限短至1个月</span>
@@ -269,7 +269,7 @@
                             </div>
                         </div>
                         <div class="clearLeft"></div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </section>
@@ -598,22 +598,22 @@
                     if (val.length <= 0) {
                         bool = false;
                         alert('数值不能为空!');
-                    } else if ((val % d.minimum_invest_amount) != 0 || val == 0) {
+                    } else if ((val - d.minimum_invest_amount) / d.invest_par_value != 0 || val == 0) {
                         bool = false;
-                        alert('请输入' + d.minimum_invest_amount + '的整数倍');
+                        alert('请输入' + d.invest_par_value + '的整数倍');
                     }
 
                     if (val <= d.minimum_invest_amount) {
                         $('#invest-sub').addClass('btn-default').prop('disabled', true);
                     }
-                    if (val >= 2 * d.minimum_invest_amount) {
+                    if (val >= (d.minimum_invest_amount + d.invest_par_value)) {
                         $('#invest-sub').removeClass('btn-default').prop('disabled', false);
                     }
                 });
 
                 $('#invest-sub').on('click', function () {
                     var val = parseInt($("#invest-number").val());
-                    val -= d.minimum_invest_amount;
+                    val -= d.invest_par_value;
                     $("#invest-number").val(val);
                     if (val <= d.minimum_invest_amount) {
                         $('#invest-sub').addClass('btn-default').prop('disabled', true);
@@ -622,9 +622,9 @@
 
                 $('#invest-add').on('click', function () {
                     var val = parseInt($("#invest-number").val());
-                    val += d.minimum_invest_amount;
+                    val += d.invest_par_value;
                     $("#invest-number").val(val);
-                    if (val >= 2 * d.minimum_invest_amount) {
+                    if (val >= (d.minimum_invest_amount + d.invest_par_value)) {
                         $('#invest-sub').removeClass('btn-default').prop('disabled', false);
                     }
                 });
