@@ -421,105 +421,11 @@
                     <h4 class="modal-title" id="exampleModalLabel"></h4>
                 </div>
                 <div class="modal-body">
-                    <!--<div class="error_msg"></div>
-                    <form  id="invest_form">
-                        <label>用户名：</label>
-                        <input id="full_name" class="form-control">
-                        <label>现居地址：</label>
-                        <input id="residence-address" class="form-control">
-                        <label>收款银行名称：</label>
-                        <input id="bank_name" class="form-control">
-                        <label>收款银行地址：</label>
-                        <input id="bank_address" class="form-control">
-                        <label>收款银行账户：</label>
-                        <input id="account_name" class="form-control">
-                        <label>Swift Code：</label>
-                        <input id="swift_code" class="form-control">
-                        <label>ABA Number：</label>
-                        <input id="routing_number" class="form-control">
-                        <div class="text-center">
-                            <input type="radio" name="redeem_type" id="part" checked><label class="radio_label" for="part">
-                            部分赎回</label>
-                            <input type="radio" name="redeem_type" id="all"><label class="radio_label" for="all">全部赎回
-                        </label><br>
-                            赎回份额:<input type="text"><br>
-                            <p>温馨提示：您的赎回份数需满足(500.00&lt;赎回份额&lt;4000.00),详情见规则，第一次赎回时候我们将把账户内的入金余额一并赎回。</p>
 
-                            <p>温馨提示：您全部赎回的份额是10000.00，第一次赎回时候我们将把账户内的入金余额一并赎回。</p>
-                        </div>
-                    </form>-->
-                    <!--<form id="invest_form">
-                        <label>用户名：</label>
-                        <input id="full_name" class="form-control">
-                        <label>现居地址：</label>
-                        <input id="residence-address" class="form-control">
-                        <label>收款银行名称：</label>
-                        <input id="bank_name" class="form-control">
-                        <label>收款银行地址：</label>
-                        <input id="bank_address" class="form-control">
-                        <label>收款银行账户：</label>
-                        <input id="account_name" class="form-control">
-                        <label>Swift Code：</label>
-                        <input id="swift_code" class="form-control">
-                        <label>ABA Number：</label>
-                        <input id="routing_number" class="form-control">
-                        <label>投资总额：</label>
-                        <input id="invest_total" disabled class="form-control" style="width: 30%; float: left;">
-                        <label style="clear: none;">可提现金额：</label>
-                        <input id="interest_amount" class="form-control" disabled style="width: 30%; float: left;">
-                        <label>提现金额：</label>
-                        <input id="invest_value" class="form-control">
-                        <div class="text-center">
-                            <button type="button" class="btn btn-primary" style="width: 30%" id="get_view">生成预览</button>
-                        </div>
-                    </form>-->
                 </div>
 
                 <div class="modal-body-success">
-                    <!--<table>
-                        <tr>
-                            <td>用户名：</td>
-                            <td colspan="3">user_name</td>
-                        </tr>
-                        <tr>
-                            <td>现居地址：</td>
-                            <td colspan="3">address</td>
-                        </tr>
-                        <tr>
-                            <td>收款银行名称：</td>
-                            <td colspan="3">bank_name</td>
-                        </tr>
-                        <tr>
-                            <td>收款银行地址：</td>
-                            <td colspan="3">bank_address</td>
-                        </tr>
-                        <tr>
-                            <td>收款银行账户：</td>
-                            <td colspan="3">bank_account</td>
-                        </tr>
-                        <tr>
-                            <td>Swift Code：</td>
-                            <td colspan="3">swift_code</td>
-                        </tr>
-                        <tr>
-                            <td>ABA Number：</td>
-                            <td colspan="3">aba_number</td>
-                        </tr>
-                        <tr>
-                            <td>投资总额：</td>
-                            <td width="30%">invest_total</td>
-                            <td width="20%">可提现金额：</td>
-                            <td width="30%">withdraw_able_amount</td>
-                        </tr>
-                        <tr>
-                            <td>提现金额：</td>
-                            <td colspan="3">withdraw_amount</td>
-                        </tr>
-                    </table>
-                    <div class="text-center">
-                        <button type="button" id="back_prev" class="btn" style="width: 8em;">返 回</button>
-                        <button type="button" id="invest_submit" class="btn btn-primary" style="width: 8em;">确认提现</button>
-                    </div>-->
+
                 </div>
 
                 <div class="modal-footer"></div>
@@ -552,7 +458,7 @@
 </script>
 <script>
     $(function () {
-        var full_name, user_address;
+        var full_name, user_address, investment_process = '';
 
         //验证登录
         Ajax_Data({
@@ -564,6 +470,7 @@
         function no_login() {
             window.location = '/login.html';
         }
+
         //is_login  调取登录接口
         function is_login(res) {
             $('.navbar ul li:last-child').html('<a class="btn btn-min-width" href="/investor/dashboard.html">我的账户</a>');
@@ -572,7 +479,7 @@
 
             //获取profile信息
             var get_profile_data = {
-                "fields": "investor_type,real_name,mailing_address_country,mailing_address_region,mailing_address_city,mailing_address_street,mailing_address_door,mailing_address_apartment,phone,email,id_card_code,id_card_photo,passport_code,passport_photo"
+                "fields": "investor_type,real_name,mailing_address_country,mailing_address_region,mailing_address_city,mailing_address_street,mailing_address_door,mailing_address_apartment,phone,email,id_card_code,id_card_photo,passport_code,passport_photo,date_of_birth"
             };
             get_profile_data = $.extend({}, get_profile_data, cookie_tooken);
             Ajax_Data({
@@ -596,6 +503,7 @@
                 });
             });
 
+
             //获取未完成订单
             $('.uncommit').on('click', function () {
                 Ajax_Data({
@@ -604,6 +512,7 @@
                     "fn": uncommitFn
                 });
             });
+
             //获取投资订单
             $('.closefund').on('click', function () {
                 Ajax_Data({
@@ -825,26 +734,9 @@
                 return false;
             }
             if (d && d.length >= 1) {
-                // console.log(JSON.stringify(d));
+                var unco
                 $.each(d, function (i) {
                     var url = '';
-                    //安心计划,投资流程链接
-                    if (d[i].product_location == 'OFF_SHORE' && d[i].product_type == 'NON_CROWD_FUNDING' && d[i].operation_mode == 'CLOSED') {
-                        url = '/fa_invest/invest_yellowstone_step_1.html?order_number=' + d[i].order_number + '&product_id=' + d[i].product_id;
-                    }
-                    //安心定期,国际投资人,投资流程链接
-                    if (d[i].product_location == 'ON_SHORE' && d[i].product_type == 'CROWD_FUNDING' && investor_type == 1) {
-                        url = '/fa_invest/international/form_step_1.html?order_number=' + d[i].order_number + '&product_id=' + d[i].product_id;
-                    }
-                    //安心定期,美国投资人,投资流程链接
-                    if (d[i].product_location == 'ON_SHORE' && d[i].product_type == 'CROWD_FUNDING' && investor_type == 2) {
-                        url = '/fa_invest/american/form_usa_step_1.html?order_number=' + d[i].order_number + '&product_id=' + d[i].product_id;
-                    }
-                    //灵活理财投资流程
-                    if (d[i].product_location == 'ON_SHORE' && d[i].product_type == 'NON_CROWD_FUNDING' && d[i].operation_mode == 'OPEN') {
-                        url = '/fa_invest/invest_yellowstone_step_1.html?order_number=' + d[i].order_number + '&product_id=' + d[i].product_id;
-                    }
-
                     var minimum_invest_amount = d[i].minimum_invest_amount;
                     if (minimum_invest_amount >= 10000) {
                         minimum_invest_amount = minimum_invest_amount / 10000 + '万美元';
@@ -859,9 +751,41 @@
                             '<li>起投金额：' + minimum_invest_amount + '</li>' +
                             '<li>投资状态：' + d[i].status_desc + '</li>' +
                             '<li></li>' +
-                            '<li><a class="status_btn" href=' + url + ' target="_blank">完善流程</a></li></ul></div>'
+                            '<li><a class="status_btn get_process_url" data-order_number=' + d[i].order_number + ' data-product_id=' +
+                            d[i].product_id +
+                            ' target="_blank">完善流程</a></li></ul></div>'
                 });
                 $('.not_order').html(html);
+
+                $('body').on('click', '.get_process_url', function () {
+                    var process_product_id = $(this).attr('data-product_id');
+                    var process_order_number = $(this).attr('data-order_number');
+                    //获取未完成订单投资流程
+                    var invest_flow_data = {"product_id": process_product_id};
+                    invest_flow_data = $.extend({}, invest_flow_data, cookie_tooken);
+                    Ajax_Data({
+                        "url": baseUrl + "/invest_flow",
+                        "data": invest_flow_data,
+                        "fn": invest_flow
+                    });
+                    function invest_flow(d) {
+                        if (d) {
+                            investment_process = d;
+                            if (investment_process == 'crowd_america') {
+                                window.location = '/fa_invest/american/form_usa_step_1.html?order_number=' + process_order_number + '&product_id=' + process_product_id;
+                            }
+                            if (investment_process == 'crowd_international') {
+                                window.location = '/fa_invest/international/form_step_1.html?order_number=' + process_order_number + '&product_id=' + process_product_id;
+                            }
+                            if (investment_process == 'non_crowd') {
+                                window.location = '/fa_invest/invest_yellowstone_step_1.html?order_number=' + process_order_number + '&product_id=' + process_product_id;
+                            }
+                        }
+                    }
+
+                    return false;
+                });
+
             }
         }
 
