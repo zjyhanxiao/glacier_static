@@ -504,7 +504,19 @@
                 "data": get_profile_data,
                 "fn": get_profile
             });
+//            GET /web/invest_flow
 
+            var invest_flow_data = {"product_id": product_id};
+            invest_flow_data = $.extend({}, invest_flow_data, cookie_tooken);
+            Ajax_Data({
+                "url": baseUrl + "/invest_flow",
+                "data": invest_flow_data,
+                "fn": invest_flow
+            });
+            function invest_flow(d) {
+                alert(d);
+
+            }
             //获取产品信息
             var get_product_data = {"product_id": product_id};
             Ajax_Data({

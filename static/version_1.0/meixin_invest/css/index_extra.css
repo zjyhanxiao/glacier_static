@@ -70,7 +70,7 @@ nav .navbar .navbar-nav > li > a:not(.btn-solid):hover:after {
 }
 
 /* index.css */
-@font-face { font-family: numberSeven; src: url('../../vendor/font/StencilStd.otf'); }
+@font-face { font-family: numberSeven; src: url('../font/StencilStd.otf'); }
 .advantage-icon {
 	width: 120px;
 	height: 120px;
@@ -345,7 +345,8 @@ nav .navbar .navbar-nav > li > a:not(.btn-solid):hover:after {
   border-radius: 0;
 }
 .landing-section-one .col-sm-3 .col-sm-8 p{
-  font-size: 12px;
+  font-size: 14px;
+  margin-top: 8px;
   /*padding-top: 10px;*/
 }
 .fluid-no-bg{
@@ -684,4 +685,7 @@ nav .navbar .navbar-nav > li > a:not(.btn-solid):hover:after {
   .table>tbody>tr>td{
     font-size: 14px;
   }
+}
+.advisor{
+  margin-top: 10px;
 }

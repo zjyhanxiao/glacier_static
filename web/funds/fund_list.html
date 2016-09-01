@@ -4,13 +4,13 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title>基金列表</title>
+    <link rel="stylesheet" href="../../static/version_1.0/meixin_invest/css/fund_list.css">
     <link rel="stylesheet" href="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/vendor/css/bootstrap.min.css">
     <link href="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/css/base.min.css" rel="stylesheet">
     <link href="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/css/detail-new.min.css" rel="stylesheet">
     <link href="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/css/index.min.css" rel="stylesheet">
     <link href="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/css/products.min.css" rel="stylesheet">
     <!--<link href="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/meixin_invest/css/funds_list.css" rel="stylesheet" >-->
-    <link rel="stylesheet" href="../../static/version_1.0/meixin_invest/css/fund_list.css">
     <!--[if lt IE 9]>
     <script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/vendor/js/html5shiv"></script>
     <script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/vendor/js/respond.min.js"></script>
@@ -96,76 +96,71 @@
         }
     </style>
 
-    <div class="container">
-        <div class="container-fluid">
-            <div class="header-section row-style">
-                <div class="row">
-                    <div class="col-md-4 col-xs-3">基金名称</div>
-                    <div class="col-md-1 col-xs-3">资产类别</div>
-                    <div class="col-md-1 col-xs-3"><a href="">等级风险</a></div>
-                    <div class="col-md-2 col-xs-6 fir-row-4">最低首次投资额</div>
-                    <div class="col-md-4 col-xs-6">管理公司</div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 col-xs-6"><a href = "/BlackRaockA3.html">贝莱德全球基金亚洲老虎债券基金(美元) A3</a> </div>
-                    <div class="col-md-1 col-xs-3">债券基金</div>
-                    <div class="col-md-1 col-xs-3">10级风险</div>
-                    <div class="col-md-2 col-xs-6">港元8,000.00 / 美元1,000.00</div>
-                    <div class="col-md-4 col-xs-6">BlackRock Asset Management North Asia Limited</div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 col-xs-6"><a href = "/BlackRaockA2.html">贝莱德全球基金 - 世界黄金基金 A2 (美元)</a> </div>
-                    <div class="col-md-1 col-xs-3">股票基金</div>
-                    <div class="col-md-1 col-xs-3">10级风险</div>
-                    <div class="col-md-2 col-xs-6">港元8,000.00 / 美元1,000.00</div>
-                    <div class="col-md-4 col-xs-6">BlackRock Asset Management North Asia Limited</div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 col-xs-6"><a href = "/Schroeder.html">施罗德环球基金系列 - 环球能源 (美元) A类股份</a> </div>
-                    <div class="col-md-1 col-xs-3">股票基金</div>
-                    <div class="col-md-1 col-xs-3">10级风险</div>
-                    <div class="col-md-2 col-xs-6">港元8,000.00 / 美元1,000.00</div>
-                    <div class="col-md-4 col-xs-6">Schroder Investment Management (Luxembourg) S.A.</div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 col-xs-6"><a href = "/AB.html">AB SICAV I - 低波幅策略股票基金 (美元) A 累算</a> </div>
-                    <div class="col-md-1 col-xs-3">股票基金</div>
-                    <div class="col-md-1 col-xs-3">7级风险</div>
-                    <div class="col-md-2 col-xs-6">港元8,000.00 / 美元1,000.00</div>
-                    <div class="col-md-4 col-xs-6">AllianceBernstein (Luxembourg) S.à r.l.</div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 col-xs-6"><a href = "/FaBa.html">富达基金 - 美国基金 A股 - 累积 - 美元</a> </div>
-                    <div class="col-md-1 col-xs-3">股票基金</div>
-                    <div class="col-md-1 col-xs-3">7级风险</div>
-                    <div class="col-md-2 col-xs-6">港元8,000.00 / 美元1,000.00</div>
-                    <div class="col-md-4 col-xs-6">FIL Investment Management (Luxembourg) S.A.</div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 col-xs-6"><a href = "/AllianceBernstein LP.html">联博 - 国际科技基金 (美元) A </a> </div>
-                    <div class="col-md-1 col-xs-3">股票基金</div>
-                    <div class="col-md-1 col-xs-3">10级风险</div>
-                    <div class="col-md-2 col-xs-6">港元8,000.00 / 美元1,000.00</div>
-                    <div class="col-md-4 col-xs-6">AllianceBernstein (Luxembourg) S.à r.l.</div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 col-xs-6"><a href = "/AllianceBernstein Health.html">联博 - 国际健康护理基金 (美元) A</a> </div>
-                    <div class="col-md-1 col-xs-3">股票基金</div>
-                    <div class="col-md-1 col-xs-3">10级风险</div>
-                    <div class="col-md-2 col-xs-6">港元8,000.00 / 美元1,000.00</div>
-                    <div class="col-md-4 col-xs-6">AllianceBernstein (Luxembourg) S.à r.l.</div>
-                </div>
-                <div class="row last-row">
-                    <div class="col-md-4 col-xs-6"><a href = "/AllianceBernstein Health.html">法巴全球公用事业股票基金 (欧元)</a> </div>
-                    <div class="col-md-1 col-xs-3">股票基金</div>
-                    <div class="col-md-1 col-xs-3">9级风险</div>
-                    <div class="col-md-2 col-xs-6">港元8,000.00 / 美元1,000.00</div>
-                    <div class="col-md-4 col-xs-6">BNP Paribas Investment Partners Luxembourg</div>
-                </div>
-            </div>
+    <div class="container" id="main">
+        <div class="li-table">
+            <div class="div-1 text-center">基金名称</div>
+            <div class="div-2 text-center">资产类别</div>
+            <div class="div-3 text-center"><a href="">等级风险</a></div>
+            <div class="div-4 text-center">最低首次投资额</div>
+            <div class="div-5 text-center">管理公司</div>
+        </div>
+        <div class="li-table">
+            <div class="div-1"><a href = "/BlackRaockA3.html">贝莱德全球基金亚洲老虎债券基金(美元) A3</a> </div>
+            <div class="div-2 text-center">债券基金</div>
+            <div class="div-3 text-center">10级风险</div>
+            <div class="div-4 text-center">港元8,000.00 / 美元1,000.00</div>
+            <div class="div-5">BlackRock Asset Management North Asia Limited</div>
+        </div>
+        <div class="li-table">
+            <div class="div-1"><a href = "/BlackRaockA2.html">贝莱德全球基金 - 世界黄金基金 A2 (美元)</a> </div>
+            <div class="div-2 text-center">股票基金</div>
+            <div class="div-3 text-center">10级风险</div>
+            <div class="div-4 text-center">港元8,000.00 / 美元1,000.00</div>
+            <div class="div-5">BlackRock Asset Management North Asia Limited</div>
+        </div>
+        <div class="li-table">
+            <div class="div-1"><a href = "/Schroeder.html">施罗德环球基金系列 - 环球能源 (美元) A类股份</a> </div>
+            <div class="div-2 text-center">股票基金</div>
+            <div class="div-3 text-center">10级风险</div>
+            <div class="div-4 text-center">港元8,000.00 / 美元1,000.00</div>
+            <div class="div-5">Schroder Investment Management (Luxembourg) S.A.</div>
+        </div>
+        <div class="li-table ">
+            <div class="div-1"><a href = "/AB.html">AB SICAV I - 低波幅策略股票基金 (美元) A 累算</a> </div>
+            <div class="div-2 text-center">股票基金</div>
+            <div class="div-3 text-center">7级风险</div>
+            <div class="div-4 text-center">港元8,000.00 / 美元1,000.00</div>
+            <div class="div-5">AldivanceBernstein (Luxembourg) S.à r.l.</div>
+        </div>
+        <div class="li-table ">
+            <div class="div-1"><a href = "/FaBa.html">富达基金 - 美国基金 A股 - 累积 - 美元</a> </div>
+            <div class="div-2 text-center">股票基金</div>
+            <div class="div-3 text-center">7级风险</div>
+            <div class="div-4 text-center">港元8,000.00 / 美元1,000.00</div>
+            <div class="div-5">FIL Investment Management (Luxembourg) S.A.</div>
+        </div>
+        <div class="li-table ">
+            <div class="div-1"><a href = "/AldivanceBernstein LP.html">联博 - 国际科技基金 (美元) A </a> </div>
+            <div class="div-2 text-center">股票基金</div>
+            <div class="div-3 text-center">10级风险</div>
+            <div class="div-4 text-center">港元8,000.00 / 美元1,000.00</div>
+            <div class="div-5">AldivanceBernstein (Luxembourg) S.à r.l.</div>
+        </div>
+        <div class="li-table ">
+            <div class="div-1"><a href = "/AldivanceBernstein Health.html">联博 - 国际健康护理基金 (美元) A</a> </div>
+            <div class="div-2 text-center">股票基金</div>
+            <div class="div-3 text-center">10级风险</div>
+            <div class="div-4 text-center">港元8,000.00 / 美元1,000.00</div>
+            <div class="div-5">AldivanceBernstein (Luxembourg) S.à r.l.</div>
+        </div>
+        <div class="li-table li-table-9">
+            <div class="div-1"><a href = "/AldivanceBernstein Health.html">法巴全球公用事业股票基金 (欧元)</a> </div>
+            <div class="div-2 text-center">股票基金</div>
+            <div class="div-3 text-center">9级风险</div>
+            <div class="div-4 text-center">港元8,000.00 / 美元1,000.00</div>
+            <div class="div-5">BNP Paribas Investment Partners Luxembourg</div>
         </div>
     </div>
-</div>
 <footer id="footer" class="padding-top-lg">
     <div class="container-fluid">
         <section class="row footer-sitemap">
@@ -254,7 +249,7 @@
                         <small>
                             *All investments offered on Meixin Invest not guaranteed. Although Meixin professionals are
                             seeking the best offers available, there will always be significant risks associated with
-                            investing in privately held companies and early-stage ventures. These risks could include in
+                            investing in privately held companies and early-stage ventures. These risks codivd include in
                             some cases investments held for indefinite periods of time with limited ability to resell
                             and
                             the possible loss of your entire investment. You must have the ability to bear that loss.
