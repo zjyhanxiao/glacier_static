@@ -1,4 +1,5 @@
 html,body{
+    background-color: #fff !important;
     margin: 0;
     padding: 0;
 }
@@ -68,6 +69,44 @@ a:hover{
     display: block !important;
 }
 
+@media (max-width: 740px) {
+    .li-table{
+        margin: 0 10px;
+        width: 95%;
+        line-height: 30px;
+    }
+    .li-table .div-1, .li-table .div-5{
+        padding-left: 5px;
+    }
+    .li-table div{
+        height: inherit;
+    }
+    .li-table-1 .div-1,.li-table-1 .div-5{
+        line-height: 30px;
+    }
+    .li-table-2 .div-2, .li-table-2 .div-3, .li-table-3 .div-2, .li-table-3 .div-3,
+    .li-table-4 .div-1, .li-table-4 .div-2, .li-table-4 .div-3, .li-table-4 .div-4,
+    .li-table-5 .div-2, .li-table-5 .div-3, .li-table-6 .div-2, .li-table-6 .div-3,
+    .li-table-7 .div-1, .li-table-7 .div-2, .li-table-7 .div-3,
+    .li-table-8 .div-1, .li-table-8 .div-2, .li-table-8 .div-3,
+    .li-table-9 .div-1, .li-table-9 .div-2, .li-table-9 .div-3, .li-table-9 .div-4{
+        height: 60px;
+    }
+    .Risk_Level_phone{
+        border: none !important;
+        position: absolute;
+        left: -130px;
+        top: -2px;
+        display: none !important;
+    }
+    .li-table-1 :hover .Risk_Level{
+        display: none !important;
+    }
+    .li-table-1 :hover .Risk_Level_phone{
+        display: block !important;
+    }
+}
+
 @media (max-width: 670px) {
     .li-table{
         margin: 0 10px;
@@ -92,6 +131,49 @@ a:hover{
     .li-table-4 .div-1, .li-table-4 .div-2, .li-table-4 .div-3, .li-table-4 .div-4,
     .li-table-9 .div-1, .li-table-9 .div-2, .li-table-9 .div-3, .li-table-9 .div-4{
         height: 90px;
+    }
+    .Risk_Level_phone{
+        border: none !important;
+        position: absolute;
+        left: -130px;
+        top: -2px;
+        display: none !important;
+    }
+    .li-table-1 :hover .Risk_Level{
+        display: none !important;
+    }
+    .li-table-1 :hover .Risk_Level_phone{
+        display: block !important;
+    }
+}
+
+@media (max-width: 570px) {
+    .li-table{
+        margin: 0 10px;
+        width: 95%;
+        line-height: 30px;
+    }
+    .li-table .div-1, .li-table .div-5{
+        padding-left: 5px;
+    }
+    .li-table div{
+        height: inherit;
+    }
+    .li-table-1 .div-1,.li-table-1 .div-5{
+        line-height: 30px;
+    }
+    .li-table-2 .div-1, .li-table-2 .div-4, .li-table-2 .div-2, .li-table-2 .div-3,
+    .li-table-3 .div-1, .li-table-3 .div-4, .li-table-3 .div-2, .li-table-3 .div-3,
+    .li-table-4 .div-1, .li-table-4 .div-2, .li-table-4 .div-3, .li-table-4 .div-4,
+    .li-table-5 .div-2, .li-table-5 .div-3, .li-table-5 .div-1, .li-table-5 .div-4,
+    .li-table-6 .div-2, .li-table-6 .div-3, .li-table-6 .div-1, .li-table-6 .div-4
+    {
+        height: 90px;
+    }
+    .li-table-7 .div-1, .li-table-7 .div-2, .li-table-7 .div-3, .li-table-7 .div-4,
+    .li-table-8 .div-1, .li-table-8 .div-2, .li-table-8 .div-3, .li-table-8 .div-4,
+    .li-table-9 .div-1, .li-table-9 .div-2, .li-table-9 .div-3, .li-table-9 .div-4{
+        height: 60px;
     }
     .Risk_Level_phone{
         border: none !important;
