@@ -798,7 +798,24 @@
             loop: true
         });
         //登陆操作
-        login();
+        //验证登录
+        if (cookie_tooken.mx_token == undefined || cookie_tooken.mx_token == null) {
+            return false;
+        }else{
+            Ajax_Data({
+                "url": baseUrl + "/auth/authentication",
+                "data": cookie_tooken,
+                "fn": is_login
+            });
+
+            //is_login  调取登录接口
+            function is_login(res) {
+                $('.navbar ul li:last-child').html('<a class="btn btn-min-width" href="/investor/dashboard.html">我的账户</a>');
+                $('.navbar ul li:nth-last-child(2)').html('<a class="btn btn-min-width-sm logout" href="javascript:;">退出</a>');
+                $("span.no_login").css("display", "none");
+                $("span.login").css("display", "");
+            }
+        }
         //加载广告
         loadAd(mySwiper);
         //首页商品
@@ -991,7 +1008,7 @@
             mx_secret = $.cookie('mx_secret');
     cookie_tooken = {mx_token: mx_token, mx_secret: mx_secret};
     //用户登录操作
-    function login() {
+/*    function login() {
         $.ajax({
             url: baseUrl + "/auth/authentication",
             type: "get",
@@ -1014,7 +1031,7 @@
                 }
             }
         });
-    }
+    }*/
 </script>
 <script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/js/index.min.js"></script>
 <script>
