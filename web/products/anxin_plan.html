@@ -500,6 +500,7 @@
                 "fn": get_profile
             });
 
+            //获取产品投资流程方式
             var invest_flow_data = {"product_id": product_id};
             invest_flow_data = $.extend({}, invest_flow_data, cookie_tooken);
             Ajax_Data({
@@ -514,6 +515,21 @@
             }
 
             //获取产品信息
+            var product_desc_data = {"product_id": product_id};
+            Ajax_Data({
+                "url": baseUrl + "/product/desc/" + product_id,
+                "data": product_desc_data,
+                "fn": get_product_desc
+            });
+            function get_product_desc(d) {
+                if(d){
+                    $('.product_mid_section').remove();
+                    $('.product_bot_section_new').remove();
+                    $('.product_top_section').after(d);
+                }
+            }
+
+            //获取产品详情描述
             var get_product_data = {"product_id": product_id};
             Ajax_Data({
                 "url": baseUrl + "/product/" + product_id,
@@ -598,22 +614,22 @@
                     if (val.length <= 0) {
                         bool = false;
                         alert('数值不能为空!');
-                    } else if ((val % d.minimum_invest_amount) != 0 || val == 0) {
+                    } else if ((val - d.minimum_invest_amount) / d.invest_par_value != 0 || val == 0) {
                         bool = false;
-                        alert('请输入' + d.minimum_invest_amount + '的整数倍');
+                        alert('请输入' + d.invest_par_value + '的整数倍');
                     }
 
                     if (val <= d.minimum_invest_amount) {
                         $('#invest-sub').addClass('btn-default').prop('disabled', true);
                     }
-                    if (val >= 2 * d.minimum_invest_amount) {
+                    if (val >= (d.minimum_invest_amount + d.invest_par_value)) {
                         $('#invest-sub').removeClass('btn-default').prop('disabled', false);
                     }
                 });
 
                 $('#invest-sub').on('click', function () {
                     var val = parseInt($("#invest-number").val());
-                    val -= d.minimum_invest_amount;
+                    val -= d.invest_par_value;
                     $("#invest-number").val(val);
                     if (val <= d.minimum_invest_amount) {
                         $('#invest-sub').addClass('btn-default').prop('disabled', true);
@@ -622,9 +638,9 @@
 
                 $('#invest-add').on('click', function () {
                     var val = parseInt($("#invest-number").val());
-                    val += d.minimum_invest_amount;
+                    val += d.invest_par_value;
                     $("#invest-number").val(val);
-                    if (val >= 2 * d.minimum_invest_amount) {
+                    if (val >= (d.minimum_invest_amount + d.invest_par_value)) {
                         $('#invest-sub').removeClass('btn-default').prop('disabled', false);
                     }
                 });
