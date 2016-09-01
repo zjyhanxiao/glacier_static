@@ -6,7 +6,7 @@
     <title>
         美信金融|安心计划 | 6个月 A6m20160701
     </title>
-    <script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/vendor/js/jquery-1.11.1.min.js"
+    <script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/vendor/js/jquery-1.11.1.min.js"
             type="text/javascript"></script>
     <script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/js/jquery.cookie.min.js"></script>
     <script>
@@ -18,7 +18,7 @@
     </script>
     <script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/js/is_ok.min.js"></script>
     <link rel="stylesheet"
-          href="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/vendor/css/bootstrap.min.css">
+          href="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/vendor/css/bootstrap.min.css">
     <link href="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/css/base.min.css"
           rel="stylesheet">
     <link href="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/css/detail-new.min.css"
@@ -27,7 +27,7 @@
           rel="stylesheet">
     <link href="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/css/products.min.css"
           rel="stylesheet">
-    <link href="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/vendor/css/bootstrap-formhelpers.min.css"
+    <link href="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/vendor/css/bootstrap-formhelpers.min.css"
           rel="stylesheet">
     <script>
         var _hmt = _hmt || [];
@@ -39,8 +39,8 @@
         })();
     </script>
     <!--[if lt IE 9]>
-    <script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/vendor/js/html5shiv"></script>
-    <script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/vendor/js/respond.min.js"></script>
+    <script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/vendor/js/html5shiv"></script>
+    <script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/vendor/js/respond.min.js"></script>
     <![endif]-->
 </head>
 <body>
@@ -267,15 +267,9 @@
                                 <p>*
                                     美信金融提醒您，市场有风险，投资需谨慎，任何保障措施均有其局限性：（1）合作机构有可能因各种原因丧失还款意愿或因财务状况严重恶化等原因丧失还款能力；（2）战争、自然灾害、骚乱、罢工、政策变更等不可抗力亦可能严重影响资金安全。</p>
                             </div>
-                            <style>
-                                .product_bot_section {
-                                    display: none;
-                                }
-                            </style>
                         </div>
                         <div class="clearLeft"></div>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -448,10 +442,10 @@
 <link rel="shortcut icon" type="image/png"
       href="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/favicon.png">
 <link rel="stylesheet"
-      href="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/vendor/css/font-awesome.min.css">
-<script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/vendor/js/jquery-ui.min.js"
+      href="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/vendor/css/font-awesome.min.css">
+<script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/vendor/js/jquery-ui.min.js"
         type="text/javascript"></script>
-<script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/vendor/js/bootstrap.min.js"
+<script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/vendor/js/bootstrap.min.js"
         type="text/javascript"></script>
 <script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/js/navi.min.js"
         type="text/javascript"></script>
@@ -477,6 +471,7 @@
         type="text/javascript"></script>
 <script>
     $(function () {
+        var investment_process = '';
         //验证登录
         Ajax_Data({
             "url": baseUrl + "/auth/authentication",
@@ -504,7 +499,6 @@
                 "data": get_profile_data,
                 "fn": get_profile
             });
-//            GET /web/invest_flow
 
             var invest_flow_data = {"product_id": product_id};
             invest_flow_data = $.extend({}, invest_flow_data, cookie_tooken);
@@ -514,9 +508,11 @@
                 "fn": invest_flow
             });
             function invest_flow(d) {
-                alert(d);
-
+                if (d) {
+                    investment_process = d;
+                }
             }
+
             //获取产品信息
             var get_product_data = {"product_id": product_id};
             Ajax_Data({
@@ -530,6 +526,9 @@
         function get_profile(d) {
             if (d) {
                 investor_type = d.investor_type || 0;
+                if (investor_type == 3) {
+                    window.location.href = '/blocker.html';
+                }
             }
         }
 
@@ -633,34 +632,20 @@
                 //投资状态
                 switch (d.status) {
                     case "FOR_INVEST": //在售
-                        if (investor_type == 1) {//国际投资人
-                            if (d.international == 1) {//可投
-                                if (d.product_location == 'ON_SHORE' && d.product_type == 'CROWD_FUNDING') {//安心定期
-                                    $('.product_top_section .row').append('<a id="invest-button" type="button" class="btn btn-primary" data-titlename="' + d.name + ' ' + d.number + ' " style="padding:6px 60px" href="/fa_invest/international/form_step_1.html?product_id=' + product_id + '&invest_value=' + invest_value + '">立 即 投 资</a>');
-                                }
-                                if (d.product_location == 'OFF_SHORE' && d.product_type == 'NON_CROWD_FUNDING' && d.operation_mode == 'CLOSED') {//安心计划
-                                    $('.product_top_section .row').append('<a id="invest-button" type="button" class="btn btn-primary" data-titlename="' + d.name + ' ' + d.number + ' " style="padding:6px 60px" href="/fa_invest/invest_yellowstone_step_1.html?product_id=' + product_id + '&invest_value=' + invest_value + '">立 即 投 资</a>');
-                                }
-                                if (d.product_location == 'ON_SHORE' && d.product_type == 'NON_CROWD_FUNDING' && d.operation_mode == 'OPEN') {//灵活理财
-                                    $('.product_top_section .row').append('<a id="invest-button" type="button" class="btn btn-primary" data-titlename="' + d.name + ' ' + d.number + ' " style="padding:6px 60px" href="/fa_invest/invest_yellowstone_step_1.html?product_id=' + product_id + '&invest_value=' + invest_value + '">立 即 投 资</a>');
-                                }
+                        if (d.american == 1) {
+                            if (investment_process == 'crowd_america') {
+                                $('.product_top_section .row').append('<a id="invest-button" type="button" class="btn btn-primary" data-titlename="' + d.name + ' ' + d.number + ' " style="padding:6px 60px" href="/fa_invest/international/form_step_1.html?product_id=' + product_id + '&invest_value=' + invest_value + '">立 即 投 资</a>');
+                            }
+                        } else {
+                            window.location.href = '/blocker2.html';
+                        }
+                        if (d.international == 1) {
+                            if (investment_process == 'crowd_international') {
+                                $('.product_top_section .row').append('<a id="invest-button" type="button" class="btn btn-primary" data-titlename="' + d.name + ' ' + d.number + ' " style="padding:6px 60px" href="/fa_invest/american/form_usa_step_1.html?product_id=' + product_id + '&invest_value=' + invest_value + '">立 即 投 资</a>');
                             }
                         }
-                        if (investor_type == 2) {//美国合格投资人
-                            if (d.american == 1) {//可投
-                                if (d.product_location == 'ON_SHORE' && d.product_type == 'CROWD_FUNDING') {//安心定期
-                                    $('.product_top_section .row').append('<a id="invest-button" type="button" class="btn btn-primary" data-titlename="' + d.name + ' ' + d.number + ' " style="padding:6px 60px" href="/fa_invest/american/form_usa_step_1.html?product_id=' + product_id + '&invest_value=' + invest_value + '">立 即 投 资</a>');
-                                }
-                                if (d.product_location == 'OFF_SHORE' && d.product_type == 'NON_CROWD_FUNDING' && d.operation_mode == 'CLOSED') {//安心计划
-                                    window.location.href = '/blocker2.html';
-                                }
-                                if (d.product_location == 'ON_SHORE' && d.product_type == 'NON_CROWD_FUNDING' && d.operation_mode == 'OPEN') {//灵活理财
-                                    $('.product_top_section .row').append('<a id="invest-button" type="button" class="btn btn-primary" data-titlename="' + d.name + ' ' + d.number + ' " style="padding:6px 60px" href="/fa_invest/invest_yellowstone_step_1.html?product_id=' + product_id + '&invest_value=' + invest_value + '">立 即 投 资</a>');
-                                }
-
-                            } else {//不可投
-                                window.location.href = '/blocker2.html';
-                            }
+                        if (investment_process == 'non_crowd') {
+                            $('.product_top_section .row').append('<a id="invest-button" type="button" class="btn btn-primary" data-titlename="' + d.name + ' ' + d.number + ' " style="padding:6px 60px" href="/fa_invest/invest_yellowstone_step_1.html?product_id=' + product_id + '&invest_value=' + invest_value + '">立 即 投 资</a>');
                         }
                         break;
                     case "FOR_APPOINTMENT": //预约
