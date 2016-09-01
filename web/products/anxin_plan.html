@@ -159,7 +159,7 @@
                         </ul>
                         <div class="clearLeft"></div>
                     </div>
-                    <!--<div class="product_mid_section">
+                    <div class="product_mid_section">
                         <ul>
                             <li><img
                                     src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/products/linghuo_icon01_512x512.png"><span>灵活投资期限短至1个月</span>
@@ -269,7 +269,7 @@
                             </div>
                         </div>
                         <div class="clearLeft"></div>
-                    </div>-->
+                    </div>
                 </div>
             </div>
         </section>
@@ -500,6 +500,7 @@
                 "fn": get_profile
             });
 
+            //获取产品投资流程方式
             var invest_flow_data = {"product_id": product_id};
             invest_flow_data = $.extend({}, invest_flow_data, cookie_tooken);
             Ajax_Data({
@@ -514,6 +515,21 @@
             }
 
             //获取产品信息
+            var product_desc_data = {"product_id": product_id};
+            Ajax_Data({
+                "url": baseUrl + "/product/desc/" + product_id,
+                "data": product_desc_data,
+                "fn": get_product_desc
+            });
+            function get_product_desc(d) {
+                if(d){
+                    $('.product_mid_section').remove();
+                    $('.product_bot_section_new').remove();
+                    $('.product_top_section').after(d);
+                }
+            }
+
+            //获取产品详情描述
             var get_product_data = {"product_id": product_id};
             Ajax_Data({
                 "url": baseUrl + "/product/" + product_id,
