@@ -162,6 +162,7 @@
                 });
             });
             $('#submit_step_one').on('click', function () {
+                $(this).prop('disabled',true);
                 if (!default_id_card_photo) {
                     $('#id_card_photo').prop("required", false);
                 }
@@ -210,6 +211,8 @@
                         });
                     }
                     return false;
+                }else{
+                    $(this).prop('disabled',false);
                 }
             })
         }

@@ -142,6 +142,7 @@
             });
 
             $('#submit_step_one').on('click', function () {
+                $(this).prop('disabled',true);
                 var img_src = $('#id_card_photo').siblings('img').attr('src');
                 var passport_photo_img = $('#passport_photo').siblings('img').attr('src');
                 if (!default_id_card_photo) {
@@ -189,6 +190,8 @@
                         });
                     }
                     return false;
+                }else{
+                    $(this).prop('disabled',false);
                 }
             })
         }

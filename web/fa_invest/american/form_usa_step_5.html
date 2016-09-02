@@ -294,6 +294,7 @@
             });
 
             $('#submit_step_five').on('click', function () {
+                $(this).prop('disabled',true);
                 if ($('.fa-steps').parsley().validate()) {
                     $('.ajax_wait').show();
                     setTimeout(function () {
@@ -346,6 +347,8 @@
                         "fail_fn": commit_order_fail
                     });
                     return false;
+                }else{
+                    $(this).prop('disabled',false);
                 }
             })
         }

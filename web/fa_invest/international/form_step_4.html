@@ -473,6 +473,7 @@
             });
 
             $('#submit_step_four').on('click', function () {
+                $(this).prop('disabled',true);
                 if ($('.fa-steps').parsley().validate()) {
                     $('.ajax_wait').show();
                     setTimeout(function () {
@@ -495,6 +496,8 @@
                             "fn": update_bank_profile,
                             "fail_fn": update_bank_fail
                         });
+                    }else{
+                        $(this).prop('disabled',false);
                     }
 
 
