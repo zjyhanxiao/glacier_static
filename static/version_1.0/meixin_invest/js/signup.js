@@ -1,4 +1,9 @@
-
+/**
+ * Created by admin on 2016/8/22.
+ */
+// clear cookie
+$.cookie('mx_token', '', {expires: -1});
+$.cookie('mx_secret', '', {expires: -1});
 $(document).ready(function () {
     // display on board step 1 at page rendering
     $('.registration-form .div-group:first').fadeIn('slow');

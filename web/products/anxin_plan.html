@@ -50,6 +50,10 @@
             alt=""></div>
     <p>哎吆喂！网速似乎有点慢，点击这里<a href="/">跳回首页!</a></p>
 </div>
+<div class="coupon" style="display: none;">
+    <a href="javascript:;" class="red_packets"></a>
+    <div class="activity_message"><p class="text"></p></div>
+</div>
 <script>
     setHeight();
     $(window).resize(function () {
@@ -235,8 +239,10 @@
                                         </tr>
                                         <tr>
                                             <td>产品历史表现：</td>
-                                            <td><a href="###" download>
-                                                点击下载数据</a></td>
+                                            <!--<td><a href="###" download>
+                                                点击下载数据</a></td>-->
+                                            <td><a href="###">
+                                                暂无数据</a></td>
                                         </tr>
                                     </table>
                                 </div>
@@ -471,6 +477,19 @@
         type="text/javascript"></script>
 <script>
     $(function () {
+
+        //获取红包活动接口
+        Ajax_Data({
+            "url": baseUrl + "/promotion/redpacket",
+            "data": null,
+            "fn": get_redpacket
+        });
+        function get_redpacket(d) {
+            if (d && d.name != '' && d.name != null) {
+                $('.activity_message p.text').html(d.title);
+                $('.coupon').show();
+            }
+        }
         var investment_process = '';
         //验证登录
         Ajax_Data({
@@ -500,6 +519,7 @@
                 "fn": get_profile
             });
 
+            //获取产品投资流程方式
             var invest_flow_data = {"product_id": product_id};
             invest_flow_data = $.extend({}, invest_flow_data, cookie_tooken);
             Ajax_Data({
@@ -514,6 +534,21 @@
             }
 
             //获取产品信息
+            var product_desc_data = {"product_id": product_id};
+            Ajax_Data({
+                "url": baseUrl + "/product/desc/" + product_id,
+                "data": product_desc_data,
+                "fn": get_product_desc
+            });
+            function get_product_desc(d) {
+                if (d) {
+                    $('.product_mid_section').remove();
+                    $('.product_bot_section_new').remove();
+                    $('.product_top_section').after(d);
+                }
+            }
+
+            //获取产品详情描述
             var get_product_data = {"product_id": product_id};
             Ajax_Data({
                 "url": baseUrl + "/product/" + product_id,
@@ -598,22 +633,22 @@
                     if (val.length <= 0) {
                         bool = false;
                         alert('数值不能为空!');
-                    } else if ((val % d.minimum_invest_amount) != 0 || val == 0) {
+                    } else if ((val - d.minimum_invest_amount) / d.invest_par_value != 0 || val == 0) {
                         bool = false;
-                        alert('请输入' + d.minimum_invest_amount + '的整数倍');
+                        alert('请输入' + d.invest_par_value + '的整数倍');
                     }
 
                     if (val <= d.minimum_invest_amount) {
                         $('#invest-sub').addClass('btn-default').prop('disabled', true);
                     }
-                    if (val >= 2 * d.minimum_invest_amount) {
+                    if (val >= (d.minimum_invest_amount + d.invest_par_value)) {
                         $('#invest-sub').removeClass('btn-default').prop('disabled', false);
                     }
                 });
 
                 $('#invest-sub').on('click', function () {
                     var val = parseInt($("#invest-number").val());
-                    val -= d.minimum_invest_amount;
+                    val -= d.invest_par_value;
                     $("#invest-number").val(val);
                     if (val <= d.minimum_invest_amount) {
                         $('#invest-sub').addClass('btn-default').prop('disabled', true);
@@ -622,9 +657,9 @@
 
                 $('#invest-add').on('click', function () {
                     var val = parseInt($("#invest-number").val());
-                    val += d.minimum_invest_amount;
+                    val += d.invest_par_value;
                     $("#invest-number").val(val);
-                    if (val >= 2 * d.minimum_invest_amount) {
+                    if (val >= (d.minimum_invest_amount + d.invest_par_value)) {
                         $('#invest-sub').removeClass('btn-default').prop('disabled', false);
                     }
                 });
@@ -633,14 +668,14 @@
                 switch (d.status) {
                     case "FOR_INVEST": //在售
                         if (d.american == 1) {
-                            if (investment_process == 'crowd_america') {
+                            if (investment_process == 'crowd_international') {
                                 $('.product_top_section .row').append('<a id="invest-button" type="button" class="btn btn-primary" data-titlename="' + d.name + ' ' + d.number + ' " style="padding:6px 60px" href="/fa_invest/international/form_step_1.html?product_id=' + product_id + '&invest_value=' + invest_value + '">立 即 投 资</a>');
                             }
                         } else {
                             window.location.href = '/blocker2.html';
                         }
                         if (d.international == 1) {
-                            if (investment_process == 'crowd_international') {
+                            if (investment_process == 'crowd_america') {
                                 $('.product_top_section .row').append('<a id="invest-button" type="button" class="btn btn-primary" data-titlename="' + d.name + ' ' + d.number + ' " style="padding:6px 60px" href="/fa_invest/american/form_usa_step_1.html?product_id=' + product_id + '&invest_value=' + invest_value + '">立 即 投 资</a>');
                             }
                         }

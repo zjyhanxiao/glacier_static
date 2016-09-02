@@ -103,6 +103,7 @@
                     <ul class="nav nav-pills" role="tablist" id="categoryNav">
                         <li class="active"><a role="tab" data-toggle="tab" data-title="all">全部产品</a></li>
                         <li><a role="tab" data-toggle="tab" data-title="安心计划">安心计划</a></li>
+                        <li><a role="tab" data-toggle="tab" data-title="灵活理财">灵活理财</a></li>
                         <li><a role="tab" data-toggle="tab" data-title="高心计划">高心计划</a></li>
                         <li><a role="tab" data-toggle="tab" data-title="盛心计划">盛心计划</a></li>
                         <li><a role="tab" data-toggle="tab" data-title="放心计划">放心计划</a></li>
@@ -450,7 +451,7 @@
             }
             var ul = $("<ul></ul>");
             var rate = product.return_rate || 0;
-            var amount = product.invest_par_value || 0;
+            var amount = product.minimum_invest_amount || 0;
             if (amount >= 10000) {
                 amount = amount / 10000 + "万";
             }

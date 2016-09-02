@@ -364,6 +364,62 @@ a, a:hover {
 .withdraw_list{
     border-top: 1px solid #ddd;
 }
+
+
+
+.red_packets {
+    position: absolute;
+    right: 0;
+    top: 107px;
+    display: block;
+    width: 65px;
+    height: 56px;
+    background: url("../img/activity/red_packets.png");
+    background-size: 100%;
+    z-index: 9;
+}
+
+.activity_message {
+    display: none;
+    z-index: 99;
+    position: absolute;
+    right: 40px;
+    top: 171px;
+    width: 220px;
+    height: auto;
+    /*background: rgba(37,10,69,.8);*/
+    background: rgba(88,187,234,.8);
+    border-radius: 6px;
+    padding: 10px;
+}
+
+div.activity_message::before {
+    content: '';
+    z-index: 99;
+    position: absolute;
+    display: table;
+    width: 0;
+    height: 0;
+    right: 11px;
+    top: -10px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    /*border-bottom: 10px solid rgba(37,10,69,.8);*/ /*border-bottom: 10px solid rgba(88,187,234,.8);*/
+    border-bottom: 10px solid rgba(88,187,234,.8);
+}
+
+.activity_message p {
+    margin: 0;
+}
+
+.activity_message p.text {
+    position: relative;
+    text-align: left;
+    line-height: 1.5;
+    font-size: 12px;
+    color: #fff;
+    padding: 0;
+}
 @media (min-width: 768px) {
     .modal-sm {
         width: 600px;

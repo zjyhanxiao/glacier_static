@@ -230,8 +230,8 @@
                                 <p>FundAmerica Securities</p>
                                 <p>3455 Peachtree Road, NE</p>
                                 <p>5th Floor</p>
-                                <p>Atlanta, GA 30326</p>-->
-                                <p><span>注意：我们目前只接受来自美国银行账户的支票</span></p>
+                                <p>Atlanta, GA 30326</p>
+                                <p><span>注意：我们目前只接受来自美国银行账户的支票</span></p>-->
                                 <div class="agreement"></div>
 
                                 <div class="sign-name">
@@ -429,19 +429,14 @@
                 $.each(res, function (key) {
                     switch (res[key].need_check) {
                         case true:
-                            div.append('<div><input type="checkbox" id="doc_' + res[key].id + '" name=' + res[key].document_name + ' required="" data-parsley-required-message="请填写信息"/><label for="#doc_' + res[key].id + '"><span><span class="invest-check-mark"></span></span>我已认真阅读并接受<a href=' + res[key].url + ' class="get_pdf" data-document-id=' + res[key].id + '>《' + res[key].document_name + '》</a></label><br></div>');
+                            div.append('<div><input type="checkbox" id="doc_' + res[key].id + '" name=' + res[key].document_name + ' required="" data-parsley-required-message="请填写信息"/><label for="#doc_' + res[key].id + '"><span><span class="invest-check-mark"></span></span>我已认真阅读并接受<a href=' + res[key].url + ' class="get_pdf" data-document-id=' + res[key].id + '>' + res[key].document_name + '</a></label><br></div>');
                             break;
                         case false:
                             div.append('<div><a href=' + res[key].url + ' target="_blank">' + res[key].document_name + '</a><br></div>');
                             break;
                     }
                 });
-                var not_ach_doc = div.clone();
-                not_ach_doc.children().first().remove();
-                var check_box = not_ach_doc.clone();
-                $('.ach-online-box .agreement').append(div);
-                $('.bank-tt-box .agreement').append(not_ach_doc);
-                $('.check-box .agreement').append(check_box);
+                $('.agreement').append(div);
                 $('.agreements-preview').find('a.get_pdf').on('click', function () {
                     var result = "";
                     var $this = $(this);
@@ -634,7 +629,8 @@
                             '<p><span>备注栏请填写：</span>' + remark + '</p>' +
                             '<p><span>请将支票寄至以下地址：</span></p>' +
                             '<p>' + receiver_name + '</p>';
-                            '<p>' + mailing_address + '</p>';
+                            '<p>' + mailing_address + '</p>' +
+                            '<p><span>注意：我们目前只接受来自美国银行账户的支票</span></p>';
                     $('.check-box').prepend(str);
                 }
             }
