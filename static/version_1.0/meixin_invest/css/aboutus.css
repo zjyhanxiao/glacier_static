@@ -81,6 +81,7 @@ section .nav li {
 .about-us-home .wallstreetguides .row p{
   text-align: center;
   line-height: 26px;
+  padding-top: 0;
   color: #39576D;
   font-weight: bold;
 }
