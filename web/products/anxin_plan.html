@@ -477,6 +477,19 @@
         type="text/javascript"></script>
 <script>
     $(function () {
+
+        //获取红包活动接口
+        Ajax_Data({
+            "url": baseUrl + "/promotion/redpacket",
+            "data": null,
+            "fn": get_redpacket
+        });
+        function get_redpacket(d) {
+            if (d && d.name != '' && d.name != null) {
+                $('.activity_message p.text').html(d.title);
+                $('.coupon').show();
+            }
+        }
         var investment_process = '';
         //验证登录
         Ajax_Data({
@@ -528,7 +541,7 @@
                 "fn": get_product_desc
             });
             function get_product_desc(d) {
-                if(d){
+                if (d) {
                     $('.product_mid_section').remove();
                     $('.product_bot_section_new').remove();
                     $('.product_top_section').after(d);
