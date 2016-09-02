@@ -209,17 +209,15 @@
             $('.navbar ul li:nth-last-child(2)').html('<a class="btn btn-min-width-sm logout" href="javascript:;">退出</a>');
             $('.ajax_wait p,.ajax_wait').hide();
 
-            //获取商品信息
+           /* //获取商品信息
             var get_product_data = {"product_id": product_id};
             Ajax_Data({
                 "url": baseUrl + "/product/" + product_id,
                 "data": get_product_data,
                 "fn": get_product
-            });
-        }
+            });*/
 
-        //判断用户是否预约过该商品
-        function get_product(d) {
+            //判断用户是否预约过该商品
             var is_book_data={"product_id": product_id};
             is_book_data = $.extend({}, is_book_data, cookie_tooken);
             Ajax_Data({
@@ -237,28 +235,28 @@
                     $('#popup').find('.is_book').hide();
                 }
             }
-
-            //创建预约记录
-            $('#book_submit').on('click',function (){
-                var book_submit_data = {
-                    "interested_amount": $('#id_interested_amount').val(),
-                    "product_id": product_id,
-                    "user_contact_name": $('#id_user_contact_name').val(),
-                    "phone": $('#recipient-phone').val(),
-                    "city": $('#id_city').val(),
-                    "question": $('#id_question').val()
-                };
-                book_submit_data = $.extend({}, book_submit_data, cookie_tooken);
-                Ajax_Data({
-                    "url": baseUrl + "/appointment/create",
-                    "data": book_submit_data,
-                    "fn": book_submit,
-                    "fail_fn":fail_book_submit
-                });
-                return false;
-            });
-
         }
+
+        //创建预约记录
+        $('#book_submit').on('click',function (){
+            var book_submit_data = {
+                "interested_amount": $('#id_interested_amount').val(),
+                "product_id": product_id,
+                "user_contact_name": $('#id_user_contact_name').val(),
+                "phone": $('#recipient-phone').val(),
+                "city": $('#id_city').val(),
+                "question": $('#id_question').val()
+            };
+            book_submit_data = $.extend({}, book_submit_data, cookie_tooken);
+            Ajax_Data({
+                "url": baseUrl + "/appointment/create",
+                "data": book_submit_data,
+                "fn": book_submit,
+                "fail_fn":fail_book_submit
+            });
+            return false;
+        });
+
         function book_submit() {
             $('#popup').find('.modal-body').hide().end().find('modal-body-success').show();
         }
