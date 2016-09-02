@@ -451,7 +451,7 @@
             }
             var ul = $("<ul></ul>");
             var rate = product.return_rate || 0;
-            var amount = product.invest_par_value || 0;
+            var amount = product.minimum_invest_amount || 0;
             if (amount >= 10000) {
                 amount = amount / 10000 + "万";
             }
