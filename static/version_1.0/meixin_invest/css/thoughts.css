@@ -1,0 +1,28 @@
+
+form .input-error {
+    border-color: #ff0000;
+}
+
+
+#page2,
+#page4,
+#international_page3,
+#american_page3{
+    display: none;
+}
+
+.phone-field {
+    width: 63%;
+    display: inline-block;
+    margin-left: 2%;
+}
+
+#countries_phone {
+    width: 33%;
+    display: inline-block;
+}
+
+.button-div {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}

@@ -75,7 +75,14 @@ section .nav li {
 }
 
 .about-us-home .row img{
-  height: 100px;
+  width: 150px;
+  height: 150px;
+}
+.about-us-home .wallstreetguides .row p{
+  text-align: center;
+  line-height: 26px;
+  color: #39576D;
+  font-weight: bold;
 }
 .about-us-home .row p{
   text-align: left;
