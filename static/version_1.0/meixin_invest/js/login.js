@@ -1,6 +1,9 @@
 /**
  * Created by admin on 2016/8/22.
  */
+// clear cookie
+$.cookie('mx_token', '', {expires: -1});
+$.cookie('mx_secret', '', {expires: -1});
 $(function () {
     $("#login").on('click',function() {
         var data = {};
@@ -9,12 +12,10 @@ $(function () {
             data.password = $('#password').val();
             if ($('#id_telephone').val().length<6) {
                 $("#id_telephone").css("border-color","#ff0000");
-                //alert("请输入手机号");
                 return false;
             }
             else if ($('input[type="password"]').val() == '') {
                 $("#password").css("border-color","#ff0000");
-                //alert("请输入密码");
                 return false;
             }
             else {
