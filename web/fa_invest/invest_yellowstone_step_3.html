@@ -279,9 +279,12 @@
                 }
             });
             $('#submit_step_three').on('click', function () {
+                $(this).prop('disabled',true);
                 var img_src = $('#identity-proof').siblings('img').attr('src');
                 if (!default_passport_photo) {
                     $('#identity-proof').prop("required", false);
+                }else{
+                    $(this).prop('disabled',false);
                 }
                 if ($('.fa-steps').parsley().validate()) {
                     $('.ajax_wait').show();

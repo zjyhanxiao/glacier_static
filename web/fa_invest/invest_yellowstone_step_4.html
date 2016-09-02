@@ -366,6 +366,7 @@
             });
 
             $('#submit_step_four').on('click', function () {
+                $(this).prop('disabled',true);
                 var img_src = $('#address-proof').siblings('img').attr('src');
                 if (!default_address_proof) {
                     $('#address-proof').prop("required", false);
@@ -419,6 +420,8 @@
                         "fail_fn": update_profile_fail
                     });
                     return false;
+                }else{
+                    $(this).prop('disabled',false);
                 }
             })
         }

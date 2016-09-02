@@ -480,6 +480,7 @@
             });
 
             $('#submit_step_five').on('click', function () {
+                $(this).prop('disabled',true);
                 atLeastOne();
                 if ($('.fa-steps').parsley().validate()) {
                     $('.ajax_wait').show();
@@ -534,6 +535,8 @@
                         });
                         return false;
                     }
+                }else{
+                    $(this).prop('disabled',false);
                 }
             })
         }
