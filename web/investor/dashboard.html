@@ -54,6 +54,10 @@
         setHeight();
     });
 </script>
+<div class="coupon" style="display: none;">
+    <a href="javascript:;" class="red_packets"></a>
+    <div class="activity_message"><p class="text"></p></div>
+</div>
 <div id="wrapper">
     <nav id="navChilantro">
         <div class="page-top-bar">联系我们：400-094-1580<a href="http://weibo.com/meixingroup" target="_blank"><img
@@ -454,6 +458,12 @@
             trigger: 'hover',
             content: '<img style="width: 200px;padding:0;margin:0;" src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/meixin_new_qr_code_300x300.jpg" />'
         });
+
+        $('.red_packets').hover(function () {
+            $('.activity_message').show();
+        }, function () {
+            $('.activity_message').hide();
+        });
     });
 </script>
 <script>
@@ -470,7 +480,18 @@
         function no_login() {
             window.location = '/login.html';
         }
-
+        //获取红包活动接口
+        Ajax_Data({
+            "url": baseUrl + "/promotion/redpacket",
+            "data": null,
+            "fn": get_redpacket
+        });
+        function get_redpacket(d) {
+            if (d && d.name != '' && d.name != null) {
+                $('.activity_message p.text').html(d.title);
+                $('.coupon').show();
+            }
+        }
         //is_login  调取登录接口
         function is_login(res) {
             $('.navbar ul li:last-child').html('<a class="btn btn-min-width" href="/investor/dashboard.html">我的账户</a>');
