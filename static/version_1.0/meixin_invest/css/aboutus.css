@@ -73,15 +73,17 @@ section .nav li {
 .about-us-home .row{
   text-align: center;
 }
-
 .about-us-home .row img{
+  height: 100px;
+}
+.about-us-home .wallstreetguides .row img{
   width: 150px;
   height: 150px;
 }
 .about-us-home .wallstreetguides .row p{
   text-align: center;
-  line-height: 26px;
-  padding-top: 0;
+  line-height: 22px;
+  padding-top: 8px;
   color: #39576D;
   font-weight: bold;
 }
