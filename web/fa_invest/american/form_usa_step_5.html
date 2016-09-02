@@ -256,13 +256,7 @@
                             div.append('<div><a href=' + res[key].url + ' target="_blank">' + res[key].document_name + '</a><br></div>');
                             break;
                     }
-                });/*
-                var not_ach_doc = div.clone();
-                not_ach_doc.children().first().remove();
-                var check_box = not_ach_doc.clone();
-                $('.ach-online-box .agreement').append(div);
-                $('.bank-tt-box .agreement').append(not_ach_doc);
-                $('.check-box .agreement').append(check_box);*/
+                });
                 $('.agreement').append(div);
                 $('#agreements-preview').find('a.get_pdf').on('click', function () {
                     var result = "";
