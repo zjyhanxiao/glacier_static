@@ -677,20 +677,20 @@
         <tr>
             <td width="30" class="zjy-firstline">1</td>
             <td width="800" colspan="2">Name of individual who is the beneficial owner
-                <p id="w8-name">${name}</p>
+                <p id="w8-name">${first_name}${last_name}</p>
             </td>
         </tr>
         <tr>
             <td class="zjy-firstline">2</td>
             <td colspan="2">Country of citizenship
-                <p id="w8-country-of-citizenship">${country}</p>
+                <p id="w8-country-of-citizenship">${nationality}</p>
             </td>
         </tr>
         <tr>
             <td class="zjy-firstline" rowspan="2">3</td>
             <td colspan="2">Permanent residence address (street, apt. or suite no., or rural route). <b>Do not
                 use a P.O. box or in-care-of address.</b>
-                <p id="w8-permanent-address">${street_address_1}</p>
+                <p id="w8-permanent-address">${permanent_address_street}${permanent_address_apartment}${permanent_address_door}</p>
             </td>
         </tr>
         <tr>
@@ -704,7 +704,7 @@
         <tr>
             <td class="zjy-firstline" rowspan="2">4</td>
             <td colspan="2">Mailing address (if different from above)
-                <p id="w8-mailing-address">${mailing_address_street_address_1}</p>
+                <p id="w8-mailing-address">${mailing_address_street}${mailing_address_apartment}${mailing_address_door}</p>
             </td>
         </tr>
         <tr>
@@ -725,14 +725,14 @@
         <tr>
             <td class="zjy-firstline">6</td>
             <td colspan="2">Foreign tax identifying number (see instructions)
-                <p id="w8-foreign-tax-id">${tax_id_number}</p>
+                <p id="w8-foreign-tax-id">${tax_card_number}</p>
             </td>
         </tr>
 
         <tr>
             <td class="zjy-firstline">7</td>
             <td colspan="2">Reference number(s) (see instructions)
-                <p id="w8-reference-id">${tax_id_number}</p>
+                <p id="w8-reference-id">${tax_card_number}</p>
             </td>
         </tr>
 
@@ -752,7 +752,7 @@
     </div>
     <ol class="zjy-part2" start="9">
         <li>I certify that the beneficial owner is a resident of<span class="zjy-udata"
-                                                                      id="w8-resident-of-country">${country}</span> within
+                                                                      id="w8-resident-of-country">${mailing_address_country}</span> within
             the
             meaning of the income tax treaty
             between the United States and that country.
@@ -806,7 +806,7 @@
         <div class="zjy-signRight zjy-fl">
             <div class="zjy-signAndDate zjy-clearfix">
                 <div class="zjy-signImg zjy-fl">
-                    <div class="zjy-signItem"><img id="w8-signature" src="${user_signature_base64}"/></div>
+                    <div class="zjy-signItem"><img style="height: 30px;" id="w8-signature" src="${signature}"/></div>
                     <p>Signature of beneficial owner (or individual authorized to sign for beneficial owner)</p>
                 </div>
                 <div class="zjy-dateShow zjy-fr">
@@ -816,7 +816,7 @@
             </div>
             <div class="zjy-signerAndCapacity zjy-clearfix">
                 <div class="zjy-signer zjy-fl">
-                    <div class="zjy-singerItem" id="w8-print-name">${name}</div>
+                    <div class="zjy-singerItem" id="w8-print-name">${first_name}${last_name}</div>
                     <p>Print name of signer</p>
                 </div>
                 <div class="zjy-capacity zjy-fr">
