@@ -400,6 +400,21 @@
             $('.navbar ul li:nth-last-child(2)').html('<a class="btn btn-min-width-sm logout" href="javascript:;">退出</a>');
             $('.ajax_wait p,.ajax_wait').hide();
 
+            // 获取投资金额
+            var get_invest_data = {};
+            get_invest_data.order_number = order_number;
+            get_invest_data = $.extend({}, get_invest_data, cookie_tooken);
+            Ajax_Data({
+                "url": baseUrl + "/order/" + order_number,
+                "data": get_invest_data,
+                "fn": invest_data
+            });
+            // 获取用户投资金额
+            function invest_data(d) {
+                if (d.invest_amount != '' && d.invest_amount != null) {
+                    $('#invest-amount').val(d.invest_amount);
+                }
+            }
             // 获取相关信息
             var get_about_data = {"product_id": product_id};
             get_about_data = $.extend({}, get_about_data, cookie_tooken);
@@ -429,7 +444,7 @@
                 $.each(res, function (key) {
                     switch (res[key].need_check) {
                         case true:
-                            div.append('<div><input type="checkbox" id="doc_' + res[key].id + '" name=' + res[key].document_name + ' required="" data-parsley-required-message="请填写信息"/><label for="#doc_' + res[key].id + '"><span><span class="invest-check-mark"></span></span>我已认真阅读并接受<a href=' + res[key].url + ' class="get_pdf" data-document-id=' + res[key].id + '>' + res[key].document_name + '</a></label><br></div>');
+                            div.append('<div><input type="checkbox" id="doc_' + res[key].id + '" name=' + res[key].document_name + ' required="" data-parsley-required-message="请填写信息"/><label for="#doc_' + res[key].id + '"><span><span class="invest-check-mark"></span></span>我已认真阅读并接受<a href=' + res[key].url + ' class="" data-document-id=' + res[key].id + ' target="_blank">' + res[key].document_name + '</a></label><br></div>');
                             break;
                         case false:
                             div.append('<div><a href=' + res[key].url + ' target="_blank">' + res[key].document_name + '</a><br></div>');
@@ -539,7 +554,7 @@
                     div.append('<div><input type="checkbox" id="#doc" required="" data-parsley-required-message="请填写信息"/>' +
                             '<label for="#doc">' +
                             '<span><span class="invest-check-mark"></span></span>我已认真阅读并接受' +
-                            '<a href=' + d.ach.document + '>《ACH AUTHORIZATION AGREEMENT》</a></label><br></div>');
+                            '<a href=' + d.ach.document + ' target="_blank">《ACH AUTHORIZATION AGREEMENT》</a></label><br></div>');
                     if ($('.ach-online-box .agreement').length > 0) {
                         $('.ach-online-box .agreement').prepend(div);
                     } else {

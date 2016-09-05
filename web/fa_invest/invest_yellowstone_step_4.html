@@ -360,8 +360,8 @@
                     $(this).val('');
                     alert('图片格式不正确，支持图片格式(.jpg|.jpeg|.png|.gif|.bmp)');
                 } else {
-                    file_upload();
                     $(this).siblings('img').attr('src', URL.createObjectURL(event.target.files[0]));
+                    file_upload($(this));
                 }
             });
 
@@ -477,7 +477,7 @@
             }
         }
 
-        function file_upload() {
+        function file_upload(id) {
             var formData = new FormData($('form')[0]);
             formData.append('file', $("#address-proof")[0].files[0]);
             formData.append('mx_token', mx_token);
@@ -494,6 +494,7 @@
                 success: function (result, status) {
                     if (result.code == 1) {
                         address_proof = result.body;
+                        id.siblings('img').attr('src',address_proof);
                     }
                     if (result.code == -1) {
                         alert("上传失败,请重新上传");
