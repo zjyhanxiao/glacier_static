@@ -936,7 +936,7 @@
             //投资期限
             returnRate.next().children("span:first").text(product.invest_term);
             //最小起投金额
-            if (minimum_invest_amount >= 10000) {
+            if (product.minimum_invest_amount >= 10000) {
                 returnRate.next().next().children("span:first").text(minimum_invest_amount).siblings('span').text('万美元');
             } else {
                 returnRate.next().next().children("span:first").text(minimum_invest_amount);
