@@ -871,19 +871,20 @@
                     html += '<div class="order_list">' +
                             '<h4>' + d[i].product_name + ' ' + d[i].product_number + '<span' + ' class="invest_status">投资状态：' + d[i].status_desc + '</span></h4>' +
                             '<ul class="invest_table clearfix">' +
-                            '<li>产品类型：债权型</li>' +
+//                            '<li>产品类型：债权型</li>' +
+                            '<li class="hide">投资总额： ' + invest_amount + '</li>' +
                             '<li>总金额：' + total_amount + '</li>' +
                             '<li>累计收益：' + total_income + '</li>' +
                             '<li>投资日期：' + d[i].created_at + '</li>' +
                             '<li>投资周期：' + d[i].invest_term + '个月</li>' +
                             '<li><button class="status_btn more" data-show="0">显示更多</button></li>' +
-                            '<li class="hide">投资总额： ' + invest_amount + '</li>' +
                             '<li class="hide">入金金额：' + received_amount + '</li>' +
                             '<li class="hide">入金余额：' + received_balance + '</li>' +
                             '<li class="hide">可提现金额：' + withdraw_able_amount + '</li>' +
                             '<li class="hide">投资收益：' + invest_income + '</li>' +
                             '<li class="hide">权益收益：' + promotion_income + '</li>' +
                             '<li class="hide">' + promotion + '</li>' +
+                            '<li class="hide"></li>' +
                             '<li class="hide"><a href=' + d[i].sub_doc_url + ' target="_blank">合同</a></li>' +
                             '<li class="hide">' + can_withdraw + '</li></ul></div>';
                 });
@@ -934,7 +935,7 @@
                     html += '<div class="order_list">' +
                             '<h4>' + d[i].product_name + ' ' + d[i].product_number + ' <span class="redeem_date">赎回日期：d[i].refund_date</span></h4>' +
                             '<ul class="invest_table clearfix">' +
-                            '<li>产品类型：债券型</li>' +
+//                            '<li>产品类型：债券型</li>' +
                             '<li>总金额：$' + d[i].total_amount + '</li>' +
                             '<li>累计收益：$' + d[i].total_income + '</li>' +
                             '<li>投资日期：' + d[i].created_at + '</li>' +
@@ -1005,17 +1006,18 @@
                     html += '<div class="order_list">' +
                             '<h4>' + d[i].product_name + ' ' + d[i].product_number + '</h4>' +
                             '<ul' + ' class="invest_table clearfix">' +
-                            '<li>产品类型：债券型</li>' +
+//                            '<li>产品类型：债券型</li>' +
+                            '<li>投资市场价值：$' + d[i].invest_amount + '</li>' +
                             '<li>总金额：$' + d[i].total_amount + '</li>' +
                             '<li>投资周期：' + d[i].invest_term + '月起</li>' +
                             '<li>投资日期：' + d[i].created_at + '</li>' +
                             '<li>最新NAV：' + d[i].current_nav + '</li>' +
                             '<li>投资状态：' + d[i].status_desc + '</li>' +
-                            '<li>投资市场价值：$' + d[i].invest_amount + '</li>' +
                             '<li>入金金额：$' + received_amount + '</li>' +
                             '<li>入金余额：$' + received_balance + '</li>' +
                             '<li>投资份数：' + d[i].left_count + '</li>' +
                             '<li>购买时NAV：' + d[i].first_nav + '</li>' +
+                            '<li>&nbsp;</li>' +
                             '<li>&nbsp;</li>' +
                             '<li></li><li><a href=' + d[i].sub_doc_url + '>合同</a></li>' +
                             '<li><button class="status_btn buy_again" data-product_id=' + d[i].product_id + ' data-invest_amount=' + d[i].invest_amount + '>再次购买</button> ' +
