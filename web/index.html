@@ -887,9 +887,9 @@
             var returnRate = $("#newUserPlain").find("div:first");
             returnRate.find("span:first").text(rate.toFixed(1));
             //投资期限
-            returnRate.next().children("span:first").text(product.investTerm);
+            returnRate.next().children("span:first").text(product.invest_term);
             //最小起投金额
-            returnRate.next().next().children("span:first").text(product.minimumInvestAmount);
+            returnRate.next().next().children("span:first").text(product.minimum_invest_amount);
             //点击的按钮
             $("#newUserPlain").children("div:last").prev().children("a").attr("href", "/products/anxin_plan.html?product_id=" + product.id);
         }
