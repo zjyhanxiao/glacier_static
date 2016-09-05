@@ -144,6 +144,7 @@
 
 
             $('#submit_step_two').on('click', function () {
+                $(this).prop('disabled',true);
                 if ($('.fa-steps').parsley().validate()) {
                     $('.ajax_wait').show();
                     setTimeout(function () {
@@ -171,7 +172,8 @@
                         "fail_fn": update_profile_fail
                     });
                     return false;
-                }
+                }else{
+                    $(this).prop('disabled',false);}
             });
 
             //获取profile信息

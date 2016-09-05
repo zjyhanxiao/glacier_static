@@ -134,6 +134,7 @@
             $('.ajax_wait p,.ajax_wait').hide();
 
             $('#submit_step_two').on('click', function () {
+                $(this).prop('disabled',true);
                 if ($('.fa-steps').parsley().validate()) {
                     $('.ajax_wait').show();
                     setTimeout(function () {
@@ -142,6 +143,8 @@
 
                     order_number = getUrlParam("order_number");
                     window.location="/fa_invest/american/form_usa_step_3.html?order_number=" + order_number;
+                }else{
+                    $(this).prop('disabled',false);
                 }
             })
         }

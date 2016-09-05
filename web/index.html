@@ -1003,35 +1003,6 @@
         });
     }
 
-    // 取cookie
-    var mx_token = $.cookie('mx_token'),
-            mx_secret = $.cookie('mx_secret');
-    cookie_tooken = {mx_token: mx_token, mx_secret: mx_secret};
-    //用户登录操作
-/*    function login() {
-        $.ajax({
-            url: baseUrl + "/auth/authentication",
-            type: "get",
-            data: cookie_tooken,
-            success: function (data) {
-//                console.log(JSON.stringify(data));
-                switch (data.code) {
-                        //未登录
-                    case -1:
-                        $("span.no_login").css("display", "");
-                        $("span.login").css("display", "none");
-                        break;
-                        //已登陆
-                    case 1:
-                        $('.navbar ul li:last-child').html('<a class="btn btn-min-width" href="/investor/dashboard.html">我的账户</a>');
-                        $('.navbar ul li:nth-last-child(2)').html('<a class="btn btn-min-width-sm logout" href="javascript:;">退出</a>');
-                        $("span.no_login").css("display", "none");
-                        $("span.login").css("display", "");
-                        break;
-                }
-            }
-        });
-    }*/
 </script>
 <script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/js/index.min.js"></script>
 <script>

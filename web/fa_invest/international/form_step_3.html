@@ -136,6 +136,7 @@
 
 
             $('#submit_step_four').on('click', function () {
+                $(this).prop('disabled',true);
                 if ($('.fa-steps').parsley().validate()) {
                     $('.ajax_wait').show();
                     setTimeout(function () {
@@ -160,6 +161,8 @@
                         "fail_fn": update_profile_fail
                     });
                     return false;
+                }else{
+                    $(this).prop('disabled',false);
                 }
             });
 

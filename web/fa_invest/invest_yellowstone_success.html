@@ -341,8 +341,8 @@
                     var str = '<p style="font-weight:600">汇款银行信息：</p>' +
                             '<p>银行名（Beneficiary Bank：): '+bank_name+'</p>' +
                             '<p>账户名（Account Name): '+account_name+'</p>' +
-                            '<p>账户号（Account No）: "+account_number+"</p>' +
-                            '<p>地址（Address）: '+account_address+'</p>' +
+                            '<p>账户号（Account No）: '+account_number+'</p>' +
+                            '<p>地址（Address）: '+bank_address+'</p>' +
                             '<p>Swift Code: '+swift_code+'</p>' +
                             '<p>A/C # at BNY: '+routing_number+'</p>' +
                             '<p>Reference: &lt;'+reference+'&gt;</p><br>';
@@ -354,32 +354,32 @@
                 }
                 if (d.is_middle_bank_enabled == 1) {
                     var remark = '', account_address = '', account_name = '', account_number = '', bank_address = '', bank_name = '', reference = '', routing_number = '', swift_code = '';
-                    if (d.receiveBank.remark != '' && d.receiveBank.remark != null) {
-                        remark = d.receiveBank.remark;
+                    if (d.middleBank.remark != '' && d.middleBank.remark != null) {
+                        remark = d.middleBank.remark;
                     }
-                    if (d.receiveBank.account_name != '' && d.receiveBank.account_name != null) {
-                        account_name = d.receiveBank.account_name;
+                    if (d.middleBank.account_name != '' && d.middleBank.account_name != null) {
+                        account_name = d.middleBank.account_name;
                     }
-                    if (d.receiveBank.account_address != '' && d.receiveBank.account_address != null) {
-                        account_address = d.receiveBank.account_address;
+                    if (d.middleBank.account_address != '' && d.middleBank.account_address != null) {
+                        account_address = d.middleBank.account_address;
                     }
-                    if (d.receiveBank.account_number != '' && d.receiveBank.account_number != null) {
-                        account_number = d.receiveBank.account_number;
+                    if (d.middleBank.account_number != '' && d.middleBank.account_number != null) {
+                        account_number = d.middleBank.account_number;
                     }
-                    if (d.receiveBank.routing_number != '' && d.receiveBank.routing_number != null) {
-                        routing_number = d.receiveBank.routing_number;
+                    if (d.middleBank.routing_number != '' && d.middleBank.routing_number != null) {
+                        routing_number = d.middleBank.routing_number;
                     }
-                    if (d.receiveBank.swift_code != '' && d.receiveBank.swift_code != null) {
-                        swift_code = d.receiveBank.swift_code;
+                    if (d.middleBank.swift_code != '' && d.middleBank.swift_code != null) {
+                        swift_code = d.middleBank.swift_code;
                     }
-                    if (d.receiveBank.bank_name != '' && d.receiveBank.bank_name != null) {
-                        bank_name = d.receiveBank.bank_name;
+                    if (d.middleBank.bank_name != '' && d.middleBank.bank_name != null) {
+                        bank_name = d.middleBank.bank_name;
                     }
-                    if (d.receiveBank.bank_address != '' && d.receiveBank.bank_address != null) {
-                        bank_address = d.receiveBank.bank_address;
+                    if (d.middleBank.bank_address != '' && d.middleBank.bank_address != null) {
+                        bank_address = d.middleBank.bank_address;
                     }
-                    if (d.receiveBank.reference != '' && d.receiveBank.reference != null) {
-                        reference = d.receiveBank.reference;
+                    if (d.middleBank.reference != '' && d.middleBank.reference != null) {
+                        reference = d.middleBank.reference;
                     }
                     var str = '<p style="font-weight: 600;">中间银行信息（此信息仅用于银行询问）：</p>' +
                             '<p>银行名（Intermediary Bank):' + bank_name + '</p>' +
