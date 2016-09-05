@@ -995,7 +995,7 @@
                 return;
             }
             //项目名称
-            var name = product.name || "理财产品";
+            var name = product.name+''+product.number || "理财产品";
             var childList = $(this).children("td");
             $(childList[0]).text(name);
             //预计年化收益率
