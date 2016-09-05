@@ -206,12 +206,12 @@ span.icon {
 
 #hero .container {
   position: relative;
-  min-height: 440px;
+  /*min-height: 440px;*/
 }
 
 @media (max-width: 768px) {
   #hero .container {
-    min-height: 100px!important;
+    /*min-height: 100px!important;*/
   }
 }
 
@@ -1209,20 +1209,20 @@ label {
 
 #home #hero {
   background-image: url(../img/pic1.jpg);
-  height: 500px;
+  /*height: 500px;*/
   overflow: hidden;
   text-align: left;
 }
 
 @media (max-width: 767px) {
   #home #hero {
-    height: 570px;
+    /*height: 570px;*/
   }
 }
 
 @media (max-width: 520px) {
   #home #hero {
-    height: 420px;
+    /*height: 420px;*/
   }
 }
 
@@ -1268,7 +1268,7 @@ label {
 }
 
 #home #hero .container {
-  height: 550px;
+  /*height: 550px;*/
 }
 
 #home #hero .icon-play {
