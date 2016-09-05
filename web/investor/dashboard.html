@@ -1142,7 +1142,6 @@
                     }
                 });
                 if (can_view) {
-
                     $('.modal-body').hide();
                     var str = '<table>' +
                             '<tr><td>用户名：</td><td colspan="3">user_name</td></tr>' +
@@ -1348,10 +1347,10 @@
                     "type": "post",
                     "url": baseUrl + "/withdraw/submit",
                     "data": withdraw_submit_data,
-                    "fn": withdraw_submit,
+                    "fn": lh_withdraw_submit,
                     "fail_fn": withdraw_fail
                 });
-                function withdraw_submit(d) {
+                function lh_withdraw_submit(d) {
                     $('.modal-body-success').hide();
                     $('.modal-footer').html('<p>提交成功</p>您的提现申请已提交成功，我们会尽快办理，请您保持通讯畅通，以方便与您联系。').show();
                 }
