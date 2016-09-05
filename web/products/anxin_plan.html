@@ -673,6 +673,8 @@
                                 if (investment_process == 'non_crowd') {
                                     $('.product_top_section .row').append('<a id="invest-button" type="button" class="btn btn-primary" data-titlename="' + d.name + ' ' + d.number + ' " style="padding:6px 60px" href="/fa_invest/invest_yellowstone_step_1.html?product_id=' + product_id + '&invest_value=' + invest_value + '">立 即 投 资</a>');
                                 }
+                            } else {
+                                window.location.href = '/blocker3.html';
                             }
                         }
                         if (investor_type == 2) {
