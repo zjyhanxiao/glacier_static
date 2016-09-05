@@ -99,6 +99,7 @@ function getUrlParam(name) {
 
 var product_id = getUrlParam('product_id') || 7;//获取产品id
 var product_invest_amount = getUrlParam('product_invest_amount') || 10000;//获取投资金额
+var order_number = getUrlParam('order_number') || null;
 
 // var baseUrl = 'http://192.168.1.100:8080/web';
 
@@ -107,11 +108,11 @@ $(function () {
     setTimeout(function () {
         $('.ajax_wait p').show();
     }, 3e3);
-    $('body').on('click','.previous', function () {
+    $('body').on('click', '.previous', function () {
         window.history.go(-1);
     });
     $('.ajax_wait p,.ajax_wait').hide();
-    $('body').on('click','.logout',function () {
+    $('body').on('click', '.logout', function () {
         Ajax_Data({
             "url": baseUrl + "/auth/logout",
             "data": cookie_tooken,
@@ -121,36 +122,36 @@ $(function () {
             //清楚cookie
             $.cookie('mx_token', null, {expires: -1});
             $.cookie('mx_secret', null, {expires: -1});
-            window.location='/';
+            window.location = '/';
         }
     });
     // 调取 登录接口
-/*    Ajax_Data({
-        "url": baseUrl + "/auth/login",
-        "type": "post",
-        //"data": {"user_name": "+86 15001393659", "password": "123456789"},
-        //"data": {"user_name": "+86 13146046568", "password": "111111"},
-        "data": {"user_name": "+86 13888888888", "password": "111111"},
-        //"data": {"user_name": "+86 18810797876", "password": "111111"},
-        "fn": login,
-        "fail_fn": login_fail
-    });
+    /*    Ajax_Data({
+     "url": baseUrl + "/auth/login",
+     "type": "post",
+     //"data": {"user_name": "+86 15001393659", "password": "123456789"},
+     //"data": {"user_name": "+86 13146046568", "password": "111111"},
+     "data": {"user_name": "+86 13888888888", "password": "111111"},
+     //"data": {"user_name": "+86 18810797876", "password": "111111"},
+     "fn": login,
+     "fail_fn": login_fail
+     });
 
-    function login_fail(d) {
-        $('.ajax_wait p,.ajax_wait').hide();
-        alert(d);
-    }
+     function login_fail(d) {
+     $('.ajax_wait p,.ajax_wait').hide();
+     alert(d);
+     }
 
-    function login(res) {
-        $('.navbar ul li:last-child').html('<a class="btn btn-min-width" href="/investor/dashboard">我的账户</a>');
-        $('.navbar ul li:nth-last-child(2)').html('<a class="btn btn-min-width-sm" href="/logout">退出</a>');
-        $('.ajax_wait p,.ajax_wait').hide();
+     function login(res) {
+     $('.navbar ul li:last-child').html('<a class="btn btn-min-width" href="/investor/dashboard">我的账户</a>');
+     $('.navbar ul li:nth-last-child(2)').html('<a class="btn btn-min-width-sm" href="/logout">退出</a>');
+     $('.ajax_wait p,.ajax_wait').hide();
 
-        //清楚cookie
-        $.cookie('mx_token', '', {expires: -1});
-        $.cookie('mx_secret', '', {expires: -1});
-        // 设置cookie
-        $.cookie('mx_token', res.mx_token, {expires: 10});
-        $.cookie('mx_secret', res.mx_secret, {expires: 10});
-    }*/
+     //清楚cookie
+     $.cookie('mx_token', '', {expires: -1});
+     $.cookie('mx_secret', '', {expires: -1});
+     // 设置cookie
+     $.cookie('mx_token', res.mx_token, {expires: 10});
+     $.cookie('mx_secret', res.mx_secret, {expires: 10});
+     }*/
 });

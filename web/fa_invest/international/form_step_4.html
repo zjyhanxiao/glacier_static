@@ -697,7 +697,7 @@
         // 提交订单
         function commit_order() {
             $('.ajax_wait p,.ajax_wait').hide();
-            window.location = "/fa_invest/form_success.html";
+            window.location = "/fa_invest/form_success.html?order_number=" + order_number+"&product_id="+product_id;
         }
     })
 </script>
