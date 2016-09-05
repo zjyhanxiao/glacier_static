@@ -59,21 +59,21 @@ $(document).ready(function () {
         if (referral != '') {
             $.ajax({
                 type: 'get',
-                url: baseUrl + "/verifyReferralCode",
+                url: baseUrl + "/referral_code/verify",
                 data: data,
                 success: function (res) {
-                    if (res.code == 1) {
-                        $(".page1-error-div").html("<div class='alert alert-warning' style='height: 45px; margin-top: -18px; background-color: #fff; border: none; font-size: 12px; color: orangered'>" + '邀请码有效  注册成功后礼品卡将发送至您的邮箱!' + "</div>");
-                        $(".page2-error-div").html("<div class='alert alert-warning' style='font-size: 12px; color: orangered'>" + '邀请码有效  注册成功后礼品卡将发送至您的邮箱!' + "</div>");
+                    if (res.body.code == 1) {
+                        $(".page1-error-div").html("<div class='alert alert-warning' style='text-align:center; height: 45px; margin-top: -18px; background-color: #fff; border: none; font-size: 12px; color: orangered'>" + '邀请码有效  注册成功后礼品卡将发送至您的邮箱!' + "</div>");
+                        $(".page2-error-div").html("<div class='alert alert-warning' style='text-align: center; font-size: 12px; color: orangered'>" + '邀请码有效  注册成功后礼品卡将发送至您的邮箱!' + "</div>");
                     }
-                    if (res.code == 2 || res.code == 3) {
-                        $(".page1-error-div").html("<div class='alert alert-warning' style='height: 45px; margin-top: -18px; background-color: #fff; border: none; font-size: 12px; color: orangered'>" + '亲爱的用户，邀请码失效,活动礼品已全部派完，感谢您对美信金融的关注!' + "</div>");
-                        $(".page2-error-div").html("<div class='alert alert-warning' style='font-size: 12px; color: orangered'>" + '亲爱的用户，邀请码失效,活动礼品已全部派完，感谢您对美信金融的关注!' + "</div>");
+                    if (res.body.code == 2 || res.body.code == 3) {
+                        $(".page1-error-div").html("<div class='alert alert-warning' style='text-align: center; height: 45px; margin-top: -18px; background-color: #fff; border: none; font-size: 12px; color: orangered'>" + '亲爱的用户，邀请码失效,活动礼品已全部派完，感谢您对美信金融的关注!' + "</div>");
+                        $(".page2-error-div").html("<div class='alert alert-warning' style='text-align: center; font-size: 12px; color: orangered'>" + '亲爱的用户，邀请码失效,活动礼品已全部派完，感谢您对美信金融的关注!' + "</div>");
                         return false;
                     }
-                    if (res.code == 4) {
-                        $(".page1-error-div").html("<div class='alert alert-warning' style='height: 45px; margin-top: -18px; background-color: #fff; border: none; font-size: 12px; color: orangered'>" + '亲爱的用户,您的验证码错误,请核对后填写!' + "</div>");
-                        $(".page2-error-div").html("<div class='alert alert-warning' style='font-size: 12px; color: orangered'>" + '亲爱的用户,您的验证码错误,请核对后填写!' + "</div>");
+                    if (res.body.code == 4) {
+                        $(".page1-error-div").html("<div class='alert alert-warning' style='text-align: center; height: 45px; margin-top: -18px; background-color: #fff; border: none; font-size: 12px; color: orangered'>" + '亲爱的用户,您的验证码错误,请核对后填写!' + "</div>");
+                        $(".page2-error-div").html("<div class='alert alert-warning' style='text-align: center; font-size: 12px; color: orangered'>" + '亲爱的用户,您的验证码错误,请核对后填写!' + "</div>");
                         return false;
                     }
                 }

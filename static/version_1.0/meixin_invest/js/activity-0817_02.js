@@ -35,8 +35,8 @@ $(function () {
                 clearInterval(stop);
             }
             $.ajax({
-                type: "get",
-                url: "/sendVerifyCode",
+                type: "post",
+                url: baseUrl + "/verify_code/send",
                 data: verify_data,
                 success: function (result) {
                 }
@@ -63,10 +63,9 @@ $(function () {
         if (b_checkPhone && b_checkPwd && b_checkEmail && b_verify_code) {
             $.ajax({
                 type: 'post',
-                url: "/simple_signup",
+                url: baseUrl + "/auth/signup",
                 data: signup_data,
                 success: function (res) {
-                    // console.log(JSON.stringify(res));
                     if (res.code == 1) {
                         $("form").remove();
                         $("div").remove(".bg-logo");
@@ -78,7 +77,7 @@ $(function () {
             })
         }
         return false;
-    })
+    });
 //位手机号码11
     function checkPhone() {
         var phoneEle = document.getElementById("phone");
