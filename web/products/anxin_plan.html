@@ -661,17 +661,16 @@
                         $('#invest-sub').removeClass('btn-default').prop('disabled', false);
                     }
                 });
-                var invest_value = $('#invest-number').val();
                 //投资状态
                 switch (d.status) {
                     case "FOR_INVEST": //在售
                         if (investor_type == 1) {
                             if (d.international == 1) {
                                 if (investment_process == 'crowd_international') {
-                                    $('.product_top_section .row').append('<a id="invest-button" type="button" class="btn btn-primary" data-titlename="' + d.name + ' ' + d.number + ' " style="padding:6px 60px" href="/fa_invest/international/form_step_1.html?product_id=' + product_id + '&product_invest_amount=' + invest_value + '">立 即 投 资</a>');
+                                    $('.product_top_section .row').append('<a id="invest-button" type="button" class="btn btn-primary" data-titlename="' + d.name + ' ' + d.number + ' " style="padding:6px 60px" href="/fa_invest/international/form_step_1.html?product_id=' + product_id+'">立 即 投 资</a>');
                                 }
                                 if (investment_process == 'non_crowd') {
-                                    $('.product_top_section .row').append('<a id="invest-button" type="button" class="btn btn-primary" data-titlename="' + d.name + ' ' + d.number + ' " style="padding:6px 60px" href="/fa_invest/invest_yellowstone_step_1.html?product_id=' + product_id + '&product_invest_amount=' + invest_value + '">立 即 投 资</a>');
+                                    $('.product_top_section .row').append('<a id="invest-button" type="button" class="btn btn-primary" data-titlename="' + d.name + ' ' + d.number + ' " style="padding:6px 60px" href="/fa_invest/invest_yellowstone_step_1.html?product_id=' + product_id + '">立 即 投 资</a>');
                                 }
                             } else {
                                 window.location.href = '/blocker3.html';
@@ -680,10 +679,10 @@
                         if (investor_type == 2) {
                             if (d.american == 1) {
                                 if (investment_process == 'crowd_america') {
-                                    $('.product_top_section .row').append('<a id="invest-button" type="button" class="btn btn-primary" data-titlename="' + d.name + ' ' + d.number + ' " style="padding:6px 60px" href="/fa_invest/american/form_usa_step_1.html?product_id=' + product_id + '&product_invest_amount=' + invest_value + '">立 即 投 资</a>');
+                                    $('.product_top_section .row').append('<a id="invest-button" type="button" class="btn btn-primary" data-titlename="' + d.name + ' ' + d.number + ' " style="padding:6px 60px" href="/fa_invest/american/form_usa_step_1.html?product_id=' + product_id + '">立 即 投 资</a>');
                                 }
                                 if (investment_process == 'non_crowd') {
-                                    $('.product_top_section .row').append('<a id="invest-button" type="button" class="btn btn-primary" data-titlename="' + d.name + ' ' + d.number + ' " style="padding:6px 60px" href="/fa_invest/invest_yellowstone_step_1.html?product_id=' + product_id + '&product_invest_amount=' + invest_value + '">立 即 投 资</a>');
+                                    $('.product_top_section .row').append('<a id="invest-button" type="button" class="btn btn-primary" data-titlename="' + d.name + ' ' + d.number + ' " style="padding:6px 60px" href="/fa_invest/invest_yellowstone_step_1.html?product_id=' + product_id + '">立 即 投 资</a>');
                                 }
                             } else {
                                 window.location.href = '/blocker2.html';
@@ -722,6 +721,12 @@
                         }
                         break;
                 }
+                $('body').on('click','#invest-button',function () {
+                    var invest_value = $('#invest-number').val();
+                    var str=$(this).attr('href');
+                    $(this).attr('href',str+'&product_invest_amount=' + invest_value);
+                    return false;
+                })
             }
         }
 
