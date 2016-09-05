@@ -164,7 +164,7 @@
                                         <button type="submit" id="book_submit" class="btn btn-primary" style="width: 100%">提交</button>
                                     </form>
                                 </div>
-                                <div class="modal-body-success">
+                                <div class="modal-body-success" style="text-align: center; padding: 0 5px;">
                                     <p>
                                         您已成功完成本产品的预约。美信的专业理财顾问将尽快与您取得联系。您可以在“我的账户”页面查看预约记录。
                                     </p>
@@ -504,7 +504,7 @@
 
         //is_login  调取登录接口
         function is_login(res) {
-            $('.navbar ul li:last-child').html('<a class="btn btn-min-width" href=" ">我的账户</a>');
+            $('.navbar ul li:last-child').html('<a class="btn btn-min-width" href="/investor/dashboard.html">我的账户</a>');
             $('.navbar ul li:nth-last-child(2)').html('<a class="btn btn-min-width-sm logout" href="javascript:;">退出</a>');
             $('.ajax_wait p,.ajax_wait').hide();
 
