@@ -10,13 +10,13 @@
     </title>
 	<script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
 	<script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/js/jquery.cookie.min.js"></script>
-	<script>
+	<!--<script>
 		var token1 = $.cookie('mx_token');
 		var token2 = $.cookie('mx_secret');
 		if (token1==undefined || token2==undefined) {
 			window.location = '/login.html';
 		}
-	</script>
+	</script>-->
 	<script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/js/is_ok.min.js"></script>
     <link rel="stylesheet" href="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/vendor/css/bootstrap.min.css">
     <link href="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/css/base.min.css" rel="stylesheet">
@@ -29,6 +29,27 @@
     <script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/vendor/js/respond.min.js"></script>
     <![endif]-->
 	<style>
+		/*暂放于此处*/
+		.uber-history{
+			width: 100%;
+		}
+		.uber-history-left{
+			float: left;
+			width: 50%;
+		}
+		.uber-history-right{
+			float: right;
+			width: 50%;
+		}
+		.test{
+			height: 124px;
+		}
+		.test li{
+			display: none;
+		}
+		.test li.active{
+			display: block;
+		}
 		.xxk .tab{
 
 			overflow: hidden;
@@ -44,14 +65,11 @@
 			background-color: #EEEEEE;
 			font-size: 18px;
 		}
-		.xxk .tab li a:hover{
-			text-decoration: none;
-			width: inherit;
-		}
 		.xxk .tab .active{
 			background-color: #fff;
 		}
 	</style>
+
 </head>
 <body>
 <div class="ajax_wait">
@@ -68,195 +86,211 @@
 <nav id="navChilantro">     <div class="page-top-bar">联系我们：400-094-1580<a href="http://weibo.com/meixingroup" target="_blank"><img src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/top_weibo_icon_55x47.png" /></a><a id="wechat-popover" data-toggle="popover"><img src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/top_wechat_icon_57x47.png" /></a>     <div class="top-float-right">         <a href="/faq.html">帮助中心</a>         <a href="//news.meixinfinance.com" target="_blank">财经资讯</a>         <a href="/about.html#05">加入我们</a>         <a href="/about.html#06">联系我们</a>     </div>     </div>     <div class="navbar" role="navigation">         <div class="container" style="padding-bottom: 0;">             <div class="navbar-header" style="display: inline;">                 <a id="logo" href="/" class="navbar-brand">                 </a> <span class="logo-alpha" style="font-size: 12px; float: left;">Beta</span>                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">                     <span class="sr-only">Toggle navigation</span>                     <span class="icon-bar"></span>                     <span class="icon-bar"></span>                     <span class="icon-bar"></span>                 </button>             </div>             <div class="navbar-collapse collapse">                 <ul class="nav navbar-nav navbar-right nav_right_on_mobile">                     <li><a href="/">首页</a></li>                     <li><a href="/product_list.html">全部产品</a></li>                     <li><a href="/newhelp.html">新手指引</a></li>                     <li><a href="/safety.html">安全保障</a></li>                     <li><a href="/about.html">关于美信</a></li> <!--                    <li style="float: right;">                         <a class="btn btn-min-width-sm logout" href="javascript:;">退出</a>                     </li>                     <li style="float: right;">                         <a class="btn btn-min-width"                            href="/investor/dashboard.html">我的账户<#if anxin1_interest_flag=="1"><span class="red_dot"></span></#if></a>                     </li>-->                     <li style="float: right;"><a class="login_no_margin_right nav_login_button" href="/login.html">登录</a></li>                     <li style="float: right;"><a href="/signup.html"                            class="hidden-xs nav_register_button">注册</a></li>                     <!--<li style="float: right;"><a href="/signup.html"                            class="visible-xs">注册</a></li>-->                  </ul>             </div>         </div>     </div> </nav> <style>     @media screen and (max-width: 768px){         .customerPage{             margin-top: 90px;         }         .navbar-fixed-top{             padding: 0!important;         }         #wrapper.customer nav .navbar .container{             padding-top: 0!important;             padding-bottom: 0!important;         }         .nav_right_on_mobile{             width: 100%;         }     } </style> <style>     @media screen and (max-width: 768px){         .navbar-fixed-top{             padding: 0!important;         }         .navbar-fixed-top .container{             padding-top: 0!important;             padding-bottom: 0!important;         }         .navbar-fixed-top{             position: fixed;         }     } </style>
 <div class="container">
     <section style="margin-top: 30px;">
-        <div class="row">
-            <div class="col-sm-offset-1 col-sm-10 col-xs-12">
-				<div class="xxk">
-					<ul class="tab" role="tablist">
-						<li role="description" class="active"><a href="/products/shengxin-SpaceX.html" aria-controls="home" role="tab" data-toggle="tab">SpaceX</a></li>
-						<li role="description"><a href="/products/shengxin-Uber.html" aria-controls="profile" role="tab" data-toggle="tab">Uber</a></li>
-						<li role="description"><a href="/products/shengxin-LendingHome.html" aria-controls="messages" role="tab" data-toggle="tab">LendingHome</a></li>
-						<li role="description"><a href="/products/shengxin-Unity.html" aria-controls="messages" role="tab" data-toggle="tab">Unity</a></li>
-					</ul>
-					<div class="tab-content">
-						<div id="spaceX" class="tab-test">
-							<div class="product_top_section">
-								<h2>盛心计划 - SpaceX Pre-IPO股权投资</h2>
-								<img style="width: 200px; padding-left: 3%" src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/products/shengxin_spacex_1024x126.png" /><br><br>
-								<a type="button" class="btn btn-primary" data-toggle="modal" data-titlename="盛心计划一期" data-target="#popup">立即预约</a>
-								<div class="modal fade" id="popup" tabindex="-1" role="dialog">
-									<div class="modal-dialog modal-sm" role="document">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-												<h4 class="modal-title" id="exampleModalLabel">申购预约</h4>
-											</div>
-											<!--  预约完成页面，处理完表单提交之后显示-->
-											<div class="is_book">
-												<p>
-													您已成功完成本产品的预约。美信的专业理财顾问将尽快与您取得联系。您可以在“我的账户”页面查看预约记录。
-												</p>
-												<a href="/" type="button" class="btn btn-primary">查看所有产品</a>
-											</div>
-											<div class="modal-body">
-												<form>
-													<input type="hidden" name="product_id" value="${product_id}">
-													<div class="<#if errors >alert alert-warning</#if>">
-													</div>
-													<div class="form-group">
-														<input class="form-control" id="id_user_contact_name" maxlength="128" name="user_contact_name" oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('请输入姓名！')" placeholder="姓名" required="required" type="text">
-													</div>
+		<div class="">
+			<div class="row">
+				<div class="col-sm-offset-1 col-sm-10 col-xs-12">
+					<div class="xxk">
+						<ul class="tab" role="tablist">
+							<li role="description"><a href="/products/shengxin-SpaceX.html" aria-controls="home" role="tab" data-toggle="tab">SpaceX</a></li>
+							<li role="description" class="active"><a href="/products/shengxin-Uber.html" aria-controls="profile" role="tab" data-toggle="tab">Uber</a></li>
+							<li role="description"><a href="/products/shengxin-LendingHome.html" aria-controls="messages" role="tab" data-toggle="tab">LendingHome</a></li>
+							<li role="description"><a href="/products/shengxin-Unity.html" aria-controls="messages" role="tab" data-toggle="tab">Unity</a></li>
+						</ul>
+						<div class="tab-content">
+							<div id="Uber" class="tab-test">
+								<div class="product_top_section">
+									<h2>盛心计划 — Uber 股权投资</h2>
+									<img style="width: 200px; padding-left: 3%" src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/products/uber.png" /><br><br>
+									<a type="button" class="btn btn-primary" data-toggle="modal" data-titlename="盛心计划一期" data-target="#popup">立即预约</a>
+									<div class="modal fade" id="popup" tabindex="-1" role="dialog">
+										<div class="modal-dialog modal-sm" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+													<h4 class="modal-title" id="exampleModalLabel">申购预约</h4>
+												</div>
+												<!--  预约完成页面，处理完表单提交之后显示-->
+												<div class="is_book">
+													<p>
+														您已成功完成本产品的预约。美信的专业理财顾问将尽快与您取得联系。您可以在“我的账户”页面查看预约记录。
+													</p>
+													<a href="/" type="button" class="btn btn-primary">查看所有产品</a>
+												</div>
+												<div class="modal-body">
+													<form>
+														<input type="hidden" name="product_id" value="${product_id}">
+														<div class="<#if errors >alert alert-warning</#if>">
+														</div>
+														<div class="form-group">
+															<input class="form-control" id="id_user_contact_name" maxlength="128" name="user_contact_name" oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('请输入姓名！')" placeholder="姓名" required="required" type="text">
+														</div>
 
-													<div class="form-group">
-														<input class="form-control" id="id_interested_amount" min="0" name="interested_amount" oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('请输入投资额！')" placeholder="感兴趣的投资额（美元）" required="required" type="number">
-													</div>
-													<div class="form-group">
-														<select class="input-medium bfh-countries form-control" data-country="CN"
-																id="countries_phone"
-																required="" style="width: 33%;display: inline-block;">
-														</select><input class="form-control bfh-phone" data-country="countries_phone" id="recipient-phone" maxlength="64" name="phone" oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('请输入电话号码！')" pattern=".{9,}" placeholder="电话号码" required="required" style="width: 63%;display: inline-block;margin-left: 2%;" type="text">
-													</div>
+														<div class="form-group">
+															<input class="form-control" id="id_interested_amount" min="0" name="interested_amount" oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('请输入投资额！')" placeholder="感兴趣的投资额（美元）" required="required" type="number">
+														</div>
+														<div class="form-group">
+															<select class="input-medium bfh-countries form-control" data-country="CN"
+																	id="countries_phone"
+																	required="" style="width: 33%;display: inline-block;">
+															</select><input class="form-control bfh-phone" data-country="countries_phone" id="recipient-phone" maxlength="64" name="phone" oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('请输入电话号码！')" pattern=".{9,}" placeholder="电话号码" required="required" style="width: 63%;display: inline-block;margin-left: 2%;" type="text">
+														</div>
 
-													<div class="form-group">
-														<input class="form-control" id="id_city" maxlength="255" name="city" oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('请输入所在城市！')" placeholder="所在城市（会根据您所在的城市联系您）" required="required" type="text">
-													</div>
-													<div class="form-group">
-														<textarea class="form-control" cols="40" id="id_question" name="question" placeholder="问题（选填）" rows="10" style="min-height:150px;"></textarea>
-													</div>
-													<button type="submit" id="book_submit" class="btn btn-primary" style="width: 100%">提交</button>
-												</form>
-											</div>
-											<div class="modal-body-success">
-												<p>
-													您已成功完成本产品的预约。美信的专业理财顾问将尽快与您取得联系。您可以在“我的账户”页面查看预约记录。
-												</p>
-												<a href="/" type="button" class="btn btn-primary">查看所有产品</a>
-											</div>
-											<div class="modal-footer">
-											</div>
+														<div class="form-group">
+															<input class="form-control" id="id_city" maxlength="255" name="city" oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('请输入所在城市！')" placeholder="所在城市（会根据您所在的城市联系您）" required="required" type="text">
+														</div>
+														<div class="form-group">
+															<textarea class="form-control" cols="40" id="id_question" name="question" placeholder="问题（选填）" rows="10" style="min-height:150px;"></textarea>
+														</div>
+														<button type="submit" id="book_submit" class="btn btn-primary" style="width: 100%">提交</button>
+													</form>
+												</div>
+												<div class="modal-body-success">
+													<p>
+														您已成功完成本产品的预约。美信的专业理财顾问将尽快与您取得联系。您可以在“我的账户”页面查看预约记录。
+													</p>
+													<a href="/" type="button" class="btn btn-primary">查看所有产品</a>
+												</div>
+												<div class="modal-footer">
+												</div>
 
+											</div>
 										</div>
 									</div>
-								</div>
-								<!--<a class="btn btn-primary" href="/protected">立即预约</a>-->
+									<!--<a class="btn btn-primary" href="/protected">立即预约</a>-->
 
-								<ul>
-									<li>当前估值<br><span>120亿</span></li>
-									<li>起投金额<br><span>$500,000</span></li>
-									<li>平台认购费用<br><span>0</span></li>
-								</ul>
-								<div class="clearLeft"></div>
-							</div>
-							<div class="product_mid_section">
-								<ul>
-									<li><img src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/products/shengxin_icon01_512x512.png"><span>当前估值折扣价购买原始股</span></li>
-									<li><img src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/products/shengxin_icon02_512x512.png"><span>特斯拉电动车明星创始人Elon Musk创立</span></li>
-									<li><img src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/products/shengxin_icon03_512x512.png"><span>接受谷歌及富达基金超过十亿美金投资</span></li>
-									<li><img src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/products/shengxin_icon04_512x512.png"><span>全球最受瞩目的科技独角兽之一</span></li>
-								</ul>
-							</div>
-							<div class="product_bot_section">
-								<div class="col-sm-5">
-									<h3>产品信息</h3>
 									<ul>
-										<li>SpaceX的创始人Elon Musk曾经成功使得3家自己创立的公司IPO或被收购，其估值分别为15-300亿美金不等。(特斯拉、Paypal与Solar City)</li>
-										<li>SpaceX目标是建造低成本可回收再利用的载人火箭。</li>
-										<li>SpaceX被知名公司及机构的融资支持，其中包括Google，DFJ，Founders Fund和富达基金等。</li>
-										<li>2008年SpaceX正式与NASA签署合同。</li>
-										<li>SpaceX今已签署了60项发射任务，合同金额合计70亿美元，是唯一盈利的私人航空公司。签署项目包括载人航天机登陆火星。</li>
-										<li>SpaceX将于Google合作并在未来数年发射数百颗卫星为全球提供廉价互联网服务。</li>
-										<li>销售截止日期：2016年6月15日</li>
+										<li>当前估值<br><span>690亿美金</span></li>
+										<li>起投金额<br><span>10万美金</span></li>
+										<li>平台认购费用<br><span>5%</span></li>
+									</ul>
+									<div class="clearLeft"></div>
+								</div>
+								<div class="product_mid_section">
+									<ul>
+										<li><img src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/products/shengxin_icon01_512x512.png"><span>当前估值购买原始股，股价上涨空间大</span></li>
+										<li><img src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/products/shengxin_icon02_512x512.png"><span>特拉维斯·卡兰尼克和加雷特·坎普创立</span></li>
+										<li><img src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/products/shengxin_icon03_512x512.png"><span>累计获得逾110亿美元现金和股权融资</span></li>
+										<li><img src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/products/shengxin_icon04_512x512.png"><span>全球估值最高的创业公司</span></li>
 									</ul>
 								</div>
-								<div class="col-sm-7">
-									<ul class="nav nav-tabs" role="tablist">
-										<li role="description" class="active"><a href="#01" aria-controls="home" role="tab" data-toggle="tab">营运及财务数据</a></li>
-										<li role="description"><a href="#02" aria-controls="profile" role="tab" data-toggle="tab">融资历史</a></li>
-										<li role="description"><a href="#03" aria-controls="messages" role="tab" data-toggle="tab">更多信息</a></li>
-									</ul>
-									<div class="tab-content">
-										<div role="tabpanel" class="tab-pane active" id="01">
-											<p>SpaceX的营运在历年来稳定上升，除了多次与NASA合作外，SpaceX在近年来不断增加合作伙伴。来源于NASA的收入将低于30%以下。</p>
-											<img style="width:75%;" src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/products/shengxin_statistic_687x629.png" />
-										</div>
-										<div role="tabpanel" class="tab-pane table-responsive" id="02">
-											<table>
-												<tr style="background-color: #029de0; color: #fff;">
-													<td>阶段</td>
-													<td>时间</td>
-													<td>金额</td>
-													<td>累积</td>
-													<td>状态</td>
-												</tr>
-												<tr>
-													<td>SeriesG</td>
-													<td>1/20/2015</td>
-													<td>$1.01B</td>
-													<td>$1.25B</td>
-													<td>完成</td>
-												</tr>
-												<tr>
-													<td>SeriesF</td>
-													<td>10/28/2010</td>
-													<td>$50.62M</td>
-													<td>$211.86M</td>
-													<td>完成</td>
-												</tr>
-												<tr>
-													<td>SeriesE</td>
-													<td>6/30/2009</td>
-													<td>$47.25M</td>
-													<td>$161.23M</td>
-													<td>完成</td>
-												</tr>
-												<tr>
-													<td>SeriesD</td>
-													<td>8/4/2008</td>
-													<td>$20.39M</td>
-													<td>$113.98M</td>
-													<td>完成</td>
-												</tr>
-												<tr>
-													<td>SeriesC</td>
-													<td>3/3/2007</td>
-													<td>$31.50M</td>
-													<td>$93.59M</td>
-													<td>完成</td>
-												</tr>
-												<tr>
-													<td>SeriesB</td>
-													<td>3/9/2005</td>
-													<td>$50.00M</td>
-													<td>$62.09M</td>
-													<td>完成</td>
-												</tr>
-												<tr>
-													<td>SeriesA</td>
-													<td>12/18/2002</td>
-													<td>$12.10M</td>
-													<td>$12.10M</td>
-													<td>完成</td>
-												</tr>
-											</table>
-										</div>
-										<div role="tabpanel" class="tab-pane" id="03">
-											<ul>
-												<li>
-													主要投资人<br>Draper Fisher Jurvetson<br>Rothenberg Ventures<br>Founders Fund<br>Fidelity Investments
-												</li>
-												<li>
-													管理团队<br>Elon Musk(CEO)<br>Bret Johnsen(CFO)<br>Steve Jurvetson-Board Member(DFJ)
-												</li>
-											</ul>
+								<div class="product_bot_section">
+									<div class="col-sm-5">
+										<h3>产品信息</h3>
+										<ul>
+											<li>优步(UBER)-全球即时用车软件，现已覆盖全球68个国家，444个城市。Uber旨在为大家带来更安全、更舒适的出行方式，并改善城市交通！人民优步+可为您的出行节省最高50%！</li>
+											<li>应用程序，如今它正在改变世界上很多城市的运输和通勤方式。无论需要接载服务还是运输一个三明治或一个包裹，Uber都会通过科技力量，在任何时刻为人们提供人们想要的服务。</li>
+										</ul>
+									</div>
+									<div class="col-sm-7">
+										<ul class="nav nav-tabs" role="tablist">
+											<li role="description" class="active"><a href="#01" aria-controls="home" role="tab" data-toggle="tab">营运及财务数据</a></li>
+											<li role="description"><a href="#02" aria-controls="profile" role="tab" data-toggle="tab">融资历史</a></li>
+											<li role="description"><a href="#03" aria-controls="messages" role="tab" data-toggle="tab">更多信息</a></li>
+										</ul>
+										<div class="tab-content">
+											<div role="tabpanel" class="tab-pane active" id="01">
+												<!--<p>SpaceX的营运在历年来稳定上升，除了多次与NASA合作外，SpaceX在近年来不断增加合作伙伴。来源于NASA的收入将低于30%以下。</p>
+												<img style="width:75%;" src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/products/shengxin_statistic_687x629.png" />
+											--></div>
+											<div role="tabpanel" class="tab-pane table-responsive" id="02">
+												<table>
+													<tr style="background-color: #029de0; color: #fff;">
+														<td>阶段</td>
+														<td>时间</td>
+														<td>金额</td>
+														<td>累积</td>
+														<td>状态</td>
+													</tr>
+													<tr>
+														<td>SeriesG</td>
+														<td>2016年06月</td>
+														<td>$3.5B</td>
+														<td>$7.41B</td>
+														<td>成功</td>
+													</tr>
+													<tr>
+														<td>SeriesF</td>
+														<td>2015年07月</td>
+														<td>$1.0B</td>
+														<td>$3.91B</td>
+														<td>成功</td>
+													</tr>
+													<tr>
+														<td>SeriesE</td>
+														<td>2014年12月</td>
+														<td>$1.2B</td>
+														<td>$2.91B</td>
+														<td>成功</td>
+													</tr>
+													<tr>
+														<td>SeriesD</td>
+														<td>2014年06月</td>
+														<td>$1.4B</td>
+														<td>$1.71B</td>
+														<td>成功</td>
+													</tr>
+													<tr>
+														<td>SeriesC</td>
+														<td>2013年08月</td>
+														<td>$258M</td>
+														<td>$307.45M</td>
+														<td>成功</td>
+													</tr>
+													<tr>
+														<td>SeriesB</td>
+														<td>2013年08月</td>
+														<td>$37M</td>
+														<td>$49.45M</td>
+														<td>成功</td>
+													</tr>
+													<tr>
+														<td>SeriesA</td>
+														<td>2011年02月</td>
+														<td>$11M</td>
+														<td>$12.45M</td>
+														<td>成功</td>
+													</tr>
+													<tr>
+														<td>Angel round</td>
+														<td>2010年10月</td>
+														<td>$1.25M</td>
+														<td>$1.45M</td>
+														<td>成功</td>
+													</tr>
+													<tr>
+														<td>Seed round</td>
+														<td>2009年08月</td>
+														<td>$200000</td>
+														<td>$200000</td>
+														<td>成功</td>
+													</tr>
+												</table>
+											</div>
+											<div role="tabpanel" class="tab-pane" id="03">
+												<ul>
+													<li>
+														创始人<br>
+														<div class="uber-history">
+															<div class="uber-history-left">Travis Kalanick<br>GarrettCamp </div>
+															<div class="uber-history-right"> FOUNDATION  CEO<br>FOUNDATION</div>
+														</div>
+														<br/>
+														<br/>
+														<br/>
+														www.uber.com
+													</li>
+												</ul>
+											</div>
 										</div>
 									</div>
+									<div class="clearLeft"></div>
 								</div>
-								<div class="clearLeft"></div>
 							</div>
 						</div>
 					</div>
 				</div>
-            </div>
-        </div>
+			</div>
+		</div>
     </section>
 </div>
 </div>
