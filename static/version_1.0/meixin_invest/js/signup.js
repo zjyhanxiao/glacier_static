@@ -59,21 +59,21 @@ $(document).ready(function () {
         if (referral != '') {
             $.ajax({
                 type: 'get',
-                url: "/verifyReferralCode",
+                url: baseUrl + "/verifyReferralCode",
                 data: data,
                 success: function (res) {
                     if (res.code == 1) {
-                        $(".error-div-page1").html("<div class='alert alert-warning' style='height: 45px; margin-top: -18px; background-color: #fff; border: none; font-size: 12px; color: orangered'>" + '邀请码有效  注册成功后礼品卡将发送至您的邮箱!' + "</div>");
-                        $(".error-div").html("<div class='alert alert-warning' style='font-size: 12px; color: orangered'>" + '邀请码有效  注册成功后礼品卡将发送至您的邮箱!' + "</div>");
+                        $(".page1-error-div").html("<div class='alert alert-warning' style='height: 45px; margin-top: -18px; background-color: #fff; border: none; font-size: 12px; color: orangered'>" + '邀请码有效  注册成功后礼品卡将发送至您的邮箱!' + "</div>");
+                        $(".page2-error-div").html("<div class='alert alert-warning' style='font-size: 12px; color: orangered'>" + '邀请码有效  注册成功后礼品卡将发送至您的邮箱!' + "</div>");
                     }
                     if (res.code == 2 || res.code == 3) {
-                        $(".error-div-page1").html("<div class='alert alert-warning' style='height: 45px; margin-top: -18px; background-color: #fff; border: none; font-size: 12px; color: orangered'>" + '亲爱的用户，邀请码失效,活动礼品已全部派完，感谢您对美信金融的关注!' + "</div>");
-                        $(".error-div").html("<div class='alert alert-warning' style='font-size: 12px; color: orangered'>" + '亲爱的用户，邀请码失效,活动礼品已全部派完，感谢您对美信金融的关注!' + "</div>");
+                        $(".page1-error-div").html("<div class='alert alert-warning' style='height: 45px; margin-top: -18px; background-color: #fff; border: none; font-size: 12px; color: orangered'>" + '亲爱的用户，邀请码失效,活动礼品已全部派完，感谢您对美信金融的关注!' + "</div>");
+                        $(".page2-error-div").html("<div class='alert alert-warning' style='font-size: 12px; color: orangered'>" + '亲爱的用户，邀请码失效,活动礼品已全部派完，感谢您对美信金融的关注!' + "</div>");
                         return false;
                     }
                     if (res.code == 4) {
-                        $(".error-div-page1").html("<div class='alert alert-warning' style='height: 45px; margin-top: -18px; background-color: #fff; border: none; font-size: 12px; color: orangered'>" + '亲爱的用户,您的验证码错误,请核对后填写!' + "</div>");
-                        $(".error-div").html("<div class='alert alert-warning' style='font-size: 12px; color: orangered'>" + '亲爱的用户,您的验证码错误,请核对后填写!' + "</div>");
+                        $(".page1-error-div").html("<div class='alert alert-warning' style='height: 45px; margin-top: -18px; background-color: #fff; border: none; font-size: 12px; color: orangered'>" + '亲爱的用户,您的验证码错误,请核对后填写!' + "</div>");
+                        $(".page2-error-div").html("<div class='alert alert-warning' style='font-size: 12px; color: orangered'>" + '亲爱的用户,您的验证码错误,请核对后填写!' + "</div>");
                         return false;
                     }
                 }
@@ -168,7 +168,7 @@ $(document).ready(function () {
             else {
                 $(this).addClass('input-error');
                 next_step = false;
-                $(".error-div").html("<div class='alert alert-warning'>请选择您的投资者类型</div>");
+                $(".page2-error-div").html("<div class='alert alert-warning'>请选择您的投资者类型</div>");
             }
         });
 
@@ -199,10 +199,10 @@ $(document).ready(function () {
     $('#american-submit').on('click', function () {
         data.questionaire_answer = $("#american_page3").find("input[type='radio']:checked").val();
         if (!$('input[name="questionaire_answer"]').is(':checked')) {
-            $("#page3-error-div").html("<div class='alert alert-warning'>请选择您的投资者条件</div>");
+            $(".page3-error-div").html("<div class='alert alert-warning'>请选择您的投资者条件</div>");
         }
         else if (!$('input[name="american-agree"]').is(':checked')) {
-        $("#page3-error-div").html("<div class='alert alert-warning'>请同意网站的使用条款和隐私协议</div>");
+        $(".page3-error-div").html("<div class='alert alert-warning'>请同意网站的使用条款和隐私协议</div>");
         }
         else {
             $.ajax({
@@ -219,6 +219,7 @@ $(document).ready(function () {
                         $(".page3-error-div").html("<div class='alert alert-warning'>" + res.msg + "</div>");
                         $(".page2-error-div").html("<div class='alert alert-warning'>" + res.msg + "</div>");
                         $(".page1-error-div").html("<div class='alert alert-warning'>" + res.msg + "</div>");
+
                     }
                 }
             });
