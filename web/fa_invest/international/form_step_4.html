@@ -444,7 +444,7 @@
                 $.each(res, function (key) {
                     switch (res[key].need_check) {
                         case true:
-                            div.append('<div><input type="checkbox" id="doc_' + res[key].id + '" name=' + res[key].document_name + ' required="" data-parsley-required-message="请填写信息"/><label for="#doc_' + res[key].id + '"><span><span class="invest-check-mark"></span></span>我已认真阅读并接受<a href=' + res[key].url + ' class="get_pdf" data-document-id=' + res[key].id + ' target="_blank">' + res[key].document_name + '</a></label><br></div>');
+                            div.append('<div><input type="checkbox" id="doc_' + res[key].id + '" name=' + res[key].document_name + ' required="" data-parsley-required-message="请填写信息"/><label for="#doc_' + res[key].id + '"><span><span class="invest-check-mark"></span></span>我已认真阅读并接受<a href=' + res[key].url + ' class="" data-document-id=' + res[key].id + ' target="_blank">' + res[key].document_name + '</a></label><br></div>');
                             break;
                         case false:
                             div.append('<div><a href=' + res[key].url + ' target="_blank">' + res[key].document_name + '</a><br></div>');
