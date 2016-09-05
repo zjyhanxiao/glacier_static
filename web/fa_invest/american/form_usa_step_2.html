@@ -142,7 +142,7 @@
                     }, 3e3);
 
                     order_number = getUrlParam("order_number");
-                    window.location="/fa_invest/american/form_usa_step_3.html?order_number=" + order_number;
+                    window.location="/fa_invest/american/form_usa_step_3.html?order_number=" + order_number+"&product_id="+product_id;
                 }else{
                     $(this).prop('disabled',false);
                 }
