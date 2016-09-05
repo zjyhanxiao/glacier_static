@@ -628,14 +628,14 @@
 
                 if (d.is_check_enabled == 1) {
                     var mailing_address = '', receiver_name = '', remark = '';
-                    if (d.mailing_address != '' && d.mailing_address != null) {
-                        mailing_address = d.mailing_address;
+                    if (d.check.mailing_address != '' && d.check.mailing_address != null) {
+                        mailing_address = d.check.mailing_address;
                     }
-                    if (d.receiver_name != '' && d.receiver_name != null) {
-                        receiver_name = d.receiver_name;
+                    if (d.check.receiver_name != '' && d.check.receiver_name != null) {
+                        receiver_name = d.check.receiver_name;
                     }
-                    if (d.remark != '' && d.remark != null) {
-                        remark = d.remark;
+                    if (d.check.remark != '' && d.check.remark != null) {
+                        remark = d.check.remark;
                     }
                     var str = '<p><span>收款人：</span>' + receiver_name.toUpperCase() + '</p>' +
                             '<p><span>备注栏请填写：</span>' + remark + '</p>' +
