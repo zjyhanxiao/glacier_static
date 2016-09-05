@@ -10,13 +10,13 @@
     </title>
 	<script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
 	<script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/js/jquery.cookie.min.js"></script>
-	<!--<script>
+	<script>
 		var token1 = $.cookie('mx_token');
 		var token2 = $.cookie('mx_secret');
 		if (token1==undefined || token2==undefined) {
 			window.location = '/login.html';
 		}
-	</script>-->
+	</script>
 	<script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/js/is_ok.min.js"></script>
     <link rel="stylesheet" href="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/vendor/css/bootstrap.min.css">
     <link href="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/css/base.min.css" rel="stylesheet">
@@ -70,10 +70,10 @@
             <div class="col-sm-offset-1 col-sm-10 col-xs-12">
 				<div class="xxk">
 					<div class="tab" role="tablist">
-						<a href="/products/shengxin.html">SpaceX</a>
-						<a href="/products/shengxin-Uber.html">Uber</a>
-						<a href="/products/shengxin-LendingHome.html">LendingHome</a>
-						<a class="active" href="/products/shengxin-Unity.html">Unity</a>
+						<a href="/products/shengxin.html?product_id=2">SpaceX</a>
+						<a href="/products/shengxin-Uber.html?product_id=77">Uber</a>
+						<a href="/products/shengxin-LendingHome.?product_id=78">LendingHome</a>
+						<a class="active" href="/products/shengxin-Unity.html?product_id=79">Unity</a>
 					</div>
 					<div class="tab-content">
 						<div id="Unity" class="tab-test">
@@ -262,7 +262,7 @@
 
 		//is_login  调取登录接口
 		function is_login(res) {
-			$('.navbar ul li:last-child').html('<a class="btn btn-min-width" href=" ">我的账户</a>');
+			$('.navbar ul li:last-child').html('<a class="btn btn-min-width" href="/investor/dashboard.html">我的账户</a>');
 			$('.navbar ul li:nth-last-child(2)').html('<a class="btn btn-min-width-sm logout" href="javascript:;">退出</a>');
 			$('.ajax_wait p,.ajax_wait').hide();
 
