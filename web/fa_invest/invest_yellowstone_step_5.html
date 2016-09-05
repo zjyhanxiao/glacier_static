@@ -442,7 +442,7 @@
                             '"><span><span class="invest-check-mark"></span></span><a href='+res[key].url+' class="get_pdf" data-document-id=' + res[key].id + ' target="_blank">' + res[key].document_name + '</a></label><br>');
                             break;
                         case false:
-                            div.append('<a href=' + res[key].url + ' target="_blank">' + res[key].document_name + '</a><br>');
+                            div.append('<a href="' + res[key].url + '" target="_blank">' + res[key].document_name + '</a><br>');
                             break;
                     }
                 });
