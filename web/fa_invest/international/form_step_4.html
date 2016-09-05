@@ -473,7 +473,7 @@
             });
 
             $('#submit_step_four').on('click', function () {
-                $(this).prop('disabled',true);
+                $(this).prop('disabled', true);
                 if ($('.fa-steps').parsley().validate()) {
                     $('.ajax_wait').show();
                     setTimeout(function () {
@@ -496,8 +496,8 @@
                             "fn": update_bank_profile,
                             "fail_fn": update_bank_fail
                         });
-                    }else{
-                        $(this).prop('disabled',false);
+                    } else {
+                        $(this).prop('disabled', false);
                     }
 
 
@@ -628,12 +628,21 @@
 
                 if (d.is_check_enabled == 1) {
                     var mailing_address = '', receiver_name = '', remark = '';
+                    if (d.mailing_address != '' && d.mailing_address != null) {
+                        mailing_address = d.mailing_address;
+                    }
+                    if (d.receiver_name != '' && d.receiver_name != null) {
+                        receiver_name = d.receiver_name;
+                    }
+                    if (d.remark != '' && d.remark != null) {
+                        remark = d.remark;
+                    }
                     var str = '<p><span>收款人：</span>' + receiver_name.toUpperCase() + '</p>' +
                             '<p><span>备注栏请填写：</span>' + remark + '</p>' +
                             '<p><span>请将支票寄至以下地址：</span></p>' +
                             '<p>' + receiver_name + '</p>';
-                            '<p>' + mailing_address + '</p>' +
-                            '<p><span>注意：我们目前只接受来自美国银行账户的支票</span></p>';
+                    '<p>' + mailing_address + '</p>' +
+                    '<p><span>注意：我们目前只接受来自美国银行账户的支票</span></p>';
                     $('.check-box').prepend(str);
                 }
             }
