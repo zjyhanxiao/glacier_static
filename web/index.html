@@ -238,7 +238,7 @@
                     <h3>灵活理财</h3>
                     <div class="col-sm-2 color-orange col-xs-4"><span>7.0</span><span>%</span><br>预计年化收益</div>
                     <div class="col-sm-2 col-xs-4"><span>13</span><span>个月起</span><br>投资期限</div>
-                    <div class="col-sm-2 col-xs-4"><span>1</span><span>万美元</span><br>起投金额</div>
+                    <div class="col-sm-2 col-xs-4"><span>1</span><span>美元</span><br>起投金额</div>
                     <div class="col-sm-2 col-xs-12"><a href="/products/anxin_plan.html?product_id=7">
                         <button class="btn" style="margin-top: 31px;">立即投资</button>
                     </a></div>
@@ -928,7 +928,7 @@
             var rate = product.return_rate || 0;
             var minimum_invest_amount = product.minimum_invest_amount;
             if (minimum_invest_amount >= 10000) {
-                minimum_invest_amount = minimum_invest_amount / 10000 + '万';
+                minimum_invest_amount = minimum_invest_amount / 10000;
             }
             //显示年化收益率，保留1位小数
             var returnRate = $("#newUserPlain").find("div:first");
@@ -936,7 +936,11 @@
             //投资期限
             returnRate.next().children("span:first").text(product.invest_term);
             //最小起投金额
-            returnRate.next().next().children("span:first").text(minimum_invest_amount);
+            if (minimum_invest_amount >= 10000) {
+                returnRate.next().next().children("span:first").text(minimum_invest_amount).siblings('span').text('万美元');
+            } else {
+                returnRate.next().next().children("span:first").text(minimum_invest_amount);
+            }
             //点击的按钮
             $("#newUserPlain").children("div:last").prev().children("a").attr("href", "/products/anxin_plan.html?product_id=" + product.id);
         }
