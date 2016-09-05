@@ -398,7 +398,8 @@
         function is_login(res) {
             $('.navbar ul li:last-child').html('<a class="btn btn-min-width" href="/investor/dashboard.html">我的账户</a>');
             $('.navbar ul li:nth-last-child(2)').html('<a class="btn btn-min-width-sm logout" href="javascript:;">退出</a>');
-            $('.ajax_wait p,.ajax_wait').hide();// 获取投资金额
+            $('.ajax_wait p,.ajax_wait').hide();
+            // 获取投资金额
             var get_invest_data = {};
             get_invest_data.order_number = order_number;
             get_invest_data = $.extend({}, get_invest_data, cookie_tooken);

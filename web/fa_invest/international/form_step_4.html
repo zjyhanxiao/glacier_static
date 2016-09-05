@@ -400,6 +400,21 @@
             $('.navbar ul li:nth-last-child(2)').html('<a class="btn btn-min-width-sm logout" href="javascript:;">退出</a>');
             $('.ajax_wait p,.ajax_wait').hide();
 
+            // 获取投资金额
+            var get_invest_data = {};
+            get_invest_data.order_number = order_number;
+            get_invest_data = $.extend({}, get_invest_data, cookie_tooken);
+            Ajax_Data({
+                "url": baseUrl + "/order/" + order_number,
+                "data": get_invest_data,
+                "fn": invest_data
+            });
+            // 获取用户投资金额
+            function invest_data(d) {
+                if (d.invest_amount != '' && d.invest_amount != null) {
+                    $('#invest-amount').val(d.invest_amount);
+                }
+            }
             // 获取相关信息
             var get_about_data = {"product_id": product_id};
             get_about_data = $.extend({}, get_about_data, cookie_tooken);
