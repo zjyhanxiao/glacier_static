@@ -1180,7 +1180,7 @@
             });
             //提交订单提现
             $('body').on('click', '#invest_submit', function () {
-
+                $(this).prop('disabled',true);
                 var withdraw_submit_data = {
                     "order_number": order_number,
                     "withdraw_amount": $('#invest_value').val(),
@@ -1202,6 +1202,7 @@
                     "fail_fn": withdraw_fail
                 });
                 function withdraw_submit(d) {
+                    $('#invest_submit').prop('disabled',false);
                     $('.modal-body-success').hide();
                     $('.modal-footer').html('<p>提交成功</p>您的提现申请已提交成功，我们会尽快办理，请您保持通讯畅通，以方便与您联系。').show();
                 }
@@ -1475,6 +1476,7 @@
 
         // 提现失败,弹出错误信息
         function withdraw_fail(d) {
+            $('#invest_submit').prop('disabled',false);
             alert(d);
         }
 
