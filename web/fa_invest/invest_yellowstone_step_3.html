@@ -267,15 +267,15 @@
 
             // 上传证件图片
             $('#identity-proof').change(function (event) {
+                var $this=$(this);
                 var val = $(this).val().toLowerCase();
                 var regex = new RegExp("(.*?)\.(jpg|jpeg|png|gif|bmp)$");
                 if (!(regex.test(val))) {
                     $(this).val('');
                     alert('图片格式不正确，支持图片格式(.jpg|.jpeg|.png|.gif|.bmp)');
-
                 } else {
-                    file_upload();
                     $(this).siblings('img').attr('src', URL.createObjectURL(event.target.files[0]));
+                    file_upload($this);
                 }
             });
             $('#submit_step_three').on('click', function () {
@@ -298,6 +298,7 @@
                     var update_profile_data = {};
                     if (!default_passport_photo) {
                         update_profile_data.passport_photo = passport_photo;
+                        console.log(passport_photo);
                     } else {
                         update_profile_data.passport_photo = img_src;
                     }
@@ -326,11 +327,11 @@
         //更新profile信息
         function update_profile(res) {
             $('.ajax_wait p,.ajax_wait').hide();
-            window.location.href = "/fa_invest/invest_yellowstone_step_4.html?order_number=" + order_number+"&product_id="+product_id;
+//            window.location.href = "/fa_invest/invest_yellowstone_step_4.html?order_number=" + order_number+"&product_id="+product_id;
         }
 
 
-        function file_upload() {
+        function file_upload(dom) {
             var formData = new FormData($('form')[0]);
             formData.append('file', $("#identity-proof")[0].files[0]);
             formData.append('mx_token', mx_token);
@@ -347,6 +348,7 @@
                 success: function (result, status) {
                     if (result.code == 1) {
                         passport_photo = result.body;
+                        dom.siblings('img').attr('src',passport_photo);
                     }
                     if (result.code == -1) {
                         alert("上传失败,请重新上传");
