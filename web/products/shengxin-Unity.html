@@ -10,13 +10,13 @@
     </title>
 	<script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
 	<script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/js/jquery.cookie.min.js"></script>
-	<script>
+	<!--<script>
 		var token1 = $.cookie('mx_token');
 		var token2 = $.cookie('mx_secret');
 		if (token1==undefined || token2==undefined) {
 			window.location = '/login.html';
 		}
-	</script>
+	</script>-->
 	<script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/js/is_ok.min.js"></script>
     <link rel="stylesheet" href="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/vendor/css/bootstrap.min.css">
     <link href="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/css/base.min.css" rel="stylesheet">
@@ -29,6 +29,19 @@
     <script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/vendor/js/respond.min.js"></script>
     <![endif]-->
 	<style>
+		/*暂放于此处*/
+		.uber-history{
+			width: 100%;
+		}
+		.uber-history-left{
+			float: left;
+			width: 50%;
+		}
+		.uber-history-right{
+			float: right;
+			width: 50%;
+		}
+
 		.xxk .tab{
 
 			overflow: hidden;
@@ -43,10 +56,6 @@
 			padding-top: 12px;
 			background-color: #EEEEEE;
 			font-size: 18px;
-		}
-		.xxk .tab li a:hover{
-			text-decoration: none;
-			width: inherit;
 		}
 		.xxk .tab .active{
 			background-color: #fff;
@@ -64,6 +73,11 @@
 		setHeight();
 	});
 </script>
+<script type="text/javascript">
+    $(".xxk .tab li").onclick(function () {
+		$(this).addClass('active').siblings().removeClass('active');
+	});
+</script>
 <div id="wrapper" class="customer">
 <nav id="navChilantro">     <div class="page-top-bar">联系我们：400-094-1580<a href="http://weibo.com/meixingroup" target="_blank"><img src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/top_weibo_icon_55x47.png" /></a><a id="wechat-popover" data-toggle="popover"><img src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/top_wechat_icon_57x47.png" /></a>     <div class="top-float-right">         <a href="/faq.html">帮助中心</a>         <a href="//news.meixinfinance.com" target="_blank">财经资讯</a>         <a href="/about.html#05">加入我们</a>         <a href="/about.html#06">联系我们</a>     </div>     </div>     <div class="navbar" role="navigation">         <div class="container" style="padding-bottom: 0;">             <div class="navbar-header" style="display: inline;">                 <a id="logo" href="/" class="navbar-brand">                 </a> <span class="logo-alpha" style="font-size: 12px; float: left;">Beta</span>                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">                     <span class="sr-only">Toggle navigation</span>                     <span class="icon-bar"></span>                     <span class="icon-bar"></span>                     <span class="icon-bar"></span>                 </button>             </div>             <div class="navbar-collapse collapse">                 <ul class="nav navbar-nav navbar-right nav_right_on_mobile">                     <li><a href="/">首页</a></li>                     <li><a href="/product_list.html">全部产品</a></li>                     <li><a href="/newhelp.html">新手指引</a></li>                     <li><a href="/safety.html">安全保障</a></li>                     <li><a href="/about.html">关于美信</a></li> <!--                    <li style="float: right;">                         <a class="btn btn-min-width-sm logout" href="javascript:;">退出</a>                     </li>                     <li style="float: right;">                         <a class="btn btn-min-width"                            href="/investor/dashboard.html">我的账户<#if anxin1_interest_flag=="1"><span class="red_dot"></span></#if></a>                     </li>-->                     <li style="float: right;"><a class="login_no_margin_right nav_login_button" href="/login.html">登录</a></li>                     <li style="float: right;"><a href="/signup.html"                            class="hidden-xs nav_register_button">注册</a></li>                     <!--<li style="float: right;"><a href="/signup.html"                            class="visible-xs">注册</a></li>-->                  </ul>             </div>         </div>     </div> </nav> <style>     @media screen and (max-width: 768px){         .customerPage{             margin-top: 90px;         }         .navbar-fixed-top{             padding: 0!important;         }         #wrapper.customer nav .navbar .container{             padding-top: 0!important;             padding-bottom: 0!important;         }         .nav_right_on_mobile{             width: 100%;         }     } </style> <style>     @media screen and (max-width: 768px){         .navbar-fixed-top{             padding: 0!important;         }         .navbar-fixed-top .container{             padding-top: 0!important;             padding-bottom: 0!important;         }         .navbar-fixed-top{             position: fixed;         }     } </style>
 <div class="container">
@@ -72,16 +86,16 @@
             <div class="col-sm-offset-1 col-sm-10 col-xs-12">
 				<div class="xxk">
 					<ul class="tab" role="tablist">
-						<li role="description" class="active"><a href="/products/shengxin-SpaceX.html" aria-controls="home" role="tab" data-toggle="tab">SpaceX</a></li>
+						<li role="description"><a href="/products/shengxin-SpaceX.html" aria-controls="home" role="tab" data-toggle="tab">SpaceX</a></li>
 						<li role="description"><a href="/products/shengxin-Uber.html" aria-controls="profile" role="tab" data-toggle="tab">Uber</a></li>
 						<li role="description"><a href="/products/shengxin-LendingHome.html" aria-controls="messages" role="tab" data-toggle="tab">LendingHome</a></li>
-						<li role="description"><a href="/products/shengxin-Unity.html" aria-controls="messages" role="tab" data-toggle="tab">Unity</a></li>
+						<li role="description" class="active"><a href="/products/shengxin-Unity.html" aria-controls="messages" role="tab" data-toggle="tab">Unity</a></li>
 					</ul>
 					<div class="tab-content">
-						<div id="spaceX" class="tab-test">
+						<div id="Unity" class="tab-test">
 							<div class="product_top_section">
-								<h2>盛心计划 - SpaceX Pre-IPO股权投资</h2>
-								<img style="width: 200px; padding-left: 3%" src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/products/shengxin_spacex_1024x126.png" /><br><br>
+								<h2>盛心计划 — Unity 股权投资</h2>
+								<img style="width: 200px; padding-left: 3%" src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/products/unity.png" /><br><br>
 								<a type="button" class="btn btn-primary" data-toggle="modal" data-titlename="盛心计划一期" data-target="#popup">立即预约</a>
 								<div class="modal fade" id="popup" tabindex="-1" role="dialog">
 									<div class="modal-dialog modal-sm" role="document">
@@ -140,31 +154,26 @@
 								<!--<a class="btn btn-primary" href="/protected">立即预约</a>-->
 
 								<ul>
-									<li>当前估值<br><span>120亿</span></li>
-									<li>起投金额<br><span>$500,000</span></li>
-									<li>平台认购费用<br><span>0</span></li>
+									<li>当前估值<br><span>15亿美金</span></li>
+									<li>起投金额<br><span>10万美金</span></li>
+									<li>平台认购费用<br><span>5%</span></li>
 								</ul>
 								<div class="clearLeft"></div>
 							</div>
 							<div class="product_mid_section">
 								<ul>
 									<li><img src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/products/shengxin_icon01_512x512.png"><span>当前估值折扣价购买原始股</span></li>
-									<li><img src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/products/shengxin_icon02_512x512.png"><span>特斯拉电动车明星创始人Elon Musk创立</span></li>
-									<li><img src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/products/shengxin_icon03_512x512.png"><span>接受谷歌及富达基金超过十亿美金投资</span></li>
-									<li><img src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/products/shengxin_icon04_512x512.png"><span>全球最受瞩目的科技独角兽之一</span></li>
+									<li><img src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/products/shengxin_icon02_512x512.png"><span>创始人荣获游戏行业2014年度杰出人物</span></li>
+									<li><img src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/products/shengxin_icon03_512x512.png"><span>由DFJ Growth领投的1.81亿美元C轮融资</span></li>
+									<li><img src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/products/shengxin_icon04_512x512.png"><span>全球两大领先的引擎公司之一</span></li>
 								</ul>
 							</div>
 							<div class="product_bot_section">
 								<div class="col-sm-5">
 									<h3>产品信息</h3>
 									<ul>
-										<li>SpaceX的创始人Elon Musk曾经成功使得3家自己创立的公司IPO或被收购，其估值分别为15-300亿美金不等。(特斯拉、Paypal与Solar City)</li>
-										<li>SpaceX目标是建造低成本可回收再利用的载人火箭。</li>
-										<li>SpaceX被知名公司及机构的融资支持，其中包括Google，DFJ，Founders Fund和富达基金等。</li>
-										<li>2008年SpaceX正式与NASA签署合同。</li>
-										<li>SpaceX今已签署了60项发射任务，合同金额合计70亿美元，是唯一盈利的私人航空公司。签署项目包括载人航天机登陆火星。</li>
-										<li>SpaceX将于Google合作并在未来数年发射数百颗卫星为全球提供廉价互联网服务。</li>
-										<li>销售截止日期：2016年6月15日</li>
+										<li>Unity是由Unity Technologies开发的一个让玩家轻松创建诸如三维视频游戏、建筑可视化、实时三维动画等类型互动内容的多平台的综合型游戏开发工具，是一个全面整合的专业游戏引擎。在世界范围内，Unity占据全功能游戏引擎市场45％的份额，大约三倍于最接近unity的竞争对手。</li>
+										<li>Unity的客户包括Cartoon Network、可口可乐、迪士尼、艺电、乐高、微软、美国航空航天局、Nexon、Nickelodeon、SQUARE，育碧与华纳兄弟等。</li>
 									</ul>
 								</div>
 								<div class="col-sm-7">
@@ -175,9 +184,9 @@
 									</ul>
 									<div class="tab-content">
 										<div role="tabpanel" class="tab-pane active" id="01">
-											<p>SpaceX的营运在历年来稳定上升，除了多次与NASA合作外，SpaceX在近年来不断增加合作伙伴。来源于NASA的收入将低于30%以下。</p>
-											<img style="width:75%;" src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/products/shengxin_statistic_687x629.png" />
-										</div>
+											<!--<p>SpaceX的营运在历年来稳定上升，除了多次与NASA合作外，SpaceX在近年来不断增加合作伙伴。来源于NASA的收入将低于30%以下。</p>
+                                            <img style="width:75%;" src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/products/shengxin_statistic_687x629.png" />
+                                        --></div>
 										<div role="tabpanel" class="tab-pane table-responsive" id="02">
 											<table>
 												<tr style="background-color: #029de0; color: #fff;">
@@ -188,65 +197,37 @@
 													<td>状态</td>
 												</tr>
 												<tr>
-													<td>SeriesG</td>
-													<td>1/20/2015</td>
-													<td>$1.01B</td>
-													<td>$1.25B</td>
-													<td>完成</td>
-												</tr>
-												<tr>
-													<td>SeriesF</td>
-													<td>10/28/2010</td>
-													<td>$50.62M</td>
-													<td>$211.86M</td>
-													<td>完成</td>
-												</tr>
-												<tr>
-													<td>SeriesE</td>
-													<td>6/30/2009</td>
-													<td>$47.25M</td>
-													<td>$161.23M</td>
-													<td>完成</td>
-												</tr>
-												<tr>
-													<td>SeriesD</td>
-													<td>8/4/2008</td>
-													<td>$20.39M</td>
-													<td>$113.98M</td>
-													<td>完成</td>
-												</tr>
-												<tr>
 													<td>SeriesC</td>
-													<td>3/3/2007</td>
-													<td>$31.50M</td>
-													<td>$93.59M</td>
-													<td>完成</td>
+													<td>2016年06月</td>
+													<td>$18.0M</td>
+													<td>$11.93B</td>
+													<td>成功</td>
+												</tr>
+												<tr>
+													<td>老股转让</td>
+													<td>2015年</td>
+													<td>$1.15B</td>
+													<td>$1.175B</td>
+													<td>成功</td>
 												</tr>
 												<tr>
 													<td>SeriesB</td>
-													<td>3/9/2005</td>
-													<td>$50.00M</td>
-													<td>$62.09M</td>
-													<td>完成</td>
+													<td>2015年07月</td>
+													<td>$17.5M</td>
+													<td>$25.46M</td>
+													<td>成功</td>
 												</tr>
 												<tr>
 													<td>SeriesA</td>
-													<td>12/18/2002</td>
-													<td>$12.10M</td>
-													<td>$12.10M</td>
-													<td>完成</td>
+													<td>2009年09月</td>
+													<td>$7.96M</td>
+													<td>$7.96M</td>
+													<td>成功</td>
 												</tr>
 											</table>
 										</div>
 										<div role="tabpanel" class="tab-pane" id="03">
-											<ul>
-												<li>
-													主要投资人<br>Draper Fisher Jurvetson<br>Rothenberg Ventures<br>Founders Fund<br>Fidelity Investments
-												</li>
-												<li>
-													管理团队<br>Elon Musk(CEO)<br>Bret Johnsen(CFO)<br>Steve Jurvetson-Board Member(DFJ)
-												</li>
-											</ul>
+											www.unity3d.com
 										</div>
 									</div>
 								</div>
@@ -255,8 +236,9 @@
 						</div>
 					</div>
 				</div>
-            </div>
+			</div>
         </div>
+
     </section>
 </div>
 </div>
