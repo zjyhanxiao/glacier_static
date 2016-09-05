@@ -480,6 +480,7 @@
         function no_login() {
             window.location = '/login.html';
         }
+
         //获取红包活动接口
         Ajax_Data({
             "url": baseUrl + "/promotion/redpacket",
@@ -492,6 +493,7 @@
                 $('.coupon').show();
             }
         }
+
         //is_login  调取登录接口
         function is_login(res) {
             $('.navbar ul li:last-child').html('<a class="btn btn-min-width" href="/investor/dashboard.html">我的账户</a>');
@@ -1016,7 +1018,9 @@
                             '<li>购买时NAV：' + d[i].first_nav + '</li>' +
                             '<li>&nbsp;</li>' +
                             '<li></li><li><a href=' + d[i].sub_doc_url + '>合同</a></li>' +
-                            '<li><button class="status_btn buy_again">再次购买</button> ' + can_withdraw + '</li></ul></div>';
+                            '<li><button class="status_btn buy_again" data-product_id=' + d[i].product_id + ' data-invest_amount=' + d[i].invest_amount + '>再次购买</button> ' +
+                            can_withdraw +
+                            '</li></ul></div>';
                 })
                 $('.flexible_invest').html(html);
                 //获取提现记录
@@ -1042,7 +1046,10 @@
             }
 
             $('.flexible_invest').on('click', '.buy_again', function () {
-                window.location = '/fa_invest/invest_yellowstone_step_1.html';
+                var again_product_id = $(this).attr('data-product_id');
+                var again_invest_amount = $(this).attr('data-invest_amount');
+                window.location =
+                        '/fa_invest/invest_yellowstone_step_1.html?product_id=' + again_product_id + '&invest_amount=' + again_invest_amount;
             })
             flexibleWithDraw();// 灵活理财提现
         }
@@ -1515,12 +1522,12 @@
                     if (result.code == 1) {
                         if (event.target.id == 'id_identification_card_photo') {
                             id_card_photo = result.body;
-                            id.siblings('img').attr('src',id_card_photo);
+                            id.siblings('img').attr('src', id_card_photo);
                             default_id_card_photo = false;
                         }
                         if (event.target.id == 'id_passport_photo') {
                             passport_photo = result.body;
-                            id.siblings('img').attr('src',passport_photo);
+                            id.siblings('img').attr('src', passport_photo);
                             default_passport_photo = false;
                         }
                     }
