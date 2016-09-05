@@ -42,10 +42,12 @@
 			height: 45px;
 			padding-top: 12px;
 			background-color: #EEEEEE;
+			color: #999;
 			font-size: 18px;
 		}
 		.xxk .tab .active{
 			background-color: #fff;
+			color: #3f3f3f;
 		}
 	</style>
 </head>
@@ -306,7 +308,7 @@
 
 		function book_submit() {
 			$('#popup').find('.modal-body').hide();
-			$('#popup').find('modal-body-success').show();
+			$('#popup').find('.modal-body-success').show();
 		}
 		function fail_book_submit(d) {
 			alert(d);

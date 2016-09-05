@@ -41,14 +41,12 @@
 			height: 45px;
 			padding-top: 12px;
 			background-color: #EEEEEE;
+			color: #999;
 			font-size: 18px;
-		}
-		.xxk .tab li a:hover{
-			text-decoration: none;
-			width: inherit;
 		}
 		.xxk .tab .active{
 			background-color: #fff;
+			color: #3F3F3F;
 		}
 	</style>
 </head>
@@ -72,7 +70,7 @@
 				<div class="xxk">
 					<div class="tab" role="tablist">
 						<a class="active" href="/products/shengxin.html">SpaceX</a>
-						<a href="/products/shengxin-Uber.html">Uber</a>
+						<a id="123" href="/products/shengxin-Uber.html">Uber</a>
 						<a href="/products/shengxin-LendingHome.html">LendingHome</a>
 						<a href="/products/shengxin-Unity.html">Unity</a>
 					</div>
@@ -99,8 +97,8 @@
 											<div class="modal-body">
 												<form>
 													<input type="hidden" name="product_id" value="${product_id}">
-													<div class="<#if errors >alert alert-warning</#if>">
-													</div>
+													<!--<div class="<#if errors >alert alert-warning</#if>">
+													</div>-->
 													<div class="form-group">
 														<input class="form-control" id="id_user_contact_name" maxlength="128" name="user_contact_name" oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('请输入姓名！')" placeholder="姓名" required="required" type="text">
 													</div>
@@ -341,7 +339,7 @@
 
 		function book_submit() {
 			$('#popup').find('.modal-body').hide();
-			$('#popup').find('modal-body-success').show();
+			$('#popup').find('.modal-body-success').show();
 		}
 		function fail_book_submit(d) {
 			alert(d);
