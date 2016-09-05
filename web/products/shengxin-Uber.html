@@ -83,10 +83,10 @@
 				<div class="col-sm-offset-1 col-sm-10 col-xs-12">
 					<div class="xxk">
 						<div class="tab" role="tablist">
-							<a href="/products/shengxin.html">SpaceX</a>
-							<a class="active" href="/products/shengxin-Uber.html">Uber</a>
-							<a href="/products/shengxin-LendingHome.html">LendingHome</a>
-							<a href="/products/shengxin-Unity.html">Unity</a>
+							<a href="/products/shengxin.html?product_id=2">SpaceX</a>
+							<a class="active" href="/products/shengxin-Uber.html?product_id=77">Uber</a>
+							<a href="/products/shengxin-LendingHome.html?product_id=78">LendingHome</a>
+							<a href="/products/shengxin-Unity.html?product_id=79">Unity</a>
 						</div>
 						<div class="tab-content">
 							<div id="Uber" class="tab-test">
@@ -322,7 +322,7 @@
 
 		//is_login  调取登录接口
 		function is_login(res) {
-			$('.navbar ul li:last-child').html('<a class="btn btn-min-width" href=" ">我的账户</a>');
+			$('.navbar ul li:last-child').html('<a class="btn btn-min-width" href="/investor/dashboard.html">我的账户</a>');
 			$('.navbar ul li:nth-last-child(2)').html('<a class="btn btn-min-width-sm logout" href="javascript:;">退出</a>');
 			$('.ajax_wait p,.ajax_wait').hide();
 
