@@ -1357,7 +1357,7 @@ market value of your primary residence).</span>
     $(function(){
         //验证登录
         if (cookie_tooken.mx_token == undefined || cookie_tooken.mx_token == null) {
-            return false;
+            //return false;
         }else{
             Ajax_Data({
                 "url": baseUrl + "/auth/authentication",

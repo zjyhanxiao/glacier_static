@@ -802,7 +802,6 @@
       rel="stylesheet">
 <link href="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/css/index.min.css"
       rel="stylesheet">
-<!--<link href="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/css/my-slider.min.css" rel="stylesheet">-->
 <link href="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/css/index_extra.min.css"
       rel="stylesheet">
 <script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/vendor/js/jquery-1.11.1.min.js"
@@ -843,7 +842,7 @@
         //登陆操作
         //验证登录
         if (cookie_tooken.mx_token == undefined || cookie_tooken.mx_token == null) {
-            return false;
+//            return false;
         } else {
             Ajax_Data({
                 "url": baseUrl + "/auth/authentication",
