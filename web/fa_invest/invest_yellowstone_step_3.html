@@ -281,7 +281,7 @@
             $('#submit_step_three').on('click', function () {
                 $(this).prop('disabled',true);
                 var img_src = $('#identity-proof').siblings('img').attr('src');
-                if (!default_passport_photo) {
+                if (default_passport_photo) {
                     $('#identity-proof').prop("required", false);
                 }else{
                     $(this).prop('disabled',false);
@@ -296,11 +296,10 @@
 
                     //上传profile信息
                     var update_profile_data = {};
-                    if (!default_passport_photo) {
-                        update_profile_data.passport_photo = passport_photo;
-                        console.log(passport_photo);
-                    } else {
+                    if (default_passport_photo) {
                         update_profile_data.passport_photo = img_src;
+                    } else {
+                        update_profile_data.passport_photo = passport_photo;
                     }
                     update_profile_data = $.extend({}, update_profile_data, cookie_tooken);
                     Ajax_Data({
@@ -320,7 +319,7 @@
             if (d.passport_photo != "" && d.passport_photo != null) {
                 $('.fa-upload-id-pic').find('img').attr('src', d.passport_photo);
                 $('#identity-proof').prop("required", false);
-                default_passport_photo = false;
+                default_passport_photo = true;
             }
         }
 

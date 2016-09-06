@@ -11,9 +11,9 @@ var is_new = true,                  //新建订单
     id_card_photo = '',             //上传身份证,返回的身份证链接
     passport_photo = '',            //上传护照,返回的护照链接
     address_proof = '',             //上传地址证明,返回的地址证明链接
-    default_address_proof = true,   //地址证明为默认图片
-    default_passport_photo = true,  //护照为默认图片
-    default_id_card_photo = true;   //身份证为默认图片
+    default_address_proof = false,   //地址证明为默认图片
+    default_passport_photo = false,  //护照为默认图片
+    default_id_card_photo = false;   //身份证为默认图片
 
 // 取cookie
 var mx_token = $.cookie('mx_token'),

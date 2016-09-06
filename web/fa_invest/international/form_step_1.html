@@ -223,12 +223,12 @@
                 $('#id_card_photo').siblings('img').attr('src', d.id_card_photo);
                 $('#id_card_photo').siblings('p').html('您已上传的身份证照片');
                 $('#id_card_photo').prop("required", false);
-                default_id_card_photo = false;
+                default_id_card_photo = true;
             }
             if (d.passport_photo != "" && d.passport_photo != null) {
                 $('#passport_photo').siblings('img').attr('src', d.passport_photo);
                 $('#passport_photo').siblings('p').html('您已上传的护照照片');
-                default_passport_photo = false;
+                default_passport_photo = true;
             }
         }
 
@@ -240,14 +240,14 @@
             //上传profile信息
             var update_profile_data = {};
             if (default_id_card_photo) {
-                update_profile_data.id_card_photo = id_card_photo;
-            } else {
                 update_profile_data.id_card_photo = img_src;
+            } else {
+                update_profile_data.id_card_photo = id_card_photo;
             }
             if (default_passport_photo) {
-                update_profile_data.passport_photo = passport_photo;
-            } else {
                 update_profile_data.passport_photo = passport_photo_img;
+            } else {
+                update_profile_data.passport_photo = passport_photo;
             }
             update_profile_data = $.extend({}, update_profile_data, cookie_tooken);
             Ajax_Data({

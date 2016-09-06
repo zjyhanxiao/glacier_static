@@ -368,7 +368,7 @@
             $('#submit_step_four').on('click', function () {
                 $(this).prop('disabled',true);
                 var img_src = $('#address-proof').siblings('img').attr('src');
-                if (!default_address_proof) {
+                if (default_address_proof) {
                     $('#address-proof').prop("required", false);
                 }
                 if ($('.fa-steps').parsley().validate()) {
@@ -381,10 +381,10 @@
 
                     //上传profile信息
                     var update_profile_data = {};
-                    if (!default_address_proof) {
-                        update_profile_data.address_proof = address_proof;
-                    } else {
+                    if (default_address_proof) {
                         update_profile_data.address_proof = img_src;
+                    } else {
+                        update_profile_data.address_proof = address_proof;
                     }
                     update_profile_data.mailing_address_country = $('#resident-countries-states').val();
                     update_profile_data.mailing_address_region = $('#resident-state').val();
@@ -431,7 +431,7 @@
             if (d.address_proof != "" && d.address_proof != null) {
                 $('#address-proof').siblings('img').attr('src', d.address_proof);
                 $('#identity-proof').prop("required", false);
-                default_address_proof = false;
+                default_address_proof = true;
             }
             if (d.mailing_address_country != "" && d.mailing_address_country != null) {
                 $('#resident-countries-states').val(d.mailing_address_country);
