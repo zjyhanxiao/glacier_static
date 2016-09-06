@@ -145,14 +145,15 @@
                             <section>
                                 <label>投资方式：</label>
                                 <div class="payment-option">
-                                    <input type="radio" name="payment" id="ach-online" payment-method="ach" required=""
+                                    <div><input type="radio" name="payment" id="ach-online" payment-method="ach"
+                                             required=""
                                            data-parsley-required-message="请选择支付方式"/>
-                                    <label for="ach-online"><span><span></span></span>ACH在线自动转账（最方便、需要美国银行账户、账户姓名需与投资人姓名一致）</label><br>
-                                    <input type="radio" name="payment" id="bank-tt" payment-method="wire"/>
-                                    <label for="bank-tt"><span><span></span></span>银行电汇（从非美国银行账户）</label><br>
+                                    <label for="ach-online"><span><span></span></span>ACH在线自动转账（最方便、需要美国银行账户、账户姓名需与投资人姓名一致）</label><br></div>
+                                    <div><input type="radio" name="payment" id="bank-tt" payment-method="wire"/>
+                                    <label for="bank-tt"><span><span></span></span>银行电汇（从非美国银行账户）</label><br></div>
 
-                                    <input type="radio" name="payment" id="check" payment-method="check"/>
-                                    <label for="check"><span><span></span></span>支票</label>
+                                    <div><input type="radio" name="payment" id="check" payment-method="check"/>
+                                    <label for="check"><span><span></span></span>支票</label></div>
                                 </div>
                             </section>
                             <div class="ach-online-box">
@@ -430,7 +431,6 @@
                 "fn": get_bank_profile
             });
             //获取文档信息
-            var index = $('.payment-option>input:checked').index() / 3;      // 获取投资方式选中的索引值
             var product_document_data = {"product_id": product_id};
             product_document_data = $.extend({}, product_document_data, cookie_tooken);
             Ajax_Data({
@@ -487,6 +487,7 @@
             });
 
             $('#submit_step_five').on('click', function () {
+                var index = $('.payment-option input:checked').parents("div").index();      // 获取投资方式选中的索引值
                 $(this).prop('disabled', true);
                 if ($('.fa-steps').parsley().validate()) {
                     $('.ajax_wait').show();

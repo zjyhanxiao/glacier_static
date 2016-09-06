@@ -147,14 +147,14 @@
                             <section>
                                 <label>投资方式：</label>
                                 <div class="payment-option">
-                                    <input type="radio" name="payment" id="ach-online" payment-method="ach"
+                                    <div><input type="radio" name="payment" id="ach-online" payment-method="ach"
                                            required="" data-parsley-required-message="请选择支付方式"/>
-                                    <label for="ach-online"><span><span></span></span>ACH在线自动转账（最方便、需要美国银行账户、账户姓名需与投资人姓名一致）</label><br>
-                                    <input type="radio" name="payment" id="bank-tt" payment-method="wire"/>
-                                    <label for="bank-tt"><span><span></span></span>银行电汇（从非美国银行账户）</label><br>
+                                    <label for="ach-online"><span><span></span></span>ACH在线自动转账（最方便、需要美国银行账户、账户姓名需与投资人姓名一致）</label><br></div>
+                                    <div><input type="radio" name="payment" id="bank-tt" payment-method="wire"/>
+                                    <label for="bank-tt"><span><span></span></span>银行电汇（从非美国银行账户）</label><br></div>
 
-                                    <input type="radio" name="payment" id="check" payment-method="check"/>
-                                    <label for="check"><span><span></span></span>支票</label>
+                                    <div><input type="radio" name="payment" id="check" payment-method="check"/>
+                                    <label for="check"><span><span></span></span>支票</label></div>
                                 </div>
                             </section>
                             <div class="ach-online-box">
@@ -384,6 +384,8 @@
 <script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/js/fa.min.js"></script>
 <script>
     $(function () {
+
+        var check_index;
         Ajax_Data({
             "url": baseUrl + "/auth/authentication",
             "data": cookie_tooken,
@@ -431,7 +433,6 @@
                 "fn": get_bank_profile
             });
             //获取文档信息
-            var index = $('.payment-option>input:checked').index() / 3;      // 获取投资方式选中的索引值
             var product_document_data = {"product_id": product_id};
             product_document_data = $.extend({}, product_document_data, cookie_tooken);
             Ajax_Data({
@@ -488,15 +489,15 @@
             });
 
             $('#submit_step_four').on('click', function () {
+                check_index = $('.payment-option input:checked').parents('div').index();      // 获取投资方式选中的索引值
                 $(this).prop('disabled', true);
                 if ($('.fa-steps').parsley().validate()) {
                     $('.ajax_wait').show();
                     setTimeout(function () {
                         $('.ajax_wait p').show();
                     }, 3e3);
-                    order_number = getUrlParam("order_number");
                     //上传bank信息
-                    if (index == 0) {
+                    if (check_index == 0) {
                         var update_bank_data = {};
                         update_bank_data.account_number = $('#bank-account-number').val();
                         update_bank_data.account_name = $('#bank-account-name').val();
@@ -518,7 +519,7 @@
 
                     //上传profile信息
                     var update_profile_data = {};
-                    update_profile_data.literal = $('.literal').eq(index).val();
+                    update_profile_data.literal = $('.literal').eq(check_index).val();
                     update_profile_data = $.extend({}, update_profile_data, cookie_tooken);
                     Ajax_Data({
                         "type": "post",
@@ -542,6 +543,8 @@
                         "fail_fn": commit_order_fail
                     });
                     return false;
+                }else{
+                    $(this).prop('disabled', false);
                 }
             })
         }
