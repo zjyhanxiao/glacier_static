@@ -297,9 +297,9 @@
                     //上传profile信息
                     var update_profile_data = {};
                     if (default_passport_photo) {
-                        update_profile_data.passport_photo = passport_photo;
-                    } else {
                         update_profile_data.passport_photo = img_src;
+                    } else {
+                        update_profile_data.passport_photo = passport_photo;
                     }
                     update_profile_data = $.extend({}, update_profile_data, cookie_tooken);
                     Ajax_Data({

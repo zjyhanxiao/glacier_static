@@ -607,14 +607,14 @@
                 update_profile_data.passport_code = $('#passport_code').val();
                 update_profile_data.date_of_birth = $('#id_birth_date').val();
                 if (default_id_card_photo) {
-                    update_profile_data.id_card_photo = id_card_photo;
-                } else {
                     update_profile_data.id_card_photo = img_src;
+                } else {
+                    update_profile_data.id_card_photo = id_card_photo;
                 }
                 if (default_passport_photo) {
-                    update_profile_data.passport_photo = passport_photo;
-                } else {
                     update_profile_data.passport_photo = passport_photo_img;
+                } else {
+                    update_profile_data.passport_photo = passport_photo;
                 }
                 update_profile_data = $.extend({}, update_profile_data, cookie_tooken);
                 console.log(update_profile_data);
