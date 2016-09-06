@@ -441,7 +441,7 @@
          }
          $("#categoryNav").append(nav.clone());
          });*/
-        $.each(productList, function (index, product) {
+        $.each(productList.reverse(), function (index, product) {
             var li = $("<li data-title='" + product.category_name + "'></li>");
             //显示名字和分类
             if (product.product_location == 'ON_SHORE' && product.product_type == 'CROWD_FUNDING') {//安心定期
