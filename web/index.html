@@ -1039,7 +1039,7 @@
                 switch (data.code) {
                     case 1:
                         var ol = $("<ol></ol>");
-                        $.each(data.body, function (i, v) {
+                        $.each(data.body.reverse(), function (i, v) {
                             var swiperSlide = "<div class='swiper-slide'><a href='" + v.url + "' target='_blank'><img src='" + v.image + "'style='max-width: 100%;' /></a></div>";
                             swiperSlides += swiperSlide;
                         });
