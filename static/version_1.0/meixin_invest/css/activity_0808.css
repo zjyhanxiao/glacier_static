@@ -13,7 +13,7 @@ body{
     height: 667px;
     margin: 0 auto;
     background-color: #fff;
-    background-image: url("http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.0/dist/meixin_invest/img/activity/activity_0808/bg.jpg");
+    background-image: url("../img/activity/activity_0808/bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }
