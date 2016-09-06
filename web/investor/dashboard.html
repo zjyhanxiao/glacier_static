@@ -872,7 +872,7 @@
                             '<h4>' + d[i].product_name + ' ' + d[i].product_number + '<span' + ' class="invest_status">投资状态：' + d[i].status_desc + '</span></h4>' +
                             '<ul class="invest_table clearfix">' +
 //                            '<li>产品类型：债权型</li>' +
-                            '<li class="hide">投资总额： ' + invest_amount + '</li>' +
+                            '<li>投资总额： ' + invest_amount + '</li>' +
                             '<li>总金额：' + total_amount + '</li>' +
                             '<li>累计收益：' + total_income + '</li>' +
                             '<li>投资日期：' + d[i].created_at + '</li>' +
@@ -933,7 +933,8 @@
                         }
                     }
                     html += '<div class="order_list">' +
-                            '<h4>' + d[i].product_name + ' ' + d[i].product_number + ' <span class="redeem_date">赎回日期：d[i].refund_date</span></h4>' +
+                            '<h4>' + d[i].product_name + ' ' + d[i].product_number +
+                            ' <span class="redeem_date">赎回日期：'+d[i].refund_date+'</span></h4>' +
                             '<ul class="invest_table clearfix">' +
 //                            '<li>产品类型：债券型</li>' +
                             '<li>总金额：$' + d[i].total_amount + '</li>' +
@@ -1181,6 +1182,7 @@
             });
             //提交订单提现
             $('body').on('click', '#invest_submit', function () {
+                console.log(1111);
                 $(this).prop('disabled',true);
                 var withdraw_submit_data = {
                     "order_number": order_number,
@@ -1210,14 +1212,14 @@
 
                 return false;
             });
-            $('body').on('click', '.modal-body .close,.modal-body-success .close', function () {
+/*            $('body').on('click', '.modal-body .close,.modal-body-success .close', function () {
                 // window.location.reload();
                 $('.modal-body-success').hide();
                 $('.modal-footer').html(' ').hide();
                 $('.modal-body').show();
                 return false;
-            });
-            $('body').on('click', '.modal-footer .close', function () {
+            });*/
+            $('body').on('click', '.modal-header .close', function () {
                 window.location.reload();
                 return false;
             });
@@ -1332,7 +1334,7 @@
             //提交订单提现
             $('body').on('click', '#invest_submit', function () {
 
-                var withdraw_submit_data = {
+                var lh_withdraw_submit_data = {
                     "order_number": order_number,
                     "withdraw_count": $('#withdraw_value').val(),
                     "user_name": $('#full_name').val(),
@@ -1344,11 +1346,11 @@
                     "routing_number": $('#bank_address').val(),
 
                 };
-                withdraw_submit_data = $.extend({}, withdraw_submit_data, cookie_tooken);
+                lh_withdraw_submit_data = $.extend({}, lh_withdraw_submit_data, cookie_tooken);
                 Ajax_Data({
                     "type": "post",
                     "url": baseUrl + "/withdraw/submit",
-                    "data": withdraw_submit_data,
+                    "data": lh_withdraw_submit_data,
                     "fn": lh_withdraw_submit,
                     "fail_fn": withdraw_fail
                 });
@@ -1359,15 +1361,15 @@
 
                 return false;
             });
-            $('body').on('click', '.modal-body .close,.modal-body-success .close', function () {
+/*            $('body').on('click', '.modal-body .close,.modal-body-success .close', function () {
                 // window.location.reload();
                 $('.modal-body-success').hide();
                 $('.modal-footer').html(' ').hide();
                 $('.modal-body').show();
                 return false;
-            });
+            });*/
 
-            $('body').on('click', '.modal-footer .close', function () {
+            $('body').on('click', '.modal-header .close', function () {
                 window.location.reload();
                 return false;
             });
