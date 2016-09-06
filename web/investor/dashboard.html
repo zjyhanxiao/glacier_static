@@ -932,7 +932,7 @@
                     }
                     html += '<div class="order_list">' +
                             '<h4>' + d[i].product_name + ' ' + d[i].product_number +
-                            ' <span class="redeem_date">赎回日期：'+d[i].refund_date+'</span></h4>' +
+                            ' <span class="redeem_date">赎回日期：' + d[i].refund_date + '</span></h4>' +
                             '<ul class="invest_table clearfix">' +
 //                            '<li>产品类型：债券型</li>' +
                             '<li>总金额：$' + d[i].total_amount + '</li>' +
@@ -1001,6 +1001,14 @@
                                     ' <button type="button" class="withdraw-history status_btn" data-type=' + d[i].operation_mode + '>赎回记录</button>';
                         }
                     }
+                    var current_nav = d[i].current_nav;
+                    if (current_nav == null) {
+                        current_nav = '--';
+                    }
+                    var first_nav = d[i].first_nav;
+                    if (first_nav == null) {
+                        first_nav = '--';
+                    }
 
                     html += '<div class="order_list">' +
                             '<h4>' + d[i].product_name + ' ' + d[i].product_number + '</h4>' +
@@ -1010,12 +1018,12 @@
                             '<li>总金额：$' + d[i].total_amount + '</li>' +
                             '<li>投资周期：' + d[i].invest_term + '月起</li>' +
                             '<li>投资日期：' + d[i].created_at + '</li>' +
-                            '<li>最新NAV：' + d[i].current_nav + '</li>' +
+                            '<li>最新NAV：' + current_nav + '</li>' +
                             '<li>投资状态：' + d[i].status_desc + '</li>' +
                             '<li>入金金额：$' + received_amount + '</li>' +
                             '<li>入金余额：$' + received_balance + '</li>' +
                             '<li>投资份数：' + d[i].left_count + '</li>' +
-                            '<li>购买时NAV：' + d[i].first_nav + '</li>' +
+                            '<li>购买时NAV：' + first_nav + '</li>' +
                             '<li>&nbsp;</li>' +
                             '<li>&nbsp;</li>' +
                             '<li></li><li><a href=' + d[i].sub_doc_url + ' style="color:#58afd4;">合同</a></li>' +
@@ -1179,7 +1187,7 @@
             });
             //提交订单提现
             $('body').on('click', '#invest_submit', function () {
-                $(this).prop('disabled',true);
+                $(this).prop('disabled', true);
                 var withdraw_submit_data = {
                     "order_number": order_number,
                     "withdraw_amount": $('#invest_value').val(),
@@ -1201,20 +1209,20 @@
                     "fail_fn": withdraw_fail
                 });
                 function withdraw_submit(d) {
-                    $('#invest_submit').prop('disabled',false);
+                    $('#invest_submit').prop('disabled', false);
                     $('.modal-body-success').hide();
                     $('.modal-footer').html('<p>提交成功</p>您的提现申请已提交成功，我们会尽快办理，请您保持通讯畅通，以方便与您联系。').show();
                 }
 
                 return false;
             });
-/*            $('body').on('click', '.modal-body .close,.modal-body-success .close', function () {
-                // window.location.reload();
-                $('.modal-body-success').hide();
-                $('.modal-footer').html(' ').hide();
-                $('.modal-body').show();
-                return false;
-            });*/
+            /*            $('body').on('click', '.modal-body .close,.modal-body-success .close', function () {
+             // window.location.reload();
+             $('.modal-body-success').hide();
+             $('.modal-footer').html(' ').hide();
+             $('.modal-body').show();
+             return false;
+             });*/
             $('body').on('click', '.modal-header .close', function () {
                 window.location.reload();
                 return false;
@@ -1353,13 +1361,13 @@
 
                 return false;
             });
-/*            $('body').on('click', '.modal-body .close,.modal-body-success .close', function () {
-                // window.location.reload();
-                $('.modal-body-success').hide();
-                $('.modal-footer').html(' ').hide();
-                $('.modal-body').show();
-                return false;
-            });*/
+            /*            $('body').on('click', '.modal-body .close,.modal-body-success .close', function () {
+             // window.location.reload();
+             $('.modal-body-success').hide();
+             $('.modal-footer').html(' ').hide();
+             $('.modal-body').show();
+             return false;
+             });*/
 
             $('body').on('click', '.modal-header .close', function () {
                 window.location.reload();
@@ -1471,7 +1479,7 @@
 
         // 提现失败,弹出错误信息
         function withdraw_fail(d) {
-            $('#invest_submit').prop('disabled',false);
+            $('#invest_submit').prop('disabled', false);
             alert(d);
         }
 
