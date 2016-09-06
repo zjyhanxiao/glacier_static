@@ -598,10 +598,6 @@
             var passport_photo_img = $('.dashboard_passport_image').find('img').attr('src');
             //上传profile信息
             $('#save_submit').on('click', function () {
-                console.log(default_id_card_photo);
-                console.log(default_passport_photo);
-                console.log(id_card_photo);
-                console.log(passport_photo);
                 var $this = $(this);
                 $this.prop('disabled', true);
                 var update_profile_data = {};
@@ -610,12 +606,12 @@
                 update_profile_data.id_card_code = $('#id_card').val();
                 update_profile_data.passport_code = $('#passport_code').val();
                 update_profile_data.date_of_birth = $('#id_birth_date').val();
-                if (!default_id_card_photo) {
+                if (default_id_card_photo) {
                     update_profile_data.id_card_photo = id_card_photo;
                 } else {
                     update_profile_data.id_card_photo = img_src;
                 }
-                if (!default_passport_photo) {
+                if (default_passport_photo) {
                     update_profile_data.passport_photo = passport_photo;
                 } else {
                     update_profile_data.passport_photo = passport_photo_img;
@@ -692,11 +688,11 @@
                 }
                 if (d.id_card_photo != '' && d.id_card_photo != null) {
                     $('.dashboard_id_image img').attr('src', d.id_card_photo);
-                    default_id_card_photo = false;
+                    default_id_card_photo = true;
                 }
                 if (d.passport_photo != '' && d.passport_photo != null) {
                     $('.dashboard_passport_image img').attr('src', d.passport_photo);
-                    default_passport_photo = false;
+                    default_passport_photo = true;
                 }
             }
         }
@@ -1140,7 +1136,6 @@
                 var can_view = true;
                 $.each(arrDom, function (index) {
                     if (arrDom.eq(-(index + 1)).val() == '') {
-                        console.log(-index);
                         $('.error_msg').html(arrDom.eq(-(index + 1)).prev('label').html().replace('：', '') + '不能为空');
                         can_view = false;
                     }
@@ -1290,10 +1285,6 @@
                 var can_view = true;
                 $.each(arrDom, function (index) {
                     if (arrDom.eq(-(index + 1)).val() == '') {
-                        console.log(-(index + 1));
-                        console.log(arrDom.eq(-(index + 1)).prev('label').html());
-                        console.log(arrDom.eq(-(index + 1)).prev('label').html().replace('：', ''));
-
                         $('.error_msg').html(arrDom.eq(-(index + 1)).prev('label').html().replace('：', '') + '不能为空');
                         can_view = false;
                     }
@@ -1528,12 +1519,10 @@
                         if (event.target.id == 'id_identification_card_photo') {
                             id_card_photo = result.body;
                             id.siblings('img').attr('src', id_card_photo);
-                            default_id_card_photo = false;
                         }
                         if (event.target.id == 'id_passport_photo') {
                             passport_photo = result.body;
                             id.siblings('img').attr('src', passport_photo);
-                            default_passport_photo = false;
                         }
                     }
                     if (result.code == -1) {

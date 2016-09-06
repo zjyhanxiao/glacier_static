@@ -223,12 +223,12 @@
                 $('#id_card_photo').siblings('img').attr('src', d.id_card_photo);
                 $('#id_card_photo').siblings('p').html('您已上传的身份证照片');
                 $('#id_card_photo').prop("required", false);
-                default_id_card_photo = false;
+                default_id_card_photo = true;
             }
             if (d.passport_photo != "" && d.passport_photo != null) {
                 $('#passport_photo').siblings('img').attr('src', d.passport_photo);
                 $('#passport_photo').siblings('p').html('您已上传的护照照片');
-                default_passport_photo = false;
+                default_passport_photo = true;
             }
         }
 
