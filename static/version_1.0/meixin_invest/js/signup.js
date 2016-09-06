@@ -94,14 +94,10 @@ $(document).ready(function () {
         var password = parent_div.find('input[type="password"]');
         var email = parent_div.find('input[name="email"]');
 
+        parent_div.find('.input-error').removeClass('input-error');
         parent_div.find('input[name="phone"], input[name="verifyCode"], input[type="password"], input[name="email"]').each(function () {
 
             if ($('#countries_phone').val() == 'China' && $('input[name="phone"]').val().length < 15) {
-                $(this).addClass('input-error');
-                next_step = false;
-                return false;
-            }
-            if ($('#countries_phone').val() != 'China' && $('input[name="phone"]').val().length < 6) {
                 $(this).addClass('input-error');
                 next_step = false;
                 return false;
@@ -116,13 +112,13 @@ $(document).ready(function () {
                 next_step = false;
                 return false;
             }
-            if ($(this).val() == "") {
-                $(this).addClass('input-error');
+            var emailStr = $('#id_email').val();
+            if (emailStr.indexOf('@') == -1) {
+                $('#id_email').addClass('input-error');
                 next_step = false;
                 return false;
             }
-            var emailStr = $('#id_email').val();
-            if (emailStr.indexOf('@') == -1 ||emailStr.indexOf('.') == -1) {
+            if (emailStr.indexOf('.') == -1) {
                 $('#id_email').addClass('input-error');
                 next_step = false;
                 return false;
@@ -130,10 +126,9 @@ $(document).ready(function () {
             else {
                 $(this).removeClass('input-error');
             }
+            
         });
-        if(!first_next_step){
-            alert("请获取手机验证码!");
-       }else if (next_step) {
+        if (next_step) {
             parent_div.fadeOut(400, function () {
                 $('#page1').next().fadeIn();
             });
