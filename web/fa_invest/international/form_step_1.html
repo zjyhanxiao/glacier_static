@@ -286,11 +286,13 @@
                             id_card_photo = result.body;
                             id.siblings('p').html('您已上传的身份证照片');
                             id.siblings('img').attr('src',id_card_photo);
+                            default_id_card_photo = false;
                         }
                         if (event.target.id == 'passport_photo') {
                             passport_photo = result.body;
                             id.siblings('p').html('您已上传的护照照片');
                             id.siblings('img').attr('src',passport_photo);
+                            default_passport_photo = false;
                         }
                     }
                     if (result.code == -1) {

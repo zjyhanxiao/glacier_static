@@ -348,6 +348,7 @@
                     if (result.code == 1) {
                         passport_photo = result.body;
                         dom.siblings('img').attr('src',passport_photo);
+                        default_passport_photo = false;
                     }
                     if (result.code == -1) {
                         alert("上传失败,请重新上传");
