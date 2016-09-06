@@ -468,7 +468,7 @@
 </script>
 <script>
     $(function () {
-        var full_name, user_address, investment_process = '';
+        var full_name, user_address, investment_process = '', withdraw_list;
 
         //验证登录
         Ajax_Data({
@@ -885,7 +885,8 @@
                             '<li class="hide">权益收益：' + promotion_income + '</li>' +
                             '<li class="hide">' + promotion + '</li>' +
                             '<li class="hide"></li>' +
-                            '<li class="hide"><a href=' + d[i].sub_doc_url + ' target="_blank">合同</a></li>' +
+                            '<li class="hide"><a href=' + d[i].sub_doc_url +
+                            ' target="_blank" style="color:#58afd4;">合同</a></li>' +
                             '<li class="hide">' + can_withdraw + '</li></ul></div>';
                 });
                 $('.invest_order').html(html);
@@ -947,7 +948,7 @@
                 //获取提现记录
                 $('.history_order').on('click', '.withdraw', function () {
                     var $this = $(this);
-                    var order_num = $(this).prev().attr('data-order-number');
+                    var order_num = $(this).attr('data-order-number');
                     is_open = $(this).attr('data-type');
 
                     $this.parents('.invest_table').nextAll().remove();
@@ -1020,7 +1021,7 @@
                             '<li>购买时NAV：' + d[i].first_nav + '</li>' +
                             '<li>&nbsp;</li>' +
                             '<li>&nbsp;</li>' +
-                            '<li></li><li><a href=' + d[i].sub_doc_url + '>合同</a></li>' +
+                            '<li></li><li><a href=' + d[i].sub_doc_url + ' style="color:#58afd4;">合同</a></li>' +
                             '<li><button class="status_btn buy_again" data-product_id=' + d[i].product_id + ' data-invest_amount=' + d[i].invest_amount + '>再次购买</button> ' +
                             can_withdraw +
                             '</li></ul></div>';
@@ -1182,7 +1183,6 @@
             });
             //提交订单提现
             $('body').on('click', '#invest_submit', function () {
-                console.log(1111);
                 $(this).prop('disabled',true);
                 var withdraw_submit_data = {
                     "order_number": order_number,
