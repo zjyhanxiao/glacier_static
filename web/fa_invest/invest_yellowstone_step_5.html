@@ -460,7 +460,8 @@
                                     + ' required="" data-parsley-required-message="请确认所填写的' + res[key].document_name
                                     + '信息无误"/><label for="#' + res[key].id +
                                     '"><span><span class="invest-check-mark"></span></span>' +
-                                    '<a id=' + res[key].id + ' href="/subdoc.html?document_id=' + res[key].id + '&invest_amount' + $('#invest-amount').val() + '" target="_blank">' + res[key].document_name + '</a></label><br>');
+                                    '<a id=' + res[key].id + ' href="/subdoc.html?document_id=' + res[key].id +
+                                    '&invest_amount=' + $('#invest-amount').val() + '" target="_blank">' + res[key].document_name + '</a></label><br>');
                             break;
                         case false:
                             div.append('<a href="' + res[key].url + '" target="_blank">' + res[key].document_name + '</a><br>');
