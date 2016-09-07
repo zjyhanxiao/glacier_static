@@ -50,12 +50,14 @@ $(function () {
         $('p').remove();
         checkPhone() && checkPwd() && checkEmail();
         var jsonStr = $.cookie("key_cookie");
+        var source = $.cookie("source");
         var signup_data = {
             "phone": "+86 " + $('#phone').val(),
             "verify_code": $("#id_verify").val(),
             "password": $("#pwd").val(),
             "email": $("#email").val(),
-            "questions": jsonStr
+            "questions": jsonStr,
+            "source":source
         };
         if ($("#id_verify").val().length >= 6) {
             b_verify_code = true;
