@@ -1,4 +1,6 @@
 $(function () {
+    $.cookie('mx_token', null, {expires: -1});
+    $.cookie('mx_secret', null, {expires: -1});
     // cookie数据
     $('#sub').click(function () {
         var values = [];
