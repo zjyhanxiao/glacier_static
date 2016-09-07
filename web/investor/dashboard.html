@@ -587,8 +587,8 @@
                     alert('图片格式不正确，支持图片格式(.jpg|.jpeg|.png|.gif|.bmp)');
 
                 } else {
-                    file_upload($this);
                     $this.parent().siblings('img').attr('src', URL.createObjectURL(event.target.files[0]));
+                    file_upload($this);
                 }
             });
 
