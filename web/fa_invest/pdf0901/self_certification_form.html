@@ -648,7 +648,7 @@
     <div class="zjy-section1">
         <table width="100%">
             <tr class="zjy-bordertop">
-                <td width="50%">Account Holder Name<p id="self-certification-name">${first_name}${last_name}</p></td>
+                <td width="50%">Account Holder Name<p id="self-certification-name">${real_name}</p></td>
                 <td width="25%">Date of Birth (dd/mm/yyyy)<p id="self-certification-date-of-birth">${date_of_birth}</p></td>
                 <td width="25%">Place and Country of Birth<p id="self-certification-country-of-birth">${country_of_birth}</p></td>
             </tr>
@@ -657,7 +657,7 @@
                     <p></p></td>
             </tr>
             <tr class="zjy-bordertop">
-                <td colspan="2">Number , Street <p id="self-certification-permanent-number-street">${permanent_address_street}${permanent_address_apartment}${permanent_address_door}</p></td>
+                <td colspan="2">Number , Street <p id="self-certification-permanent-number-street">${permanent_address_street},${permanent_address_apartment},${permanent_address_door}</p></td>
                 <td>City/Town<p id="self-certification-permanent-city">${permanent_address_city}</p></td>
             </tr>
             <tr class="zjy-bordertop">
@@ -670,7 +670,7 @@
                     <p></p></td>
             </tr>
             <tr class="zjy-bordertop">
-                <td colspan="2">Number , Street <p id="self-certification-mailing-number-street">${mailing_address_street}${mailing_address_apartment}${mailing_address_door}</p></td>
+                <td colspan="2">Number , Street <p id="self-certification-mailing-number-street">${mailing_address_street},${mailing_address_apartment},${mailing_address_door}</p></td>
                 <td>City/Town<p id="self-certification-mailing-city">${mailing_address_city}</p></td>
             </tr>
             <tr class="zjy-bordertop">
@@ -750,13 +750,14 @@
             authorities.</p>
         <div class="zjy-signs zjy-clearfix">
             <div class="zjy-signType">Signature:</div>
-            <div class="zjy-signImg"><img style="height: 30px" src="${signature}" id="self-certerfication-signature"/></div>
+            <div class="zjy-signImg"><img src="${signature}" id="self-certerfication-signature"/></div>
         </div>
         <div class="zjy-signs zjy-clearfix">
             <div class="zjy-signType">Date: (dd/mm/yyyy):</div>
             <div class="zjy-signDate" id="self-certification-sign-date">${created_at}</div>
         </div>
     </div>
+
 
 </div>
 </body>

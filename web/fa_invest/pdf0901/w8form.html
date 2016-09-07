@@ -361,9 +361,14 @@
         }
         .zjy-part1 td{
             vertical-align: top;
-            height: 40px;
+            height: 36px;
+	    line-height: 18px;
             padding: 0 10px;
-        }
+        
+	}
+	.zjy-part1 p{
+	    margin:0;
+	}
         .zjy-part1 td.zjy-firstline{
             text-align: center;
             vertical-align: middle;
@@ -371,7 +376,7 @@
 
         .zjy-part2{
             list-style-type: decimal;
-            margin: 15px;
+            margin: 10px 15px;
         }
         .zjy-part2 li{
             padding-left: 15px;
@@ -386,13 +391,14 @@
         }
         .zjy-part3{
             list-style-type: disc;
-            margin: 15px;
+            margin:8px 15px;
         }
         .zjy-part3 li{
             padding-left: 15px;
         }
         .zjy-part3 p{
-            margin-top:5px;
+            margin:0;
+	    margin-top:3px;
         }
 
 
@@ -401,7 +407,7 @@
         }
         .zjy-w8signs .zjy-signLeft{
             width: 155px;
-            line-height: 26px;
+            line-height: 20px;
         }
         .zjy-w8signs .zjy-triangle{
             margin-left: 40px;
@@ -427,7 +433,7 @@
 
         .zjy-w8signs .zjy-signImg .zjy-signItem,.zjy-w8signs .zjy-dateShow .zjy-dateItem{
             border-bottom: 1px dashed #000;
-            height: 40px;
+            height: 36px;
         }
         .zjy-w8signs .zjy-signImg p,.zjy-w8signs .zjy-dateShow p{
             text-align: center;
@@ -677,7 +683,7 @@
         <tr>
             <td width="30" class="zjy-firstline">1</td>
             <td width="800" colspan="2">Name of individual who is the beneficial owner
-                <p id="w8-name">${first_name}${last_name}</p>
+                <p id="w8-name">${real_name}</p>
             </td>
         </tr>
         <tr>
@@ -690,7 +696,7 @@
             <td class="zjy-firstline" rowspan="2">3</td>
             <td colspan="2">Permanent residence address (street, apt. or suite no., or rural route). <b>Do not
                 use a P.O. box or in-care-of address.</b>
-                <p id="w8-permanent-address">${permanent_address_street}${permanent_address_apartment}${permanent_address_door}</p>
+                <p id="w8-permanent-address">${permanent_address_street},${permanent_address_apartment},${permanent_address_door}</p>
             </td>
         </tr>
         <tr>
@@ -704,7 +710,7 @@
         <tr>
             <td class="zjy-firstline" rowspan="2">4</td>
             <td colspan="2">Mailing address (if different from above)
-                <p id="w8-mailing-address">${mailing_address_street}${mailing_address_apartment}${mailing_address_door}</p>
+                <p id="w8-mailing-address">${mailing_address_street},${mailing_address_apartment},${mailing_address_door}</p>
             </td>
         </tr>
         <tr>
@@ -806,7 +812,7 @@
         <div class="zjy-signRight zjy-fl">
             <div class="zjy-signAndDate zjy-clearfix">
                 <div class="zjy-signImg zjy-fl">
-                    <div class="zjy-signItem"><img style="height: 30px;" id="w8-signature" src="${signature}"/></div>
+                    <div class="zjy-signItem"><img id="w8-signature" src="${signature}"/></div>
                     <p>Signature of beneficial owner (or individual authorized to sign for beneficial owner)</p>
                 </div>
                 <div class="zjy-dateShow zjy-fr">
@@ -816,7 +822,7 @@
             </div>
             <div class="zjy-signerAndCapacity zjy-clearfix">
                 <div class="zjy-signer zjy-fl">
-                    <div class="zjy-singerItem" id="w8-print-name">${first_name}${last_name}</div>
+                    <div class="zjy-singerItem" id="w8-print-name">${real_name}</div>
                     <p>Print name of signer</p>
                 </div>
                 <div class="zjy-capacity zjy-fr">

@@ -636,9 +636,10 @@
         <table border="1" width="100%">
             <tr>
                 <td rowspan="7" width="21%"
-                    style="text-align: center; vertical-align: middle; transform: rotateZ(-90deg);"><b>Print or type<br/>See Specific Instructions on page 2.</b></td>
+                    style="text-align: center; vertical-align: middle; transform: rotateZ(-90deg);"><b>Print or
+                    type<br/>See Specific Instructions on page 2.</b></td>
                 <td colspan="2">1 Name (as shown on your income tax return). Name is required on this line; do
-                    not leave this line blank.<p id="w9-fullname">${first_name}${last_name}</p></td>
+                    not leave this line blank.<p id="w9-fullname">${real_name}</p></td>
             </tr>
             <tr>
                 <td colspan="2">2 Business name/disregarded entity name, if different from above<p>&nbsp;</p>
@@ -647,7 +648,8 @@
             <tr>
                 <td colspan="2">3 Check appropriate box for federal tax classification; check only one of the
                     following seven boxes:<br/>
-                    <input type="checkbox" name="first" checked>Individual/sole proprietor or single-member LLCC
+                    <input type="checkbox" name="first" checked>Individual/sole proprietor or single-member LLC
+                    C
                     <input type="checkbox" name="first">Corporation
                     <input type="checkbox" name="first">S Corporation
                     <input type="checkbox" name="first">Partnership
@@ -669,11 +671,11 @@
                 </td>
             </tr>
             <tr>
-                <td>5 Address (number, street, and apt. or suite no.)<p id="w9-address">${mailing_address_street}${mailing_address_apartment}${mailing_address_door}</p></td>
+                <td>5 Address (number, street, and apt. or suite no.)<p id="w9-address">${mailing_address_street},${mailing_address_apartment},${mailing_address_door}</p></td>
                 <td rowspan="2">Requester’s name and address (optional)<p>&nbsp;</p></td>
             </tr>
             <tr>
-                <td>6 City, state, and ZIP code<p id="w9-city-state-zipcode">${mailing_address_city}, ${mailing_address_region} ${mailing_address_postal_code}</p></td>
+                <td>6 City, state, and ZIP code<p id="w9-city-state-zipcode">${mailing_address_city},${mailing_address_region},${mailing_address_postal_code}</p></td>
             </tr>
             <tr>
                 <td colspan="2">7 List account number(s) here (optional)<p>&nbsp;</p></td>
@@ -733,7 +735,7 @@
             <tr>
                 <td class="zjy-fn24"><b>Sign<br>Here</b></td>
                 <td>Signature of <br/>U.S. person ▶</td>
-                <td width="50%"><img style="height: 40px;" src="${signature}" id="w9-signature-name" /></td>
+                <td width="50%"><img src="${signature}" id="w9-signature-name" height="54"/></td>
                 <td width="20%"><br/>Date ▶&nbsp;&nbsp;&nbsp;&nbsp;<span id="w9-sign-date">${created_at}</span></td>
             </tr>
         </table>
