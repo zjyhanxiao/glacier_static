@@ -824,12 +824,9 @@
             trigger: 'hover',
             content: '<img style="width: 200px;padding:0;margin:0;" src="https://s1.meixinglobal.com/static/version_1.0/dist/meixin_invest/img/meixin_new_qr_code_300x300.jpg" />'
         });
-//        //登陆操作
-//        login();
     });
     $(function () {
         var mySwiper = new Swiper('.swiper-container', {
-            width: window.innerWidth,
             pagination: '.swiper-pagination',
             nextButton: '.swiper-button-next',
             prevButton: '.swiper-button-prev',
@@ -1048,7 +1045,7 @@
 //                fn.removeAllSlides();
                 $("#swiper-slides-wrapper").html(swiperSlides);
                 fn.update(true);
-                fn.reLoop();
+//                fn.reLoop();
                 fn.slideTo(1, 0, false);
             }
         });
@@ -1104,8 +1101,6 @@ ga('send', 'pageview'); </script>
             arr.eq(i).attr('src',djson[i]);
         });
     });
-
-
 </script>
 </body>
 </html>
