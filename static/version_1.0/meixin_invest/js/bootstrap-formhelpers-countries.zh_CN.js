@@ -18,12 +18,7 @@
  * ========================================================== */
  
 var BFHCountriesList = {
-  'CN':'中国',
-  'US':'美国',
-  'HK':'香港',
-  'MO':'澳门'
-
-  /*'China': '中国',
+  'China': '中国',
   'United States of America': '美国',
   'Hong Kong': '香港',
   'Macau': '澳门',
@@ -263,5 +258,5 @@ var BFHCountriesList = {
   'EH': '西撒哈拉',
   'YE': '也门',
   'ZM': '赞比亚',
-  'ZW': '津巴布韦'*/
+  'ZW': '津巴布韦'
 };
