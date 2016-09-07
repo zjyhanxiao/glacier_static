@@ -65,10 +65,10 @@ body > img {
 #logo {
   width: 250px;
   /*height: 32px;*/
+  height:50px;
+  background-position:0 -34px;
   display: block;
   float: left;
-  background: url(../img/logo_1309x169.png) center center no-repeat;
-  background-size: contain;
   overflow: hidden;
 }
 

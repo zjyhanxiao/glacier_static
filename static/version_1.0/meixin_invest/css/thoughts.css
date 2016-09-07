@@ -7,7 +7,9 @@ form .input-error {
 #page2,
 #page4,
 #international_page3,
-#american_page3{
+#american_page3,
+#page5,
+#page6{
     display: none;
 }
 
@@ -25,4 +27,19 @@ form .input-error {
 .button-div {
     margin-top: 10px;
     margin-bottom: 20px;
+}
+
+.fa-upload-pic a{
+    margin-bottom: 3px;
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 2px;
+}
+
+.fa-upload-pic img{
+    width: 100%;
+}
+
+.fa-upload-pic input{
+    display: none;
 }

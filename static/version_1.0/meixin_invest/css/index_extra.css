@@ -14,16 +14,16 @@
   }
 }
 #hero .container {
-	min-height: auto;
+	/*min-height: auto;*/
 }
 @media (max-width: 768px) {
 	#hero .container {
-		min-height: auto;
+		/*min-height: auto;*/
 	}
 }
 @media (max-width: 430px) {
 	#hero .container {
-		min-height: auto;
+		/*min-height: auto;*/
 	}
 }
 nav .container {
@@ -429,13 +429,13 @@ nav .navbar .navbar-nav > li > a:not(.btn-solid):hover:after {
 .landing-section-three .col-sm-3{
   text-align: left;
 }
-.landing-section-three .col-sm-3 span:nth-child(1){
-  font-size: 4.5em;
+.landing-section-three .col-sm-3 .fm-index{
   float: left;
+  font-size: 4.5em;
   padding-right: 10px;
   color: #aaa;
 }
-.landing-section-three .col-sm-3 span:nth-child(2){
+.landing-section-three .col-sm-3  .fm-title{
   font-size: 1.3em;
   color: #159bd6;
   display: inline-block;
@@ -501,6 +501,34 @@ nav .navbar .navbar-nav > li > a:not(.btn-solid):hover:after {
 }
 .btn-hover-color:hover{
   color: #e17738;
+}
+.landing-section-five td .invest-progress{
+  box-sizing: border-box;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  overflow: hidden;
+  color: #FFFFFF;
+  font-size: 12px;
+  text-align: center;;
+}
+.landing-section-five td .hot{
+  background-color: #e17738;
+}
+.landing-section-five td .enough{
+  background-color: #C5C5C5;
+}
+.landing-section-five td .meet,
+.landing-section-five td .wait{
+  background-color: #ffffff;
+  border: 3px solid #e17738;
+  font-weight: 600;
+  line-height: 19px;
+  color: #E17738;
 }
 .landing-section-five td img{
   width: 25px;
@@ -688,4 +716,59 @@ nav .navbar .navbar-nav > li > a:not(.btn-solid):hover:after {
 }
 .advisor{
   margin-top: 10px;
+}
+/*imgs spirits*/
+.index-spirits{
+  background: url("../img/index-spirits.png") no-repeat;
+}
+#navChilantro .page-top-bar .top-weibo-logo{
+  display: inline-block;
+  margin-left: 15px;
+  height:14px;
+  width:16px;
+  background-position:-169px -17px;
+}
+#navChilantro .page-top-bar .top-wechat-logo{
+  display: inline-block;
+  margin-left: 15px;
+  height:13px;
+  width:16px;
+  background-position:-169px 0;
+}
+#newUserPlain .easy-io,
+#newUserPlain .multi-safe,
+#newUserPlain .money-start{
+  margin: 8px 35px;
+  display: inline-block;
+  vertical-align: middle;
+}
+#newUserPlain .easy-io{
+  height:24px;
+  width:20px;
+  background-position:-204px -119px;
+}
+#newUserPlain .multi-safe{
+  height:19px;
+  width:20px;
+  background-position:-204px -149px;
+ }
+#newUserPlain .money-start{
+  height:24px;
+  width:20px;
+  background-position:-204px -91px;
+}
+#footer .footer-logo-white{
+  height:32px;
+  width:165px;
+  background-position:0 0;
+}
+#footer .alicloud{
+  height:23px;
+  width:118px;
+  background-position:0 -192px;
+}
+/*imgs spirits end*/
+
+.landing-section-three .col-sm-3 .freshman-text{
+  overflow: hidden;
 }
