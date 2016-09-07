@@ -14,16 +14,16 @@
   }
 }
 #hero .container {
-	min-height: auto;
+	/*min-height: auto;*/
 }
 @media (max-width: 768px) {
 	#hero .container {
-		min-height: auto;
+		/*min-height: auto;*/
 	}
 }
 @media (max-width: 430px) {
 	#hero .container {
-		min-height: auto;
+		/*min-height: auto;*/
 	}
 }
 nav .container {
