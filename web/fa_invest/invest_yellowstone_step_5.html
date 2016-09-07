@@ -459,7 +459,9 @@
                             div.append('<input type="checkbox" id=' + res[key].id + ' name=' + res[key].document_name
                                     + ' required="" data-parsley-required-message="请确认所填写的' + res[key].document_name
                                     + '信息无误"/><label for="#' + res[key].id +
-                                    '"><span><span class="invest-check-mark"></span></span><a href=' + res[key].url + ' class="get_pdf" data-document-id=' + res[key].id + ' target="_blank">' + res[key].document_name + '</a></label><br>');
+                                    '"><span><span class="invest-check-mark"></span></span>' +
+                                    '<a id=' + res[key].id + ' href="/subdoc.html?document_id=' + res[key].id +
+                                    '&invest_amount=' + $('#invest-amount').val() + '" target="_blank">' + res[key].document_name + '</a></label><br>');
                             break;
                         case false:
                             div.append('<a href="' + res[key].url + '" target="_blank">' + res[key].document_name + '</a><br>');
@@ -467,28 +469,28 @@
                     }
                 });
                 $('.payment-option').append(div);
-                $('#agreements-preview').find('a.get_pdf').on('click', function () {
-                    var result = "";
-                    var $this = $(this);
-                    var populate_data = {};
-                    populate_data.document_id = $(this).attr('data-document-id');
-                    populate_data.invest_amount = $('#invest-amount').val();
-                    populate_data = $.extend({}, populate_data, cookie_tooken);
-                    Ajax_Data({
-                        "url": baseUrl + "/product_document/populate",
-                        "data": populate_data,
-                        "async": false,
-                        "fn": populate
-                    });
-                    function populate(res) {
-                        result = res;
-                    }
+                /*$('#agreements-preview').find('a.get_pdf').on('click', function () {
+                 var result = "";
+                 var $this = $(this);
+                 var populate_data = {};
+                 populate_data.document_id = $(this).attr('data-document-id');
+                 populate_data.invest_amount = $('#invest-amount').val();
+                 populate_data = $.extend({}, populate_data, cookie_tooken);
+                 Ajax_Data({
+                 "url": baseUrl + "/product_document/populate",
+                 "data": populate_data,
+                 "async": false,
+                 "fn": populate
+                 });
+                 function populate(res) {
+                 result = res;
+                 }
 
-                    if (result.length > 0) {
-                        window.open(result, "_blank");
-                    }
-                    return false;
-                });
+                 if (result.length > 0) {
+                 window.open(result, "_blank");
+                 }
+                 return false;
+                 });*/
             }
 
             //获取profile信息
