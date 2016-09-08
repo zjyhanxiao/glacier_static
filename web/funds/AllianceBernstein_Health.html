@@ -535,6 +535,9 @@
                 "question": $('#id_question').val()
             };
             book_submit_data = $.extend({}, book_submit_data, cookie_tooken);
+            if($('#id_interested_amount').val()!=''&&$('#id_user_contact_name').val()!=''&&$('#recipient-phone').val()!=''&&$('#id_city').val()!=''){
+                $('#book_submit').attr('disabled',true);
+            }
             Ajax_Data({
                 "url": baseUrl + "/appointment/create",
                 "data": book_submit_data,
@@ -545,10 +548,12 @@
         });
 
         function book_submit() {
+            $('#book_submit').attr('disabled',false);
             $('#popup').find('.modal-body').hide();
             $('#popup').find('.modal-body-success').show();
         }
         function fail_book_submit(d) {
+            $('#book_submit').attr('disabled',false);
             alert(d);
         }
     });

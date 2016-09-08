@@ -586,6 +586,9 @@
                 "question": $('#id_question').val()
             };
             book_submit_data = $.extend({}, book_submit_data, cookie_tooken);
+            if($('#id_interested_amount').val()!=''&&$('#id_user_contact_name').val()!=''&&$('#recipient-phone').val()!=''&&$('#id_city').val()!=''){
+                $('#book_submit').attr('disabled',true);
+            }
             Ajax_Data({
                 "url": baseUrl + "/appointment/create",
                 "data": book_submit_data,
