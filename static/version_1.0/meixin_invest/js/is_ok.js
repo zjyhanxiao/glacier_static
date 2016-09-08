@@ -105,6 +105,9 @@ var order_number = getUrlParam('order_number') || null;
 
 
 $(function () {
+    if(window.innerWidth<768){
+        $('.nav_right_on_mobile li:last').find('a').removeAttr('class');
+    }
     setTimeout(function () {
         $('.ajax_wait p').show();
     }, 3e3);
