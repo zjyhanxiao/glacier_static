@@ -818,7 +818,9 @@
             }
             if (d && d.length >= 1) {
                 $.each(d, function (i) {
-                    var promotion = '', total_amount = '$0', total_income = '$0', invest_amount = '$0', received_amount = '$0', received_balance = '$0', withdraw_able_amount = '$0', invest_income = '$0', promotion_income = '$0';
+                    var promotion = '', total_amount = '$0', total_income = '$0', invest_amount = '$0',
+                            received_amount = '$0', received_balance = '$0', docLink = '', withdraw_able_amount = '$0',
+                            invest_income = '$0', promotion_income = '$0';
                     if (d[i].total_amount != '' && d[i].total_amount != null) {
                         total_amount = '$' + d[i].total_amount; //总金额
                     }
@@ -842,6 +844,10 @@
                     }
                     if (d[i].promotion_income != '' && d[i].promotion_income != null) {
                         promotion_income = '$' + d[i].promotion_income; //权益收益
+                    }
+                    //是否出现合同
+                    if (d[i].sub_doc_url != null && d[i].sub_doc_url != '') {
+                        docLink = '<a href=' + d[i].sub_doc_url + ' target="_blank" style="color:#58afd4;">合同</a>';
                     }
                     //推广活动,红包等
                     if (d[i].promotion_name != '' && d[i].promotion_name != null) {
@@ -881,9 +887,8 @@
                             '<li class="hide">投资收益：' + invest_income + '</li>' +
                             '<li class="hide">权益收益：' + promotion_income + '</li>' +
                             '<li class="hide">' + promotion + '</li>' +
+                            '<li class="hide">' + docLink + '</li>' +
                             '<li class="hide"></li>' +
-                            '<li class="hide"><a href=' + d[i].sub_doc_url +
-                            ' target="_blank" style="color:#58afd4;">合同</a></li>' +
                             '<li class="hide">' + can_withdraw + '</li></ul></div>';
                 });
                 $('.invest_order').html(html);
@@ -971,7 +976,7 @@
                 return false;
             }
             if (d) {
-                var total_income = 0, received_amount = 0, received_balance = 0, can_withdraw = '';
+                var total_income = 0, received_amount = 0, received_balance = 0, can_withdraw = '', docLink = '';
                 $.each(d, function (i) {
                     if (d[i].total_income != '' && d[i].total_income != null) {
                         total_income = d[i].total_income;
@@ -1010,6 +1015,11 @@
                         first_nav = '--';
                     }
 
+                    //是否出现合同
+                    if (d[i].sub_doc_url != null && d[i].sub_doc_url != '') {
+                        docLink = '<a href=' + d[i].sub_doc_url + ' target="_blank" style="color:#58afd4;">合同</a>';
+                    }
+
                     html += '<div class="order_list">' +
                             '<h4>' + d[i].product_name + ' ' + d[i].product_number + '<span' + ' class="invest_status">投资状态：' + d[i].status_desc + '</span></h4>' +
                             '<ul' + ' class="invest_table clearfix">' +
@@ -1023,7 +1033,7 @@
                             '<li>入金金额：$' + received_amount + '</li>' +
                             '<li>入金余额：$' + received_balance + '</li>' +
                             '<li>投资份数：' + d[i].left_count + '</li>' +
-                            '<li></li><li><a href=' + d[i].sub_doc_url + ' style="color:#58afd4;" target="_blank">合同</a></li>' +
+                            '<li></li><li>' + docLink + '</li>' +
                             '<li><button class="status_btn buy_again" data-product_id=' + d[i].product_id + ' data-invest_amount=' + d[i].invest_amount + '>再次购买</button> ' +
                             can_withdraw +
                             '</li></ul></div>';
