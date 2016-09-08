@@ -63,10 +63,11 @@ body > img {
 
 
 #logo {
+  background: url("../img/logo.png") no-repeat;
   width: 250px;
   /*height: 32px;*/
+  background-size:contain;
   height:50px;
-  background-position:0 -34px;
   display: block;
   float: left;
   overflow: hidden;
@@ -74,7 +75,7 @@ body > img {
 
 @media (max-width: 767px) {
   #logo {
-    background-image: url(../img/logo_1309x169.png);
+    background-image: url(../img/logo.png);
     width: 175px;
     height: 30px;
     margin-left: 5px;
