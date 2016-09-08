@@ -19,7 +19,7 @@
     <form name="username" method="post" action="">
         <div class="form-list form-list-1">
             <span><img src="https://s1.meixinglobal.com/static/version_1.0/dist/meixin_invest/img/activity/activity_0808/icon/telephone-icon@2x.png"></span>
-            <input type="text" id="phone" name="phone" data-parsley-group="block1"
+            <input type="text" id="phone" name="phone" data-parsley-group="block1" value=""
                    required="" data-parsley-pattern="/\d{11}/"
                    data-parsley-pattern-message="输入信息格式有误"
                    placeholder="请输入您的手机号"/>
@@ -48,6 +48,7 @@
 <script type="text/javascript"
         src="https://s1.meixinglobal.com/static/version_1.0/dist/meixin_invest/js/activity-0808_02.min.js"></script>
 <script>
+    $.cookie('source',null,{expires: -1});
     //获取url中的参数
     function getUrlParam(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
@@ -56,6 +57,15 @@
         return null; //返回参数值
     }
     var source=getUrlParam('source');
-    $.cookie('source',source,{expires: 30});
+    var fcode=getUrlParam('fcode');
+    var phone_num=getUrlParam('phone_num');
+    if(source != undefined){
+        $.cookie('source',source,{expires: 30});
+    }
+    if(fcode != undefined){
+        $.cookie('source',fcode,{expires: 30});
+    }
+
+    $("#phone").val(phone_num);
 </script>
 </html>
