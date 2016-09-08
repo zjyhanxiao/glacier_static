@@ -69,7 +69,7 @@ $(function () {
                 data: signup_data,
                 success: function (res) {
                     if (res.code == 1) {
-                        window.location.href = 'https://www.meixinfinance.com';
+                        window.location.href = '/';
                     } else if (res.code = -1) {
                         $('#infor').html(res.msg);
                     }
