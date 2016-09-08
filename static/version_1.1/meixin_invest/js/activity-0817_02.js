@@ -6,6 +6,7 @@ var countdown = 6, b_checkPhone = false, b_checkPwd = false, b_checkEmail = fals
 // console.log(b_checkPhone);
 $(function () {
     $('#yzm').click(function () {
+        $('#yzm').prop("disabled", true);
         var verify_data = {"phone": "+86 " + $('#phone').val()};
         checkPhone();
         if (b_checkPhone) {
@@ -49,6 +50,9 @@ $(function () {
     $('#signUp').click(function () {
         $('p').remove();
         checkPhone() && checkPwd() && checkEmail();
+        if(b_checkPhone&&b_checkPwd&&b_checkEmail&&b_verify_code){
+            $('#signUp').prop("disabled", true);
+        }
         var jsonStr = $.cookie("key_cookie");
         var source = $.cookie("source");
         var signup_data = {

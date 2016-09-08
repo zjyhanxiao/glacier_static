@@ -11,6 +11,8 @@ $(document).ready(function () {
     // onfocus effect
     $('.registration-form input[type="text"], .registration-form input[type="password"], .registration-form textarea').on('focus', function () {
         $(this).removeClass('input-error');
+        $('#american-submit').prop('disabled',false);
+        $('#international-submit').prop('disabled',false);
     });
 
     //  获取手机验证码
@@ -192,6 +194,7 @@ $(document).ready(function () {
 
     // american submit
     $('#american-submit').on('click', function () {
+        $('#american-submit').prop('disabled',true);
         data.questionaire_answer = $("#american_page3").find("input[type='radio']:checked").val();
         if (!$('input[name="questionaire_answer"]').is(':checked')) {
             $(".page3-error-div").html("<div class='alert alert-warning'>请选择您的投资者条件</div>");
