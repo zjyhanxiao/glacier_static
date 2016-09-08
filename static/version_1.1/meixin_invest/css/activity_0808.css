@@ -163,3 +163,8 @@ textarea{
 input[type="button"], input[type="submit"], input[type="reset"] {
     -webkit-appearance: none;
 }
+input[type="submit"] {border:none; cursor:pointer; outline:medium;}
+
+#phone,#yzm,#pwd,#email:focus {
+    background-color: transparent;
+}

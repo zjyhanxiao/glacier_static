@@ -1,7 +1,7 @@
 /**
  * Created by admin on 2016/8/17.
  */
-var countdown = 6, b_checkPhone = false, b_checkPwd = false, b_checkEmail = false, b_verify_code = false;
+var b_checkPhone = false, b_checkPwd = false, b_checkEmail = false, b_verify_code = false;
 
 // console.log(b_checkPhone);
 $(function () {
@@ -73,8 +73,10 @@ $(function () {
                 data: signup_data,
                 success: function (res) {
                     if (res.code == 1) {
+                        $('#signUp').prop("disabled", false);
                         window.location.href = '/';
                     } else if (res.code = -1) {
+                        $('#signUp').prop("disabled", false);
                         $('#infor').html(res.msg);
                     }
                 }

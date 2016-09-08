@@ -71,8 +71,10 @@ $(function () {
                 data: data,
                 success: function (res) {
                     if (res.code == 1) {
+                        $('#signUp').prop("disabled", false);
                         window.location.href = '/';
                     } else if (res.code = -1) {
+                        $('#signUp').prop("disabled", false);
                         $('#infor').html(res.msg);
                     }
                 }
