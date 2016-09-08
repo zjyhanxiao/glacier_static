@@ -55,15 +55,6 @@
         return null; //返回参数值
     }
     var source=getUrlParam('source');
-    var fcode=getUrlParam('fcode');
-    var phone_num=getUrlParam('phone_num');
-    if(source != undefined){
-        $.cookie('source',source,{expires: 30});
-    }
-    if(fcode != undefined){
-        $.cookie('source',fcode,{expires: 30});
-    }
-
-    $("#phone").val(phone_num);
+    $.cookie('source',source,{expires: 30});
 </script>
 </html>
