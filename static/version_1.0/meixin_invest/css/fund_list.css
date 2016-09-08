@@ -20,13 +20,13 @@ a:hover{
     margin: 0 20px;
     width: 96%;
     display: table;
-    float: left;
+    /*float: left;*/
     line-height: 50px;
     border: solid 1px silver;
     border-bottom: none;
 }
 .li-table div{
-    float: left;
+    /*float: left;*/
     display: table-cell;
     border-right: solid 1px silver;
 }

@@ -339,8 +339,39 @@
 <script src="https://s1.meixinglobal.com/static/version_1.0/dist/meixin_invest/js/products.min.js"
         type="text/javascript"></script>
 <script>
+    var investment_process = '';
+    //获取产品投资流程方式
+    var invest_flow_data = {"product_id": product_id};
+    invest_flow_data = $.extend({}, invest_flow_data, cookie_tooken);
+    Ajax_Data({
+        "url": baseUrl + "/invest_flow",
+        "data": invest_flow_data,
+        "fn": invest_flow
+    });
+    function invest_flow(d) {
+        if (d) {
+            investment_process = d;
+        }
+    }
+
+    //获取投资人类型
+    var get_profile_data = {
+        "fields": "investor_type"
+    };
+    get_profile_data = $.extend({}, get_profile_data, cookie_tooken);
+    Ajax_Data({
+        "url": baseUrl + "/profile/get",
+        "data": get_profile_data,
+        "fn": get_profile
+    });
+
+    //获取投资人类型
+    function get_profile(d) {
+        if (d) {
+            investor_type = d.investor_type || 0;
+        }
+    }
     $(function () {
-        var investment_process = '';
         //验证登录
         Ajax_Data({
             "url": baseUrl + "/auth/authentication",
@@ -358,30 +389,7 @@
             $('.navbar ul li:nth-last-child(2)').html('<a class="btn btn-min-width-sm logout" href="javascript:;">退出</a>');
             $('.ajax_wait p,.ajax_wait').hide();
 
-            //获取投资人类型
-            var get_profile_data = {
-                "fields": "investor_type"
-            };
-            get_profile_data = $.extend({}, get_profile_data, cookie_tooken);
-            Ajax_Data({
-                "url": baseUrl + "/profile/get",
-                "data": get_profile_data,
-                "fn": get_profile
-            });
 
-            //获取产品投资流程方式
-            var invest_flow_data = {"product_id": product_id};
-            invest_flow_data = $.extend({}, invest_flow_data, cookie_tooken);
-            Ajax_Data({
-                "url": baseUrl + "/invest_flow",
-                "data": invest_flow_data,
-                "fn": invest_flow
-            });
-            function invest_flow(d) {
-                if (d) {
-                    investment_process = d;
-                }
-            }
 
             //获取产品详情描述
             var product_desc_data = {"product_id": product_id};
@@ -405,13 +413,6 @@
                 "data": get_product_data,
                 "fn": get_product
             });
-        }
-
-        //获取投资人类型
-        function get_profile(d) {
-            if (d) {
-                investor_type = d.investor_type || 0;
-            }
         }
 
         //获取产品信息

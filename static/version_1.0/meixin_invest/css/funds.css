@@ -30,7 +30,7 @@ ul{
     height: 40px;
     color: white;
     background-color: #159bd6;
-    border-color: inherit;
+    border: none;
     border-radius: 10px;
 }
 .text-center{

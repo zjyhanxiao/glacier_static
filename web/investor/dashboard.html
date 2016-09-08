@@ -1011,7 +1011,7 @@
                     }
 
                     html += '<div class="order_list">' +
-                            '<h4>' + d[i].product_name + ' ' + d[i].product_number + '</h4>' +
+                            '<h4>' + d[i].product_name + ' ' + d[i].product_number + '<span' + ' class="invest_status">投资状态：' + d[i].status_desc + '</span></h4>' +
                             '<ul' + ' class="invest_table clearfix">' +
 //                            '<li>产品类型：债券型</li>' +
                             '<li>投资市场价值：$' + d[i].invest_amount + '</li>' +
@@ -1020,7 +1020,6 @@
                             '<li>投资日期：' + d[i].created_at + '</li>' +
                             '<li>最新NAV：' + current_nav + '</li>' +
                             '<li>购买时NAV：' + first_nav + '</li>' +
-                            '<li>投资状态：' + d[i].status_desc + '</li>' +
                             '<li>入金金额：$' + received_amount + '</li>' +
                             '<li>入金余额：$' + received_balance + '</li>' +
                             '<li>投资份数：' + d[i].left_count + '</li>' +
