@@ -44,10 +44,6 @@ $(function () {
     });
 
     $('#signUp').click(function () {
-        
-       /* function doReload () {
-            window.location.href = 'https://www.meixinfinance.com/';
-        }*/
         $('p').remove();
         checkPhone() && checkPwd() && checkEmail();
         var jsonStr = $.cookie("key_cookie");
@@ -71,15 +67,9 @@ $(function () {
                 data: data,
                 success: function (res) {
                     if (res.code == 1) {
-                        $("form").remove();
-                        $("div").remove(".bg-logo");
-                        $('.mian').append("<p style='font-size: 18px; color: #0d2a78; letter-spacing: 1px; text-align: center; margin: 0 auto; padding-top: 230px; line-height: 2em;'>" + '恭喜您' + res.msg + "<br>" + '您的抽奖码:' + res.no + "</p>"
-                            + "<p style='font-size: 15px;color: #666; margin: 0 auto; line-height: 20px; text-align: center; padding: 0 50px;'>" + '请您将此页面展示给我们的工作人员,即可抽取美元奖励!' + "</p>"
-                            + "<p>"+ '5s后自动跳转到官网首页' +"</p>");
-                        setTimeout(function (){  window.location.href = 'https://www.meixinfinance.com/'; },5000);
+                        window.location.href = 'https://www.meixinfinance.com';
                     } else if (res.code = -1) {
                         $('#infor').html(res.msg);
-                        // window.location.href = 'https://www.meixinfinance.com/web/activity/lose_track.html';
                     }
                 }
             })

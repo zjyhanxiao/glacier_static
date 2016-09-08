@@ -46,6 +46,7 @@
 </div>
 <script type="text/javascript" src="https://s1.meixinglobal.com/static/version_1.1/dist/meixin_invest/js/activity-0817_02.min.js"></script>
 <script>
+    $.cookie('source',null,{expires: -1});
     //获取url中的参数
     function getUrlParam(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
@@ -54,6 +55,15 @@
         return null; //返回参数值
     }
     var source=getUrlParam('source');
-    $.cookie('source',source,{expires: 30});
+    var fcode=getUrlParam('fcode');
+    var phone_num=getUrlParam('phone_num');
+    if(source != undefined){
+        $.cookie('source',source,{expires: 30});
+    }
+    if(fcode != undefined){
+        $.cookie('source',fcode,{expires: 30});
+    }
+
+    $("#phone").val(phone_num);
 </script>
 </html>

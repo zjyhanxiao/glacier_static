@@ -69,9 +69,7 @@ $(function () {
                 data: signup_data,
                 success: function (res) {
                     if (res.code == 1) {
-                        $("form").remove();
-                        $("div").remove(".bg-logo");
-                        $('.mian').append("<p style='font-size: 18px; color: #0d2a78; letter-spacing: 1px; text-align: center; margin: 0 auto; padding-top: 230px; line-height: 2em;'>" + '恭喜您' + res.msg + "</p>");
+                        window.location.href = 'https://www.meixinfinance.com';
                     } else if (res.code = -1) {
                         $('#infor').html(res.msg);
                     }
