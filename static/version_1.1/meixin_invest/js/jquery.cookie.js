@@ -115,5 +115,5 @@
 	};
 
 }));
-// var baseUrl = 'https://api.meixinglobal.com/web';
-var baseUrl = 'http://101.201.112.171:8082/web';
+var baseUrl = 'https://api.meixinglobal.com/web';
+//var baseUrl = 'http://101.201.112.171:8082/web';
