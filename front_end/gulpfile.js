@@ -53,7 +53,7 @@ gulp.task('img', function () {
 });
 
 //* include
-gulp.task('include', function() {
+gulp.task('first_include', function() {
     return gulp.src(['../web/**/**/*.html'])
         .pipe(include({
             prefix: '@@',
@@ -62,13 +62,13 @@ gulp.task('include', function() {
         .pipe(gulp.dest('../publish'));
 });
 //* replaceSrc
-gulp.task('replaceSrc', function(){
+gulp.task('second_replaceSrc', function(){
     return gulp.src(['../publish/**'])
         .pipe(replaceSrc('http://bj-dev-static.oss-cn-beijing.aliyuncs.com', 'https://s1.meixinglobal.com'))
         .pipe(gulp.dest('../publish'));
 });
 //* version_control
-gulp.task('version_control', function(){
+gulp.task('third_version_control', function(){
     return gulp.src(['../publish/**'])
         .pipe(replaceSrc('static/version_1.1', 'static/version_'+ version))
         .pipe(gulp.dest('../publish'));
