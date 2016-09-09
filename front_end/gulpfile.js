@@ -59,19 +59,19 @@ gulp.task('include', function() {
             prefix: '@@',
             basepath: '@file'
         }))
-        .pipe(gulp.dest('../app'));
+        .pipe(gulp.dest('../publish'));
 });
 //* replaceSrc
 gulp.task('replaceSrc', function(){
-    return gulp.src(['../app/**'])
+    return gulp.src(['../publish/**'])
         .pipe(replaceSrc('http://bj-dev-static.oss-cn-beijing.aliyuncs.com', 'https://s1.meixinglobal.com'))
-        .pipe(gulp.dest('../app'));
+        .pipe(gulp.dest('../publish'));
 });
 //* version_control
 gulp.task('version_control', function(){
-    return gulp.src(['../app/**'])
+    return gulp.src(['../publish/**'])
         .pipe(replaceSrc('static/version_1.1', 'static/version_'+ version))
-        .pipe(gulp.dest('../app'));
+        .pipe(gulp.dest('../publish'));
 });
 
 /* Watch Files For Changes */
