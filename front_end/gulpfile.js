@@ -54,7 +54,7 @@ gulp.task('img', function () {
 
 //* include
 gulp.task('include', function() {
-    return gulp.src(['../web/**'])
+    return gulp.src(['../web/**/**/*.html'])
         .pipe(include({
             prefix: '@@',
             basepath: '@file'
@@ -62,7 +62,7 @@ gulp.task('include', function() {
         .pipe(gulp.dest('../app'));
 });
 //* replaceSrc
-gulp.task('templates', function(){
+gulp.task('replaceSrc', function(){
     return gulp.src(['../app/**'])
         .pipe(replaceSrc('http://bj-dev-static.oss-cn-beijing.aliyuncs.com', 'https://s1.meixinglobal.com'))
         .pipe(gulp.dest('../app'));
@@ -101,7 +101,6 @@ console.log('voided critical_index.html.');
 });
 
 gulp.task('default', ['clean-critical', 'img_compress', 'js', 'css', 'img', 'watch']);
-gulp.task('online', ['templates','version_control']);
 
 var ccsss = require('./node_modules/ccsss/lib/server');
 var curlrequest = require('curlrequest');
