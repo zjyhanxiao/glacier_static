@@ -954,15 +954,28 @@
                 var arrDom = $('.modal-body input');
                 var can_view = true;
                 $.each(arrDom, function (index) {
-                    if (arrDom.eq(-(index + 1)).val() == '') {
-                        $('.error_msg').html(arrDom.eq(-(index + 1)).prev('label').html().replace('：', '') + '不能为空');
-                        can_view = false;
+                    //'Swift Code或ABA Number至少填写一项',其他项必填
+                    if (arrDom.eq(index).attr('id') != 'swift_code' && arrDom.eq(index).attr('id') != routing_number) {
+                        if (arrDom.eq(-(index + 1)).val() == '') {
+                            $('.error_msg').html(arrDom.eq(-(index + 1)).prev('label').html().replace('：', '') + '不能为空');
+                            can_view = false;
+                        }
+                    } else {
+                        if ($('#swift_code').val() == '' && $('#routing_number').val() == '') {
+                            $('.error_msg').html('Swift Code或ABA Number至少填写一项');
+                            can_view = false;
+                        } else {
+                            if ($('#swift_code').val() != '' || $('#routing_number').val() != '') {
+                                $('.error_msg').html(' ');
+                                can_view = true;
+                            }
+                        }
                     }
                 });
                 /*if ($('#invest_value').val() > $('#interest_amount').val()) {
-                    $('.error_msg').html('提现金额不能大于可提现金额!');
-                    can_view = false;
-                }*/
+                 $('.error_msg').html('提现金额不能大于可提现金额!');
+                 can_view = false;
+                 }*/
                 if (can_view) {
                     $('.modal-body').hide();
                     var str = '<table>' +
@@ -990,6 +1003,27 @@
                             '<button type="button" id="invest_submit" class="btn btn-primary" style="width:8em">确认提现</button></div>';
                     $('.modal-body-success').html(str);
                     $('.modal-body-success').show();
+
+                    //上传bank信息
+                    var update_bank_data = {};
+                    update_bank_data.bank_name = $('#bank_name').val();
+                    update_bank_data.bank_address = $('#bank_address').val();
+                    update_bank_data.account_name = $('#account_name').val();
+                    update_bank_data.swift_code = $('#swift_code').val();
+                    update_bank_data.routing_number = $('#routing_number').val();
+                    update_bank_data = $.extend({}, update_bank_data, cookie_tooken);
+                    Ajax_Data({
+                        "type": "post",
+                        "url": baseUrl + "/profile/bank/update",
+                        "data": update_bank_data,
+                        "fn": update_bank_profile,
+                        "fail_fn": update_bank_fail
+                    });
+
+                    //提交bank信息
+                    function update_bank_profile() {
+                        console.log('开户银行信息提交成功');
+                    }
                 }
                 return false;
             });
@@ -1100,14 +1134,26 @@
                 console.log(arrDom.length);
                 var can_view = true;
                 $.each(arrDom, function (index) {
-                    if (arrDom.eq(-(index + 1)).val() == '') {
-                        $('.error_msg').html(arrDom.eq(-(index + 1)).prev('label').html().replace('：', '') + '不能为空');
-                        can_view = false;
+                    //'Swift Code或ABA Number至少填写一项',其他项必填
+                    if (arrDom.eq(index).attr('id') != 'swift_code' && arrDom.eq(index).attr('id') != routing_number) {
+                        if (arrDom.eq(-(index + 1)).val() == '') {
+                            $('.error_msg').html(arrDom.eq(-(index + 1)).prev('label').html().replace('：', '') + '不能为空');
+                            can_view = false;
+                        }
+                    } else {
+                        if ($('#swift_code').val() == '' && $('#routing_number').val() == '') {
+                            $('.error_msg').html('Swift Code或ABA Number至少填写一项');
+                            can_view = false;
+                        } else {
+                            if ($('#swift_code').val() != '' || $('#routing_number').val() != '') {
+                                $('.error_msg').html(' ');
+                                can_view = true;
+                            }
+                        }
                     }
                 });
                 // console.log(can_view);
                 if (can_view) {
-
                     $('.modal-body').hide();
                     var str = '<table>' +
                             '<tr><td>用户名：</td><td colspan="3">user_name</td></tr>' +
@@ -1129,6 +1175,27 @@
                     str += '<div class="text-center"><button type="button" id="back_prev" class="btn"' + ' style="width:8em">返  回</button> <button type="button" id="invest_submit" class="btn btn-primary" style="width:8em">确认提现</button></div>';
                     $('.modal-body-success').html(str);
                     $('.modal-body-success').show();
+
+                    //上传bank信息
+                    var update_bank_data = {};
+                    update_bank_data.bank_name = $('#bank_name').val();
+                    update_bank_data.bank_address = $('#bank_address').val();
+                    update_bank_data.account_name = $('#account_name').val();
+                    update_bank_data.swift_code = $('#swift_code').val();
+                    update_bank_data.routing_number = $('#routing_number').val();
+                    update_bank_data = $.extend({}, update_bank_data, cookie_tooken);
+                    Ajax_Data({
+                        "type": "post",
+                        "url": baseUrl + "/profile/bank/update",
+                        "data": update_bank_data,
+                        "fn": update_bank_profile,
+                        "fail_fn": update_bank_fail
+                    });
+
+                    //提交bank信息
+                    function update_bank_profile() {
+                        console.log('开户银行信息提交成功');
+                    }
                 }
                 return false;
             });
@@ -1243,10 +1310,10 @@
                 if (d.operation_mode == 'CLOSED') {
                     $('#invest_value').val(d.withdraw_able_amount).attr('disabled', true);
                     /*if (d.product_location == 'ON_SHORE' && d.product_type == 'CROWD_FUNDING') {
-                        $('#invest_value').val(d.withdraw_able_amount);
-                    } else {
-                        $('#invest_value').val(d.withdraw_able_amount).attr('disabled', true);
-                    }*/
+                     $('#invest_value').val(d.withdraw_able_amount);
+                     } else {
+                     $('#invest_value').val(d.withdraw_able_amount).attr('disabled', true);
+                     }*/
                 } else {
                     $('#invest_value').val(d.withdraw_able_amount);
                 }
