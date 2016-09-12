@@ -13,32 +13,32 @@ const imagemin = require('gulp-imagemin');
 const pngquant = require('imagemin-pngquant');
 
 gulp.task('img_compress', () => {
-    return gulp.src('../static/version_1.0/meixin_invest/img/**/*.+(jpg|jpeg|gif|png)')
+    return gulp.src('../static/version_1.1/meixin_invest/img/**/*.+(jpg|jpeg|gif|png)')
         .pipe(imagemin({
             progressive: true,
             svgoPlugins: [{removeViewBox: false}],
             use: [pngquant()],
             optimizationLevel: 7,
         }))
-        .pipe(gulp.dest('../static/version_1.0/dist/meixin_invest/img'))
+        .pipe(gulp.dest('../static/version_1.1/dist/meixin_invest/img'))
         .pipe(livereload());
 });
 
 /* Watch JS For Changes */
 gulp.task('js', function() {
-    return gulp.src(['../static/version_1.0/meixin_invest/js/*.js', '../static/version_1.0/meixin_invest/meixin/*.js','!../static/version_1.0/meixin_invest/js/*.min.js', '!../static/meixin_invest/meixin/*.min.js'])
+    return gulp.src(['../static/version_1.1/meixin_invest/js/*.js', '../static/version_1.1/meixin_invest/meixin/*.js','!../static/version_1.1/meixin_invest/js/*.min.js', '!../static/meixin_invest/meixin/*.min.js'])
         .pipe(rename({suffix: '.min'}))
         .pipe(uglify())
-        .pipe(gulp.dest('../static/version_1.0/dist/meixin_invest/js'))
+        .pipe(gulp.dest('../static/version_1.1/dist/meixin_invest/js'))
         .pipe(livereload());
 });
 
 /* Watch CSS For Changes */
 gulp.task('css', function () {
-    return gulp.src('../static/version_1.0/meixin_invest/css/*.css')
+    return gulp.src('../static/version_1.1/meixin_invest/css/*.css')
         .pipe(rename({suffix: '.min'}))
         .pipe(minifycss())
-        .pipe(gulp.dest('../static/version_1.0/dist/meixin_invest/css'))
+        .pipe(gulp.dest('../static/version_1.1/dist/meixin_invest/css'))
         .pipe(livereload());
     ;
 });
@@ -46,7 +46,7 @@ gulp.task('css', function () {
 /* copy images files under /img/ over to under /dist/ and watch them for changes */
 /* p - v20160317 */
 gulp.task('img', function () {
-    return gulp.src('../static/version_1.0/meixin_invest/img/**/*.+(jpg|jpeg|gif|png)')
+    return gulp.src('../static/version_1.1/meixin_invest/img/**/*.+(jpg|jpeg|gif|png)')
         .pipe(gulp.dest('../img_old'))
         .pipe(livereload());
     ;
@@ -78,11 +78,11 @@ gulp.task('third_version_control', function(){
 gulp.task('watch', function() {
     livereload.listen();
     // Trigger a live reload on any css changes
-    gulp.watch('../static/version_1.0/meixin_invest/css/*.css', ['css']);
-    gulp.watch('../static/version_1.0/meixin_invest/css/*.css').on('change', livereload.changed);
+    gulp.watch('../static/version_1.1/meixin_invest/css/*.css', ['css']);
+    gulp.watch('../static/version_1.1/meixin_invest/css/*.css').on('change', livereload.changed);
 
-    gulp.watch('../static/version_1.0/meixin_invest/js/*.js', ['js']);
-    gulp.watch('../static/version_1.0/meixin_invest/js/*.js').on('change', livereload.changed);
+    gulp.watch('../static/version_1.1/meixin_invest/js/*.js', ['js']);
+    gulp.watch('../static/version_1.1/meixin_invest/js/*.js').on('change', livereload.changed);
     // Trigger a live reload on any Django template changes
     gulp.watch('../web/**').on('change', livereload.changed);
 

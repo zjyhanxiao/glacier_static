@@ -95,33 +95,32 @@
                 <a href="/" type="button" class="btn btn-primary" style="margin: 10px auto">查看所有产品</a>
             </div>
             <div class="modal-body">
-                <form>
+                <form class="appointment" data-parsley-validate>
                     <div class="form-group">
                         <input class="form-control" id="id_user_contact_name" maxlength="128" name="user_contact_name"
-                               oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('请输入姓名！')"
-                               placeholder="姓名" required="required" type="text">
+                               placeholder="姓名" required="required" type="text" data-parsley-pattern-message="请输入姓名！">
                     </div>
 
                     <div class="form-group">
                         <input class="form-control" id="id_interested_amount" min="0" name="interested_amount"
-                               oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('请输入投资额！')"
-                               placeholder="感兴趣的投资额（美元）" required="required" type="number">
+                               placeholder="感兴趣的投资额（美元）" required="required" type="number"
+                               data-parsley-pattern-message="请输入投资额！">
                     </div>
                     <div class="form-group">
                         <select class="input-medium bfh-countries form-control" data-country="CN"
                                 id="countries_phone"
                                 required="" style="width: 33%;display: inline-block;">
                         </select><input class="form-control bfh-phone" data-country="countries_phone"
-                                        id="recipient-phone" maxlength="64" name="phone" oninput="setCustomValidity('')"
-                                        oninvalid="this.setCustomValidity('请输入电话号码！')" pattern=".{9,}"
-                                        placeholder="电话号码" required="required"
+                                        id="recipient-phone" maxlength="64" name="phone"
+                                        data-parsley-pattern="/^[d]{6,}$/"
+                                        placeholder="电话号码" required="required" data-parsley-pattern-message="请输入电话号码！"
                                         style="width: 63%;display: inline-block;margin-left: 2%;" type="text">
                     </div>
 
                     <div class="form-group">
                         <input class="form-control" id="id_city" maxlength="255" name="city"
-                               oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('请输入所在城市！')"
-                               placeholder="所在城市（会根据您所在的城市联系您）" required="required" type="text">
+                               placeholder="所在城市（会根据您所在的城市联系您）" required="required"
+                               data-parsley-pattern-message="请输入所在城市！" type="text">
                     </div>
                     <div class="form-group">
                         <textarea class="form-control" cols="40" id="id_question" name="question" placeholder="问题（选填）"
@@ -168,6 +167,7 @@
         });
     });
 </script>
+<script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/vendor/js/parsley.min.js"></script>
 <script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.1/dist/meixin_invest/js/bootstrap-formhelpers.min.js"></script>
 <script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.1/dist/meixin_invest/js/bootstrap-formhelpers-states.min.js"></script>
 <script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.1/dist/meixin_invest/js/bootstrap-formhelpers-countries-nousa.zh_CN.min.js"></script>
@@ -223,7 +223,6 @@
             $('.navbar ul li:last-child').html('<a class="btn btn-min-width" href="/investor/dashboard.html">我的账户</a>');
             $('.navbar ul li:nth-last-child(2)').html('<a class="btn btn-min-width-sm logout" href="javascript:;">退出</a>');
             $('.ajax_wait p,.ajax_wait').hide();
-
 
 
             //获取产品详情描述
@@ -285,19 +284,19 @@
                 } else {
                     term = term + '个月';
                 }
-                var str='<h2 id="product_title">'+d.name + ' ' + d.number+'</h2>' +
-                                '<div class="row">' +
-                                '<p class="col-sm-4" style="border-right:1px solid #ececec">预计年化收益率<br><span>'+d.return_rate+'%</span></p>' +
-                                '<p class="col-sm-4" style="clear:none">投资期限<br><span>'+term+'</span></p>' +
-                                '<div class="col-sm-4" style="margin-top:9%;margin-bottom:3%">投资金额($):<br>' +
-                                '<div class="btn-group" id="invest-money" role="group" aria-label="...">' +
-                                '<button type="button" class="btn btn-default" disabled id="invest-sub">-</button> ' +
-                                '<input type="text" class="btn btn-default" id="invest-number" name="invest-number" type="number" step="1" value='+d.minimum_invest_amount+' autocomplete="off"> ' +
-                                '<button type="button" class="btn" id="invest-add">+</button>' +
-                                '</div><p>投资金额为'+temp+'美元的整数倍</p></div></div>' +
-                                '<ul class="two-colum-list" style="margin-top:3%">' +
-                                '<li>可投金额<br><span>'+d.max_amount+'万美元</span></li>' +
-                                '<li>起投金额<br><span>'+minimum+'美元</span></li></ul><div class="clearLeft"></div>';
+                var str = '<h2 id="product_title">' + d.name + ' ' + d.number + '</h2>' +
+                        '<div class="row">' +
+                        '<p class="col-sm-4" style="border-right:1px solid #ececec">预计年化收益率<br><span>' + d.return_rate + '%</span></p>' +
+                        '<p class="col-sm-4" style="clear:none">投资期限<br><span>' + term + '</span></p>' +
+                        '<div class="col-sm-4" style="margin-top:9%;margin-bottom:3%">投资金额($):<br>' +
+                        '<div class="btn-group" id="invest-money" role="group" aria-label="...">' +
+                        '<button type="button" class="btn btn-default" disabled id="invest-sub">-</button> ' +
+                        '<input type="text" class="btn btn-default" id="invest-number" name="invest-number" type="number" step="1" value=' + d.minimum_invest_amount + ' autocomplete="off"> ' +
+                        '<button type="button" class="btn" id="invest-add">+</button>' +
+                        '</div><p>投资金额为' + temp + '美元的整数倍</p></div></div>' +
+                        '<ul class="two-colum-list" style="margin-top:3%">' +
+                        '<li>可投金额<br><span>' + d.max_amount + '万美元</span></li>' +
+                        '<li>起投金额<br><span>' + minimum + '美元</span></li></ul><div class="clearLeft"></div>';
                 $('.product_top_section').html(str);
 
                 if (d.product_location == 'ON_SHORE' && d.product_type == 'NON_CROWD_FUNDING' && d.operation_mode == 'OPEN') {
@@ -313,7 +312,7 @@
                         if (investor_type == 1) {
                             if (d.international == true) {
                                 if (investment_process == 'crowd_international') {
-                                    $('.product_top_section .row').append('<a id="invest-button" type="button" class="btn btn-primary" data-titlename="' + d.name + ' ' + d.number + ' " style="padding:6px 60px" href="/fa_invest/international/form_step_1.html?product_id=' + product_id+'">立 即 投 资</a>');
+                                    $('.product_top_section .row').append('<a id="invest-button" type="button" class="btn btn-primary" data-titlename="' + d.name + ' ' + d.number + ' " style="padding:6px 60px" href="/fa_invest/international/form_step_1.html?product_id=' + product_id + '">立 即 投 资</a>');
                                 }
                                 if (investment_process == 'non_crowd') {
                                     $('.product_top_section .row').append('<a id="invest-button" type="button" class="btn btn-primary" data-titlename="' + d.name + ' ' + d.number + ' " style="padding:6px 60px" href="/fa_invest/invest_yellowstone_step_1.html?product_id=' + product_id + '">立 即 投 资</a>');
@@ -347,42 +346,46 @@
                             $('.product_top_section .row').append('<a id="invest-button" type="button" class="btn btn-primary" data-toggle="modal" data-titlename="' + d.name + ' ' + d.number + ' " style="padding:6px 60px" data-target="#popup">立 即 预 约</a>');
                             //提交预约
                             $('#book_submit').on('click', function () {
-                                //获取投资人类型
-                                var book_submit_data = {
-                                    "interested_amount": $('#id_interested_amount').val(),
-                                    "product_id": product_id,
-                                    "user_contact_name": $('#id_user_contact_name').val(),
-                                    "phone": $('#recipient-phone').val(),
-                                    "city": $('#id_city').val(),
-                                    "question": $('#id_question').val()
-                                };
-                                book_submit_data = $.extend({}, book_submit_data, cookie_tooken);
-                                Ajax_Data({
-                                    "url": baseUrl + "/appointment/create",
-                                    "data": book_submit_data,
-                                    "fn": book_submit,
-                                    "fail_fn": fail_book_submit
-                                });
+                                $(this).prop('disabled', true);
+                                if ($('.appointment').parsley().validate()) {//获取投资人类型
+                                    var book_submit_data = {
+                                        "interested_amount": $('#id_interested_amount').val(),
+                                        "product_id": product_id,
+                                        "user_contact_name": $('#id_user_contact_name').val(),
+                                        "phone": $('#recipient-phone').val(),
+                                        "city": $('#id_city').val(),
+                                        "question": $('#id_question').val()
+                                    };
+                                    book_submit_data = $.extend({}, book_submit_data, cookie_tooken);
+                                    Ajax_Data({
+                                        "url": baseUrl + "/appointment/create",
+                                        "data": book_submit_data,
+                                        "fn": book_submit,
+                                        "fail_fn": fail_book_submit
+                                    });
+                                } else {
+                                    $(this).prop('disabled', false);
+                                }
                             });
                         }
                         break;
                 }
-                $('body').on('click','#invest-button',function () {
+                $('body').on('click', '#invest-button', function () {
                     var invest_value = $('#invest-number').val();
-                    var str=$(this).attr('href');
-                    $(this).attr('href',str+'&product_invest_amount=' + invest_value);
+                    var str = $(this).attr('href');
+                    $(this).attr('href', str + '&product_invest_amount=' + invest_value);
 //                    return false;
                 })
 
                 // 金额加减
-                $('body').on('mouseleave','#tips', function () {
+                $('body').on('mouseleave', '#tips', function () {
                     $(this).find('div').css('display', 'none');
                 });
-                $('body').on('focus',"#invest-number",function () {
+                $('body').on('focus', "#invest-number", function () {
                     $(this).val('');
                 });
                 var bool = true;
-                $('body').on('blur',"#invest-number",function () {
+                $('body').on('blur', "#invest-number", function () {
                     bool == true;
                     var val = $(this).val();
                     if (val.length <= 0) {
@@ -401,7 +404,7 @@
                     }
                 });
 
-                $('body').on('click','#invest-sub', function () {
+                $('body').on('click', '#invest-sub', function () {
                     var val = parseInt($("#invest-number").val());
                     val -= d.invest_par_value;
                     $("#invest-number").val(val);
@@ -410,7 +413,7 @@
                     }
                 });
 
-                $('body').on('click','#invest-add', function () {
+                $('body').on('click', '#invest-add', function () {
                     var val = parseInt($("#invest-number").val());
                     val += d.invest_par_value;
                     $("#invest-number").val(val);
@@ -423,9 +426,11 @@
 
         function book_submit() {
             $('#popup').find('.modal-body').hide().end().find('modal-body-success').show();
+            $('#book_submit').prop('disabled', false);
         }
 
         function fail_book_submit(d) {
+            $('#book_submit').prop('disabled', false);
             alert(d);
         }
 
