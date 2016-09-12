@@ -9,36 +9,37 @@ var rename = require('gulp-rename');
 var gzip = require('gulp-gzip');
 var livereload = require('gulp-livereload');
 var uglify = require('gulp-uglify');
+var old_version = (version-0.1).toFixed(1);
 const imagemin = require('gulp-imagemin');
 const pngquant = require('imagemin-pngquant');
 
 gulp.task('img_compress', () => {
-    return gulp.src('../static/version_1.1/meixin_invest/img/**/*.+(jpg|jpeg|gif|png)')
+    return gulp.src('../static/version_' + old_version + '/meixin_invest/img/**/*.+(jpg|jpeg|gif|png)')
         .pipe(imagemin({
             progressive: true,
             svgoPlugins: [{removeViewBox: false}],
             use: [pngquant()],
             optimizationLevel: 7,
         }))
-        .pipe(gulp.dest('../static/version_1.1/dist/meixin_invest/img'))
+        .pipe(gulp.dest('../static/version_' + old_version + '/dist/meixin_invest/img'))
         .pipe(livereload());
 });
 
 /* Watch JS For Changes */
 gulp.task('js', function() {
-    return gulp.src(['../static/version_1.1/meixin_invest/js/*.js', '../static/version_1.1/meixin_invest/meixin/*.js','!../static/version_1.1/meixin_invest/js/*.min.js', '!../static/meixin_invest/meixin/*.min.js'])
+    return gulp.src(['../static/version_' + old_version + '/meixin_invest/js/*.js', '../static/version_' + old_version + '/meixin_invest/meixin/*.js','!../static/version_' + old_version + '/meixin_invest/js/*.min.js', '!../static/meixin_invest/meixin/*.min.js'])
         .pipe(rename({suffix: '.min'}))
         .pipe(uglify())
-        .pipe(gulp.dest('../static/version_1.1/dist/meixin_invest/js'))
+        .pipe(gulp.dest('../static/version_' + old_version + '/dist/meixin_invest/js'))
         .pipe(livereload());
 });
 
 /* Watch CSS For Changes */
 gulp.task('css', function () {
-    return gulp.src('../static/version_1.1/meixin_invest/css/*.css')
+    return gulp.src('../static/version_' + old_version + '/meixin_invest/css/*.css')
         .pipe(rename({suffix: '.min'}))
         .pipe(minifycss())
-        .pipe(gulp.dest('../static/version_1.1/dist/meixin_invest/css'))
+        .pipe(gulp.dest('../static/version_' + old_version + '/dist/meixin_invest/css'))
         .pipe(livereload());
     ;
 });
@@ -46,7 +47,7 @@ gulp.task('css', function () {
 /* copy images files under /img/ over to under /dist/ and watch them for changes */
 /* p - v20160317 */
 gulp.task('img', function () {
-    return gulp.src('../static/version_1.1/meixin_invest/img/**/*.+(jpg|jpeg|gif|png)')
+    return gulp.src('../static/version_' + old_version + '/meixin_invest/img/**/*.+(jpg|jpeg|gif|png)')
         .pipe(gulp.dest('../img_old'))
         .pipe(livereload());
     ;
@@ -70,19 +71,23 @@ gulp.task('second_replaceSrc', function(){
 //* version_control
 gulp.task('third_version_control', function(){
     gulp.src(['../publish/**'])
-        .pipe(replaceSrc('static/version_1.1', 'static/version_'+ version))
+        .pipe(replaceSrc('static/version_' + old_version + '', 'static/version_'+ version))
         .pipe(gulp.dest('../publish'));
+
+    gulp.src(['../web/**'])
+        .pipe(replaceSrc('static/version_' + old_version + '', 'static/version_'+ version))
+        .pipe(gulp.dest('../web'));
 });
 
 /* Watch Files For Changes */
 gulp.task('watch', function() {
     livereload.listen();
     // Trigger a live reload on any css changes
-    gulp.watch('../static/version_1.1/meixin_invest/css/*.css', ['css']);
-    gulp.watch('../static/version_1.1/meixin_invest/css/*.css').on('change', livereload.changed);
+    gulp.watch('../static/version_' + old_version + '/meixin_invest/css/*.css', ['css']);
+    gulp.watch('../static/version_' + old_version + '/meixin_invest/css/*.css').on('change', livereload.changed);
 
-    gulp.watch('../static/version_1.1/meixin_invest/js/*.js', ['js']);
-    gulp.watch('../static/version_1.1/meixin_invest/js/*.js').on('change', livereload.changed);
+    gulp.watch('../static/version_' + old_version + '/meixin_invest/js/*.js', ['js']);
+    gulp.watch('../static/version_' + old_version + '/meixin_invest/js/*.js').on('change', livereload.changed);
     // Trigger a live reload on any Django template changes
     gulp.watch('../web/**').on('change', livereload.changed);
 
