@@ -959,10 +959,10 @@
                         can_view = false;
                     }
                 });
-                if ($('#invest_value').val() > $('#interest_amount').val()) {
+                /*if ($('#invest_value').val() > $('#interest_amount').val()) {
                     $('.error_msg').html('提现金额不能大于可提现金额!');
                     can_view = false;
-                }
+                }*/
                 if (can_view) {
                     $('.modal-body').hide();
                     var str = '<table>' +
@@ -1241,11 +1241,12 @@
             if (d) {
 //                if (d.product_location == 'OFF_SHORE' && d.product_type == 'NON_CROWD_FUNDING' && d.operation_mode == 'CLOSED') {
                 if (d.operation_mode == 'CLOSED') {
-                    if (d.product_location == 'ON_SHORE' && d.product_type == 'CROWD_FUNDING') {
+                    $('#invest_value').val(d.withdraw_able_amount).attr('disabled', true);
+                    /*if (d.product_location == 'ON_SHORE' && d.product_type == 'CROWD_FUNDING') {
                         $('#invest_value').val(d.withdraw_able_amount);
                     } else {
                         $('#invest_value').val(d.withdraw_able_amount).attr('disabled', true);
-                    }
+                    }*/
                 } else {
                     $('#invest_value').val(d.withdraw_able_amount);
                 }
