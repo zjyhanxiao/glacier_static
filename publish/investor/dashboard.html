@@ -594,12 +594,10 @@
                 }
             });
 
-            //上传用户信息
-            order_number = getUrlParam("order_number");
-            var img_src = $('.dashboard_id_image').find('img').attr('src');
-            var passport_photo_img = $('.dashboard_passport_image').find('img').attr('src');
             //上传profile信息
             $('#save_submit').on('click', function () {
+                var img_src = $('.dashboard_id_image').find('img').attr('src');
+                var passport_photo_img = $('.dashboard_passport_image').find('img').attr('src');
                 var $this = $(this);
                 $this.prop('disabled', true);
                 var update_profile_data = {};
@@ -681,9 +679,11 @@
                 }
                 if (d.id_card_code != '' && d.id_card_code != null) {
                     $('#id_card').val(d.id_card_code);
+                    default_id_card_photo == true;
                 }
                 if (d.passport_code != '' && d.passport_code != null) {
                     $('#passport_code').val(d.passport_code);
+                    default_passport_photo == true;
                 }
                 if (d.date_of_birth != '' && d.date_of_birth != null) {
                     $('#id_birth_date').val(d.date_of_birth);
