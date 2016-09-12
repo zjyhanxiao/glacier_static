@@ -221,7 +221,7 @@
                                 required="" style="width: 33%;display: inline-block;">
                         </select><input class="form-control bfh-phone" data-country="countries_phone"
                                         id="recipient-phone" maxlength="64" name="phone"
-                                        data-parsley-pattern="/\d{11}/"
+                                        data-parsley-pattern="/\d{6,}/"
                                         placeholder="电话号码" required="required" data-parsley-pattern-message="请输入电话号码！"
                                         style="width: 63%;display: inline-block;margin-left: 2%;" type="text">
                     </div>
@@ -265,6 +265,7 @@
         });
     });
 </script>
+<script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/vendor/js/parsley.min.js"></script>
 <script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.1/dist/meixin_invest/js/bootstrap-formhelpers.min.js" type="text/javascript"></script>
 <script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.1/dist/meixin_invest/js/bootstrap-formhelpers-countries-nousa.zh_CN.min.js"></script>
 <script src="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.1/dist/meixin_invest/js/bootstrap-formhelpers-phone.min.js" type="text/javascript"></script>
