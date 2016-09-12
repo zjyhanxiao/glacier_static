@@ -347,7 +347,7 @@
                             //提交预约
                             $('#book_submit').on('click', function () {
                                 $(this).prop('disabled', true);
-                                if ($('.appointment').parsley().validate()) {//获取投资人类型
+                                if ($('.appointment').parsley().validate()) {
                                     var book_submit_data = {
                                         "interested_amount": $('#id_interested_amount').val(),
                                         "product_id": product_id,
