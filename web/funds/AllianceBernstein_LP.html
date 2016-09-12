@@ -45,60 +45,7 @@
                 <div class="row head-sec-title">
                     <div class="col-md-10 col-xs-11">联博 - 国际科技基金 (美元) A</div>
                     <div style="text-align: center;" class="btn btn-primary col-md-2 col-xs-12 sub-btn" data-toggle="modal" data-titlename="联博 - 国际科技基金"  data-target="#popup">立即申购</div>
-                    <div class="modal fade" id="popup" tabindex="-1" role="dialog">
-                        <div class="modal-dialog modal-sm" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 style="text-align: center" class="modal-title" id="exampleModalLabel">申购预约</h4>
-                                </div>
-                                <!--  预约完成页面，处理完表单提交之后显示-->
-                                <div class="is_book" style="text-align: center; padding: 0 5px;">
-                                    <p>
-                                        您已成功完成本产品的预约。美信的专业理财顾问将尽快与您取得联系。您可以在“我的账户”页面查看预约记录。
-                                    </p>
-                                    <a href="/" type="button" class="btn btn-primary">查看所有产品</a>
-                                </div>
-                                <div class="modal-body">
-                                    <form>
-                                        <input type="hidden" name="product_id" value="${product_id}">
-                                        <!--<div class="<#if errors >alert alert-warning</#if>">
-                                        </div>-->
-                                        <div class="form-group">
-                                            <input class="form-control" id="id_user_contact_name" maxlength="128" name="user_contact_name" oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('请输入姓名！')" placeholder="姓名" required="required" type="text">
-                                        </div>
 
-                                        <div class="form-group">
-                                            <input class="form-control" id="id_interested_amount" min="0" name="interested_amount" oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('请输入投资额！')" placeholder="感兴趣的投资额（美元）" required="required" type="number">
-                                        </div>
-                                        <div class="form-group">
-                                            <select class="input-medium bfh-countries form-control" data-country="CN"
-                                                    id="countries_phone"
-                                                    required="" style="width: 33%;display: inline-block;">
-                                            </select><input class="form-control bfh-phone" data-country="countries_phone" id="recipient-phone" maxlength="64" name="phone" oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('请输入电话号码！')" pattern=".{9,}" placeholder="电话号码" required="required" style="width: 63%;display: inline-block;margin-left: 2%;" type="text">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <input class="form-control" id="id_city" maxlength="255" name="city" oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('请输入所在城市！')" placeholder="所在城市（会根据您所在的城市联系您）" required="required" type="text">
-                                        </div>
-                                        <div class="form-group">
-                                            <textarea class="form-control" cols="40" id="id_question" name="question" placeholder="问题（选填）" rows="10" style="min-height:150px;"></textarea>
-                                        </div>
-                                        <button type="submit" id="book_submit" class="btn btn-primary" style="width: 100%">提交</button>
-                                    </form>
-                                </div>
-                                <div class="modal-body-success" style="text-align: center; padding: 0 5px;">
-                                    <p>
-                                        您已成功完成本产品的预约。美信的专业理财顾问将尽快与您取得联系。您可以在“我的账户”页面查看预约记录。
-                                    </p>
-                                    <a href="/" type="button" class="btn btn-primary">查看所有产品</a>
-                                </div>
-                                <div class="modal-footer">
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div class="head-sec-text">
                     <div class="row row-style">
@@ -229,6 +176,67 @@
     </div>
 </div>
 @@include('../includes/footer.html')
+<div class="modal fade" id="popup" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-center" id="exampleModalLabel">申购预约</h4>
+            </div>
+            <div class="is_book text-center" style="display: none; padding: 10px;">
+                <p>
+                    您已成功完成本产品的预约。美信的专业理财顾问将尽快与您取得联系。您可以在“我的账户”页面查看预约记录。
+                </p>
+                <a href="/" type="button" class="btn btn-primary" style="margin: 10px auto">查看所有产品</a>
+            </div>
+            <div class="modal-body">
+                <form class="appointment" data-parsley-validate>
+                    <div class="form-group">
+                        <input class="form-control" id="id_user_contact_name" maxlength="128" name="user_contact_name"
+                               placeholder="姓名" required="required" type="text" data-parsley-pattern-message="请输入姓名！">
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control" id="id_interested_amount" min="0" name="interested_amount"
+                               placeholder="感兴趣的投资额（美元）" required="required" type="number"
+                               data-parsley-pattern-message="请输入投资额！">
+                    </div>
+                    <div class="form-group">
+                        <select class="input-medium bfh-countries form-control" data-country="CN"
+                                id="countries_phone"
+                                required="" style="width: 33%;display: inline-block;">
+                        </select><input class="form-control bfh-phone" data-country="countries_phone"
+                                        id="recipient-phone" maxlength="64" name="phone"
+                                        data-parsley-pattern="/\d{11}/"
+                                        placeholder="电话号码" required="required" data-parsley-pattern-message="请输入电话号码！"
+                                        style="width: 63%;display: inline-block;margin-left: 2%;" type="text">
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control" id="id_city" maxlength="255" name="city"
+                               placeholder="所在城市（会根据您所在的城市联系您）" required="required"
+                               data-parsley-pattern-message="请输入所在城市！" type="text">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" cols="40" id="id_question" name="question" placeholder="问题（选填）"
+                                  rows="10" style="min-height:150px;"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="book_submit" style="width: 100%">提交</button>
+                </form>
+            </div>
+            <div class="modal-body-success text-center" style="padding: 10px;">
+                <p>
+                    您已成功完成本产品的预约。美信的专业理财顾问将尽快与您取得联系。您可以在“我的账户”页面查看预约记录。
+                </p>
+                <a href="/" type="button" class="btn btn-primary">查看所有产品</a>
+            </div>
+            <div class="modal-footer">
+            </div>
+
+        </div>
+    </div>
+</div>
 </body>
 <link rel="shortcut icon" type="image/png" href="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.1/dist/meixin_invest/img/favicon.png">
 <link rel="stylesheet" href="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/vendor/css/font-awesome.min.css">
@@ -288,26 +296,27 @@
         }
 
         //创建预约记录
-        $('#book_submit').on('click',function (){
-            var book_submit_data = {
-                "interested_amount": $('#id_interested_amount').val(),
-                "product_id": product_id,
-                "user_contact_name": $('#id_user_contact_name').val(),
-                "phone": $('#recipient-phone').val(),
-                "city": $('#id_city').val(),
-                "question": $('#id_question').val()
-            };
-            book_submit_data = $.extend({}, book_submit_data, cookie_tooken);
-            if($('#id_interested_amount').val()!=''&&$('#id_user_contact_name').val()!=''&&$('#recipient-phone').val()!=''&&$('#id_city').val()!=''){
-                $('#book_submit').attr('disabled',true);
+        $('#book_submit').on('click', function () {
+            $(this).prop('disabled', true);
+            if ($('.appointment').parsley().validate()) {//获取投资人类型
+                var book_submit_data = {
+                    "interested_amount": $('#id_interested_amount').val(),
+                    "product_id": product_id,
+                    "user_contact_name": $('#id_user_contact_name').val(),
+                    "phone": $('#recipient-phone').val(),
+                    "city": $('#id_city').val(),
+                    "question": $('#id_question').val()
+                };
+                book_submit_data = $.extend({}, book_submit_data, cookie_tooken);
+                Ajax_Data({
+                    "url": baseUrl + "/appointment/create",
+                    "data": book_submit_data,
+                    "fn": book_submit,
+                    "fail_fn": fail_book_submit
+                });
+            } else {
+                $(this).prop('disabled', false);
             }
-            Ajax_Data({
-                "url": baseUrl + "/appointment/create",
-                "data": book_submit_data,
-                "fn": book_submit,
-                "fail_fn":fail_book_submit
-            });
-            return false;
         });
 
         function book_submit() {
