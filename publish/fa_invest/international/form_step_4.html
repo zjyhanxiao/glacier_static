@@ -563,6 +563,7 @@
                     var update_profile_data = {};
                     update_profile_data.literal = $('.literal').eq(check_index).val();
                     update_profile_data = $.extend({}, update_profile_data, cookie_tooken);
+                    alert(update_profile_data);
                     Ajax_Data({
                         "type": "post",
                         "url": baseUrl + "/profile/update",
@@ -756,7 +757,7 @@
         // 提交订单
         function commit_order() {
             $('.ajax_wait p,.ajax_wait').hide();
-            window.location = "/fa_invest/form_success.html?order_number=" + order_number+"&product_id="+product_id;
+            //window.location = "/fa_invest/form_success.html?order_number=" + order_number+"&product_id="+product_id;
         }
     })
 </script>

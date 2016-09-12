@@ -418,6 +418,27 @@
 
     </div>
 </footer>
+<div class="modal fade" id="popup" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel"></h4>
+            </div>
+            <div class="modal-body">
+
+            </div>
+
+            <div class="modal-body-success">
+
+            </div>
+
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>
+
 <link rel="shortcut icon" type="image/png"
       href="http://bj-dev-static.oss-cn-beijing.aliyuncs.com/static/version_1.1/dist/meixin_invest/img/favicon.png">
 <link rel="stylesheet"
@@ -845,7 +866,7 @@
                         can_withdraw = '<button class="status_btn" data-toggle="modal" ' +
                                 'data-titlename=' + d[i].product_name + ' ' + d[i].product_number + ' data-target="#popup" '
                                 + is_disable + ' data-order-number = ' + d[i].order_number +
-                                ' data-can_write=' + can_write + '>提现</button>';
+                                '>提现</button>';
                         if (d[i].has_withdraw_record) {
                             can_withdraw = '<button' + ' class="status_btn" data-toggle="modal" data-titlename="'
                                     + d[i].product_name + ' ' + d[i].product_number + '" data-target="#popup" ' + is_disable +
@@ -1136,6 +1157,7 @@
             });
             //提现显示预览
             $('body').on('click', '#get_view', function () {
+                $('.error_msg').html(' ');
                 var arrDom = $('.modal-body input');
                 var can_view = true;
                 $.each(arrDom, function (index) {
@@ -1144,6 +1166,10 @@
                         can_view = false;
                     }
                 });
+                if ($('#invest_value').val() > $('#interest_amount').val()) {
+                    $('.error_msg').html('提现金额不能大于可提现金额!');
+                    can_view = false;
+                }
                 if (can_view) {
                     $('.modal-body').hide();
                     var str = '<table>' +
@@ -1422,7 +1448,7 @@
             if (d) {
 //                if (d.product_location == 'OFF_SHORE' && d.product_type == 'NON_CROWD_FUNDING' && d.operation_mode == 'CLOSED') {
                 if (d.operation_mode == 'CLOSED') {
-                    if (d.product_location == 'ON_SHORE' && d.product_type == CROWD_FUNDING) {
+                    if (d.product_location == 'ON_SHORE' && d.product_type == 'CROWD_FUNDING') {
                         $('#invest_value').val(d.withdraw_able_amount);
                     } else {
                         $('#invest_value').val(d.withdraw_able_amount).attr('disabled', true);
