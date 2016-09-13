@@ -280,7 +280,7 @@
         $.each(productList.reverse(), function (index, product) {
             var li = $("<li data-title='" + product.category_name + "'></li>");
             //显示名字和分类
-            if (product.product_location == 'ON_SHORE' && product.product_type == 'CROWD_FUNDING') {//安心定期
+            if (product.operation_mode == 'CLOSED' && product.product_type == 'CROWD_FUNDING') {//安心定期
                 li.append($("<h2></h2>").append($("<span></span>").text(product.category_name)).append($("<span></span>").text(product.name + ' ' + product.number)));
             } else {
                 li.append($("<h2></h2>").append($("<span></span>").text(product.category_name)).append($("<span></span>").text(product.name)));
