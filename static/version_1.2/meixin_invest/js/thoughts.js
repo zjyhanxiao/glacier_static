@@ -329,9 +329,10 @@ $(document).ready(function () {
     $("#fifth-page-next-btn").on("click",function(){
         var $parent_div = $(this).closest('#page5');
         var $user_form = $("#user_form");
-        var boolid_card_photo = $("#id_card_photo_pic").attr("data-src") == $("#id_card_photo").attr("src")?true:false;
-        var boolpassport_photo = $("#passport_photo_pic").attr("data-src") == $("#id_card_photo").attr("src")?true:false;
-        var boolidentity_proof = $("#identity_proof_pic").attr("data-src") == $("#id_card_photo").attr("src")?true:false;
+        console.log()
+        var boolid_card_photo = $("#id_card_photo_pic").attr("data-src") == $("#id_card_photo_pic").attr("src") ?true:false;
+        var boolpassport_photo = $("#passport_photo_pic").attr("data-src") == $("#passport_photo_pic").attr("src") ?true:false;
+        var boolidentity_proof = $("#identity_proof_pic").attr("data-src") == $("#identity_proof_pic").attr("src") ?true:false;
         console.log(boolid_card_photo);
         console.log(boolpassport_photo);
         console.log(boolidentity_proof);
