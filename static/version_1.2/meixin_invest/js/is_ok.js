@@ -1,7 +1,7 @@
 /**
  * Created by zhangjingyu on 16/8/5.
  */
-var is_new = true,                  //新建订单
+var is_new = false,                  //新建订单
     is_old = false,                 //已有订单,链接来源-mycount
     order_number,                   //订单order_number;
     is_changed = false,             //是否上传图片,默认否
@@ -100,7 +100,11 @@ function getUrlParam(name) {
 var product_id = getUrlParam('product_id') || 7;//获取产品id
 var product_invest_amount = getUrlParam('product_invest_amount') || 10000;//获取投资金额
 var order_number = getUrlParam('order_number') || null;
-
+if (order_number == null) {
+    is_new = true;
+} else {
+    is_old = true;
+}
 // var baseUrl = 'http://192.168.1.100:8080/web';
 
 
