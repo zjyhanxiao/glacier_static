@@ -138,6 +138,7 @@ $(document).ready(function () {
             data.verify_code=$("#id_verify").val();
             data.referral_code=$("#id_referral_code").val();
             data.is_international_investor = true;
+            data.source = "jisilu";
         }
     });
 
