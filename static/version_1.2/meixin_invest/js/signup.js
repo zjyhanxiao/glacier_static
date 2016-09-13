@@ -54,7 +54,6 @@ $(document).ready(function () {
     //data                                                                                                                                                                                                                                                                             
     var data = {};
     $('#id_referral_code').on('blur', function () {
-        $('#id_referral_code').prop('disabled', true);
         var referral = $.trim($("#id_referral_code").val());
         data.referral_code = referral;
         if (referral != '') {
@@ -64,18 +63,15 @@ $(document).ready(function () {
                 data: data,
                 success: function (res) {
                     if (res.body.code == 1) {
-                        $('#id_referral_code').prop('disabled', false);
                         $(".page1-error-div").html("<div class='alert alert-warning' style='text-align:center; height: 45px; margin-top: -18px; background-color: #fff; border: none; font-size: 12px; color: orangered'>" + '邀请码有效  注册成功后礼品卡将发送至您的邮箱!' + "</div>");
                         $(".page2-error-div").html("<div class='alert alert-warning' style='text-align: center; font-size: 12px; color: orangered'>" + '邀请码有效  注册成功后礼品卡将发送至您的邮箱!' + "</div>");
                     }
                     if (res.body.code == 2 || res.body.code == 3) {
-                        $('#id_referral_code').prop('disabled', false);
                         $(".page1-error-div").html("<div class='alert alert-warning' style='text-align: center; height: 45px; margin-top: -18px; background-color: #fff; border: none; font-size: 12px; color: orangered'>" + '亲爱的用户，邀请码失效,活动礼品已全部派完，感谢您对美信金融的关注!' + "</div>");
                         $(".page2-error-div").html("<div class='alert alert-warning' style='text-align: center; font-size: 12px; color: orangered'>" + '亲爱的用户，邀请码失效,活动礼品已全部派完，感谢您对美信金融的关注!' + "</div>");
                         return false;
                     }
                     if (res.body.code == 4) {
-                        $('#id_referral_code').prop('disabled', false);
                         $(".page1-error-div").html("<div class='alert alert-warning' style='text-align: center; height: 45px; margin-top: -18px; background-color: #fff; border: none; font-size: 12px; color: orangered'>" + '亲爱的用户,您的验证码错误,请核对后填写!' + "</div>");
                         $(".page2-error-div").html("<div class='alert alert-warning' style='text-align: center; font-size: 12px; color: orangered'>" + '亲爱的用户,您的验证码错误,请核对后填写!' + "</div>");
                         return false;

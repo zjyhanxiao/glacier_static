@@ -7,9 +7,10 @@ html,body{
     line-height: 40px;
     padding-left: 25px;
 }
-ul{
+.row-style ul{
     list-style: disc ;
 }
+
 .header-section{
     margin-top: 30px;
 }
