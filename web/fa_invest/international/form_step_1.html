@@ -184,6 +184,7 @@
                             "fn": create_order_res,
                             "fail_fn": create_order_fail
                         });
+                        return false;
                     }
                     if (is_old) {
                         order_number = getUrlParam("order_number");
@@ -209,8 +210,8 @@
                             "fn": update_profile,
                             "fail_fn": update_profile_fail
                         });
+                        return false;
                     }
-                    return false;
                 }else{
                     $(this).prop('disabled',false);
                 }
