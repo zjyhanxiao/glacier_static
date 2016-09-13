@@ -3,13 +3,14 @@ form .input-error {
     border-color: #ff0000;
 }
 
-
+#page1,
 #page2,
 #page4,
 #international_page3,
 #american_page3,
 #page5,
-#page6{
+#page6,
+.register-ok{
     display: none;
 }
 

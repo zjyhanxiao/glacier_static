@@ -6,7 +6,7 @@ $.cookie('mx_token', '', {expires: -1});
 $.cookie('mx_secret', '', {expires: -1});
 $(document).ready(function () {
     // display on board step 1 at page rendering
-    $('.registration-form .div-group:first').fadeIn('slow');
+    $('.registration-form #page1').fadeIn('fast');
 
     // onfocus effect
     $('.registration-form input[type="text"], .registration-form input[type="password"], .registration-form textarea').on('focus', function () {
@@ -64,16 +64,13 @@ $(document).ready(function () {
                 success: function (res) {
                     if (res.body.code == 1) {
                         $(".page1-error-div").html("<div class='alert alert-warning' style='text-align:center; height: 45px; margin-top: -18px; background-color: #fff; border: none; font-size: 12px; color: orangered'>" + '邀请码有效  注册成功后礼品卡将发送至您的邮箱!' + "</div>");
-                        $(".page2-error-div").html("<div class='alert alert-warning' style='text-align: center; font-size: 12px; color: orangered'>" + '邀请码有效  注册成功后礼品卡将发送至您的邮箱!' + "</div>");
                     }
                     if (res.body.code == 2 || res.body.code == 3) {
                         $(".page1-error-div").html("<div class='alert alert-warning' style='text-align: center; height: 45px; margin-top: -18px; background-color: #fff; border: none; font-size: 12px; color: orangered'>" + '亲爱的用户，邀请码失效,活动礼品已全部派完，感谢您对美信金融的关注!' + "</div>");
-                        $(".page2-error-div").html("<div class='alert alert-warning' style='text-align: center; font-size: 12px; color: orangered'>" + '亲爱的用户，邀请码失效,活动礼品已全部派完，感谢您对美信金融的关注!' + "</div>");
                         return false;
                     }
                     if (res.body.code == 4) {
                         $(".page1-error-div").html("<div class='alert alert-warning' style='text-align: center; height: 45px; margin-top: -18px; background-color: #fff; border: none; font-size: 12px; color: orangered'>" + '亲爱的用户,您的验证码错误,请核对后填写!' + "</div>");
-                        $(".page2-error-div").html("<div class='alert alert-warning' style='text-align: center; font-size: 12px; color: orangered'>" + '亲爱的用户,您的验证码错误,请核对后填写!' + "</div>");
                         return false;
                     }
                 }
@@ -140,174 +137,59 @@ $(document).ready(function () {
             data.country=$("#countries_phone").val();
             data.verify_code=$("#id_verify").val();
             data.referral_code=$("#id_referral_code").val();
-        }
-    });
-    // second page back step
-    $('.registration-form .btn-previous').on('click', function () {
-        $(this).parents('#page2').fadeOut(400, function () {
-            $(this).prev().fadeIn();
-        });
-    });
-
-    // second step
-    $('.registration-form #investor-type-next-btn').on('click', function () {
-        var parent_div = $(this).parents('#page2');
-        var next_step = true;
-        var is_international_investor = $('input[name=is_international_investor]:checked').val();
-
-        parent_div.find('input[name="is_international_investor"]').each(function () {
-            if ($('input[name="is_international_investor"]').is(':checked')) {
-                $(this).removeClass('input-error');
-            }else {
-                $(this).addClass('input-error');
-                next_step = false;
-                $(".page2-error-div").html("<div class='alert alert-warning'>请选择您的投资者类型</div>");
-            }
-        });
-
-        if (next_step) {
-            data.is_international_investor=$("#page2 .form-group").find("input[type='radio']:checked").val();
-            if (is_international_investor == 'True') {
-                parent_div.fadeOut(400, function () {
-                    $('#international_page3').fadeIn();
-                });
-            }else {
-                parent_div.fadeOut(400, function () {
-                    $('#american_page3').fadeIn();
-                });
-            }
+            data.is_international_investor = true;
         }
     });
 
     // third page back step
     $('.registration-form .btn-previous').on('click', function () {
         $(this).parents('.page3').fadeOut(400, function () {
-            $('#page2').fadeIn();
+            $('#page1').fadeIn();
         });
     });
-    $('#american-next-btn').click( function () {
-        var parent_div = $(this).parents('#american_page3');
-        var next_step = true;
-        var questionaire_answer = $('input[name=questionaire_answer]:checked').val();
-        console.log(questionaire_answer);
-        parent_div.find('input[name="questionaire_answer"]').each(function () {
-            if ($('input[name="questionaire_answer"]').is(':checked')) {
-                $(this).removeClass('input-error');
-            }else {
-                $(this).addClass('input-error');
-                next_step = false;
-                $(".page3-error-div").html("<div class='alert alert-warning'>请选择您的投资者条件</div>");
-            }
-        });
-        if (!$('input[name="american-agree"]').is(':checked')) {
-            $(".page3-error-div").html("<div class='alert alert-warning'>请同意网站的使用条款和隐私协议</div>");
-            next_step = false;
-        }else{
-            $(".page3-error-div").html("");
-        }
-        if (next_step) {
-            data.questionaire_answer=$(".form-group").find("input[type='radio']:checked").val();
-            parent_div.fadeOut(400, function () {
-                $('#page4').fadeIn();
-            });
-        }
-    });
-
-    // american submit
-    //$('#american-submit').on('click', function () {
-    //    if (!$('input[name="international-agree"]').is(':checked')) {
-    //        $("#international-page3-error-div").html("<div class='alert alert-warning'>请同意网站的使用条款和隐私协议</div>");
-    //    }
-    //    data.questionaire_answer = $("#american_page3").find("input[type='radio']:checked").val();
-    //    if (!$('input[name="questionaire_answer"]').is(':checked')) {
-    //        $(".page3-error-div").html("<div class='alert alert-warning'>请选择您的投资者条件</div>");
-    //    }
-    //    else if (!$('input[name="american-agree"]').is(':checked')) {
-    //    $(".page3-error-div").html("<div class='alert alert-warning'>请同意网站的使用条款和隐私协议</div>");
-    //    }
-    //    else {
-    //        $.ajax({
-    //            type: 'post',
-    //            url:  baseUrl + "/auth/signup",
-    //            data: data,
-    //            success: function (res) {
-    //                if (res.code == 1) {
-    //                    var mx = res.body;
-    //                    $.cookie('mx_token', mx.mx_token, {expires: 30});
-    //                    $.cookie('mx_secret', mx.mx_secret, {expires: 30});
-    //                    window.location.href = '/';
-    //                } else if (res.code != 1) {
-    //                    $(".page3-error-div").html("<div class='alert alert-warning'>" + res.msg + "</div>");
-    //                    $(".page2-error-div").html("<div class='alert alert-warning'>" + res.msg + "</div>");
-    //                    $(".page1-error-div").html("<div class='alert alert-warning'>" + res.msg + "</div>");
-    //
-    //                }
-    //            }
-    //        });
-    //    }
-    //    return false;
-    //});
-
     // international submit
     $('#international-next-btn').on('click', function () {
         var parent_div = $(this).parents('#international_page3');
-        var next_step = true;
         if (!$('input[name="international-agree"]').is(':checked')) {
             $("#international-page3-error-div").html("<div class='alert alert-warning'>请同意网站的使用条款和隐私协议</div>");
-            next_step = false;
         }else{
-            $("#international-page3-error-div").html("");
-        }
-        if (next_step) {
-            parent_div.fadeOut(400, function () {
-                $('#page4').fadeIn();
+            $.ajax({
+                type: 'post',
+                url: baseUrl +"/auth/signup",
+                data: data,
+                success: function (res) {
+                    if (res.code == 1) {
+                        var mx = res.body;
+                        $.cookie('mx_token', mx.mx_token, {expires: 30});
+                        $.cookie('mx_secret', mx.mx_secret, {expires: 30});
+                        parent_div.fadeOut(400, function () {
+                            $('#page4').fadeIn();
+                        });
+                    } else if (res.code != 1) {
+                        $("#international-page3-error-div").html("<div class='alert alert-warning'>" + res.msg + "</div>");
+                        $(".page1-error-div").html("<div class='alert alert-warning'>" + res.msg + "</div>");
+                    }
+                }
             });
         }
-        //else if($('input[name="international-agree"]').is(':checked')){
-        //    $.ajax({
-        //        type: 'post',
-        //        url: baseUrl +"/auth/signup",
-        //        data: data,
-        //        success: function (res) {
-        //            if (res.code == 1) {
-        //                var mx = res.body;
-        //                $.cookie('mx_token', mx.mx_token, {expires: 30});
-        //                $.cookie('mx_secret', mx.mx_secret, {expires: 30});
-        //                window.location.href = '/';
-        //            } else if (res.code != 1) {
-        //                $("#international-page3-error-div").html("<div class='alert alert-warning'>" + res.msg + "</div>");
-        //                $(".page2-error-div").html("<div class='alert alert-warning'>" + res.msg + "</div>");
-        //                $(".page1-error-div").html("<div class='alert alert-warning'>" + res.msg + "</div>");
-        //            }
-        //        }
-        //    });
-        //}
-        //return false;
     });
 
     $("#fourth-page-prev-btn").on("click", function(){
         var parent_div = $(this).closest('#page4');
-        is_international_investor=$("#page2 .form-group").find("input[type='radio']:checked").val();
-        if (is_international_investor == 'True') {
-            parent_div.fadeOut(400, function () {
-                $('#international_page3').fadeIn();
-            });
-        }else {
-            parent_div.fadeOut(400, function () {
-                $('#american_page3').fadeIn();
-            });
-        }
+        parent_div.fadeOut(400, function () {
+            $('#international_page3').fadeIn();
+        });
     });
-
+    var bankData = {};
     $("#fourth-page-next-btn").on("click", function(){
         var parent_div = $(this).closest('#page4');
         var next_step = true;
-        var bankname = parent_div.find('input[name="bankname"]');
-        var bankadd = parent_div.find('input[name="bankadd"]');
-        var bankaccountnum = parent_div.find('input[type="bankaccountnum"]');
-        var bankaccountname = parent_div.find('input[name="bankaccountname"]');
-        var bankSwiftCode = parent_div.find('input[name="bankSwiftCode"]');
-        var ABA_Number = parent_div.find('input[name="ABA_Number"]');
+        var bank_name = parent_div.find('input[name="bankname"]');
+        var bank_address = parent_div.find('input[name="bankadd"]');
+        var account_number = parent_div.find('input[type="bankaccountnum"]');
+        var account_name = parent_div.find('input[name="bankaccountname"]');
+        var swift_code = parent_div.find('input[name="bankSwiftCode"]');
+        var routing_number = parent_div.find('input[name="ABA_Number"]');
 
         parent_div.find('input[name="bankname"], input[name="bankadd"], input[type="bankaccountnum"], input[name="bankaccountname"], input[name="bankSwiftCode"], input[name="ABA_Number"]').each(function () {
 
@@ -336,16 +218,10 @@ $(document).ready(function () {
             }
 
             if($.trim($('#id_ABA_Number').val()) == "" && $.trim($('#id_bankSwiftCode').val()) == ""){
-                if ($.trim($('#id_bankSwiftCode').val()) == "") {
-                    $("#id_bankSwiftCode").addClass('input-error');
-                    next_step = false;
-                    return false;
-                }
-                if ($.trim($('#id_ABA_Number').val()) == "") {
-                    $('#id_ABA_Number').addClass('input-error');
-                    next_step = false;
-                    return false;
-                }
+                $("#id_bankSwiftCode").addClass('input-error');
+                $('#id_ABA_Number').addClass('input-error');
+                next_step = false;
+                return false;
             }
 
             if ($.trim($('#id_ABA_Number').val()) != "" || $.trim($('#id_bankSwiftCode').val()) != ""){
@@ -357,17 +233,112 @@ $(document).ready(function () {
 
         });
         if (next_step) {
-            parent_div.fadeOut(400, function () {
-                $('#page5').fadeIn();
+            bankData.bank_name =$.trim(bank_name);
+            bankData.bank_address =$.trim(bank_address);
+            bankData.account_number =$.trim(account_number);
+            bankData.account_name =$.trim(account_name);
+            bankData.swift_code =$.trim(swift_code);
+            bankData.routing_number =$.trim(routing_number);
+            bankData.mx_token = $.cookie("mx_token");
+            bankData.mx_secret = $.cookie("mx_secret");
+            $.ajax({
+                type: 'post',
+                url: baseUrl +"/profile/bank/update",
+                data: bankData,
+                success: function (res) {
+                    if (res.code == 1) {
+                        var mx = res.body;
+                        console.log("ok");
+                        parent_div.fadeOut(400, function () {
+                            $('#page5').fadeIn();
+                        });
+                    } else{
+                        console.log("fail");
+                        $("#page4-error-div").html("<div class='alert alert-warning'>" + res.msg + "</div>");
+                    }
+                }
             });
-            data.bankname =$.trim(bankname);
-            data.bankadd =$.trim(bankadd);
-            data.bankaccountnum =$.trim(bankaccountnum);
-            data.bankaccountname =$.trim(bankaccountname);
-            data.bankSwiftCode =$.trim(bankSwiftCode);
-            data.ABA_Number =$.trim(ABA_Number);
-            parent_div.fadeOut(400, function () {
-                $('#page5').fadeIn();
+
+        }
+    });
+
+    // 上传证件图片
+    $('.fa-upload-pic').find('a').click(function(){
+        $(this).siblings('input').trigger('click');
+    });
+
+    // 上传证件图片
+    $('.fa-upload-pic input').each(function () {
+        var $this = $(this);
+        $this.change(function (event) {
+            var val = $this.val().toLowerCase();
+            var regex = new RegExp("(.*?)\.(jpg|jpeg|png|gif|bmp)$");
+            if (!(regex.test(val))) {
+                $this.val('');
+                alert('图片格式不正确，支持图片格式(.jpg|.jpeg|.png|.gif|.bmp)');
+            } else {
+                $this.siblings('img').attr('src', URL.createObjectURL(event.target.files[0]));
+                file_upload($this);
+            }
+        });
+    });
+
+    var id_card_photo = null,
+        passport_photo = null,
+        identity_proof = null;
+    function file_upload(id) {
+        var formData = new FormData($('form')[0]);
+        formData.append('file', id[0].files[0]);
+        formData.append('mx_token', $.cookie("mx_token"));
+        formData.append('mx_secret', $.cookie("mx_secret"));
+        $.ajax({
+            url: baseUrl + '/upload/user_file',
+            dataType: 'json',
+            type: 'post',
+            data: formData,
+            async: false,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (result, status) {
+                if (result.code == 1) {
+                    if (event.target.id == 'id_card_photo') {
+                        id_card_photo = result.body;
+                        console.log(id_card_photo);
+                        id.siblings('p').html('您已上传的身份证照片');
+                        id.siblings('img').attr('src',id_card_photo);
+                    }
+                    if (event.target.id == 'passport_photo') {
+                        passport_photo = result.body;
+                        id.siblings('p').html('您已上传的护照照片');
+                        id.siblings('img').attr('src',passport_photo);
+                    }
+                    if (event.target.id == 'identity_proof') {
+                        identity_proof = result.body;
+                        id.siblings('p').html('您已上传的汇款证明照片');
+                        id.siblings('img').attr('src',identity_proof);
+                    }
+                }
+                if (result.code == -1) {
+                    alert("上传失败,请重新上传");
+                }
+            }
+        });
+    }
+
+    $("#fifth-page-next-btn").on("click",function(){
+        var $parent_div = $(this).closest('#page5');
+        var $user_form = $("#user_form");
+        var boolid_card_photo = $("#id_card_photo_pic").attr("data-src") == $("#id_card_photo").attr("src")?true:false;
+        var boolpassport_photo = $("#passport_photo_pic").attr("data-src") == $("#id_card_photo").attr("src")?true:false;
+        var boolidentity_proof = $("#identity_proof_pic").attr("data-src") == $("#id_card_photo").attr("src")?true:false;
+        console.log(boolid_card_photo);
+        console.log(boolpassport_photo);
+        console.log(boolidentity_proof);
+        var boolPhoto = !boolid_card_photo && !boolpassport_photo && !boolidentity_proof;
+        if( boolPhoto ){
+            $user_form.fadeOut(400, function () {
+                $(".register-ok").fadeIn();
             });
         }
     });

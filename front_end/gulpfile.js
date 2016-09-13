@@ -9,7 +9,8 @@ var rename = require('gulp-rename');
 var gzip = require('gulp-gzip');
 var livereload = require('gulp-livereload');
 var uglify = require('gulp-uglify');
-var old_version = (version-0.1).toFixed(1);
+// var old_version = (version-0.1).toFixed(1);
+var old_version = version;
 const imagemin = require('gulp-imagemin');
 const pngquant = require('imagemin-pngquant');
 
@@ -74,9 +75,9 @@ gulp.task('third_version_control', function(){
         .pipe(replaceSrc('static/version_' + old_version + '', 'static/version_'+ version))
         .pipe(gulp.dest('../publish'));
 
-    gulp.src(['../web/**'])
+/*    gulp.src(['../web/!**'])
         .pipe(replaceSrc('static/version_' + old_version + '', 'static/version_'+ version))
-        .pipe(gulp.dest('../web'));
+        .pipe(gulp.dest('../web'));*/
 });
 
 /* Watch Files For Changes */
