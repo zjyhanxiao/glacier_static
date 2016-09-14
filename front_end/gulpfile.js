@@ -1,4 +1,4 @@
-var version='1.2';
+var version='1.3';
 var gulp = require('gulp');
 var include = require('gulp-file-include');
 var replaceSrc = require('gulp-replace');
