@@ -327,6 +327,13 @@ $(document).ready(function () {
         });
     }
 
+    $("#fifth-page-prev-btn").on("click",function(){
+        var $parent_div = $(this).closest('#page5');
+        $parent_div.fadeOut(400, function () {
+            $parent_div.prev().fadeIn();
+        });
+    });
+
     $("#fifth-page-next-btn").on("click",function(){
         var $parent_div = $(this).closest('#page5');
         var $user_form = $("#user_form");
