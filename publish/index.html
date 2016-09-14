@@ -767,7 +767,7 @@
 
     </div>
 </footer>
-<script src="https://s1.meixinglobal.com/vendor/js/jquery-1.11.1.min.js"
+<script src="https://s1.meixinglobal.com/vendor/js/jquery_1.11.1.min.js"
         type="text/javascript"></script>
 <script src="https://s1.meixinglobal.com/vendor/js/jquery-ui.min.js"
         type="text/javascript"></script>
@@ -891,7 +891,7 @@
             }
             //显示年化收益率，保留1位小数
             var returnRate = $("#newUserPlain").find("div:first");
-            returnRate.find("span:first").text(rate.toFixed(1));
+            returnRate.find("span:first").text(rate);
             //投资期限
             returnRate.next().children("span:first").text(product.invest_term);
             //最小起投金额
@@ -960,7 +960,7 @@
             $(childList[0]).text(name);
             //预计年化收益率
             var returnRate = product.return_rate || 0;
-            $(childList[1]).html(returnRate.toFixed(1) + "<span>%</span>");
+            $(childList[1]).html(returnRate + "<span>%</span>");
             //投资期限
             var investTerm = product.invest_term || 0;
             $(childList[2]).html(investTerm + "<span>个月</span>");
