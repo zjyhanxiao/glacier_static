@@ -543,7 +543,7 @@
                         var update_bank_data = {};
                         update_bank_data.account_number = $('#bank-account-number').val();
                         update_bank_data.account_name = $('#bank-account-name').val();
-                        update_bank_data.routing_number = $('#bank-routing-number').val();
+                        update_bank_data.routing_number = $('#routing-number').val();
                         update_bank_data.ach_account_type = $('#accouttype input:checked').attr('accounttype');
                         update_bank_data.ach_check_type = $('#checktype input:checked').attr('checktype');
                         update_bank_data = $.extend({}, update_bank_data, cookie_tooken);
@@ -575,7 +575,7 @@
                     var order_commit_data = {};
                     order_commit_data.invest_amount = $('#invest-amount').val();
                     order_commit_data.order_number = order_number;
-                    order_commit_data.payment_method = $('.payment-option>input:checked').attr('payment-method');
+                    order_commit_data.payment_method = $('.payment-option input:checked').attr('payment-method');
                     order_commit_data = $.extend({}, order_commit_data, cookie_tooken);
                     Ajax_Data({
                         "type": "post",
@@ -727,17 +727,17 @@
             }
             if (d.ach_account_type != '' && d.ach_account_type != null) {
                 var accoutType = $('#accouttype').find('span');
-                accoutType.each(function (index) {
-                    if (accoutType[index].text().toLowerCase() == d.ach_account_type) {
-                        accoutType[index].siblings('input').attr('checked', true);
+                $.each(accoutType,function (i) {
+                    if (accoutType.eq(i).html().toLowerCase() == d.ach_account_type) {
+                        accoutType.eq(i).siblings('input').attr('checked', true);
                     }
                 });
             }
             if (d.ach_check_type != '' && d.ach_check_type != null) {
                 var checkType = $('#checktype').find('span');
-                checkType.each(function (index) {
-                    if (checkType[index].text().toLowerCase() == d.ach_check_type) {
-                        checkType[index].siblings('input').attr('checked', true);
+                $.each(checkType,function (i) {
+                    if (checkType.eq(i).html().toLowerCase() == d.ach_check_type) {
+                        checkType.eq(i).siblings('input').attr('checked', true);
                     }
                 });
             }
