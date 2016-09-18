@@ -192,7 +192,6 @@ $(document).ready(function () {
 
     // american submit
     $('#american-submit').on('click', function () {
-        $('#american-submit').prop('disabled',true);
         data.questionaire_answer = $("#american_page3").find("input[type='radio']:checked").val();
         if (!$('input[name="questionaire_answer"]').is(':checked')) {
             $(".page3-error-div").html("<div class='alert alert-warning'>请选择您的投资者条件</div>");
@@ -201,6 +200,7 @@ $(document).ready(function () {
         $(".page3-error-div").html("<div class='alert alert-warning'>请同意网站的使用条款和隐私协议</div>");
         }
         else {
+            $('#american-submit').prop('disabled',true);
             $.ajax({
                 type: 'post',
                 url:  baseUrl + "/auth/signup",
@@ -227,11 +227,12 @@ $(document).ready(function () {
     
     // international submit
     $('#international-submit').on('click', function () {
-        $('#international-submit').prop('disabled',true);
+        
         if (!$('input[name="international-agree"]').is(':checked')) {
             $("#international-page3-error-div").html("<div class='alert alert-warning'>请同意网站的使用条款和隐私协议</div>");
         }
         else if($('input[name="international-agree"]').is(':checked')){
+            $('#international-submit').prop('disabled',true);
             $.ajax({
                 type: 'post',
                 url: baseUrl +"/auth/signup",
