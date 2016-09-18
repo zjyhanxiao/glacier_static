@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'/>
+    <title>
+        美信金融 - 账户概览
+    </title>
+    <script src="https://s1.meixinglobal.com/vendor/js/jquery_1.11.1.min.js"
+            type="text/javascript"></script>
+    <script src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/js/jquery.cookie.min.js"></script>
+    <script>
+        var token1 = $.cookie('mx_token');
+        var token2 = $.cookie('mx_secret');
+        if (token1 == undefined || token2 == undefined || token1 == null || token2 == null) {
+            window.location = '/login.html';
+        }
+    </script>
+    <script src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/js/is_ok.min.js"></script>
+    <link rel="stylesheet"
+          href="https://s1.meixinglobal.com/vendor/css/bootstrap.min.css">
+    <link href="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/css/base.min.css"
+          rel="stylesheet">
+    <link href="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/css/detail-new.min.css"
+          rel="stylesheet">
+    <link href="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/css/index.min.css"
+          rel="stylesheet">
+    <link href="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/css/dashboard.min.css"
+          rel="stylesheet">
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?36100da860ed74085d2bdd67bdbdbf5e";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!--[if lt IE 9]>
+    <script src="https://s1.meixinglobal.com/vendor/js/html5shiv.js"></script>
+    <script src="https://s1.meixinglobal.com/vendor/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="ajax_wait">
+    <div class="ajax_wait_gif"><img
+            src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/img/Unknown.gif"
+            alt=""></div>
+    <p>哎吆喂！网速似乎有点慢，点击这里<a href="/">跳回首页!</a></p>
+</div>
+<script>
+    setHeight();
+    $(window).resize(function () {
+        setHeight();
+    });
+</script>
+<div class="coupon" style="display: none;">
+    <a href="javascript:;" class="red_packets"></a>
+    <div class="activity_message"><p class="text"></p></div>
+</div>
+<div id="wrapper">
+    <nav id="navChilantro">
+    <div class="page-top-bar">联系我们：400-094-1580<a class="index-spirits top-weibo-logo" href="http://weibo.com/meixingroup" target="_blank">
+        <!--<img-->
+        <!--src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/img/top_weibo_icon_55x47.png"/>-->
+    </a><a class="index-spirits top-wechat-logo "
+           id="wechat-popover"
+           data-toggle="popover">
+        <!--<img-->
+        <!--src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/img/top_wechat_icon_57x47.png"/>-->
+    </a>
+        <div class="top-float-right">
+            <a href="/faq.html">帮助中心</a>
+            <a href="//news.meixinfinance.com" target="_blank">财经资讯</a>
+            <a href="/about.html#05">加入我们</a>
+            <a href="/about.html#06">联系我们</a>
+        </div>
+    </div>
+    <div class="navbar" role="navigation">
+        <div class="container" style="padding-bottom: 0;">
+            <div class="navbar-header" style="display: inline;">
+                <a id="logo" href="/" class="navbar-brand">
+                </a> <span class="logo-alpha" style="font-size: 12px; float: left;">Beta</span>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right nav_right_on_mobile">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/product_list.html">全部产品</a></li>
+                    <li><a href="/newhelp.html">新手指引</a></li>
+                    <li><a href="/safety.html">安全保障</a></li>
+                    <li><a href="/about.html">关于美信</a></li>
+                    <li style="float: right;"><a class="login_no_margin_right nav_login_button" href="/login.html">登录</a>
+                    </li>
+                    <li style="float: right;"><a href="/signup.html"
+                                                 class="nav_register_button">注册</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<style>
+    @media screen and (max-width: 768px) {
+        .customerPage {
+            margin-top: 90px;
+        }
+
+        .navbar-fixed-top {
+            padding: 0 !important;
+        }
+
+        #wrapper.customer nav .navbar .container {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
+        .nav_right_on_mobile {
+            width: 100%;
+        }
+    }
+</style>
+<style>
+    @media screen and (max-width: 768px) {
+        .navbar-fixed-top {
+            padding: 0 !important;
+        }
+
+        .navbar-fixed-top .container {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
+        .navbar-fixed-top {
+            position: fixed;
+        }
+    }
+</style>
+    <div class="container dashboard">
+        <div class="row">
+            <div class="col-lg-2 con_left">
+                <h2 class="text-center">投资概览</h2>
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="description" class="active"><a href="#01" role="tab" data-toggle="tab">我的主页</a></li>
+                    <li role="description"><a href="#02" role="tab" data-toggle="tab" class="get_appointment">预约订单</a>
+                    </li>
+                    <li role="description"><a href="#03" role="tab" data-toggle="tab" class="uncommit">未完成订单</a></li>
+                    <li role="description"><a href="#04" role="tab" data-toggle="tab" class="closefund">投资订单</a></li>
+                    <li role="description"><a href="#05" role="tab" data-toggle="tab" class="history">历史订单</a></li>
+                    <li role="description"><a href="#06" role="tab" data-toggle="tab" class="flexible">灵活理财</a></li>
+                    <li><h2 class="text-center">账户设置</h2></li>
+                    <li role="description"><a href="#07" role="tab" data-toggle="tab" class="user_info">账户信息
+                    </a></li>
+                    <li role="description"><a href="#08" role="tab" data-toggle="tab">密码设置</a></li>
+                    <!--<li role="description"><a href="#09" role="tab" data-toggle="tab">我的银行</a></li>-->
+                </ul>
+            </div>
+            <div class="col-lg-10 con_right">
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="01">
+                        <h2>我的账户</h2>
+                        <div class="row my_index">
+
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="02">
+                        <h2>预约订单</h2>
+                        <div class="book_order">
+
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="03">
+                        <h2>未完成订单</h2>
+                        <div class="not_order">
+
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="04">
+                        <h2>投资订单</h2>
+                        <div class="invest_order">
+
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="05">
+                        <h2>历史订单</h2>
+                        <div class="history_order">
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="06">
+                        <h2>灵活理财</h2>
+                        <div class="flexible_invest">
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="07">
+                        <h2>账户信息</h2>
+                        <div class="user_information dashboard_setup">
+                            <table>
+                                <tr>
+                                    <td>用户名</td>
+                                    <td><input id="id_real_name" class="form-control" disabled
+                                               style="border: none;background: none;box-shadow: none;"></td>
+                                </tr>
+                                <tr>
+                                    <td>账户类型</td>
+                                    <td><select id="id_investor_type" name="investor_type" disabled>
+                                        <option value="1">国际投资人</option>
+                                        <option value="2">美国合格投资人</option>
+                                        <option value="3">非美国合格投资人</option>
+                                    </select></td>
+                                </tr>
+                                <tr>
+                                    <td>手机号</td>
+                                    <td><input id="id_phone" disabled class="form-control"
+                                               style="border:none;background: none;box-shadow: none;"></td>
+                                </tr>
+                                <tr>
+                                    <td>邮箱</td>
+                                    <td><input id="id_email" disabled class="form-control"
+                                               style="border:none;background: none;box-shadow: none;"></td>
+                                </tr>
+                                <tr>
+                                    <td>身份证号</td>
+                                    <td><input id="id_card" disabled class="form-control"
+                                               style="border:none;background: none;box-shadow: none;"></td>
+                                </tr>
+                                <tr>
+                                    <td>护照号</td>
+                                    <td><input id="passport_code" disabled class="form-control"
+                                               style="border:none;background: none;box-shadow: none;"></td>
+                                </tr>
+                                <tr>
+                                    <td>出生日期</td>
+                                    <td><input id="id_birth_date" disabled class="form-control"
+                                               style="border:none;background: none;box-shadow: none;"></td>
+                                </tr>
+                            </table>
+                            <form method="post" enctype="multipart/form-data" class="clearfix">
+                                <div class="dashboard_id_image dashboard_upload_image col-sm-5">
+                                    <p>身份证照片</p>
+                                    <img src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/img/upload_id_placeholder_188x144.png">
+                                </div>
+                                <div class="dashboard_passport_image dashboard_upload_image col-sm-5 col-sm-offset-2">
+                                    <p>护照照片</p>
+                                    <img src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/img/upload_passport_placeholder_185x143.png">
+                                </div>
+                            </form>
+                            <div class="text-center">
+                                <button type="button" id="change_btn" class="btn btn-primary">修 改</button>
+                                <button type="button" id="save_submit" class="btn btn-primary">保 存</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="08">
+                        <h2>密码设置</h2>
+                        <div class="pws_reset">
+                            <div class="pwd_list">
+                                <label>请输入原密码</label>
+                                <input class="form-control" id="id_old_password" name="old_password"
+                                       type="password"></div>
+                            <div class="pwd_list">
+                                <label>请输入新密码</label>
+                                <input aria-describedby="sizing-addon1" class="form-control"
+                                       id="id_password" name="password"
+                                       type="password">
+                            </div>
+                            <div class="pwd_list">
+                                <label>请确认新密码</label>
+                                <input aria-describedby="sizing-addon1" class="form-control"
+                                       id="id_password_confirm" name="password_confirm"
+                                       type="password">
+                            </div>
+
+                            <div class="pwd_btn">
+                                <button type="button" id="pwd_reset" class="btn btn-primary">保
+                                    存
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div role="tabpanel" class="tab-pane" id="09">
+                        <h2>我的银行</h2>
+                        <div class="my_bank"></div>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer id="footer" class="padding-top-lg">
+    <div class="container-fluid">
+        <section class="row footer-sitemap">
+            <div class="container">
+                <div class="">
+                    <div class="row padding-vertical nowrap">
+                        <div class="col-sm-2 col-xs-12 bottom-margin-xl">
+                            <div class="index-spirits footer-logo-white"></div>
+                            <!--<img class="img-responsive"-->
+                            <!--src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/img/footer-logo-white_320x116.png"-->
+                            <!--alt="Meixin QR Code">-->
+                        </div>
+                        <div class="col-sm-2 col-xs-3 col-xs-offset-1 border-left no-border-sm">
+                            <p><a href="/">首页</a></p>
+                            <p><a href="https://news.meixinfinance.com/topics/top/" target="_blank">话题</a></p>
+                            <p><a href="https://news.meixinfinance.com/markets/" target="_blank">行情</a></p>
+                            <p>学投</p>
+                        </div>
+                        <div class="col-sm-2 col-xs-3  border-left">
+                            <p><a href="/product_list.html">全部产品</a></p>
+                            <p><a href="/newhelp.html">新手指引</a></p>
+                            <p><a href="/safety.html">安全保障</a></p>
+                            <p><a href="/terms.html">使用条款</a></p>
+                        </div>
+                        <div class="col-sm-2 col-xs-3 border-left">
+                            <p><a href="/faq.html">帮助中心</a></p>
+                            <p><a href="/about.html" target="_blank">关于我们</a></p>
+                            <p><a href="/signup.html">加入我们</a></p>
+                            <p><a href="/privacy.html">隐私协议</a></p>
+                        </div>
+                        <div class="col-sm-2 col-xs-12 bottom-margin-xl text-center">
+                            <div class="v-spacer-lg visible-xs"></div>
+                            <img class="img-responsive qr-code-image"
+                                 src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/img/meixin_new_qr_code_300x300.jpg"
+                                 alt="Meixin QR Code">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <section class="row footer-contact">
+            <div class="container">
+                <div class="">
+                    <div class="row padding-top">
+                        <div class="col-sm-3 col-md-1 bottom-margin">
+                            <p class="nowrap"><a href="/about.html"><strong>联系我们</strong></a></p>
+                        </div>
+                        <div class="col-sm-12 col-md-3 bottom-margin">
+                            <p class="nowrap">
+                                <a class="text-secondary" href="mailto:contact@meixinfinance.com"><i
+                                        class="fa fa-envelope-o"></i>&nbsp;contact@meixinfinance.com</a>
+                            </p>
+                        </div>
+                        <div class="col-sm-12 col-md-4 bottom-margin">
+                            <p>
+                                <a target="_blank" class="text-secondary"
+                                   href="http://www.bing.com/mapspreview?&ty=18&q=261%20madision%20avenue&mb=40.757471~-73.997958~40.743459~-73.963239&tt=261%20Madison%20Ave%2c%20New%20York%2c%20NY%2010016&tsts1=%2526ty%253d18%2526q%253d261%252520madision%252520avenue%2526mb%253d40.757471~-73.997958~40.743459~-73.963239&tstt1=261%20Madison%20Ave%2c%20New%20York%2c%20NY%2010016&cp=40.751116~-73.987465&lvl=15&ftst=1&ftics=True&v=2&sV=1&form=S00027"><i
+                                        class="fa fa-map-marker"></i>&nbsp;261 Madison Avenue, New York, NY 10016</a>
+                                <br><a
+                                    href="https://www.bing.com/mapspreview?q=%E5%8C%97%E4%BA%AC%E5%B8%82%E6%9C%9D%E9%98%B3%E5%8C%BA%E5%85%89%E5%8D%8E%E8%B7%AF9%E5%8F%B7%20&mkt=zh&FORM=BYLH1"
+                                    target="_blank"><i class="fa fa-map-marker"></i>&nbsp;北京市朝阳区光华路9号SOHO3Q</a>
+                            </p>
+                        </div>
+                        <div class="col-sm-12 col-md-4 bottom-margin text-right-md">
+                            <p><span><i class="fa fa-phone"></i>&nbsp;+1-917-410-6668</span><br><span><i
+                                    class="fa fa-phone"></i>&nbsp;400-094-1580</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="row last footer-terms">
+            <div class="container">
+                <div class="padding-vertical">
+                    <p class="p-indent">
+                        <small>
+                            IMPORTANT DISCLOSURE INFORMATION: <a href="http://www.sec.gov/answers/accred.htm"
+                                                                 target="_blank">www.meixinfinance.com</a> (the “Site”)
+                            is a website owned and
+                            operated by Meixin Technology LLC (“Meixin”). By accessing this Site and any pages on this
+                            Site, you agree to be bound by its <strong><a href="terms.html"
+                                                                          target="_blank">Terms of Use</a></strong> and
+                            <strong><a
+                                    href="privacy.html" target="_blank">Privacy Policy</a></strong>, as may be
+                            amended from
+                            time to time without notice or liability. Meixin is an intermediary technology platform and
+                            does not provide investment, legal or tax advice.
+                        </small>
+                    </p>
+
+                    <p class="p-indent">
+                        <small>Meixin does not verify or provide any assurance that information provided by any issuer
+                            offering securities is accurate. Neither Meixin nor any of its directors, officers,
+                            employees, representatives, affiliates or agents shall have any liability whatsoever
+                            arising, for any error or incompleteness of fact or opinion in, or lack of care in the
+                            preparation or publication, of the materials and communication on the Site. Meixin does not
+                            give investment advice, provide analysis or recommendations regarding any offering posted on
+                            the Site. Past performance is not indicative of future performance and forward looking
+                            statements. Actual results may vary materially. All investors should make their own
+                            determination of whether or not to make any investment, based on their own independent
+                            evaluation and analysis and after consulting with their financial, tax and investment
+                            advisors. The securities offered on this Site can only be marketed in jurisdictions where
+                            public solicitation of offerings are permitted; it is solely your responsibility to comply
+                            with the laws and regulations of your country of residence. You are strongly advised to
+                            consult your legal, tax and financial advisor before investing.
+                        </small>
+                    </p>
+                    <p class="p-indent">
+                        <small>You can learn more about investing in private placements from the <a
+                                href="http://www.sec.gov/investor/alerts/ia_solicitation.pdf" target="_blank">SEC</a>,
+                            <a href="http://www.finra.org/investors/alerts/private-placements-risks" target="_blank">FINRA</a>
+                            or <a href="http://www.nasaa.org/22284/informed-investor-alert-private-placement-offerings/"
+                                  target="_blank"> NASAA</a>.
+                        </small>
+                    </p>
+                    <p class="p-indent">
+                        <small>Copyright © 2016 Meixin Technology LLC All rights reserved.</small>
+
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</footer>
+<div class="modal fade" id="popup" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel"></h4>
+            </div>
+            <div class="modal-body">
+
+            </div>
+
+            <div class="modal-body-success">
+
+            </div>
+
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>
+
+<link rel="shortcut icon" type="image/png"
+      href="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/img/favicon.png">
+<link rel="stylesheet"
+      href="https://s1.meixinglobal.com/vendor/css/font-awesome.min.css">
+<script src="https://s1.meixinglobal.com/vendor/js/jquery-ui.min.js"
+        type="text/javascript"></script>
+<script src="https://s1.meixinglobal.com/vendor/js/parsley.min.js"></script>
+<script src="https://s1.meixinglobal.com/vendor/js/bootstrap.min.js"
+        type="text/javascript"></script>
+<script src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/js/navi.min.js"
+        type="text/javascript"></script>
+<script
+        src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/js/dashboard.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#wechat-popover').popover({
+            html: true,
+            placement: 'bottom',
+            trigger: 'hover',
+            content: '<img style="width: 200px;padding:0;margin:0;" src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/img/meixin_new_qr_code_300x300.jpg" />'
+        });
+
+        $('.red_packets').hover(function () {
+            $('.activity_message').show();
+        }, function () {
+            $('.activity_message').hide();
+        });
+    });
+</script>
+<script>
+    $(function () {
+        var full_name, user_address, investment_process = '', withdraw_list;
+
+        //验证登录
+        Ajax_Data({
+            "url": baseUrl + "/auth/authentication",
+            "data": cookie_tooken,
+            "fn": is_login,
+            "no_login": no_login
+        });
+        function no_login() {
+            window.location = '/login.html';
+        }
+
+        //获取红包活动接口
+        Ajax_Data({
+            "url": baseUrl + "/promotion/redpacket",
+            "data": null,
+            "fn": get_redpacket
+        });
+        function get_redpacket(d) {
+            if (d && d.name != '' && d.name != null) {
+                $('.activity_message p.text').html(d.title);
+                $('.coupon').show();
+            }
+        }
+
+        //is_login  调取登录接口
+        function is_login(res) {
+            $('.navbar ul li:last-child').html('<a class="btn btn-min-width" href="/investor/dashboard.html">我的账户</a>');
+            $('.navbar ul li:nth-last-child(2)').html('<a class="btn btn-min-width-sm logout" href="javascript:;">退出</a>');
+            $('.ajax_wait p,.ajax_wait').hide();
+
+            //获取profile信息
+            var get_profile_data = {
+                "fields": "investor_type,real_name,mailing_address_country,mailing_address_region,mailing_address_city,mailing_address_street,mailing_address_door,mailing_address_apartment,phone,email,id_card_code,id_card_photo,passport_code,passport_photo,date_of_birth"
+            };
+            get_profile_data = $.extend({}, get_profile_data, cookie_tooken);
+            Ajax_Data({
+                "url": baseUrl + "/profile/get",
+                "data": get_profile_data,
+                "fn": get_profile
+            });
+
+            //获取我的主页信息
+            Ajax_Data({
+                "url": baseUrl + "/order/summary",
+                "data": cookie_tooken,
+                "fn": get_summary
+            });
+            //获取预约记录
+            $('.get_appointment').on('click', function () {
+                Ajax_Data({
+                    "url": baseUrl + "/appointment/listByUser",
+                    "data": cookie_tooken,
+                    "fn": get_appointment
+                });
+            });
+
+
+            //获取未完成订单
+            $('.uncommit').on('click', function () {
+                Ajax_Data({
+                    "url": baseUrl + "/order/list/uncommit",
+                    "data": cookie_tooken,
+                    "fn": uncommitFn
+                });
+            });
+
+            //获取投资订单
+            $('.closefund').on('click', function () {
+                Ajax_Data({
+                    "url": baseUrl + "/order/list/closefund",
+                    "data": cookie_tooken,
+                    "fn": closefundFn
+                });
+            });
+
+            //历史订单
+            $('.history').on('click', function () {
+                Ajax_Data({
+                    "url": baseUrl + "/order/list/history",
+                    "data": cookie_tooken,
+                    "fn": history_list
+                });
+            });
+
+            //灵活理财
+            $('.flexible').on('click', function () {
+                Ajax_Data({
+                    "url": baseUrl + "/order/list/openfund",
+                    "data": cookie_tooken,
+                    "fn": flexible_list
+                });
+            });
+
+
+            //修改用户信息
+            $('#change_btn').on('click', function () {
+                $('#id_real_name,#id_investor_type,#id_card,#passport_code,#id_birth_date').prop('disabled', false).removeAttr('style');
+                $('.dashboard_id_image').append('<div class="dashboard_mask" style="display:none"><a>选择图片</a> <input id="id_identification_card_photo" name="identification_card_photo" type="file"></div>');
+                $('.dashboard_passport_image').append('<div class="dashboard_mask" style="display:none"><a>选择图片</a> <input id="id_passport_photo" name="passport_photo" type="file"></div>');
+            });
+
+            $('.dashboard_upload_image').hover(function () {
+                $(this).find('.dashboard_mask').toggle();
+            });
+
+            $('body').on('click', '.dashboard_mask a', function () {
+                $(this).siblings('input').trigger('click');
+            });
+            $('.dashboard_upload_image').on('change', 'input[type=file]', function (event) {
+                var $this = $(this);
+                var val = $this.val().toLowerCase();
+                var regex = new RegExp("(.*?)\.(jpg|jpeg|png|gif|bmp)$");
+                if (!(regex.test(val))) {
+                    $this.val('');
+                    alert('图片格式不正确，支持图片格式(.jpg|.jpeg|.png|.gif|.bmp)');
+
+                } else {
+                    $this.parent().siblings('img').attr('src', URL.createObjectURL(event.target.files[0]));
+                    file_upload($this);
+                }
+            });
+
+            //上传profile信息
+            $('#save_submit').on('click', function () {
+                var img_src = $('.dashboard_id_image').find('img').attr('src');
+                var passport_photo_img = $('.dashboard_passport_image').find('img').attr('src');
+                var $this = $(this);
+                $this.prop('disabled', true);
+                var update_profile_data = {};
+                update_profile_data.real_name = $('#id_real_name').val();
+                update_profile_data.investor_type = $('#id_investor_type').val();
+                update_profile_data.id_card_code = $('#id_card').val();
+                update_profile_data.passport_code = $('#passport_code').val();
+                update_profile_data.date_of_birth = $('#id_birth_date').val();
+                if (default_id_card_photo) {
+                    update_profile_data.id_card_photo = img_src;
+                } else {
+                    update_profile_data.id_card_photo = id_card_photo;
+                }
+                if (default_passport_photo) {
+                    update_profile_data.passport_photo = passport_photo_img;
+                } else {
+                    update_profile_data.passport_photo = passport_photo;
+                }
+                update_profile_data = $.extend({}, update_profile_data, cookie_tooken);
+                console.log(update_profile_data);
+                Ajax_Data({
+                    "type": "post",
+                    "url": baseUrl + "/profile/update",
+                    "data": update_profile_data,
+                    "fn": update_user_profile,
+                    "fail_fn": user_information_profile_fail
+                });
+                function update_user_profile(d) {
+                    alert('更新资料成功');
+                    $('#id_real_name,#id_card,#passport_code,#id_birth_date').prop('disabled', true).attr('style', 'border: none;background: none;box-shadow: none;');
+                    $('#id_investor_type').prop('disabled', true);
+                    $('.dashboard_id_image,.dashboard_passport_image').remove('.dashboard_mask');
+                    $this.prop('disabled', false);
+                }
+
+                function user_information_profile_fail(d) {
+                    alert(d);
+                    $this.prop('disabled', false);
+                }
+            });
+
+            //重置密码
+            $('#pwd_reset').on('click', function () {
+                var $this = $(this);
+                $this.prop('disabled', true);
+                $('.pws_reset').find('span').remove();
+                pws_reset($this);
+                return false;
+            });
+            $('.pws_reset input').change(function () {
+                $('#pwd_reset').prop('disabled', false);
+            });
+        }
+
+        //获取投资人信息
+        function get_profile(d) {
+            if (d) {
+                investor_type = d.investor_type;
+                full_name = d.real_name;
+                var country = "US";
+                if (d.mailing_address_country != '' && d.mailing_address_country != null) {
+                    country = d.mailing_address_country;
+                }
+                user_address = country + ' ' + d.mailing_address_region + ' ' + d.mailing_address_city + ' ' + d.mailing_address_street + ' ' + d.mailing_address_door + ' ' + d.mailing_address_apartment;
+
+
+                //写入用户信息
+                if (d.real_name != '' && d.real_name != null) {
+                    $('#id_real_name').val(d.real_name);
+                }
+                if (d.investor_type != '' && d.investor_type != null) {
+                    $('#id_investor_type').val(investor_type);
+                }
+                if (d.phone != '' && d.phone != null) {
+                    $('#id_phone').val(d.phone);
+                }
+                if (d.email != '' && d.email != null) {
+                    $('#id_email').val(d.email);
+                }
+                if (d.id_card_code != '' && d.id_card_code != null) {
+                    $('#id_card').val(d.id_card_code);
+                    default_id_card_photo == true;
+                }
+                if (d.passport_code != '' && d.passport_code != null) {
+                    $('#passport_code').val(d.passport_code);
+                    default_passport_photo == true;
+                }
+                if (d.date_of_birth != '' && d.date_of_birth != null) {
+                    $('#id_birth_date').val(d.date_of_birth);
+                }
+                if (d.id_card_photo != '' && d.id_card_photo != null) {
+                    $('.dashboard_id_image img').attr('src', d.id_card_photo);
+                    default_id_card_photo = true;
+                }
+                if (d.passport_photo != '' && d.passport_photo != null) {
+                    $('.dashboard_passport_image img').attr('src', d.passport_photo);
+                    default_passport_photo = true;
+                }
+            }
+        }
+
+
+        //获取我的主页信息
+
+        function get_summary(d) {
+            if (d) {
+                // console.log(JSON.stringify(d));
+                var str = '<div class="col-lg-4">已投项目<p>invested_product_value</p></div>' +
+                        '<div class="col-lg-4">投资总额($)<p>invested_total_value</p></div>' +
+                        '<div class="col-lg-4">投资收益($)<p>invested_value</p></div>';
+                str = str.replace('invested_product_value', d.count);
+                str = str.replace('invested_total_value', d.invest_amount);
+                str = str.replace('invested_value', d.income_amount);
+                $('.my_index').html(str);
+            }
+        }
+
+
+        // 获取预约记录
+        function get_appointment(d) {
+            var html = '';
+            if (d.length < 1) {
+                $('.book_order').html('暂无预约记录');
+                return false;
+            }
+            if (d && d.length >= 1) {
+                $.each(d, function (i) {
+                    var minimum_invest_amount = d[i].minimum_invest_amount;
+                    if (minimum_invest_amount >= 10000) {
+                        minimum_invest_amount = minimum_invest_amount / 10000 + '万美元';
+                    } else {
+                        minimum_invest_amount = '$' + minimum_invest_amount;
+                    }
+                    var interested_amount = d[i].interested_amount;
+                    interested_amount = '$' + interested_amount;
+                    html += '<div class="order_list">' +
+                            '<h4>' + d[i].product_name + ' ' + d[i].product_number + '</h4>' +
+                            '<ul' + ' class="invest_table' + ' clearfix">' +
+                            '<li>预计年化收益：' + d[i].return_rate + '%</li>' +
+                            '<li>投资期限：' + d[i].invest_term + '个月</li>' +
+                            '<li>起投金额：' + minimum_invest_amount + '</li>' +
+                            '<li>感兴趣金额：' + interested_amount + '</li>' +
+                            '<li>预约时间：' + d[i].appointment_date + '</li>' +
+                            '<li><button class="status_btn" style="background: rgb(170,170,170);">' + d[i].diaplay_status +
+                            '</button></li></ul></div>';
+                });
+                $('.book_order').html(html);
+            }
+        }
+
+        // 获取未完成订单
+        function uncommitFn(d) {
+            var html = '';
+            if (d.length < 1) {
+                $('.not_order').html('暂无未完成订单');
+                return false;
+            }
+            if (d && d.length >= 1) {
+                var unco
+                $.each(d, function (i) {
+                    var url = '';
+                    var minimum_invest_amount = d[i].minimum_invest_amount;
+                    if (minimum_invest_amount >= 10000) {
+                        minimum_invest_amount = minimum_invest_amount / 10000 + '万美元';
+                    } else {
+                        minimum_invest_amount = '$' + minimum_invest_amount;
+                    }
+                    html += '<div class="order_list">' +
+                            '<h4>' + d[i].product_name + ' ' + d[i].product_number + '</h4>' +
+                            '<ul' + ' class="invest_table' + ' clearfix">' +
+                            '<li>预计年化收益：' + d[i].return_rate + '%</li>' +
+                            '<li>投资期限：' + d[i].invest_term + '个月</li>' +
+                            '<li>起投金额：' + minimum_invest_amount + '</li>' +
+                            '<li>投资状态：' + d[i].status_desc + '</li>' +
+                            '<li></li>' +
+                            '<li><a class="status_btn get_process_url" data-order_number=' + d[i].order_number + ' data-product_id=' +
+                            d[i].product_id +
+                            ' target="_blank">完善流程</a></li></ul></div>'
+                });
+                $('.not_order').html(html);
+
+                $('body').on('click', '.get_process_url', function () {
+                    var process_product_id = $(this).attr('data-product_id');
+                    var process_order_number = $(this).attr('data-order_number');
+                    //获取未完成订单投资流程
+                    var invest_flow_data = {"product_id": process_product_id};
+                    invest_flow_data = $.extend({}, invest_flow_data, cookie_tooken);
+                    Ajax_Data({
+                        "url": baseUrl + "/invest_flow",
+                        "data": invest_flow_data,
+                        "fn": invest_flow
+                    });
+                    function invest_flow(d) {
+                        if (d) {
+                            investment_process = d;
+                            if (investment_process == 'crowd_america') {
+                                window.location = '/fa_invest/american/form_usa_step_1.html?order_number=' + process_order_number + '&product_id=' + process_product_id;
+                            }
+                            if (investment_process == 'crowd_international') {
+                                window.location = '/fa_invest/international/form_step_1.html?order_number=' + process_order_number + '&product_id=' + process_product_id;
+                            }
+                            if (investment_process == 'non_crowd') {
+                                window.location = '/fa_invest/invest_yellowstone_step_1.html?order_number=' + process_order_number + '&product_id=' + process_product_id;
+                            }
+                        }
+                    }
+
+                    return false;
+                });
+
+            }
+        }
+
+        // 获取投资订单
+        function closefundFn(d) {
+            var html = '';
+            if (d.length < 1) {
+                $('.invest_order').html('暂无投资订单');
+                return false;
+            }
+            if (d && d.length >= 1) {
+                $.each(d, function (i) {
+                    var promotion = '', total_amount = '$0', total_income = '$0', invest_amount = '$0',
+                            received_amount = '$0', received_balance = '$0', docLink = '', withdraw_able_amount = '$0',
+                            invest_income = '$0', promotion_income = '$0';
+                    if (d[i].total_amount != '' && d[i].total_amount != null) {
+                        total_amount = '$' + d[i].total_amount; //总金额
+                    }
+                    if (d[i].total_income != '' && d[i].total_income != null) {
+                        total_income = '$' + d[i].total_income; //累计收益
+                    }
+                    if (d[i].invest_amount != '' && d[i].invest_amount != null) {
+                        invest_amount = '$' + d[i].invest_amount; //投资总额
+                    }
+                    if (d[i].received_amount != '' && d[i].received_amount != null) {
+                        received_amount = '$' + d[i].received_amount; //入金金额
+                    }
+                    if (d[i].received_balance != '' && d[i].received_balance != null) {
+                        received_balance = '$' + d[i].received_balance; //入金余额
+                    }
+                    if (d[i].withdraw_able_amount != '' && d[i].withdraw_able_amount != null) {
+                        withdraw_able_amount = '$' + d[i].withdraw_able_amount; //可提现金额
+                    }
+                    if (d[i].invest_income != '' && d[i].invest_income != null) {
+                        invest_income = '$' + d[i].invest_income; //投资收益
+                    }
+                    if (d[i].promotion_income != '' && d[i].promotion_income != null) {
+                        promotion_income = '$' + d[i].promotion_income; //权益收益
+                    }
+                    //是否出现合同
+                    if (d[i].sub_doc_url != null && d[i].sub_doc_url != '') {
+                        docLink = '<a href=' + d[i].sub_doc_url + ' target="_blank" style="color:#58afd4;">合同</a>';
+                    }
+                    //推广活动,红包等
+                    if (d[i].promotion_name != '' && d[i].promotion_name != null) {
+                        promotion = d[i].promotion_name + ': $' + d[i].promotion_value;
+                    }
+                    //是否可提现
+                    var is_disable, can_withdraw = '';
+                    if (d[i].withdraw_able_amount > 0) {
+                        is_disable = '';
+                    } else {
+                        is_disable = 'disabled style="background:#ccc"';
+                    }
+                    if (d[i].can_withdraw) {
+                        can_withdraw = '<button class="status_btn" data-toggle="modal" ' +
+                                'data-titlename=' + d[i].product_name + ' ' + d[i].product_number + ' data-target="#popup" '
+                                + is_disable + ' data-order-number = ' + d[i].order_number +
+                                '>提现</button>';
+                        if (d[i].has_withdraw_record) {
+                            can_withdraw = '<button' + ' class="status_btn" data-toggle="modal" data-titlename="'
+                                    + d[i].product_name + ' ' + d[i].product_number + '" data-target="#popup" ' + is_disable +
+                                    ' data-order-number = ' + d[i].order_number + '>提现</button>' +
+                                    '<button style="margin-left: 20px;" type="button" class="withdraw" data-order-number=' + d[i].order_number + '>提现记录</button>';
+                        }
+                    }
+                    html += '<div class="order_list">' +
+                            '<h4>' + d[i].product_name + ' ' + d[i].product_number + '<span' + ' class="invest_status">投资状态：' + d[i].status_desc + '</span></h4>' +
+                            '<ul class="invest_table clearfix">' +
+//                            '<li>产品类型：债权型</li>' +
+                            '<li>投资总额： ' + invest_amount + '</li>' +
+                            '<li>总金额：' + total_amount + '</li>' +
+                            '<li>累计收益：' + total_income + '</li>' +
+                            '<li>投资日期：' + d[i].created_at + '</li>' +
+                            '<li>投资周期：' + d[i].invest_term + '个月</li>' +
+                            '<li><button class="status_btn more" data-show="0">显示更多</button></li>' +
+                            '<li class="hide">入金金额：' + received_amount + '</li>' +
+                            '<li class="hide">入金余额：' + received_balance + '</li>' +
+                            '<li class="hide">可提现金额：' + withdraw_able_amount + '</li>' +
+                            '<li class="hide">投资收益：' + invest_income + '</li>' +
+                            '<li class="hide">权益收益：' + promotion_income + '</li>' +
+                            '<li class="hide">' + promotion + '</li>' +
+                            '<li class="hide"></li>' +
+                            '<li class="hide">' + docLink + '</li>' +
+                            '<li class="hide">' + can_withdraw + '</li></ul></div>';
+                });
+                $('.invest_order').html(html);
+                showMore();//显示、隐藏更多
+                withDraw();//提现
+                //获取提现记录
+                $('.invest_order').on('click', '.withdraw', function () {
+                    var $this = $(this);
+                    var order_num = $(this).prev().attr('data-order-number');
+                    is_open = $(this).attr('data-type');
+
+                    $this.parents('.invest_table').nextAll().remove();
+                    var withdraw_history_data = {"order_number": order_num};
+                    withdraw_history_data = $.extend({}, withdraw_history_data, cookie_tooken);
+                    $.when(Ajax_Data({
+                        "url": baseUrl + "/withdraw/list",
+                        "data": withdraw_history_data,
+                        "async": false,
+                        "fn": withdraw_history
+                    })).done(
+                            $this.parents('.invest_table').after(withdraw_list)
+                    );
+                });
+            }
+        }
+
+
+        //历史订单
+        function history_list(d) {
+            var html = '';
+            if (d.length < 1) {
+                $('.history_order').html('暂无历史订单');
+                return false;
+            }
+            if (d) {
+                $.each(d, function (i) {
+                    var can_show_history = '';
+                    if (d[i].has_withdraw_record) {
+                        if (d[i].operation_mode == 'OPEN') {
+                            can_show_history = '<li></li><li></li><li><button type="button"' +
+                                    ' class="withdraw" data-order-number=' + d[i].order_number + '>赎回记录</button></li>';
+                        } else {
+                            can_show_history = '<li></li><li></li><li><button type="button"' +
+                                    ' class="withdraw" data-order-number=' + d[i].order_number + '>提现记录</button></li>';
+                        }
+                    }
+                    html += '<div class="order_list">' +
+                            '<h4>' + d[i].product_name + ' ' + d[i].product_number +
+                            ' <span class="redeem_date">赎回日期：' + d[i].refund_date + '</span></h4>' +
+                            '<ul class="invest_table clearfix">' +
+//                            '<li>产品类型：债券型</li>' +
+                            '<li>总金额：$' + d[i].total_amount + '</li>' +
+                            '<li>累计收益：$' + d[i].total_income + '</li>' +
+                            '<li>投资日期：' + d[i].created_at + '</li>' +
+                            '<li>投资金额：$' + d[i].invest_amount + '</li>' +
+                            '<li>赎回金额：$' + d[i].refund_amount + '</li>' + can_show_history + '</ul></div>';
+                })
+                $('.history_order').html(html);
+                //获取提现记录
+                $('.history_order').on('click', '.withdraw', function () {
+                    var $this = $(this);
+                    var order_num = $(this).attr('data-order-number');
+                    is_open = $(this).attr('data-type');
+
+                    $this.parents('.invest_table').nextAll().remove();
+                    var withdraw_history_data = {"order_number": order_num};
+                    withdraw_history_data = $.extend({}, withdraw_history_data, cookie_tooken);
+                    $.when(Ajax_Data({
+                        "url": baseUrl + "/withdraw/list",
+                        "data": withdraw_history_data,
+                        "async": false,
+                        "fn": withdraw_history
+                    })).done(
+                            $this.parents('.invest_table').after(withdraw_list)
+                    );
+                });
+            }
+        }
+
+        //灵活理财
+        function flexible_list(d) {
+            var html = '';
+            if (d.length < 1) {
+                $('.flexible_invest').html('暂无灵活理财订单');
+                return false;
+            }
+            if (d) {
+                var total_income = 0, received_amount = 0, received_balance = 0, can_withdraw = '', docLink = '';
+                $.each(d, function (i) {
+                    if (d[i].total_income != '' && d[i].total_income != null) {
+                        total_income = d[i].total_income;
+                    }
+                    if (d[i].received_amount != '' && d[i].received_amount != null) {
+                        received_amount = d[i].received_amount;
+                    }
+                    if (d[i].received_balance != '' && d[i].received_balance != null) {
+                        received_balance = d[i].received_balance;
+                    }
+                    //是否可提现
+                    var is_disable;
+                    if (d[i].withdraw_able_amount > 0) {
+                        is_disable = '';
+                    } else {
+                        is_disable = 'disabled style="background:#ccc"';
+                    }
+                    if (d[i].can_withdraw) {
+                        can_withdraw = '<button class="status_btn" data-toggle="modal" ' +
+                                'data-titlename=' + d[i].product_name + ' ' + d[i].product_number + ' data-target="#popup" '
+                                + is_disable + ' data-order-number = ' + d[i].order_number + '>赎回</button>';
+                        //是否可赎回
+                        if (d[i].has_withdraw_record) {
+                            can_withdraw = '<button' + ' class="status_btn" data-toggle="modal" data-titlename="'
+                                    + d[i].product_name + ' ' + d[i].product_number + '" data-target="#popup" ' + is_disable +
+                                    ' data-order-number = ' + d[i].order_number + '>赎回</button>' +
+                                    ' <button type="button" class="withdraw-history status_btn" data-type=' + d[i].operation_mode + '>赎回记录</button>';
+                        }
+                    }
+                    var current_nav = d[i].current_nav;
+                    if (current_nav == null) {
+                        current_nav = '--';
+                    }
+                    var first_nav = d[i].first_nav;
+                    if (first_nav == null) {
+                        first_nav = '--';
+                    }
+
+                    //是否出现合同
+                    if (d[i].sub_doc_url != null && d[i].sub_doc_url != '') {
+                        docLink = '<a href=' + d[i].sub_doc_url + ' target="_blank" style="color:#58afd4;">合同</a>';
+                    }
+
+                    html += '<div class="order_list">' +
+                            '<h4>' + d[i].product_name + ' ' + d[i].product_number + '<span' + ' class="invest_status">投资状态：' + d[i].status_desc + '</span></h4>' +
+                            '<ul' + ' class="invest_table clearfix">' +
+//                            '<li>产品类型：债券型</li>' +
+                            '<li>投资市场价值：$' + d[i].invest_amount + '</li>' +
+                            '<li>总金额：$' + d[i].total_amount + '</li>' +
+                            '<li>投资周期：' + d[i].invest_term + '月起</li>' +
+                            '<li>投资日期：' + d[i].created_at + '</li>' +
+                            '<li>最新NAV：' + current_nav + '</li>' +
+                            '<li>购买时NAV：' + first_nav + '</li>' +
+                            '<li>入金金额：$' + received_amount + '</li>' +
+                            '<li>入金余额：$' + received_balance + '</li>' +
+                            '<li>投资份数：' + d[i].left_count + '</li>' +
+                            '<li></li><li>' + docLink + '</li>' +
+                            '<li><button class="status_btn buy_again" data-product_id=' + d[i].product_id + ' data-invest_amount=' + d[i].invest_amount + '>再次购买</button> ' +
+                            can_withdraw +
+                            '</li></ul></div>';
+                })
+                $('.flexible_invest').html(html);
+                //获取提现记录
+                $('.flexible_invest').on('click', '.withdraw-history', function () {
+                    var $this = $(this);
+                    var order_num = $(this).prev().attr('data-order-number');
+                    is_open = $(this).attr('data-type');
+
+                    $this.parents('.invest_table').nextAll().remove();
+                    var withdraw_history_data = {"order_number": order_num};
+                    withdraw_history_data = $.extend({}, withdraw_history_data, cookie_tooken);
+
+
+                    $.when(Ajax_Data({
+                        "url": baseUrl + "/withdraw/list",
+                        "data": withdraw_history_data,
+                        "async": false,
+                        "fn": withdraw_history
+                    })).done(
+                            $this.parents('.invest_table').after(withdraw_list)
+                    );
+                });
+            }
+
+            $('.flexible_invest').on('click', '.buy_again', function () {
+                var again_product_id = $(this).attr('data-product_id');
+                var again_invest_amount = $(this).attr('data-invest_amount');
+                window.location =
+                        '/fa_invest/invest_yellowstone_step_1.html?product_id=' + again_product_id + '&product_invest_amount=' + again_invest_amount;
+            })
+            flexibleWithDraw();// 灵活理财提现
+        }
+
+        //显示/隐藏更多
+        function showMore() {
+            $('.order_list .more').each(function () {
+                var $this = $(this);
+                $this.on('click', function () {
+                    var isShow = $this.attr('data-show');
+                    if (isShow == 0) {
+                        $this.text('隐藏更多');
+                        $this.attr('data-show', 1);
+                        $this.parents('li').nextAll().removeClass('hide');
+                    } else {
+                        $this.text('显示更多');
+                        $this.attr('data-show', 0);
+                        $this.parents('li').nextAll().addClass('hide');
+                    }
+                })
+            });
+        }
+
+
+        // 提现
+        function withDraw() {
+            //写入title,请求数据
+            $('#popup').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget);
+                var title = button.data('titlename');
+                var modal = $(this);
+                var write_able = button.data('can_write');
+                modal.find('.modal-title span').empty();
+                modal.find('.modal-title').prepend('<span>' + title + '提现</span>');
+                modal.find('.modal-body').empty();
+                if (write_able) {
+
+                } else {
+
+                }
+                var bodyStr = '<div class="error_msg"></div><form id="invest_form">' +
+                        '<label>用户名：</label>' +
+                        '<input id="full_name" class="form-control">' +
+                        '<label>现居地址：</label>' +
+                        '<input id="residence-address" class="form-control">' +
+                        '<label>收款银行名称：</label>' +
+                        '<input id="bank_name" class="form-control">' +
+                        '<label>收款银行地址：</label>' +
+                        '<input id="bank_address" class="form-control">' +
+                        '<label>收款银行账户：</label>' +
+                        '<input id="account_name" class="form-control">' +
+                        '<label>Swift Code：</label>' +
+                        '<input id="swift_code" class="form-control">' +
+                        '<label>ABA Number：</label>' +
+                        '<input id="routing_number" class="form-control">' +
+                        '<label>投资总额：</label>' +
+                        '<input id="invest_total" disabled class="form-control" style="width:30%;float:left">' +
+                        '<label style="clear:none">可提现金额：</label>' +
+                        '<input id="interest_amount" class="form-control" disabled style="width:30%;float:left">' +
+                        '<label>提现金额：</label>' +
+                        '<input id="invest_value" class="form-control">' +
+                        '<div class="text-center">' +
+                        '<button type="button" class="btn btn-primary" style="width:30%" id="get_view">生成预览</button></div></form>';
+                modal.find('.modal-body').append(bodyStr);
+
+                $('#full_name').val(full_name);
+                $('#residence-address').val(user_address);
+                order_number = button.data('order-number');
+                //获取订单信息
+                var get_order_data = {
+                    "order_number": order_number
+                };
+                get_order_data = $.extend({}, get_order_data, cookie_tooken);
+                Ajax_Data({
+                    "url": baseUrl + "/order/" + order_number,
+                    "data": get_order_data,
+                    "fn": get_order
+                });
+
+                //获取bank信息
+                Ajax_Data({
+                    "url": baseUrl + "/profile/bank/get",
+                    "data": cookie_tooken,
+                    "fn": get_bank
+                });
+            });
+            //提现显示预览
+            $('body').on('click', '#get_view', function () {
+                $('.error_msg').html(' ');
+                var arrDom = $('.modal-body input');
+                var can_view = true;
+                $.each(arrDom, function (index) {
+                    //'Swift Code或ABA Number至少填写一项',其他项必填
+                    if (arrDom.eq(index).attr('id') != 'swift_code' && arrDom.eq(index).attr('id') != routing_number) {
+                        if (arrDom.eq(-(index + 1)).val() == '') {
+                            $('.error_msg').html(arrDom.eq(-(index + 1)).prev('label').html().replace('：', '') + '不能为空');
+                            can_view = false;
+                        }
+                    } else {
+                        if ($('#swift_code').val() == '' && $('#routing_number').val() == '') {
+                            $('.error_msg').html('Swift Code或ABA Number至少填写一项');
+                            can_view = false;
+                        } else {
+                            if ($('#swift_code').val() != '' || $('#routing_number').val() != '') {
+                                $('.error_msg').html(' ');
+                                can_view = true;
+                            }
+                        }
+                    }
+                });
+                /*if ($('#invest_value').val() > $('#interest_amount').val()) {
+                 $('.error_msg').html('提现金额不能大于可提现金额!');
+                 can_view = false;
+                 }*/
+                if (can_view) {
+                    $('.modal-body').hide();
+                    var str = '<table>' +
+                            '<tr><td>用户名：</td><td colspan="3">user_name</td></tr>' +
+                            '<tr><td>现居地址：</td><td colspan="3">address</td></tr>' +
+                            '<tr><td>收款银行名称：</td><td colspan="3">bank_name</td></tr>' +
+                            '<tr><td>收款银行地址：</td><td colspan="3">bank_address</td></tr>' +
+                            '<tr><td>收款银行账户：</td><td colspan="3">bank_account</td></tr>' +
+                            '<tr><td>Swift Code：</td><td colspan="3">swift_code</td></tr>' +
+                            '<tr><td>ABA Number：</td><td colspan="3">aba_number</td></tr>' +
+                            '<tr><td>投资总额：</td><td width="30%">invest_total</td><td width="20%">可提现金额：</td><td width="30%">withdraw_able_amount</td></tr>' +
+                            '<tr><td>提现金额：</td><td colspan="3">withdraw_amount</td></tr></table>';
+                    str = str.replace('user_name', $('#full_name').val());
+                    str = str.replace('address', $('#residence-address').val());
+                    str = str.replace('bank_name', $('#bank_name').val());
+                    str = str.replace('bank_address', $('#bank_address').val());
+                    str = str.replace('bank_account', $('#account_name').val());
+                    str = str.replace('swift_code', $('#swift_code').val());
+                    str = str.replace('aba_number', $('#routing_number').val());
+                    str = str.replace('invest_total', $('#invest_total').val());
+                    str = str.replace('withdraw_able_amount', $('#interest_amount').val());
+                    str = str.replace('withdraw_amount', $('#invest_value').val());
+                    str += '<div class="text-center">' +
+                            '<button type="button" id="back_prev" class="btn"' + ' style="width:8em">返  回</button> ' +
+                            '<button type="button" id="invest_submit" class="btn btn-primary" style="width:8em">确认提现</button></div>';
+                    $('.modal-body-success').html(str);
+                    $('.modal-body-success').show();
+
+                    //上传bank信息
+                    var update_bank_data = {};
+                    update_bank_data.bank_name = $('#bank_name').val();
+                    update_bank_data.bank_address = $('#bank_address').val();
+                    update_bank_data.account_name = $('#account_name').val();
+                    update_bank_data.swift_code = $('#swift_code').val();
+                    update_bank_data.routing_number = $('#routing_number').val();
+                    update_bank_data = $.extend({}, update_bank_data, cookie_tooken);
+                    Ajax_Data({
+                        "type": "post",
+                        "url": baseUrl + "/profile/bank/update",
+                        "data": update_bank_data,
+                        "fn": update_bank_profile,
+                        "fail_fn": update_bank_fail
+                    });
+
+                    //提交bank信息
+                    function update_bank_profile() {
+                        console.log('开户银行信息提交成功');
+                    }
+                }
+                return false;
+            });
+            //返回修改提现
+            $('body').on('click', '#back_prev', function () {
+                $('.modal-body-success').hide();
+                $('.modal-body').show();
+                return false;
+            });
+            //提交订单提现
+            $('body').on('click', '#invest_submit', function () {
+                $(this).prop('disabled', true);
+                var withdraw_submit_data = {
+                    "order_number": order_number,
+                    "withdraw_amount": $('#invest_value').val(),
+                    "user_name": $('#full_name').val(),
+                    "user_address": $('#residence-address').val(),
+                    "bank_name": $('#bank_name').val(),
+                    "bank_address": $('#bank_address').val(),
+                    "account_number": $('#bank_address').val(),
+                    "swift_code": $('#bank_address').val(),
+                    "routing_number": $('#bank_address').val(),
+
+                };
+                withdraw_submit_data = $.extend({}, withdraw_submit_data, cookie_tooken);
+                Ajax_Data({
+                    "type": "post",
+                    "url": baseUrl + "/withdraw/submit",
+                    "data": withdraw_submit_data,
+                    "fn": withdraw_submit,
+                    "fail_fn": withdraw_fail
+                });
+                function withdraw_submit(d) {
+                    $('#invest_submit').prop('disabled', false);
+                    $('.modal-body-success').hide();
+                    $('.modal-footer').html('<p>提交成功</p>您的提现申请已提交成功，我们会尽快办理，请您保持通讯畅通，以方便与您联系。').show();
+                }
+
+                return false;
+            });
+            $('body').on('click', '.modal-header .close', function () {
+                window.location.reload();
+                return false;
+            });
+        }
+
+        // 灵活理财提现
+        function flexibleWithDraw() {
+            //写入title,请求数据
+            $('#popup').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget);
+                var title = button.data('titlename');
+                var modal = $(this);
+                modal.find('.modal-title span').empty();
+                modal.find('.modal-title').prepend('<span>' + title + '赎回</span>');
+                modal.find('.modal-body').empty();
+                var bodyStr = '<div class="error_msg"></div><form id="invest_form">' +
+                        '<div class="clearfix"><label>用户名：</label>' +
+                        '<input id="full_name" class="form-control">' +
+                        '<label>现居地址：</label>' +
+                        '<input id="residence-address" class="form-control">' +
+                        '<label>收款银行名称：</label>' +
+                        '<input id="bank_name" class="form-control">' +
+                        '<label>收款银行地址：</label>' +
+                        '<input id="bank_address" class="form-control">' +
+                        '<label>收款银行账户：</label>' +
+                        '<input id="account_name" class="form-control">' +
+                        '<label>Swift Code：</label>' +
+                        '<input id="swift_code" class="form-control">' +
+                        '<label>ABA Number：</label>' +
+                        '<input id="routing_number" class="form-control"></div>' +
+                        '<div class="text-center flexibleWithDraw">' +
+                        '<div class="clearfix"><input type="radio" name="redeem_type" value="true" id="part" checked>' +
+                        '<label class="radio_label" for="part">部分赎回</label>' +
+                        '<input type="radio" name="redeem_type" value="false" id="all">' +
+                        '<label class="radio_label" for="all">全部赎回</label></div>' +
+                        '<label class="withdraw_number">赎回份额：</label><input type="text" class="form-control"' +
+                        '  id="withdraw_value"><br>' +
+                        '<p class="text-left blue">' +
+                        '温馨提示：您的赎回份数需满足(500.00&lt;赎回份额&lt;4000.00),详情见规则，第一次赎回时候我们将把账户内的入金余额一并赎回。</p></div>' +
+                        '<div class="text-center"><button type="button" class="btn btn-primary" style="width:30%"' +
+                        ' id="get_view">生成预览</button></div></form>';
+                modal.find('.modal-body').append(bodyStr);
+                $('#full_name').val(full_name);
+                $('#residence-address').val(user_address);
+                order_number = button.data('order-number');
+                //获取订单信息
+                var get_order_data = {
+                    "order_number": order_number
+                };
+                get_order_data = $.extend({}, get_order_data, cookie_tooken);
+                Ajax_Data({
+                    "url": baseUrl + "/order/" + order_number,
+                    "data": get_order_data,
+                    "fn": flexible_get_order
+                });
+
+                //获取bank信息
+                Ajax_Data({
+                    "url": baseUrl + "/profile/bank/get",
+                    "data": cookie_tooken,
+                    "fn": get_bank
+                });
+            });
+            //提现显示预览
+            $('body').on('click', '#get_view', function () {
+                var arrDom = $('.modal-body input.form-control');
+                console.log(arrDom.length);
+                var can_view = true;
+                $.each(arrDom, function (index) {
+                    //'Swift Code或ABA Number至少填写一项',其他项必填
+                    if (arrDom.eq(index).attr('id') != 'swift_code' && arrDom.eq(index).attr('id') != routing_number) {
+                        if (arrDom.eq(-(index + 1)).val() == '') {
+                            $('.error_msg').html(arrDom.eq(-(index + 1)).prev('label').html().replace('：', '') + '不能为空');
+                            can_view = false;
+                        }
+                    } else {
+                        if ($('#swift_code').val() == '' && $('#routing_number').val() == '') {
+                            $('.error_msg').html('Swift Code或ABA Number至少填写一项');
+                            can_view = false;
+                        } else {
+                            if ($('#swift_code').val() != '' || $('#routing_number').val() != '') {
+                                $('.error_msg').html(' ');
+                                can_view = true;
+                            }
+                        }
+                    }
+                });
+                // console.log(can_view);
+                if (can_view) {
+                    $('.modal-body').hide();
+                    var str = '<table>' +
+                            '<tr><td>用户名：</td><td colspan="3">user_name</td></tr>' +
+                            '<tr><td>现居地址：</td><td colspan="3">address</td></tr>' +
+                            '<tr><td>收款银行名称：</td><td colspan="3">bank_name</td></tr>' +
+                            '<tr><td>收款银行地址：</td><td colspan="3">bank_address</td></tr>' +
+                            '<tr><td>收款银行账户：</td><td colspan="3">bank_account</td></tr>' +
+                            '<tr><td>Swift Code：</td><td colspan="3">swift_code</td></tr>' +
+                            '<tr><td>ABA Number：</td><td colspan="3">aba_number</td></tr>' +
+                            '<tr><td>赎回份额：</td><td colspan="3">withdraw_amount</td></tr></table>';
+                    str = str.replace('user_name', $('#full_name').val());
+                    str = str.replace('address', $('#residence-address').val());
+                    str = str.replace('bank_name', $('#bank_name').val());
+                    str = str.replace('bank_address', $('#bank_address').val());
+                    str = str.replace('bank_account', $('#account_name').val());
+                    str = str.replace('swift_code', $('#swift_code').val());
+                    str = str.replace('aba_number', $('#routing_number').val());
+                    str = str.replace('withdraw_amount', $('#withdraw_value').val());
+                    str += '<div class="text-center"><button type="button" id="back_prev" class="btn"' + ' style="width:8em">返  回</button> <button type="button" id="invest_submit" class="btn btn-primary" style="width:8em">确认提现</button></div>';
+                    $('.modal-body-success').html(str);
+                    $('.modal-body-success').show();
+
+                    //上传bank信息
+                    var update_bank_data = {};
+                    update_bank_data.bank_name = $('#bank_name').val();
+                    update_bank_data.bank_address = $('#bank_address').val();
+                    update_bank_data.account_name = $('#account_name').val();
+                    update_bank_data.swift_code = $('#swift_code').val();
+                    update_bank_data.routing_number = $('#routing_number').val();
+                    update_bank_data = $.extend({}, update_bank_data, cookie_tooken);
+                    Ajax_Data({
+                        "type": "post",
+                        "url": baseUrl + "/profile/bank/update",
+                        "data": update_bank_data,
+                        "fn": update_bank_profile,
+                        "fail_fn": update_bank_fail
+                    });
+
+                    //提交bank信息
+                    function update_bank_profile() {
+                        console.log('开户银行信息提交成功');
+                    }
+                }
+                return false;
+            });
+            //返回修改提现
+            $('body').on('click', '#back_prev', function () {
+                $('.modal-body-success').hide();
+                $('.modal-body').show();
+                return false;
+            });
+            //提交订单提现
+            $('body').on('click', '#invest_submit', function () {
+
+                var lh_withdraw_submit_data = {
+                    "order_number": order_number,
+                    "withdraw_count": $('#withdraw_value').val(),
+                    "user_name": $('#full_name').val(),
+                    "user_address": $('#residence-address').val(),
+                    "bank_name": $('#bank_name').val(),
+                    "bank_address": $('#bank_address').val(),
+                    "account_number": $('#bank_address').val(),
+                    "swift_code": $('#bank_address').val(),
+                    "routing_number": $('#bank_address').val(),
+
+                };
+                lh_withdraw_submit_data = $.extend({}, lh_withdraw_submit_data, cookie_tooken);
+                Ajax_Data({
+                    "type": "post",
+                    "url": baseUrl + "/withdraw/submit",
+                    "data": lh_withdraw_submit_data,
+                    "fn": lh_withdraw_submit,
+                    "fail_fn": withdraw_fail
+                });
+                function lh_withdraw_submit(d) {
+                    $('.modal-body-success').hide();
+                    $('.modal-footer').html('<p>提交成功</p>您的提现申请已提交成功，我们会尽快办理，请您保持通讯畅通，以方便与您联系。').show();
+                }
+
+                return false;
+            });
+            /*            $('body').on('click', '.modal-body .close,.modal-body-success .close', function () {
+             // window.location.reload();
+             $('.modal-body-success').hide();
+             $('.modal-footer').html(' ').hide();
+             $('.modal-body').show();
+             return false;
+             });*/
+
+            $('body').on('click', '.modal-header .close', function () {
+                window.location.reload();
+                return false;
+            });
+        }
+
+        //重置密码
+        function pws_reset(d) {
+            var old_password = $('#id_old_password').val(),
+                    password = $('#id_password').val(),
+                    password_confirm = $('#id_password_confirm').val();
+            var can_change = true;
+            if (old_password == '') {
+                $('#id_old_password').after('<span>请输入原密码</span>');
+                can_change = false;
+            }
+            if (password == '') {
+                $('#id_password').after('<span>请输入新密码</span>');
+                can_change = false;
+            } else if (password.length < 6) {
+                $('#id_password').after('<span>密码长度不能少于6位</span>');
+                can_change = false;
+            }
+            if (password_confirm == '') {
+                $('#id_password_confirm').after('<span>请再次输入新密码</span>');
+                can_change = false;
+            }
+            if (old_password == password && old_password != '') {
+                $('#id_password').after('<span>新密码不能与原密码一致</span>');
+                can_change = false;
+            }
+            if (password_confirm != password && password != '' && password_confirm != '') {
+                $('#id_password_confirm').after('<span>您输入的两次密码不一致</span>');
+                can_change = false;
+            }
+            if (can_change) {
+                var change_password_data = {
+                    "old_password": old_password,
+                    "password": password
+                };
+                change_password_data = $.extend({}, change_password_data, cookie_tooken);
+                Ajax_Data({
+                    "url": baseUrl + "/auth/change_password",
+                    "type": "post",
+                    "data": change_password_data,
+                    "fn": change_password,
+                    "fail_fn": change_password_fail
+                });
+                function change_password(d) {
+                    alert('修改成功');
+                    $('#pwd_reset').prop('disabled', false);
+                }
+
+                function change_password_fail(d) {
+                    alert(d);
+                    $('#pwd_reset').prop('disabled', false);
+                }
+            }
+        }
+
+        //投资订单,提现获取订单信息
+        function get_order(d) {
+            if (d) {
+//                if (d.product_location == 'OFF_SHORE' && d.product_type == 'NON_CROWD_FUNDING' && d.operation_mode == 'CLOSED') {
+                if (d.operation_mode == 'CLOSED') {
+                    $('#invest_value').val(d.withdraw_able_amount).attr('disabled', true);
+                    /*if (d.product_location == 'ON_SHORE' && d.product_type == 'CROWD_FUNDING') {
+                     $('#invest_value').val(d.withdraw_able_amount);
+                     } else {
+                     $('#invest_value').val(d.withdraw_able_amount).attr('disabled', true);
+                     }*/
+                } else {
+                    $('#invest_value').val(d.withdraw_able_amount);
+                }
+                $('#invest_total').val(d.invest_amount);
+                $('#interest_amount').val(d.withdraw_able_amount);
+            }
+        }
+
+        //灵活理财,获取订单信息
+        function flexible_get_order(d) {
+            if (d) {
+                var all_value = d.left_count;
+                value_true = '温馨提示：您的赎回份数需满足(' + d.min_withdraw_count + '&lt;赎回份额&lt;' + d.max_withdraw_count + '),详情见规则，第一次赎回时候我们将把账户内的入金余额一并赎回。';
+
+                value_false = '温馨提示：您全部赎回的份额是' + all_value + '，第一次赎回时候我们将把账户内的入金余额一并赎回。';
+                $('.flexibleWithDraw p').html(value_true);
+
+
+                $('body').on('change', '.flexibleWithDraw input[type="radio"]', function (e) {
+                    console.log(e.target.id);
+                    if (e.target.id == 'part') {
+                        $('#withdraw_value').val(' ').prop('disabled', false);
+                        $('.flexibleWithDraw p').html(value_true);
+                    }
+                    if (e.target.id == 'all') {
+                        $('#withdraw_value').val(all_value).prop('disabled', true);
+                        $('.flexibleWithDraw p').html(value_false);
+                    }
+                });
+            }
+        }
+
+
+        //投资订单,提现获取银行信息
+        function get_bank(d) {
+            $('#bank_name').val(d.bank_name);
+            $('#bank_address').val(d.bank_address);
+            $('#account_name').val(d.account_name);
+            $('#swift_code').val(d.swift_code);
+            $('#routing_number').val(d.routing_number);
+        }
+
+        // 提现失败,弹出错误信息
+        function withdraw_fail(d) {
+            $('#invest_submit').prop('disabled', false);
+            alert(d);
+        }
+
+        //赎回记录
+
+        function withdraw_history(d) {
+            if (d) {
+                $.each(d, function (i) {
+                    if (is_open == 'OPEN') {
+                        withdraw_list = '<div class="withdraw_list"><ul class="invest_table clearfix">' +
+                                '<li>赎回金额: ' + d[i].amount + '</li>' +
+                                '<li>赎回时净值: ' + d[i].withdraw_net_value + '</li>' +
+                                '<li>赎回日期: ' + d[i].withdraw_date + '</li>' +
+                                '<li>赎回份数: ' + d[i].count + '</li>' +
+                                '<li>购买时净值: ' + d[i].buy_net_value + '</li>' +
+                                '<li>状态: ' + d[i].status + '</li>' +
+                                '</ul></div>'
+                    } else {
+                        withdraw_list = '<div class="withdraw_list"><ul class="invest_table clearfix">' +
+                                '<li>提现时间: ' + d[i].withdraw_date + '</li>' +
+                                '<li>提现金额: $' + d[i].amount + '</li>' +
+                                '<li>状态: ' + d[i].status + '</li>' +
+                                '</ul></div>'
+                    }
+                });
+            }
+        }
+
+        //h5  file_upload
+        function file_upload(id) {
+            var formData = new FormData($('form')[0]);
+            formData.append('file', id[0].files[0]);
+            formData.append('mx_token', mx_token);
+            formData.append('mx_secret', mx_secret);
+            $.ajax({
+                url: baseUrl + '/upload/user_file',
+                dataType: 'json',
+                type: 'post',
+                data: formData,
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (result, status) {
+                    if (result.code == 1) {
+                        if (event.target.id == 'id_identification_card_photo') {
+                            id_card_photo = result.body;
+                            id.siblings('img').attr('src', id_card_photo);
+                            default_id_card_photo = false;
+                        }
+                        if (event.target.id == 'id_passport_photo') {
+                            passport_photo = result.body;
+                            id.siblings('img').attr('src', passport_photo);
+                            default_passport_photo = false;
+                        }
+                    }
+                    if (result.code == -1) {
+                        alert("上传失败,请重新上传");
+                    }
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>

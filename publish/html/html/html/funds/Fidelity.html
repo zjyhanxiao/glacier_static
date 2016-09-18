@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>富达基金</title>
+    <script src="https://s1.meixinglobal.com/vendor/js/jquery_1.11.1.min.js" type="text/javascript"></script>
+    <script src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/js/jquery.cookie.min.js"></script>
+    <script>
+        var token1 = $.cookie('mx_token');
+        var token2 = $.cookie('mx_secret');
+        if (token1==undefined || token2==undefined) {
+            window.location = '/login.html';
+        }
+    </script>
+    <script src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/js/is_ok.min.js"></script>
+    <link rel="stylesheet" href="https://s1.meixinglobal.com/vendor/css/bootstrap.min.css">
+    <link href="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/css/base.min.css" rel="stylesheet">
+    <link href="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/css/detail-new.min.css" rel="stylesheet">
+    <link href="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/css/index.min.css" rel="stylesheet">
+    <link href="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/css/products.min.css" rel="stylesheet">
+    <link href="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/css/funds.min.css" rel="stylesheet" >
+    <!--[if lt IE 9]>
+    <script src="https://s1.meixinglobal.com/vendor/js/html5shiv.js"></script>
+    <script src="https://s1.meixinglobal.com/vendor/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="ajax_wait">
+    <div class="ajax_wait_gif"><img src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/img/Unknown.gif" alt=""></div>
+    <p>哎吆喂！网速似乎有点慢，点击这里<a href="/">跳回首页!</a></p>
+</div>
+<script>
+    setHeight();
+    $(window).resize(function () {
+        setHeight();
+    });
+</script>
+<div id="wrapper">
+    <nav id="navChilantro">
+    <div class="page-top-bar">联系我们：400-094-1580<a class="index-spirits top-weibo-logo" href="http://weibo.com/meixingroup" target="_blank">
+        <!--<img-->
+        <!--src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/img/top_weibo_icon_55x47.png"/>-->
+    </a><a class="index-spirits top-wechat-logo "
+           id="wechat-popover"
+           data-toggle="popover">
+        <!--<img-->
+        <!--src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/img/top_wechat_icon_57x47.png"/>-->
+    </a>
+        <div class="top-float-right">
+            <a href="/faq.html">帮助中心</a>
+            <a href="//news.meixinfinance.com" target="_blank">财经资讯</a>
+            <a href="/about.html#05">加入我们</a>
+            <a href="/about.html#06">联系我们</a>
+        </div>
+    </div>
+    <div class="navbar" role="navigation">
+        <div class="container" style="padding-bottom: 0;">
+            <div class="navbar-header" style="display: inline;">
+                <a id="logo" href="/" class="navbar-brand">
+                </a> <span class="logo-alpha" style="font-size: 12px; float: left;">Beta</span>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right nav_right_on_mobile">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/product_list.html">全部产品</a></li>
+                    <li><a href="/newhelp.html">新手指引</a></li>
+                    <li><a href="/safety.html">安全保障</a></li>
+                    <li><a href="/about.html">关于美信</a></li>
+                    <li style="float: right;"><a class="login_no_margin_right nav_login_button" href="/login.html">登录</a>
+                    </li>
+                    <li style="float: right;"><a href="/signup.html"
+                                                 class="nav_register_button">注册</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<style>
+    @media screen and (max-width: 768px) {
+        .customerPage {
+            margin-top: 90px;
+        }
+
+        .navbar-fixed-top {
+            padding: 0 !important;
+        }
+
+        #wrapper.customer nav .navbar .container {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
+        .nav_right_on_mobile {
+            width: 100%;
+        }
+    }
+</style>
+<style>
+    @media screen and (max-width: 768px) {
+        .navbar-fixed-top {
+            padding: 0 !important;
+        }
+
+        .navbar-fixed-top .container {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
+        .navbar-fixed-top {
+            position: fixed;
+        }
+    }
+</style>
+
+    <div class="container">
+        <div class="container-fluid">
+            <div class="header-section">
+                <div class="row head-sec-title">
+                    <div class="col-md-10 col-xs-11">富达基金 - 美国基金 A股 - 累积 - 美元</div>
+                    <div style="text-align: center;" class="btn btn-primary col-md-2 col-xs-12 sub-btn" data-toggle="modal" data-titlename="富达基金 - 美国基金"  data-target="#popup">立即申购</div>
+
+                </div>
+                <div class="head-sec-text">
+                    <div class="row row-style">
+                        <div class="col-md-2 col-xs-4 font-bold-14">基金管理公司</div>
+                        <div class="col-md-4 col-xs-8">FIL Investment Management (Luxembourg) S.A.FIL Investment Management (Luxembourg) S.A.</div>
+                        <div class="col-md-2 col-xs-4 font-bold-14">托管人</div>
+                        <div class="col-md-4 col-xs-8">Brown Brothers Harriman (Luxembourg) S.C.A.</div>
+                    </div>
+                    <div class="row row-style">
+                        <div class="col-md-2 col-xs-4 font-bold-14">基金经理</div>
+                        <div class="col-md-4 col-xs-8">FIL Fund Management Limited (百慕达,内部委派)</div>
+                        <div class="col-md-2 col-xs-4 font-bold-14">最低首次投资额</div>
+                        <div class="col-md-4 col-xs-8">港元8,000.00 / 美元1,000.00</div>
+                    </div>
+                    <div class="row row-style">
+                        <div class="col-md-2 col-xs-4 font-bold-14">主题分类</div>
+                        <div class="col-md-4 col-xs-8">低波幅</div>
+                        <div class="col-md-2 col-xs-4 font-bold-14">最低后续投资额</div>
+                        <div class="col-md-4 col-xs-8">港元8,000.00 /美元1,000.00</div>
+                    </div>
+                    <div class="row row-style">
+                        <div class="col-md-2 col-xs-4 font-bold-14">地理分布</div>
+                        <div class="col-md-4 col-xs-8">美国</div>
+                        <div class="col-md-2 col-xs-4 font-bold-14">最低定期投资计划投资</div>
+                        <div class="col-md-4 col-xs-8">港元1,000/美元150</div>
+                    </div>
+                    <div class="row row-style">
+                        <div class="col-md-2 col-xs-4 font-bold-14">发行日期</div>
+                        <div class="col-md-4 col-xs-8">2006年7月3日</div>
+                        <div class="col-md-2 col-xs-4 font-bold-14">最低赎回额</div>
+                        <div class="col-md-4 col-xs-8">美元 100</div>
+                    </div>
+                    <div class="row row-style">
+                        <div class="col-md-2 col-xs-4 font-bold-14">发行价格</div>
+                        <div class="col-md-4 col-xs-8">美元 10</div>
+                        <div class="col-md-2 col-xs-4 font-bold-14">最低持有额</div>
+                        <div class="col-md-4 col-xs-8">美元 2,500/ 港元20,000</div>
+                    </div>
+                    <div class="row row-style">
+                        <div class="col-md-2 col-xs-4 font-bold-14">风险评级</div>
+                        <div class="col-md-4 col-xs-8">7级风险</div>
+                        <div class="col-md-2 col-xs-4 font-bold-14">基金规模</div>
+                        <div class="col-md-4 col-xs-8">美元 8,803,000,000(截至2016年5月31日</div>
+                    </div>
+                    <div class="row row-style">
+                        <div class="col-md-2 col-xs-4 font-bold-14">认购交易日</div>
+                        <div class="col-md-4 col-xs-8">定于明确申购指示的当天进行</div>
+                        <div class="col-md-2 col-xs-4 font-bold-14">赎回交易日</div>
+                        <div class="col-md-4 col-xs-8">定于明确申购指示的当天进行</div>
+                    </div>
+                </div>
+            </div>
+            <div class="fund-section">
+                <div class="row">
+                    <div class="col-md-12 col-xs-12 line-left-icon font-bold-18">基金收费</div>
+                    <div class="col-md-4 col-xs-4 row-style text-center">FSM标准销售费<br/>1.25% </div>
+                    <div class="col-md-4 col-xs-5 row-style text-center">FSM定期投资销售费<br/>1.25%</div>
+                    <div class="col-md-4 col-xs-3 row-style text-center">年度管理费<br/>1.5%</div>
+                </div>
+            </div>
+            <div class="report-section">
+                <div class="row">
+                    <div class="col-md-12 col-xs-12 line-left-icon font-bold-18">年度回报</div>
+                    <div class="col-md-2 col-xs-4 row-style">公历年</div>
+                    <div class="col-md-2 col-xs-4 row-style">2015</div>
+                    <div class="col-md-2 col-xs-4 row-style">2014</div>
+                    <div class="col-md-2 col-xs-4 row-style">2013</div>
+                    <div class="col-md-2 col-xs-4 row-style">2012</div>
+                    <div class="col-md-2 col-xs-4 row-style">2011</div>
+                </div>
+                <div class="row report-row-2">
+                    <div class="col-md-2 col-xs-4 row-style-2">回报 (%) - 港元</div>
+                    <div class="col-md-2 col-xs-4 row-style-2">0.65</div>
+                    <div class="col-md-2 col-xs-4 row-style-2">17.31</div>
+                    <div class="col-md-2 col-xs-4 row-style-2">35.67</div>
+                    <div class="col-md-2 col-xs-4 row-style-2">15.88</div>
+                    <div class="col-md-2 col-xs-4 row-style-2">-3.81</div>
+                </div>
+                <div class="row report-row-3">
+                    <div class="col-md-2 col-xs-4 row-style">回报 (%) - 美元</div>
+                    <div class="col-md-2 col-xs-4 row-style">0.72</div>
+                    <div class="col-md-2 col-xs-4 row-style">17.27</div>
+                    <div class="col-md-2 col-xs-4 row-style">35.63</div>
+                    <div class="col-md-2 col-xs-4 row-style">16.18</div>
+                    <div class="col-md-2 col-xs-4 row-style">-3.67</div>
+                </div>
+            </div>
+            <div class="target-section">
+                <div class="row">
+                    <div class="col-md-12 col-xs-12 line-left-icon font-bold-18">投资目标</div>
+                    <div class="col-md-12 col-xs-12 row-style">
+                        基金的投资目标是长远资本增值。为达成基金目标，投资管理人拟物色其认为日后从根本上波动性较低及下跌风险较小的股本证券。投资经理运用专有的风险及回报模型，以及在管理投资组合方面的判断和经验，构建投​​资组合，致力减低波幅并提高证券的质素。基金将主要投资于发达市场的公司股本证券；然而，基金也可购买包括新兴市场在内任何国家的股本证券。
+                    </div>
+                </div>
+            </div>
+            <div class="strategy-section">
+                <div class="row">
+                    <div class="col-md-12 col-xs-12 line-left-icon font-bold-18">投资策略</div>
+                    <div class="col-md-12 col-xs-12 row-style">
+                        <ul>
+                            <li class="li-style"> 本基金是一项股票基金，旨在提供长线资本增长，预期收益水平偏低。</li>
+                            <li class="li-style"> 基金资产净值的最少70% （及通常为75%） 将投资于美国股票证券。</li>
+                            <li class="li-style"> 投资经理可把其余资产自由投资于基金的其他非首要地区、市场界别、行业或资产类别。</li>
+                            <li class="li-style"> 为基金挑选证券时,在投资程序中将会考虑多项因素,例如 （但不限于） 一家公司的财政状况,包括收益和盈利增长、资 本回报率、现金流量及其他财政指标。此外,在投资程序中亦会考虑到公司管理层、行业与经济环境,以及其他因素。</li>
+                            <li class="li-style"> 基金可使用金融衍生工具,惟须符合以下的准则：<br/>
+                                （a）从经济角度来看，能以具成本效益的方式变现；<br/>
+                                （b） 为下列一项或 多项目标而订立:（i） 减低风险;（ii） 削减成本;（iii） 为基金缔造额外的资本或收益,但须符合基金风险类别的特定风险水平，以及香港认购章程第五部分（5.1.A.III 条）列明的分散风险规则；<br/>
+                                （c） 基金的风险管理程序足以控制有关风险。金融衍生工具可包括场外交易市场及/或交易所买卖期权、股票指数及单一股票期货、差价合约、远期合约或上述任何组 合。基金将不会广泛使用金融衍生工具作投资用途,或采用复杂的衍生工具或策略,以达致基金的投资目标。
+                            </li>
+                            <li class="li-style"> 基金将不可把其超过10%的资产净值,投资于由任何单一国家 （包括该国政府、公共机构或当地机关）发行或担保，而信 贷评级低于投资级别的证券。</li>
+                            <li class="li-style"> 基金将不会广泛进行证券借贷、回购及反向回购协议交易。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="risk-section">
+                <div class="row">
+                    <div class="col-md-12 col-xs-12 line-left-icon font-bold-18">投资风险</div>
+                    <div class="col-md-12 col-xs-12 row-style">投资涉及风险。请参阅发售文件以了解详情，包括风险因素。</div>
+                </div>
+                <div class="row bottom-margin">
+                    <div class="col-md-12 col-xs-12 row-style"> 1. 投资风险 </div>
+                    <div class="col-md-12 col-xs-12 row-style"> 基金是一项投资基金。基金的投资组合的价值可能会因以下任何风险因素而下跌,因此阁下在基金的投资或会蒙受亏损。恕不保证基金采用的策略将 奏效,基金的投资目标亦可能因此而未能达到。</div>
+                    <div class="col-md-12 col-xs-12 row-style"> 2. 股票 </div>
+                    <div class="col-md-12 col-xs-12 row-style">股票的价值可能受个别公司的活动和业绩,或一般市场和经济状况或其他事件影响而反复波动,而且波幅有时可能十分显著。</div>
+                    <div class="col-md-12 col-xs-12 row-style"> 3. 集中国家投资</div>
+                    <div class="col-md-12 col-xs-12 row-style"> 基金的投资集中于美国,所承受的美国市场、政治、法律、经济和社会风险,将高于投资在多个国家以分散国家风险的 基金,而基金价值的波幅亦可能高于分散投资在较多投资项目的基金。</div>
+                    <div class="col-md-12 col-xs-12 row-style"> 4. 外币风险</div>
+                    <div class="col-md-12 col-xs-12 row-style"> 基金的投资集中于东盟成员国,因此与较多元化的投资相比,其波动性或会较高。</div>
+                    <div class="col-md-12 col-xs-12 row-style"> 5. 金融衍生工具</div>
+                    <div class="col-md-12 col-xs-12 row-style"> 虽然基金将不会广泛使用金融衍生工具作投资用途,或采用复杂的衍生工具或策略,以达致基金的投资目标,但偶尔使 用金融衍生工具亦可能会引发杠杆、流动性、交易对手及估值风险。在不利的市况下,基金使用衍生工具可能会造成失 效,因而令基金蒙受重大损失。</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer id="footer" class="padding-top-lg">
+    <div class="container-fluid">
+        <section class="row footer-sitemap">
+            <div class="container">
+                <div class="">
+                    <div class="row padding-vertical nowrap">
+                        <div class="col-sm-2 col-xs-12 bottom-margin-xl">
+                            <div class="index-spirits footer-logo-white"></div>
+                            <!--<img class="img-responsive"-->
+                            <!--src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/img/footer-logo-white_320x116.png"-->
+                            <!--alt="Meixin QR Code">-->
+                        </div>
+                        <div class="col-sm-2 col-xs-3 col-xs-offset-1 border-left no-border-sm">
+                            <p><a href="/">首页</a></p>
+                            <p><a href="https://news.meixinfinance.com/topics/top/" target="_blank">话题</a></p>
+                            <p><a href="https://news.meixinfinance.com/markets/" target="_blank">行情</a></p>
+                            <p>学投</p>
+                        </div>
+                        <div class="col-sm-2 col-xs-3  border-left">
+                            <p><a href="/product_list.html">全部产品</a></p>
+                            <p><a href="/newhelp.html">新手指引</a></p>
+                            <p><a href="/safety.html">安全保障</a></p>
+                            <p><a href="/terms.html">使用条款</a></p>
+                        </div>
+                        <div class="col-sm-2 col-xs-3 border-left">
+                            <p><a href="/faq.html">帮助中心</a></p>
+                            <p><a href="/about.html" target="_blank">关于我们</a></p>
+                            <p><a href="/signup.html">加入我们</a></p>
+                            <p><a href="/privacy.html">隐私协议</a></p>
+                        </div>
+                        <div class="col-sm-2 col-xs-12 bottom-margin-xl text-center">
+                            <div class="v-spacer-lg visible-xs"></div>
+                            <img class="img-responsive qr-code-image"
+                                 src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/img/meixin_new_qr_code_300x300.jpg"
+                                 alt="Meixin QR Code">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <section class="row footer-contact">
+            <div class="container">
+                <div class="">
+                    <div class="row padding-top">
+                        <div class="col-sm-3 col-md-1 bottom-margin">
+                            <p class="nowrap"><a href="/about.html"><strong>联系我们</strong></a></p>
+                        </div>
+                        <div class="col-sm-12 col-md-3 bottom-margin">
+                            <p class="nowrap">
+                                <a class="text-secondary" href="mailto:contact@meixinfinance.com"><i
+                                        class="fa fa-envelope-o"></i>&nbsp;contact@meixinfinance.com</a>
+                            </p>
+                        </div>
+                        <div class="col-sm-12 col-md-4 bottom-margin">
+                            <p>
+                                <a target="_blank" class="text-secondary"
+                                   href="http://www.bing.com/mapspreview?&ty=18&q=261%20madision%20avenue&mb=40.757471~-73.997958~40.743459~-73.963239&tt=261%20Madison%20Ave%2c%20New%20York%2c%20NY%2010016&tsts1=%2526ty%253d18%2526q%253d261%252520madision%252520avenue%2526mb%253d40.757471~-73.997958~40.743459~-73.963239&tstt1=261%20Madison%20Ave%2c%20New%20York%2c%20NY%2010016&cp=40.751116~-73.987465&lvl=15&ftst=1&ftics=True&v=2&sV=1&form=S00027"><i
+                                        class="fa fa-map-marker"></i>&nbsp;261 Madison Avenue, New York, NY 10016</a>
+                                <br><a
+                                    href="https://www.bing.com/mapspreview?q=%E5%8C%97%E4%BA%AC%E5%B8%82%E6%9C%9D%E9%98%B3%E5%8C%BA%E5%85%89%E5%8D%8E%E8%B7%AF9%E5%8F%B7%20&mkt=zh&FORM=BYLH1"
+                                    target="_blank"><i class="fa fa-map-marker"></i>&nbsp;北京市朝阳区光华路9号SOHO3Q</a>
+                            </p>
+                        </div>
+                        <div class="col-sm-12 col-md-4 bottom-margin text-right-md">
+                            <p><span><i class="fa fa-phone"></i>&nbsp;+1-917-410-6668</span><br><span><i
+                                    class="fa fa-phone"></i>&nbsp;400-094-1580</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="row last footer-terms">
+            <div class="container">
+                <div class="padding-vertical">
+                    <p class="p-indent">
+                        <small>
+                            IMPORTANT DISCLOSURE INFORMATION: <a href="http://www.sec.gov/answers/accred.htm"
+                                                                 target="_blank">www.meixinfinance.com</a> (the “Site”)
+                            is a website owned and
+                            operated by Meixin Technology LLC (“Meixin”). By accessing this Site and any pages on this
+                            Site, you agree to be bound by its <strong><a href="terms.html"
+                                                                          target="_blank">Terms of Use</a></strong> and
+                            <strong><a
+                                    href="privacy.html" target="_blank">Privacy Policy</a></strong>, as may be
+                            amended from
+                            time to time without notice or liability. Meixin is an intermediary technology platform and
+                            does not provide investment, legal or tax advice.
+                        </small>
+                    </p>
+
+                    <p class="p-indent">
+                        <small>Meixin does not verify or provide any assurance that information provided by any issuer
+                            offering securities is accurate. Neither Meixin nor any of its directors, officers,
+                            employees, representatives, affiliates or agents shall have any liability whatsoever
+                            arising, for any error or incompleteness of fact or opinion in, or lack of care in the
+                            preparation or publication, of the materials and communication on the Site. Meixin does not
+                            give investment advice, provide analysis or recommendations regarding any offering posted on
+                            the Site. Past performance is not indicative of future performance and forward looking
+                            statements. Actual results may vary materially. All investors should make their own
+                            determination of whether or not to make any investment, based on their own independent
+                            evaluation and analysis and after consulting with their financial, tax and investment
+                            advisors. The securities offered on this Site can only be marketed in jurisdictions where
+                            public solicitation of offerings are permitted; it is solely your responsibility to comply
+                            with the laws and regulations of your country of residence. You are strongly advised to
+                            consult your legal, tax and financial advisor before investing.
+                        </small>
+                    </p>
+                    <p class="p-indent">
+                        <small>You can learn more about investing in private placements from the <a
+                                href="http://www.sec.gov/investor/alerts/ia_solicitation.pdf" target="_blank">SEC</a>,
+                            <a href="http://www.finra.org/investors/alerts/private-placements-risks" target="_blank">FINRA</a>
+                            or <a href="http://www.nasaa.org/22284/informed-investor-alert-private-placement-offerings/"
+                                  target="_blank"> NASAA</a>.
+                        </small>
+                    </p>
+                    <p class="p-indent">
+                        <small>Copyright © 2016 Meixin Technology LLC All rights reserved.</small>
+
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</footer>
+<div class="modal fade" id="popup" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-center" id="exampleModalLabel">申购预约</h4>
+            </div>
+            <div class="is_book text-center" style="display: none; padding: 10px;">
+                <p>
+                    您已成功完成本产品的预约。美信的专业理财顾问将尽快与您取得联系。您可以在“我的账户”页面查看预约记录。
+                </p>
+                <a href="/" type="button" class="btn btn-primary" style="margin: 10px auto">查看所有产品</a>
+            </div>
+            <div class="modal-body">
+                <form class="appointment" data-parsley-validate>
+                    <div class="form-group">
+                        <input class="form-control" id="id_user_contact_name" maxlength="128" name="user_contact_name"
+                               placeholder="姓名" required="required" type="text" data-parsley-pattern-message="请输入姓名！">
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control" id="id_interested_amount" min="0" name="interested_amount"
+                               placeholder="感兴趣的投资额（美元）" required="required" type="number"
+                               data-parsley-pattern-message="请输入投资额！">
+                    </div>
+                    <div class="form-group">
+                        <select class="input-medium bfh-countries form-control" data-country="CN"
+                                id="countries_phone"
+                                required="" style="width: 33%;display: inline-block;">
+                        </select><input class="form-control bfh-phone" data-country="countries_phone"
+                                        id="recipient-phone" maxlength="64" name="phone"
+                                        data-parsley-pattern="/\d{6,}/"
+                                        placeholder="电话号码" required="required" data-parsley-pattern-message="请输入电话号码！"
+                                        style="width: 63%;display: inline-block;margin-left: 2%;" type="text">
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control" id="id_city" maxlength="255" name="city"
+                               placeholder="所在城市（会根据您所在的城市联系您）" required="required"
+                               data-parsley-pattern-message="请输入所在城市！" type="text">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" cols="40" id="id_question" name="question" placeholder="问题（选填）"
+                                  rows="10" style="min-height:150px;"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="book_submit" style="width: 100%">提交</button>
+                </form>
+            </div>
+            <div class="modal-body-success text-center" style="padding: 10px;">
+                <p>
+                    您已成功完成本产品的预约。美信的专业理财顾问将尽快与您取得联系。您可以在“我的账户”页面查看预约记录。
+                </p>
+                <a href="/" type="button" class="btn btn-primary">查看所有产品</a>
+            </div>
+            <div class="modal-footer">
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+<link rel="shortcut icon" type="image/png" href="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/img/favicon.png">
+<link rel="stylesheet" href="https://s1.meixinglobal.com/vendor/css/font-awesome.min.css">
+<script src="https://s1.meixinglobal.com/vendor/js/jquery-ui.min.js" type="text/javascript"></script>
+<script src="https://s1.meixinglobal.com/vendor/js/bootstrap.min.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function () {
+        $('#wechat-popover').popover({
+            html: true,
+            placement: 'bottom',
+            trigger: 'hover',
+            content: '<img style="width: 200px;padding:0;margin:0;" src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/img/meixin_new_qr_code_300x300.jpg" />'
+        });
+    });
+</script>
+<script src="https://s1.meixinglobal.com/vendor/js/parsley.min.js"></script>
+<script src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/js/bootstrap-formhelpers.min.js" type="text/javascript"></script>
+<script src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/js/bootstrap-formhelpers-countries-nousa.zh_CN.min.js"></script>
+<script src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/js/bootstrap-formhelpers-phone.min.js" type="text/javascript"></script>
+<script src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/js/products.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        //验证登陆
+        Ajax_Data({
+            "url": baseUrl + "/auth/authentication",
+            "data": cookie_tooken,
+            "fn": is_login,
+            "no_login": no_login
+        });
+        function no_login() {
+            window.location = '/login.html';
+        }
+
+        //is_login  调取登录接口
+        function is_login(res) {
+            $('.navbar ul li:last-child').html('<a class="btn btn-min-width" href="/investor/dashboard.html">我的账户</a>');
+            $('.navbar ul li:nth-last-child(2)').html('<a class="btn btn-min-width-sm logout" href="javascript:;">退出</a>');
+            $('.ajax_wait p,.ajax_wait').hide();
+
+            //判断用户是否预约过该商品
+            var is_book_data={"product_id": product_id};
+            is_book_data = $.extend({}, is_book_data, cookie_tooken);
+            Ajax_Data({
+                "url": baseUrl + "/appointment/check",
+                "data": is_book_data,
+                "fn": for_book
+            });
+            function for_book(d) {
+                if(d == true){
+                    $('#popup').find('.modal-body').hide();
+                    $('#popup').find('.is_book').show();
+                }
+                else{
+                    $('#popup').find('.modal-body').show();
+                    $('#popup').find('.is_book').hide();
+                }
+            }
+        }
+
+        //创建预约记录
+        $('#book_submit').on('click', function () {
+            $(this).prop('disabled', true);
+            if ($('.appointment').parsley().validate()) {//获取投资人类型
+                var book_submit_data = {
+                    "interested_amount": $('#id_interested_amount').val(),
+                    "product_id": product_id,
+                    "user_contact_name": $('#id_user_contact_name').val(),
+                    "phone": $('#recipient-phone').val(),
+                    "city": $('#id_city').val(),
+                    "question": $('#id_question').val()
+                };
+                book_submit_data = $.extend({}, book_submit_data, cookie_tooken);
+                Ajax_Data({
+                    "url": baseUrl + "/appointment/create",
+                    "data": book_submit_data,
+                    "fn": book_submit,
+                    "fail_fn": fail_book_submit
+                });
+            } else {
+                $(this).prop('disabled', false);
+            }
+        });
+
+        function book_submit() {
+            $('#popup').find('.modal-body').hide();
+            $('#popup').find('.modal-body-success').show();
+        }
+        function fail_book_submit(d) {
+            alert(d);
+        }
+    });
+</script>
+<script type='text/javascript'>window.BWEUM||(BWEUM={});BWEUM.info = {"stand":true,"agentType":"browser","agent":"//bi-collector.oneapm.com/static/js/bw-send-411.4.5.js","beaconUrl":"bi-collector.oneapm.com/beacon","licenseKey":"VRQIr~Vf3JaYiJQI","applicationID":2280029};</script><script type="text/javascript" src="//bi-collector.oneapm.com/static/js/bw-loader-411.4.5.js"></script> <script>     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');     ga('create', 'UA-66578252-1', 'auto');     ga('send', 'pageview'); </script></body>
+</html>

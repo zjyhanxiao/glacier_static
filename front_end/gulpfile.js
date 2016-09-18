@@ -9,8 +9,8 @@ var rename = require('gulp-rename');
 var gzip = require('gulp-gzip');
 var livereload = require('gulp-livereload');
 var uglify = require('gulp-uglify');
-var old_version = (version-0.1).toFixed(1);
-// var old_version = 1.1;
+// var old_version = (version-0.1).toFixed(1);
+var old_version = 1.3;
 const imagemin = require('gulp-imagemin');
 const pngquant = require('imagemin-pngquant');
 
@@ -22,7 +22,7 @@ gulp.task('img_compress', () => {
             use: [pngquant()],
             optimizationLevel: 7,
         }))
-        .pipe(gulp.dest('../static/version_' + old_version + '/dist/meixin_invest/img'))
+        .pipe(gulp.dest('../publish/static/version_' + old_version + '/dist/meixin_invest/img'))
         .pipe(livereload());
 });
 
@@ -31,7 +31,7 @@ gulp.task('js', function() {
     return gulp.src(['../static/version_' + old_version + '/meixin_invest/js/*.js', '../static/version_' + old_version + '/meixin_invest/meixin/*.js','!../static/version_' + old_version + '/meixin_invest/js/*.min.js', '!../static/meixin_invest/meixin/*.min.js'])
         .pipe(rename({suffix: '.min'}))
         .pipe(uglify())
-        .pipe(gulp.dest('../static/version_' + old_version + '/dist/meixin_invest/js'))
+        .pipe(gulp.dest('../publish/static/version_' + old_version + '/dist/meixin_invest/js'))
         .pipe(livereload());
 });
 
@@ -40,7 +40,7 @@ gulp.task('css', function () {
     return gulp.src('../static/version_' + old_version + '/meixin_invest/css/*.css')
         .pipe(rename({suffix: '.min'}))
         .pipe(minifycss())
-        .pipe(gulp.dest('../static/version_' + old_version + '/dist/meixin_invest/css'))
+        .pipe(gulp.dest('../publish/static/version_' + old_version + '/dist/meixin_invest/css'))
         .pipe(livereload());
     ;
 });
@@ -56,24 +56,24 @@ gulp.task('img', function () {
 
 //* include
 gulp.task('first_include', function() {
-    gulp.src(['../web/**/**/*.html'])
+    gulp.src(['../web/**'])
         .pipe(include({
             prefix: '@@',
             basepath: '@file'
         }))
-        .pipe(gulp.dest('../publish'));
+        .pipe(gulp.dest('../publish/html'));
 });
 //* replaceSrc
 gulp.task('second_replaceSrc', function(){
-    gulp.src(['../publish/**'])
+    gulp.src(['../publish/html/**'])
         .pipe(replaceSrc('http://bj-dev-static.oss-cn-beijing.aliyuncs.com', 'https://s1.meixinglobal.com'))
-        .pipe(gulp.dest('../publish'));
+        .pipe(gulp.dest('../publish/html'));
 });
 //* version_control
 gulp.task('third_version_control', function(){
-    gulp.src(['../publish/**'])
+    gulp.src(['../publish/html/**'])
         .pipe(replaceSrc('static/version_' + old_version + '', 'static/version_'+ version))
-        .pipe(gulp.dest('../publish'));
+        .pipe(gulp.dest('../publish/html'));
 
     gulp.src(['../web/**'])
         .pipe(replaceSrc('static/version_' + old_version + '', 'static/version_'+ version))

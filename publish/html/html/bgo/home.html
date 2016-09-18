@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .bjui-pageContent{
+            font-family: "微软雅黑";
+            padding-left: 50px;
+            padding-top: 30px;
+            width: 100%;
+        }
+        .bjui-pageContent-left{
+            width: 60%;
+            border-right: solid 2px #ccc;
+            float: left;
+        }
+        .bjui-pageContent-left .row-1{
+            margin-bottom: 10px;
+        }
+        .bjui-pageContent-right{
+            width: 38%;
+            float: right;
+        }
+        .bjui-pageContent-right .user{
+            width: 28%;
+        }
+        .bjui-pageContent-right .invest{
+            width: 28%;
+        }
+        ul{
+            overflow: hidden;
+            width: 100%;
+            list-style: none;
+        }
+        li{
+            width: 18%;
+            text-align: center;
+            float: left;
+            margin-right: 45px;
+        }
+        .static_data{
+            margin-top: -10px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            display: block;
+            width: 100%;
+            height: 50px;
+            background-color: #ccc;
+            border-radius: 5px;
+        }
+        .dynamic_data{
+            line-height: 40px;
+        }
+        .static_data span{
+            font-weight: 800;
+            font-size: 24px;
+        }
+        .row-1 .date{
+            color: white;
+            display: block;
+            width: 20%;
+            margin-right: 30px;
+        }
+        @media (min-width: 740px) {
+            .bjui-pageContent{
+                padding-left: 30px;
+                padding-top: 20px;
+                width: 100%;
+            }
+            .bjui-pageContent-left{
+                padding: 0;
+            }
+            li{
+                width: 18%;
+                margin-right: 20px;
+            }
+            .row-1 .date{
+                margin-right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="bjui-pageContent">
+    <div class="bjui-pageContent-left">
+        <ul class="row-1">
+            <li class="date">.</li>
+            <li class="user">
+                <img src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/img/home-icon/yonghu.png"/>
+                 <span class="static_data">
+                     <span class="">10</span><br/>
+                     所有新增用户
+                 </span>
+            </li>
+            <li class="invest">
+                <img src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/img/home-icon/touzi.png"/>
+                <span class="static_data">
+                    <span class="">10</span> <br/>
+                    所有新增投资
+                </span>
+            </li>
+            <li class="order">
+                <img src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/img/home-icon/yuyue.png"/>
+                <span class="static_data">
+                    <span class="">10</span> <br/>
+                    所有新增预约
+                </span>
+            </li>
+        </ul>
+        <ul class="row-2">
+            <li class="date">
+                <img src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/img/home-icon/ri.png"/>
+            </li>
+            <li class="user"><span class="dynamic_data">10</span><br/></li>
+            <li class="invest"><span class="dynamic_data">10</span><br/></li>
+            <li class="order"><span class="dynamic_data">10</span><br/></li>
+        </ul>
+        <ul class="row-3">
+            <li class="date">
+                <img src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/img/home-icon/zhou.png"/>
+            </li>
+            <li class="user"><span class="dynamic_data">10</span><br/></li>
+            <li class="invest"><span class="dynamic_data">10</span><br/></li>
+            <li class="order"><span class="dynamic_data">10</span><br/></li>
+        </ul>
+        <ul class="row-4">
+            <li class="date">
+                <img src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/img/home-icon/yue.png"/>
+            </li>
+            <li class="user"><span class="dynamic_data">10</span><br/></li>
+            <li class="invest"><span class="dynamic_data">10</span><br/></li>
+            <li class="order"><span class="dynamic_data">10</span><br/></li>
+        </ul>
+    </div>
+    <div class="bjui-pageContent-right">
+        <ul class="row-1">
+            <li class="user">
+                <img src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/img/home-icon/yuyuechanpin.png"/>
+                 <span class="static_data">
+                     <span class="">10</span><br/>
+                     预约产品
+                 </span>
+            </li>
+            <li class="invest">
+                <img src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/img/home-icon/zaishou.png"/>
+                <span class="static_data">
+                    <span class="">10</span> <br/>
+                    在售产品
+                </span>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

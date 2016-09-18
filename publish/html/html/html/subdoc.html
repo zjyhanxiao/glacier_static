@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'/>
+    <title>
+        Title
+    </title>
+    <script src="https://s1.meixinglobal.com/vendor/js/jquery_1.11.1.min.js" type="text/javascript"></script>
+    <script src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/js/jquery.cookie.min.js"></script>
+    <script src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/js/is_ok.min.js"></script>
+    <link href="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/css/base.min.css" rel="stylesheet">
+    <link href="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/css/index.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="ajax_wait">
+    <div class="ajax_wait_gif"><img
+            src="https://s1.meixinglobal.com/static/version_1.3/dist/meixin_invest/img/Unknown.gif" alt=""></div>
+    <p>哎吆喂！网速似乎有点慢，点击这里<a href="/">跳回首页!</a></p>
+</div>
+<script>
+    setHeight();
+    $(window).resize(function () {
+        setHeight();
+    });
+</script>
+
+<script>
+    $(function () {
+        $('.ajax_wait').show();
+        var populate_data = {};
+        populate_data.document_id = getUrlParam('document_id');
+        populate_data.invest_amount = getUrlParam('invest_amount');
+        populate_data = $.extend({}, populate_data, cookie_tooken);
+        Ajax_Data({
+            "url": baseUrl + "/product_document/populate",
+            "data": populate_data,
+            "fn": populate
+        });
+        function populate(res) {
+            $('.ajax_wait p,.ajax_wait').hide();
+            window.location = res;
+        }
+    })
+</script>
+</body>
+</html>
