@@ -9,8 +9,8 @@ var rename = require('gulp-rename');
 var gzip = require('gulp-gzip');
 var livereload = require('gulp-livereload');
 var uglify = require('gulp-uglify');
-// var old_version = (version-0.1).toFixed(1);
-var old_version = 1.3;
+var old_version = (version-0.1).toFixed(1);
+// var old_version = 1.3;
 const imagemin = require('gulp-imagemin');
 const pngquant = require('imagemin-pngquant');
 
@@ -56,7 +56,7 @@ gulp.task('img', function () {
 
 //* include
 gulp.task('first_include', function() {
-    gulp.src(['../web/**'])
+    gulp.src(['../web/**','!../web/includes/**'])
         .pipe(include({
             prefix: '@@',
             basepath: '@file'
