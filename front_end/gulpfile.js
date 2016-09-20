@@ -1,4 +1,5 @@
 var version='1.3';
+var old_version = 1.3;
 var gulp = require('gulp');
 var include = require('gulp-file-include');
 var replaceSrc = require('gulp-replace');
@@ -9,8 +10,7 @@ var rename = require('gulp-rename');
 var gzip = require('gulp-gzip');
 var livereload = require('gulp-livereload');
 var uglify = require('gulp-uglify');
-var old_version = (version-0.1).toFixed(1);
-// var old_version = 1.3;
+// var old_version = (version-0.1).toFixed(1);
 const imagemin = require('gulp-imagemin');
 const pngquant = require('imagemin-pngquant');
 

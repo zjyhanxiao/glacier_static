@@ -518,11 +518,42 @@
                     case "FOR_INVEST": //在售
                         if (investor_type == 1) {
                             if (d.international == true) {
-                                if (investment_process == 'crowd_international') {
-                                    $('.product_top_section .row').append('<a id="invest-button" type="button" class="btn btn-primary" data-titlename="' + d.name + ' ' + d.number + ' " style="padding:6px 60px" href="/fa_invest/international/form_step_1.html?product_id=' + product_id + '">立 即 投 资</a>');
-                                }
-                                if (investment_process == 'non_crowd') {
-                                    $('.product_top_section .row').append('<a id="invest-button" type="button" class="btn btn-primary" data-titlename="' + d.name + ' ' + d.number + ' " style="padding:6px 60px" href="/fa_invest/invest_yellowstone_step_1.html?product_id=' + product_id + '">立 即 投 资</a>');
+                                if (d.name == '安心定期四期') {
+                                    if (is_book) {
+                                        $('.product_top_section .row').append('<a type="button" class="btn btn-primary" data-toggle="modal" data-titlename="' + d.name + ' ' + d.number + ' " style="padding:6px 60px" data-target="#popup">立 即 预 约</a>');
+                                    } else {
+                                        $('.product_top_section .row').append('<a type="button" class="btn btn-primary" data-toggle="modal" data-titlename="' + d.name + ' ' + d.number + ' " style="padding:6px 60px" data-target="#popup">立 即 预 约</a>');
+                                        //提交预约
+                                        $('#book_submit').on('click', function () {
+                                            $(this).prop('disabled', true);
+                                            if ($('.appointment').parsley().validate()) {
+                                                var book_submit_data = {
+                                                    "interested_amount": $('#id_interested_amount').val(),
+                                                    "product_id": product_id,
+                                                    "user_contact_name": $('#id_user_contact_name').val(),
+                                                    "phone": $('#recipient-phone').val(),
+                                                    "city": $('#id_city').val(),
+                                                    "question": $('#id_question').val()
+                                                };
+                                                book_submit_data = $.extend({}, book_submit_data, cookie_tooken);
+                                                Ajax_Data({
+                                                    "url": baseUrl + "/appointment/create",
+                                                    "data": book_submit_data,
+                                                    "fn": book_submit,
+                                                    "fail_fn": fail_book_submit
+                                                });
+                                            } else {
+                                                $(this).prop('disabled', false);
+                                            }
+                                        });
+                                    }
+                                } else {
+                                    if (investment_process == 'crowd_international') {
+                                        $('.product_top_section .row').append('<a id="invest-button" type="button" class="btn btn-primary" data-titlename="' + d.name + ' ' + d.number + ' " style="padding:6px 60px" href="/fa_invest/international/form_step_1.html?product_id=' + product_id + '">立 即 投 资</a>');
+                                    }
+                                    if (investment_process == 'non_crowd') {
+                                        $('.product_top_section .row').append('<a id="invest-button" type="button" class="btn btn-primary" data-titlename="' + d.name + ' ' + d.number + ' " style="padding:6px 60px" href="/fa_invest/invest_yellowstone_step_1.html?product_id=' + product_id + '">立 即 投 资</a>');
+                                    }
                                 }
                             } else {
                                 window.location.href = '/blocker3.html';
@@ -548,9 +579,9 @@
                     case "FOR_APPOINTMENT": //预约
 
                         if (is_book) {
-                            $('.product_top_section .row').append('<a id="invest-button" type="button" class="btn btn-primary" data-toggle="modal" data-titlename="' + d.name + ' ' + d.number + ' " style="padding:6px 60px" data-target="#popup">立 即 预 约</a>');
+                            $('.product_top_section .row').append('<a type="button" class="btn btn-primary" data-toggle="modal" data-titlename="' + d.name + ' ' + d.number + ' " style="padding:6px 60px" data-target="#popup">立 即 预 约</a>');
                         } else {
-                            $('.product_top_section .row').append('<a id="invest-button" type="button" class="btn btn-primary" data-toggle="modal" data-titlename="' + d.name + ' ' + d.number + ' " style="padding:6px 60px" data-target="#popup">立 即 预 约</a>');
+                            $('.product_top_section .row').append('<a type="button" class="btn btn-primary" data-toggle="modal" data-titlename="' + d.name + ' ' + d.number + ' " style="padding:6px 60px" data-target="#popup">立 即 预 约</a>');
                             //提交预约
                             $('#book_submit').on('click', function () {
                                 $(this).prop('disabled', true);
